@@ -67,9 +67,9 @@ public class ApiRegistrationTest {
 
         Map<String, String> params4 = new HashMap<String, String>();
         params4.put("pointOfServiceName", "50572");
-        params4.put("customerName", "Armen");
-        params4.put("customerEmail", "a.melixetyan@yandex.ru");
-        params4.put("customerPhone", "9283394503");
+        params4.put("customerName", "Ivan");
+        params4.put("customerEmail", "test@test.ru");
+        params4.put("customerPhone", "9313600941");
         params4.put("cartId", id);
 
         apiSteps.post("gorzdrav/77-gz/users/" + uid + "/orders/booking", params4);

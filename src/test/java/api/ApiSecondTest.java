@@ -40,9 +40,9 @@ public class ApiSecondTest {
 
         Map<String, String> params5 = new HashMap<String, String>();
         params5.put("pointOfServiceName", "45691");
-        params5.put("customerName", "Armen");
-        params5.put("customerEmail", "a.melixetyan@yandex.ru");
-        params5.put("customerPhone", "9283394503");
+        params5.put("customerName", "Ivan");
+        params5.put("customerEmail", "test@test.ru");
+        params5.put("customerPhone", "9313600941");
         params5.put("cartId", id);
 
         apiSteps.post("gorzdrav/77-gz/orders/booking", params5);

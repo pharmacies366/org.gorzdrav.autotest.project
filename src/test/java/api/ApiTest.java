@@ -32,9 +32,9 @@ public class ApiTest {
 
         Map<String, String> params3 = new HashMap<String, String>();
         params3.put("pointOfServiceName", "45691");
-        params3.put("customerName", "Armen");
-        params3.put("customerEmail", "a.melixetyan@yandex.ru");
-        params3.put("customerPhone", "9283394503");
+        params3.put("customerName", "Ivan");
+        params3.put("customerEmail", "test@test.ru");
+        params3.put("customerPhone", "9313600941");
         params3.put("cartId", id);
 
         apiSteps.post("gorzdrav/77-gz/orders/booking", params3);
