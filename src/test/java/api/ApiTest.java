@@ -1,3 +1,4 @@
+/*
 package api;
 
 import httpsteps.ApiSteps;
@@ -41,4 +42,4 @@ public class ApiTest {
 
     }
 
-}
+}*/

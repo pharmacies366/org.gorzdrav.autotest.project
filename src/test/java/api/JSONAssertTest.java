@@ -1,3 +1,4 @@
+/*
 package api;
 
 import httpsteps.ApiSteps;
@@ -17,3 +18,4 @@ public class JSONAssertTest {
         apiSteps.assertResponse("src/test/resources/jsonfiles/responses/empty-cart.json");
     }
 }
+*/
