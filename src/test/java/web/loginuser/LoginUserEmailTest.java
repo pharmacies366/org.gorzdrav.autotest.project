@@ -13,7 +13,7 @@ public class LoginUserEmailTest extends BaseSettingsWebTests {
 
     @DisplayName("Пользователь авторизовывается на сайте через E-mail")
     @Test
-    public void loginUserEmail() throws InterruptedException {
+    public void loginUserEmail() {
         cookiePage.reCaptchaKey();
         topPanelPage.clickToLoginIcon();
         authPopUpPage.setChangeToEmail();
