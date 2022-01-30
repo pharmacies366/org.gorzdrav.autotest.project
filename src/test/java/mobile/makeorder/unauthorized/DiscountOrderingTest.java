@@ -22,7 +22,7 @@ public class DiscountOrderingTest extends BaseSettingsMobileTests {
     public void discount() {
         mobileProductCardPage.clickClosePopUp();
         mobileTopPanelPage.clickBurgerButton();
-        mobileMainPage.checkCatalogButton();
+        mobileMainPage.checkCatalogButton();//изменить на mobileTopPanelPage
         mobileCatalogPage.clickMedicationsButton();
         mobileCatalogPage.allMedicationsPageButton();
         mobileMedicationsPage.clickFilterButton();
