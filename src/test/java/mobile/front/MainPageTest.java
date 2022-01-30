@@ -1,7 +1,6 @@
 package mobile.front;
 
 import base.BaseSettingsMobileTests;
-import base.BaseSettingsWebTests;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Story;
 import io.qameta.allure.junit4.DisplayName;
