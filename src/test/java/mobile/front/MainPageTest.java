@@ -1,5 +1,6 @@
 package mobile.front;
 
+import base.BaseSettingsMobileTests;
 import base.BaseSettingsWebTests;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Story;
@@ -12,20 +13,20 @@ import pages.web.MainPage;
 @Feature(value = "Мобильная версия")
 @Story("Проверка главной страницы сайта")
 @DisplayName("Проверка главной страницы")
-public class MainPageTest extends BaseSettingsWebTests {
+public class MainPageTest extends BaseSettingsMobileTests {
     private Logger logger = LogManager.getLogger(MainPage.class);
 
     @DisplayName("Проверка отображения логотипа")
     @Test
     public void checkVisibilityLogoMainPage(){
-        mainPage.getSiteLogo().elementIsVisibility();
+        mobileMainPage.getSiteLogo().elementIsVisibility();
         logger.info("Логотип отображается на сайте");
     }
 
     @DisplayName("Проверка кликабельности логотипа")
     @Test
     public void checkClickableLogoMainPage(){
-        mainPage.getSiteLogo().elementIsClickable();
+        mobileMainPage.getSiteLogo().elementIsClickable();
         logger.info("Логотип кликабелен");
     }
 }
