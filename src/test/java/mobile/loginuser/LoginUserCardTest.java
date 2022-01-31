@@ -19,8 +19,11 @@ public class LoginUserCardTest extends BaseSettingsMobileTests {
         mobileTopPanelPage.clickBurgerButton();
         mobileTopPanelPage.clickToLoginIcon();
         mobileAuthPopUpPage.setChangeToCardNumber();
-        mobileAuthPopUpPage.setCardNumberAandPassword(propertiesManager.getProperty("userauthcard"), "userpass");
+        mobileAuthPopUpPage.setCardNumberAandPassword(
+                propertiesManager.getProperty("userauthcard"),
+                propertiesManager.getProperty("userpass"));
         mobileAuthPopUpPage.clickToLoginButton();
+        pageActions.waitPageLoad();
         mobileMainPage.checkElementIsCorrect();
     }
 }

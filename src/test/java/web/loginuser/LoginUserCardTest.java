@@ -17,7 +17,9 @@ public class LoginUserCardTest extends BaseSettingsWebTests {
         cookiePage.reCaptchaKey();
         topPanelPage.clickToLoginIcon();
         authPopUpPage.setChangeToCardNumber();
-        authPopUpPage.setCardNumberAandPassword(propertiesManager.getProperty("userauthcard"), "userpass");
+        authPopUpPage.setCardNumberAandPassword(
+                propertiesManager.getProperty("userauthcard"),
+                propertiesManager.getProperty("userpass"));
         authPopUpPage.clickToLoginButton();
         pageActions.waitPageLoad();
         mainPage.checkElementIsCorrect();
