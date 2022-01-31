@@ -22,8 +22,10 @@ public class OspProductListTest extends BaseSettingsMobileTests {
         pageActions.waitPageLoad();
         mobileCartPage.clickToCartButton();
         mobileCartPage.clickToMakeOrder();
+        mobileCartPage.clickPickUpButton();
         mobileCheckOutPage.setInputSearchAddres("метро Автозаводская");
         mobileCheckOutPage.clickChangeAptekaList();
+        pageActions.waitPageLoad();
         mobileCheckOutPage.getAvailabilityAndChooseThisPharmacy();
         mobileCheckOutPage.contactDetails(
                 propertiesManager.getProperty("usermail"),

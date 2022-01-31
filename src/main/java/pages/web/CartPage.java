@@ -23,6 +23,7 @@ public class CartPage extends MainTestBase {
     private static final String CLEAR_ALL_FROM_CARD_CSS = "css;.js-cart-clear";
     private static final String CONFIRM_CLEAN_ALL_CSS = "css;.js-cart-clear-yes";
     private static final String CARD_COUNT_CSS = "css;.js-mini-cart-count";
+    private static final String PICKUP_BUTTON_XPATH = "xpath;(//div[contains(@class,'content')])[2]";
 
     //конструктор
     public CartPage(WebDriver driver) {
@@ -70,6 +71,10 @@ public class CartPage extends MainTestBase {
         return new PageElementActions(CARD_COUNT_CSS, driver);
     }
 
+    public PageElementActions getPickUpButton() {
+        return new PageElementActions(PICKUP_BUTTON_XPATH, driver);
+    }
+
     //Методы
     @Step("Проверка состояния корзины: Если корзина не пустая, удаляем все содержимое")
     public void checkCartQuantity() {
@@ -101,7 +106,7 @@ public class CartPage extends MainTestBase {
     @Step("Пользователь нажимае на кнопку 'Оформить заказ'")
     public void clickToMakeOrder() {
         getMakeOrder().click();
-        logger.info("Пользователь нажимае на кнопку 'Оформить заказ'");
+        logger.info("Пользователь нажимает на кнопку 'Оформить заказ'");
         saveAllureScreenshot();
     }
 
@@ -124,5 +129,12 @@ public class CartPage extends MainTestBase {
         int price = getTotalPrice().formatElementToValue();
         logger.info("Запоминаем цену товара");
         return price;
+    }
+
+    @Step("Пользователь выбирает способ доставки 'Самовывоз'")
+    public void clickPickUpButton() {
+        getPickUpButton().click();
+        logger.info("Пользователь выбирает способ доставки 'Самовывоз'");
+        saveAllureScreenshot();
     }
 }
