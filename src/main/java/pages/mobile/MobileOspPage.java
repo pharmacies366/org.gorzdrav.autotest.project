@@ -3,15 +3,10 @@ package pages.mobile;
 import actions.PageElementActions;
 import core.MainTestBase;
 import io.qameta.allure.Step;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 
 
 public class MobileOspPage extends MainTestBase {
-
-    private Logger logger = LogManager.getLogger(MobileCartPage.class);
-
 
     //элементы
     private static final String PRODUCT_NAME_XPATH = "xpath;//*[@href=\"/catalog/nurofen\"]";
@@ -43,20 +38,17 @@ public class MobileOspPage extends MainTestBase {
     public void clickShowAll(){
         getShowAllButton().click();
         logger.info("Пользователь нажимает на унокпу 'Показать все'");
-        saveAllureScreenshot();
     }
 
     @Step("Пользователь нажимает на товар 'Нурофен'")
     public void clickProductName() {
         getProductName().click();
         logger.info("Пользователь нажимает на товар 'Нурофен'");
-        saveAllureScreenshot();
     }
     @Step("Пользователь нажимает на кнопку 'купить'")
     public void clickBuyButton() {
         getBuyButton().click();
         logger.info("Пользователь нажимает на кнопку 'купить'");
-        saveAllureScreenshot();
     }
 
     

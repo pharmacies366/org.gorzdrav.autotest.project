@@ -3,13 +3,10 @@ package pages.web;
 import actions.PageElementActions;
 import core.MainTestBase;
 import io.qameta.allure.Step;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 
 public class CatalogPage extends MainTestBase {
 
-    private Logger logger = LogManager.getLogger(CatalogPage.class);
 
     //элементы
     private static final String MEDICATIONS_BUTTON_XPATH = "xpath;//a[@class='  js-catalog-menu__cat'][contains(.,'Лекарства')]";
@@ -32,6 +29,5 @@ public class CatalogPage extends MainTestBase {
     public void clickMedicationsButton() {
         getMedicationsPageButton().click();
         logger.info("Пользователь нажимает на категорию 'Лекарства'");
-        saveAllureScreenshot();
     }
 }

@@ -1,8 +1,6 @@
 package actions;
 
 import core.MainTestBase;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.junit.Assert;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
@@ -14,7 +12,6 @@ public class PageElementActions extends MainTestBase {
 
     protected static final int DEFAULT_ELEMENT_WAIT_TIME_S = 10;
     private String element;
-    private Logger logger = LogManager.getLogger(MainTestBase.class);
 
     //конструктор
     public PageElementActions(String selectorName, WebDriver driver) {
@@ -34,6 +31,7 @@ public class PageElementActions extends MainTestBase {
     public void click() {
         this.moveToElement();
         waitUntilElementToBeClickable(getBySelector(element), DEFAULT_ELEMENT_WAIT_TIME_S).click();
+        saveAllureScreenshot();
     }
 
 
@@ -42,6 +40,7 @@ public class PageElementActions extends MainTestBase {
         this.moveToElement();
         waitUntilElementToBeClickable(getBySelector(element), DEFAULT_ELEMENT_WAIT_TIME_S);
         driver.findElements(getBySelector(element)).get(number).click();
+        saveAllureScreenshot();
     }
 
     //Перевести строку в числовое значение
@@ -56,6 +55,7 @@ public class PageElementActions extends MainTestBase {
     public void sendKeys(String keysToSend) {
         this.moveToElement();
         waitUntilVisibilityOfElementLocated(getBySelector(element), DEFAULT_ELEMENT_WAIT_TIME_S).sendKeys(keysToSend);
+        saveAllureScreenshot();
     }
 
     //Перейти к элементу, кликнуть и ввести текст
@@ -63,22 +63,26 @@ public class PageElementActions extends MainTestBase {
         this.moveToElement();
         waitUntilElementToBeClickable(getBySelector(element), DEFAULT_ELEMENT_WAIT_TIME_S).click();
         waitUntilVisibilityOfElementLocated(getBySelector(element), DEFAULT_ELEMENT_WAIT_TIME_S).sendKeys(keysToSend);
+        saveAllureScreenshot();
     }
 
     //Перейти к элементу, ввести текст и нажать Enter
     public void sendKeysAndEnter(String keysToSend) {
         this.moveToElement();
         waitUntilVisibilityOfElementLocated(getBySelector(element), DEFAULT_ELEMENT_WAIT_TIME_S).sendKeys(keysToSend, Keys.ENTER);
+        saveAllureScreenshot();
     }
 
     //Очистить содержимое элемента
     public void clean() {
         waitUntilVisibilityOfElementLocated(getBySelector(element), DEFAULT_ELEMENT_WAIT_TIME_S).clear();
+        saveAllureScreenshot();
     }
 
     //Ожидание загрузки видимости элемента
     public void elementIsVisibility() {
         waitUntilVisibilityOfElementLocated(getBySelector(element), DEFAULT_ELEMENT_WAIT_TIME_S);
+        saveAllureScreenshot();
     }
 
     //Ожидание загрузки видимости элемента
@@ -91,6 +95,7 @@ public class PageElementActions extends MainTestBase {
     public void elementDisplayed(By elementBy) {
         waitUntilVisibilityOfElementLocated(getBySelector(element), DEFAULT_ELEMENT_WAIT_TIME_S);
         Assert.assertTrue(driver.findElement(elementBy).isDisplayed());
+        saveAllureScreenshot();
     }
 
 
@@ -128,6 +133,7 @@ public class PageElementActions extends MainTestBase {
         // ((JavascriptExecutor) driver).executeScript("window.scrollBy(0, -250)");
         logger.info("СТРАНИЦА ПРОСКРОЛЛЕНА ВВЕРХ НА N ПИКСЕЛЕЙ");
     }
+
 
     public String getText() {
         this.moveToElement();

@@ -3,14 +3,9 @@ package pages.web;
 import actions.PageElementActions;
 import core.MainTestBase;
 import io.qameta.allure.Step;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
-import utils.PropertiesManager;
 
 public class CartPage extends MainTestBase {
-    private Logger logger = LogManager.getLogger(CartPage.class);
-    private PropertiesManager propertiesManager = new PropertiesManager();
 
     //элементы
     private static final String TOTAL_PRICE_CSS = "css;.c-cart-summary__total span b";
@@ -18,8 +13,6 @@ public class CartPage extends MainTestBase {
     private static final String BUY_BUTTON_XPATH = "xpath;//button[contains(@class, \"js-add-to-cart\")]";
     private static final String MAKE_ORDER_XPATH = "xpath;//a[@href='/cart/checkout']";
     private static final String PRODUCT_CARD_XPATH = "xpath;//*[@class='c-prod-item__thumb']";
-    private static final String TOTAL_SUM_CSS = "css;.pull-right js-revenue";
-    private static final String EMPTY_CARD_TEXT_XPATH = "xpath;//h1[contains(text(), 'Ваша корзина пуста')]";
     private static final String CLEAR_ALL_FROM_CARD_CSS = "css;.js-cart-clear";
     private static final String CONFIRM_CLEAN_ALL_CSS = "css;.js-cart-clear-yes";
     private static final String CARD_COUNT_CSS = "css;.js-mini-cart-count";
@@ -45,14 +38,6 @@ public class CartPage extends MainTestBase {
 
     public PageElementActions getProductCard() {
         return new PageElementActions(PRODUCT_CARD_XPATH, driver);
-    }
-
-    public PageElementActions getTotalSum() {
-        return new PageElementActions(TOTAL_SUM_CSS, driver);
-    }
-
-    public PageElementActions getEmptyCartText() {
-        return new PageElementActions(EMPTY_CARD_TEXT_XPATH, driver);
     }
 
     public PageElementActions getClearAllFromCart() {
@@ -93,35 +78,30 @@ public class CartPage extends MainTestBase {
     public void clickBuyButton() {
         getBuyButton().click();
         logger.info("Пользователь нажимает на кнопку 'купить'");
-        saveAllureScreenshot();
     }
 
     @Step("Пользователь нажимает на иконку корзины")
     public void clickToCartButton() {
         getCartButton().click();
         logger.info("Пользователь нажимает на иконку корзины");
-        saveAllureScreenshot();
     }
 
     @Step("Пользователь нажимае на кнопку 'Оформить заказ'")
     public void clickToMakeOrder() {
         getMakeOrder().click();
         logger.info("Пользователь нажимает на кнопку 'Оформить заказ'");
-        saveAllureScreenshot();
     }
 
     @Step("Пользователь нажимает на товар")
     public void clickProductCard() {
         getProductCard().click();
         logger.info("Пользователь нажимает на товар");
-        saveAllureScreenshot();
     }
 
     @Step("Пользователь нажимает на кнопку 'Сделать заказ'")
     public void clickMakeOrder() {
         getMakeOrder().click();
         logger.info("Пользователь нажимает на кнопку 'Сделать заказ'");
-        saveAllureScreenshot();
     }
 
     @Step("Сохранение итоговой суммы в корзине")
@@ -135,6 +115,5 @@ public class CartPage extends MainTestBase {
     public void clickPickUpButton() {
         getPickUpButton().click();
         logger.info("Пользователь выбирает способ доставки 'Самовывоз'");
-        saveAllureScreenshot();
     }
 }

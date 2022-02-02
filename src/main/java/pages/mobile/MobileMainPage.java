@@ -3,13 +3,9 @@ package pages.mobile;
 import actions.PageElementActions;
 import core.MainTestBase;
 import io.qameta.allure.Step;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 
 public class MobileMainPage extends MainTestBase {
-
-    private Logger logger = LogManager.getLogger(MobileMainPage.class);
 
     //элементы
     private static final String SITE_LOGO_XPATH = "xpath;//img[@alt='ГЗ лого.svg']";
@@ -55,14 +51,12 @@ public class MobileMainPage extends MainTestBase {
     public void checkElementIsCorrect() {
         getSiteLogo().elementIsVisibility();
         logger.info("Лого отображается");
-        saveAllureScreenshot();
     }
 
     @Step("Пользователь закрывает попап куки: 'Спасибо, понятно")
     public void clickClosePopUp() {
         getPopUpButton().click();
         logger.info("Пользователь закрывает попап куки: 'Спасибо, понятно'");
-        saveAllureScreenshot();
     }
 
     @Step("Пользователь закрывает попап мобильного приложения: 'Приложение 36.6'")
@@ -75,20 +69,17 @@ public class MobileMainPage extends MainTestBase {
     public void setSearchInput(String search) {
         getSearchInput().clickAndSendKeys(search);
         logger.info("Пользователь вводит артикул товара в поисковую строку");
-        saveAllureScreenshot();
     }
 
     @Step("Пользователь нажимает на кнопку 'Каталог")
     public void checkCatalogButton() {
         getCatalog().click();
         logger.info("Пользователь нажимает на кнопку 'Каталог'");
-        saveAllureScreenshot();
     }
 
     @Step("Пользователь нажимает на букву 'Н' Русского алфавита")
     public void clickLetterN() {
         getLetterN().click();
         logger.info("Пользователь нажимает на букву 'Н' Русского алфавита");
-        saveAllureScreenshot();
     }
 }

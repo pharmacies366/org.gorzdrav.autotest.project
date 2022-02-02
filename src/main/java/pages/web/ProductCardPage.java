@@ -3,21 +3,16 @@ package pages.web;
 import actions.PageElementActions;
 import core.MainTestBase;
 import io.qameta.allure.Step;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
-
 
 public class ProductCardPage extends MainTestBase {
 
-    private Logger logger = LogManager.getLogger(ProductCardPage.class);
 
     //элементы
     private static final String DISCOUNT_PRICE_BUTTON_XPATH = "xpath;(//div[@class='c-product-discount__text'])";
     private static final String PHARMACY_ADDRESS_INPUT_XPATH = "xpath;//input[@name='q']";
     private static final String PRICE_VALUE_XPATH = "xpath;//span[@class='js-price-value']";
     private static final String ONE_CKICK_CSS = "css;.js-order-quick-navigate";
-    private static final String LUPA_BUTTON_CARD_XPATH = "xpath;(//button[@type='submit'])[6]";
     private static final String ONE_CKICK_APTEKA_BUTTONS_XPATH = "xpath;(//button[contains(.,'Купить в 1 клик')])";
     private static final String CHANGE_APTEKA_LIST_XPATH = "xpath;//span[contains(@class, 'p-checkout--mixed__control-labelText ')]";
     private static final String APTEKA_LIST_BUTTON_XPATH = "xpath;//a[contains(.,'Списком')]";
@@ -35,10 +30,6 @@ public class ProductCardPage extends MainTestBase {
     //геттеры элементов с получением доступа к действиям с элементами
     public PageElementActions getOneClick() {
         return new PageElementActions(ONE_CKICK_CSS, driver);
-    }
-
-    public PageElementActions getLupaButtonCard() {
-        return new PageElementActions(LUPA_BUTTON_CARD_XPATH, driver);
     }
 
     public PageElementActions getOneClickAptekaButtons() {
@@ -88,48 +79,41 @@ public class ProductCardPage extends MainTestBase {
     public void clickToCartButton() {
         getAddToCartButton().click();
         logger.info("Пользователь нажимает на кнопку 'в корзину'");
-        saveAllureScreenshot();
     }
 
     @Step("Пользователь вводит адрес - {addres}")
     public void setInputSearchAddres(String addres) {
         getPharmacyAddressInput().sendKeys(addres);
-        saveAllureScreenshot();
     }
 
     @Step("Пользователь нажимает на кнопку 'Купить в 1 клик'")
     public void buyOneClick() {
         getOneClick().click();
         logger.info("Пользователь нажимает на кнопку 'Купить в 1 клик'");
-        saveAllureScreenshot();
     }
 
     @Step("Пользователь нажимает на список доступных Аптек")
     public void clickChangeAptekaList() {
         getChangeAptekaList().click();
         logger.info("Пользователь нажимает на список доступных Аптек");
-        saveAllureScreenshot();
     }
 
     @Step("Пользователь нажимает на список доступных Аптек")
     public void clickAptekaList() {
         getAptekaListButton().click();
         logger.info("Пользователь нажимает на список доступных Аптек");
-        saveAllureScreenshot();
     }
 
     @Step("Пользователь нажимает на {number} - ую кнопку 'Купить в 1 клик' напротив выбранной аптеки")
     public void clickBuyOneClick() {
         getOneClickAptekaButtons().clickIndex(0);
         logger.info("Пользователь нажимает на {number} - ую кнопку 'Купить в 1 клик' напротив выбранной аптеки");
-        saveAllureScreenshot();
     }
 
     @Step("Пользователь проверяет отображении карты на странице")
     public void checkVisibilityMap() {
         getAptekaMap().elementIsVisibility();
         logger.info("Пользователь проверяет отображении карты на странице");
-        saveAllureScreenshot();
     }
 
     @Step("Запоминаем цену товара")

@@ -41,6 +41,5 @@ public class MobileSberPage extends MainTestBase {
     @Step("Пользователь нажимает на кнопку 'Оплатить'")
     public void clickOnSubmitButton() {
         getSubmitButton().click();
-        saveAllureScreenshot();
     }
 }

@@ -3,13 +3,10 @@ package pages.web;
 import actions.PageElementActions;
 import core.MainTestBase;
 import io.qameta.allure.Step;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 
 
 public class OspPage extends MainTestBase {
-    private Logger logger = LogManager.getLogger(CartPage.class);
 
 
     //элементы
@@ -37,13 +34,11 @@ public class OspPage extends MainTestBase {
     public void clickProductName() {
         getProductName().click();
         logger.info("Пользователь нажимает на товар 'Нурофен'");
-        saveAllureScreenshot();
     }
 
     @Step("Пользователь нажимает на кнопку 'купить'")
     public void clickBuyButton() {
         getBuyButton().click();
         logger.info("Пользователь нажимает на кнопку 'купить'");
-        saveAllureScreenshot();
     }
 }

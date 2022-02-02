@@ -58,19 +58,16 @@ public class MobileAuthPopUpPage extends MainTestBase {
     @Step("Пользователь переключается на вход по номеру бонусной карты")
     public void setChangeToCardNumber() {
         getChanchToCardNumber().click();
-        saveAllureScreenshot();
     }
 
     @Step("Пользователь переключается на вход по Email")
     public void setChangeToEmail() {
         getChanchToEmail().click();
-        saveAllureScreenshot();
     }
 
     @Step("Пользователь вводит номер телефона")
     public void setPhoneNumber(String phoneNumber) {
         getPhoneNumberInput().sendKeys(phoneNumber);
-        saveAllureScreenshot();
     }
 
 
@@ -78,19 +75,16 @@ public class MobileAuthPopUpPage extends MainTestBase {
     public void setCardNumberAandPassword(String cardNumber, String password) {
         getAuthCardNumber().sendKeys(cardNumber);
         getPasswordInput().sendKeys(password);
-        saveAllureScreenshot();
     }
 
     @Step("Пользователь вводит Email и пароль")
     public void setEmailAndPassword(String email, String password) {
         getInputEmail().sendKeys(email);
         getPasswordInput().sendKeys(password);
-        saveAllureScreenshot();
     }
 
     @Step("клик на кнопку \"войти\"")
     public void clickToLoginButton() {
         getLoginButoon().click();
-        saveAllureScreenshot();
     }
 }

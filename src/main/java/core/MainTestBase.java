@@ -24,7 +24,7 @@ public class MainTestBase {
     protected PageActions pageActions;
     private WebDriverFactory driverFactory;
     public static String nameOfPackage;
-    private Logger logger = LogManager.getLogger(MainTestBase.class);
+    protected Logger logger = LogManager.getLogger(MainTestBase.class);
 
 
     @Step("Пользователь переходит в карточку товара")
