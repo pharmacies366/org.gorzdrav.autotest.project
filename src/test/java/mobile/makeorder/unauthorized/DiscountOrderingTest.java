@@ -4,18 +4,13 @@ import base.BaseSettingsMobileTests;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Story;
 import io.qameta.allure.junit4.DisplayName;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.junit.Assert;
 import org.junit.Test;
-import pages.mobile.MobileCatalogPage;
 
 @Feature(value = "Мобильная версия")
 @Story("Покупка дисконтного товар. Мобильная версия")
 @DisplayName("Оформление дисконтного товара в 1клик. Мобильная версия")
 public class DiscountOrderingTest extends BaseSettingsMobileTests {
-    private Logger logger = LogManager.getLogger(DiscountOrderingTest.class);
-
 
     @DisplayName("Неавторизованный пользователь покупает товар по дисконтной цене в 1клик")
     @Test

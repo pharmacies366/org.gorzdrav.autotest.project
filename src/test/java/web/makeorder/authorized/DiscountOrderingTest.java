@@ -12,7 +12,6 @@ import org.junit.Test;
 @DisplayName("Оформление дисконтного товара в 1клик")
 public class DiscountOrderingTest extends BaseSettingsWebTests {
 
-
     @DisplayName("Авторизованный пользователь покупает товар по дисконтной цене в 1клик")
     @Test
     public void discount() {
