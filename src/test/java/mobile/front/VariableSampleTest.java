@@ -15,9 +15,10 @@ public class VariableSampleTest extends BaseSettingsMobileTests {
     @DisplayName("Пользователь добавляет в корзину 2 товара и проверяет общую сумму")
     @Test
     public void test() {
+        mobileMainPage.clickClosePopUp();
+        mobileMainPage.clickCloseMobileAppPopUp();
         openUrl(propertiesManager.getProperty("baseurl") + "p/29992");
         pageActions.waitPageLoad();
-        mobileProductCardPage.clickClosePopUp();
         mobileProductCardPage.clickToCartButton();
         pageActions.waitPageLoad();
         int firstPrice = mobileProductCardPage.getProductPrice();

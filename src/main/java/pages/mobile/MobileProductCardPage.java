@@ -24,7 +24,6 @@ public class MobileProductCardPage extends MainTestBase {
     private static final String ADD_TO_CARD_BUTTON_XPATH = "xpath;//button[@data-gtm-source='details']";
     private static final String APTEKA_LIST_BUTTON_XPATH = "xpath;//span[contains(.,'Списком')]";
     private static final String APTEKA_MAP_XPATH = "xpath;//*[@id='store-finder-map']";
-    private static final String POP_UP_BUTTON_XPATH = "xpath;//button[contains(.,'Спасибо, понятно')]";
 
 
     //конструктор
@@ -74,22 +73,11 @@ public class MobileProductCardPage extends MainTestBase {
         return new PageElementActions(PHARMACY_ADDRESS_INPUT_XPATH, driver);
     }
 
-    public PageElementActions getPopUpButton() {
-        return new PageElementActions(POP_UP_BUTTON_XPATH, driver);
-    }
-
     public PageElementActions getPriceValue() {
         return new PageElementActions(PRICE_VALUE_XPATH, driver);
     }
 
     //Методы
-
-    @Step("Пользователь закрывает попап куки: 'Спасибо, понятно")
-    public void clickClosePopUp(){
-        getPopUpButton().click();
-        logger.info("Пользователь закрывает попап куки: 'Спасибо, понятно'");
-        saveAllureScreenshot();
-    }
 
     @Step("Пользователь нажимает на кнопку 'в корзину'")
     public void clickToCartButton() {

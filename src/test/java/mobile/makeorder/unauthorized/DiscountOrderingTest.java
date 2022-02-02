@@ -20,7 +20,9 @@ public class DiscountOrderingTest extends BaseSettingsMobileTests {
     @DisplayName("Неавторизованный пользователь покупает товар по дисконтной цене в 1клик")
     @Test
     public void discount() {
-        mobileProductCardPage.clickClosePopUp();
+        mobileCookiePage.reCaptchaKey();
+        mobileMainPage.clickClosePopUp();
+        mobileMainPage.clickCloseMobileAppPopUp();
         mobileTopPanelPage.clickBurgerButton();
         mobileMainPage.checkCatalogButton();//изменить на mobileTopPanelPage
         mobileCatalogPage.clickMedicationsButton();

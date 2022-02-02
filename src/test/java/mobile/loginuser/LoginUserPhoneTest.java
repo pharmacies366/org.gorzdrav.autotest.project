@@ -15,7 +15,8 @@ public class LoginUserPhoneTest extends BaseSettingsMobileTests {
     @Test
     public void loginUserPhone() {
         mobileCookiePage.reCaptchaKey();
-        mobileProductCardPage.clickClosePopUp();
+        mobileMainPage.clickClosePopUp();
+        mobileMainPage.clickCloseMobileAppPopUp();
         mobileTopPanelPage.clickBurgerButton();
         mobileTopPanelPage.clickToLoginIcon();
         mobileAuthPopUpPage.setPhoneNumber(propertiesManager.getProperty("userauthphone"));

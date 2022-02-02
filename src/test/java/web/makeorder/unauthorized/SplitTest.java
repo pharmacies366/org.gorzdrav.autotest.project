@@ -15,6 +15,7 @@ public class SplitTest extends BaseSettingsWebTests {
     @Test
     //Данный тест ещё дублирует проверку на недоступность одного из товаров в корзине
     public void split() {
+        cookiePage.reCaptchaKey();
         mainPage.setSearchInput(propertiesManager.getProperty("productcode1"));
         cartPage.clickBuyButton();
         pageActions.waitPageLoad();

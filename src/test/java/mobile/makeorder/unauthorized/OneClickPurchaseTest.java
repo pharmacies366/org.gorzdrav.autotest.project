@@ -14,7 +14,9 @@ public class OneClickPurchaseTest extends BaseSettingsMobileTests {
     @DisplayName("Неавторизованный пользователь покупает товар в 1клик")
     @Test
     public void oneClick() {
-        mobileProductCardPage.clickClosePopUp();
+        mobileCookiePage.reCaptchaKey();
+        mobileMainPage.clickClosePopUp();
+        mobileMainPage.clickCloseMobileAppPopUp();
         mobileMainPage.setSearchInput(propertiesManager.getProperty("productcode1"));
         mobileCartPage.clickProductCard();
         mobileProductCardPage.buyOneClick();

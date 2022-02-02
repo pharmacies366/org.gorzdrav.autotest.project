@@ -15,7 +15,9 @@ public class SplitTest extends BaseSettingsMobileTests {
     @Test
     //Данный тест ещё дублирует проверку на недоступность одного из товаров в корзине
     public void split() {
-        mobileProductCardPage.clickClosePopUp();
+        mobileCookiePage.reCaptchaKey();
+        mobileMainPage.clickClosePopUp();
+        mobileMainPage.clickCloseMobileAppPopUp();
         mobileMainPage.setSearchInput(propertiesManager.getProperty("productcode1"));
         mobileCartPage.clickBuyButton();
         pageActions.waitPageLoad();

@@ -14,7 +14,9 @@ public class OspProductListTest extends BaseSettingsMobileTests {
     @DisplayName("Неавторизованный пользователь покупает товар со страниц ОСП")
     @Test
     public void checkOsp() {
-        mobileProductCardPage.clickClosePopUp();
+        mobileCookiePage.reCaptchaKey();
+        mobileMainPage.clickClosePopUp();
+        mobileMainPage.clickCloseMobileAppPopUp();
         mobileMainPage.clickLetterN();
         mobileOspPage.clickShowAll();
         mobileOspPage.clickProductName();

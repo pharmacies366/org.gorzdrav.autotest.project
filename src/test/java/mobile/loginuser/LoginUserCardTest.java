@@ -15,7 +15,8 @@ public class LoginUserCardTest extends BaseSettingsMobileTests {
     @Test
     public void loginUserCardNumber() {
         mobileCookiePage.reCaptchaKey();
-        mobileProductCardPage.clickClosePopUp();
+        mobileMainPage.clickClosePopUp();
+        mobileMainPage.clickCloseMobileAppPopUp();
         mobileTopPanelPage.clickBurgerButton();
         mobileTopPanelPage.clickToLoginIcon();
         mobileAuthPopUpPage.setChangeToCardNumber();

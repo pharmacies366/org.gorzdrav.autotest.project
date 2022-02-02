@@ -15,6 +15,7 @@ public class DiscountOrderingTest extends BaseSettingsWebTests {
     @DisplayName("Неавторизованный пользователь покупает товар по дисконтной цене в 1клик")
     @Test
     public void discount() {
+        cookiePage.reCaptchaKey();
         mainPage.getPopUpButton().click();
         mainPage.checkCatalogButton();
         catalogPage.clickMedicationsButton();

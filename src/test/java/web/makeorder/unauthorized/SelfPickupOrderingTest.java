@@ -14,6 +14,7 @@ public class SelfPickupOrderingTest extends BaseSettingsWebTests {
     @DisplayName("Неавторизованный пользователь покупает товар со способом доставки - 'Самовывоз'")
     @Test
     public void pickup() {
+        cookiePage.reCaptchaKey();
         mainPage.setSearchInput(propertiesManager.getProperty("productcode1"));
         cartPage.clickBuyButton();
         pageActions.waitPageLoad();

@@ -15,7 +15,8 @@ public class LoginUserEmailTest extends BaseSettingsMobileTests {
     @Test
     public void loginUserEmail() {
         mobileCookiePage.reCaptchaKey();
-        mobileProductCardPage.clickClosePopUp();
+        mobileMainPage.clickClosePopUp();
+        mobileMainPage.clickCloseMobileAppPopUp();
         mobileTopPanelPage.clickBurgerButton();
         mobileTopPanelPage.clickToLoginIcon();
         mobileAuthPopUpPage.setChangeToEmail();

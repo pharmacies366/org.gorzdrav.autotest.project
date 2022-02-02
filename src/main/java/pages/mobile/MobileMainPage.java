@@ -16,6 +16,8 @@ public class MobileMainPage extends MainTestBase {
     private static final String SEARCH_INPUT_XPATH = "xpath;//a[contains(.,'Поиск')]";
     private static final String LETTER_N_XPATH = "xpath;//*[@href=\"/littera-Н/\"]";
     private static final String CATALOG_XPATH = "xpath;(//a[contains(.,'Каталог')])[1]";
+    private static final String POP_UP_BUTTON_XPATH = "xpath;//button[contains(.,'Спасибо, понятно')]";
+    private static final String MOBILE_APP_POP_UP_BUTTON_XPATH = "xpath;//div[contains(@class,'flyer--close')]";
 
     //конструктор
     public MobileMainPage(WebDriver driver) {
@@ -26,21 +28,47 @@ public class MobileMainPage extends MainTestBase {
     public PageElementActions getSiteLogo() {
         return new PageElementActions(SITE_LOGO_XPATH, driver);
     }
-    public PageElementActions getSearchInput() { return new PageElementActions(SEARCH_INPUT_XPATH, driver); }
+
+    public PageElementActions getSearchInput() {
+        return new PageElementActions(SEARCH_INPUT_XPATH, driver);
+    }
+
     public PageElementActions getLetterN() {
         return new PageElementActions(LETTER_N_XPATH, driver);
     }
+
     public PageElementActions getCatalog() {
         return new PageElementActions(CATALOG_XPATH, driver);
+    }
+
+    public PageElementActions getPopUpButton() {
+        return new PageElementActions(POP_UP_BUTTON_XPATH, driver);
+    }
+
+    public PageElementActions getMobileAppPopUpButton() {
+        return new PageElementActions(MOBILE_APP_POP_UP_BUTTON_XPATH, driver);
     }
 
     //Методы
 
     @Step("Проверка отображения логотипа сайта на главной странице")
-    public void checkElementIsCorrect(){
+    public void checkElementIsCorrect() {
         getSiteLogo().elementIsVisibility();
         logger.info("Лого отображается");
         saveAllureScreenshot();
+    }
+
+    @Step("Пользователь закрывает попап куки: 'Спасибо, понятно")
+    public void clickClosePopUp() {
+        getPopUpButton().click();
+        logger.info("Пользователь закрывает попап куки: 'Спасибо, понятно'");
+        saveAllureScreenshot();
+    }
+
+    @Step("Пользователь закрывает попап мобильного приложения: 'Приложение 36.6'")
+    public void clickCloseMobileAppPopUp() {
+        getMobileAppPopUpButton().click();
+        logger.info("Пользователь закрывает попап мобильного приложения: 'Приложение 36.6'");
     }
 
     @Step("Пользователь вводит артикул товара в поисковую строку - {search}")
@@ -51,14 +79,14 @@ public class MobileMainPage extends MainTestBase {
     }
 
     @Step("Пользователь нажимает на кнопку 'Каталог")
-    public void checkCatalogButton(){
+    public void checkCatalogButton() {
         getCatalog().click();
         logger.info("Пользователь нажимает на кнопку 'Каталог'");
         saveAllureScreenshot();
     }
 
     @Step("Пользователь нажимает на букву 'Н' Русского алфавита")
-    public void clickLetterN(){
+    public void clickLetterN() {
         getLetterN().click();
         logger.info("Пользователь нажимает на букву 'Н' Русского алфавита");
         saveAllureScreenshot();
