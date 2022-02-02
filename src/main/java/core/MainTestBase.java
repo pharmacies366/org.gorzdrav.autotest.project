@@ -23,6 +23,7 @@ public class MainTestBase {
     protected PropertiesManager propertiesManager = new PropertiesManager();
     protected PageActions pageActions;
     private WebDriverFactory driverFactory;
+    public static String nameOfPackage;
     private Logger logger = LogManager.getLogger(MainTestBase.class);
 
 
@@ -74,7 +75,8 @@ public class MainTestBase {
 
         @Override
         protected void starting(Description description) {
-            logger.info("Тест старт");
+            nameOfPackage = description.getTestClass().getPackage().getName();
+            logger.info("Тест старт " + description.getMethodName());
         }
     };
 

@@ -6,12 +6,17 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
 import java.net.MalformedURLException;
 import java.net.URI;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.concurrent.TimeUnit;
+
+import static core.MainTestBase.nameOfPackage;
 
 
 public class WebDriverFactory {
@@ -21,13 +26,17 @@ public class WebDriverFactory {
     @Step("Получение типа драйвера")
     public WebDriver getDriver() {
         DriverType driverType = DriverType.valueOf(System.getProperty("driver").toUpperCase());
-        switch (driverType) {
-            case LOCAL:
-                setupLocalDriver();
-                break;
-            case REMOTE:
-                setupRemoteDriver();
-                break;
+        if (nameOfPackage.contains("mobile")) {
+            driver = setupMobileDriver();
+        } else {
+            switch (driverType) {
+                case LOCAL:
+                    setupLocalDriver();
+                    break;
+                case REMOTE:
+                    setupRemoteDriver();
+                    break;
+            }
         }
         return driver;
     }
@@ -67,6 +76,20 @@ public class WebDriverFactory {
     private void configureDriver() {
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+    }
+
+    @Step("Запуск мобильного драйвера")
+    public RemoteWebDriver setupMobileDriver() {
+        WebDriverManager.chromedriver().setup();
+        Map<String, String> mobileEmulation = new HashMap<>();
+        mobileEmulation.put("deviceName", "iPhone X");
+
+        ChromeOptions chromeOptions = new ChromeOptions();
+        chromeOptions.setExperimentalOption("mobileEmulation", mobileEmulation);
+
+        driver = new ChromeDriver(chromeOptions);
+
+        return driver;
     }
 
 }

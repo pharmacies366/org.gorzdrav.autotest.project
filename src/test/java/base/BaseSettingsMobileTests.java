@@ -3,16 +3,10 @@ package base;
 import actions.PageElementActions;
 import core.MainTestBase;
 import org.junit.Before;
-import org.openqa.selenium.Dimension;
 import pages.mobile.*;
 
 public class BaseSettingsMobileTests extends MainTestBase {
 
-    @Override
-    public void beforeClass_StartBrowser() {
-        super.beforeClass_StartBrowser();
-        driver.manage().window().setSize(new Dimension(414, 736));
-    }
 
     protected PageElementActions pageElementActions;
     protected MobileTopPanelPage mobileTopPanelPage;
