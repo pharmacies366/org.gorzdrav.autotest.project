@@ -1,4 +1,3 @@
-/*
 package web.makeorder.unauthorized;
 
 import base.BaseSettingsWebTests;
@@ -45,4 +44,3 @@ public class SplitTest extends BaseSettingsWebTests {
 
 
 }
-*/

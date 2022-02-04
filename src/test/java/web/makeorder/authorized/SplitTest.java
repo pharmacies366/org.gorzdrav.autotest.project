@@ -1,4 +1,3 @@
-/*
 package web.makeorder.authorized;
 
 import base.BaseSettingsWebTests;
@@ -41,4 +40,3 @@ public class SplitTest extends BaseSettingsWebTests {
         thankForTheOrderPage.checkSuccessMessage();
     }
 }
-*/

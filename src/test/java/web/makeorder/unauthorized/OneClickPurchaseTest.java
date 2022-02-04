@@ -1,4 +1,3 @@
-/*
 package web.makeorder.unauthorized;
 
 import base.BaseSettingsWebTests;
@@ -36,4 +35,3 @@ public class OneClickPurchaseTest extends BaseSettingsWebTests {
 
 
 }
-*/
