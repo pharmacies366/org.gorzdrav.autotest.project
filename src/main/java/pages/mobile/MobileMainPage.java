@@ -53,6 +53,12 @@ public class MobileMainPage extends MainTestBase {
         logger.info("Лого отображается");
     }
 
+    @Step("Пользователь нажимает на кнопку Логотипа и переходит на главную страницу сайта")
+    public void clickSiteLogo(){
+        getSiteLogo().click();
+        logger.info("Пользователь нажимает на кнопку Логотипа и переходит на главную страницу сайта");
+    }
+
     @Step("Пользователь закрывает попап куки: 'Спасибо, понятно")
     public void clickClosePopUp() {
         getPopUpButton().click();

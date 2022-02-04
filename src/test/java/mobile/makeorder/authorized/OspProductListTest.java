@@ -14,18 +14,25 @@ public class OspProductListTest extends BaseSettingsMobileTests {
     @DisplayName("Авторизованный пользователь покупает товар со страниц ОСП")
     @Test
     public void checkOsp() {
-        mobileCookiePage.cookieAuthorization();
-        pageActions.reloadPage();
         mobileMainPage.clickClosePopUp();
         mobileMainPage.clickCloseMobileAppPopUp();
+        mobileCookiePage.cookieAuthorization();
+        mobileCookiePage.reCaptchaKey();
+        pageActions.reloadPage();
         mobileCartPage.checkCartQuantity();
+        pageActions.waitPageLoad();
+        mobileMainPage.clickSiteLogo();
+        pageActions.waitPageLoad();
         mobileMainPage.clickLetterN();
         mobileOspPage.clickShowAll();
         mobileOspPage.clickProductName();
+        pageActions.waitPageLoad();
         mobileOspPage.clickBuyButton();
         pageActions.waitPageLoad();
         mobileCartPage.clickToCartButton();
+        pageActions.waitPageLoad();
         mobileCartPage.clickToMakeOrder();
+        pageActions.waitPageLoad();
         mobileCartPage.clickPickUpButton();
         mobileCheckOutPage.setInputSearchAddres("метро Автозаводская");
         mobileCheckOutPage.clickChangeAptekaList();

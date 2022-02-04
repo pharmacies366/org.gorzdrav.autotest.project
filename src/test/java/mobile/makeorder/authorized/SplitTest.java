@@ -14,11 +14,13 @@ public class SplitTest extends BaseSettingsMobileTests {
     @DisplayName("Авторизованный пользователь оформляет заказ содержащий Партнерский товар + Не партнерский")
     @Test
     public void split() {
-        mobileCookiePage.cookieAuthorization();
-        pageActions.reloadPage();
         mobileMainPage.clickClosePopUp();
         mobileMainPage.clickCloseMobileAppPopUp();
+        mobileCookiePage.cookieAuthorization();
+        mobileCookiePage.reCaptchaKey();
+        pageActions.reloadPage();
         mobileCartPage.checkCartQuantity();
+        pageActions.waitPageLoad();
         mobileMainPage.setSearchInput(propertiesManager.getProperty("productcode1"));
         mobileCartPage.clickBuyButton();
         pageActions.waitPageLoad();
