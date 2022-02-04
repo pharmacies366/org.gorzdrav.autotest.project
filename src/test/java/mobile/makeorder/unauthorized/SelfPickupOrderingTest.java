@@ -16,11 +16,14 @@ public class SelfPickupOrderingTest extends BaseSettingsMobileTests {
     public void pickup() {
         mobileCookiePage.reCaptchaKey();
         mobileMainPage.clickClosePopUp();
+        pageActions.waitPageLoad();
         mobileMainPage.clickCloseMobileAppPopUp();
+        pageActions.waitPageLoad();
         mobileMainPage.setSearchInput(propertiesManager.getProperty("productcode1"));
         mobileCartPage.clickBuyButton();
         pageActions.waitPageLoad();
         mobileCartPage.clickToCartButton();
+        pageActions.waitPageLoad();
         mobileCartPage.clickToMakeOrder();
         mobileCheckOutPage.getPharmacyAddressInput().sendKeys("метро Фили");
         pageActions.waitPageLoad();

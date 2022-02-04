@@ -17,7 +17,9 @@ public class DiscountOrderingTest extends BaseSettingsMobileTests {
     public void discount() {
         mobileCookiePage.reCaptchaKey();
         mobileMainPage.clickClosePopUp();
+        pageActions.waitPageLoad();
         mobileMainPage.clickCloseMobileAppPopUp();
+        pageActions.waitPageLoad();
         mobileTopPanelPage.clickBurgerButton();
         mobileMainPage.checkCatalogButton();//изменить на mobileTopPanelPage
         mobileCatalogPage.clickMedicationsButton();

@@ -17,7 +17,9 @@ public class SplitTest extends BaseSettingsMobileTests {
     public void split() {
         mobileCookiePage.reCaptchaKey();
         mobileMainPage.clickClosePopUp();
+        pageActions.waitPageLoad();
         mobileMainPage.clickCloseMobileAppPopUp();
+        pageActions.waitPageLoad();
         mobileMainPage.setSearchInput(propertiesManager.getProperty("productcode1"));
         mobileCartPage.clickBuyButton();
         pageActions.waitPageLoad();
@@ -26,6 +28,7 @@ public class SplitTest extends BaseSettingsMobileTests {
         mobileCartPage.clickBuyButton();
         pageActions.waitPageLoad();
         mobileCartPage.clickToCartButton();
+        pageActions.waitPageLoad();
         mobileCartPage.clickToMakeOrder();
         pageActions.waitPageLoad();
         mobileCheckOutPage.clickChangeAptekaList();

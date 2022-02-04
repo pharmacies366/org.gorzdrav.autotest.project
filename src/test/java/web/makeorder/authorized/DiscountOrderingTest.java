@@ -40,6 +40,7 @@ public class DiscountOrderingTest extends BaseSettingsWebTests {
         productCardPage.buyOneClick();
         pageActions.waitPageLoad();
         productCardPage.clickBuyOneClick();
+        pageActions.waitPageLoad();
         checkOutPage.setInputOneClickPhoneNumber(propertiesManager.getProperty("phonenumber"));
         checkOutPage.clickBookingButton();
         pageActions.waitPageLoad();
