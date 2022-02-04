@@ -1,4 +1,4 @@
-package mobile.makeorder.unauthorized;
+package mobile.makeorder.authorized;
 
 import base.BaseSettingsMobileTests;
 import io.qameta.allure.Feature;
@@ -11,12 +11,14 @@ import org.junit.Test;
 @DisplayName("Оформление заказа самовывозом. Мобильная версия")
 public class SelfPickupOrderingTest extends BaseSettingsMobileTests {
 
-    @DisplayName("Неавторизованный пользователь покупает товар со способом доставки - 'Самовывоз'")
+    @DisplayName("Авторизованный пользователь покупает товар со способом доставки - 'Самовывоз'")
     @Test
     public void pickup() {
-        mobileCookiePage.reCaptchaKey();
+        mobileCookiePage.cookieAuthorization();
+        pageActions.reloadPage();
         mobileMainPage.clickClosePopUp();
         mobileMainPage.clickCloseMobileAppPopUp();
+        mobileCartPage.checkCartQuantity();
         mobileMainPage.setSearchInput(propertiesManager.getProperty("productcode1"));
         mobileCartPage.clickBuyButton();
         pageActions.waitPageLoad();
@@ -25,15 +27,9 @@ public class SelfPickupOrderingTest extends BaseSettingsMobileTests {
         mobileCheckOutPage.getPharmacyAddressInput().sendKeys("метро Фили");
         pageActions.waitPageLoad();
         mobileProductCardPage.checkVisibilityMap();
-        pageActions.waitPageLoad();
         mobileCheckOutPage.clickChangeAptekaList();
         pageActions.waitPageLoad();
         mobileCheckOutPage.getAvailabilityAndChooseThisPharmacy();
-        pageActions.waitPageLoad();
-        mobileCheckOutPage.contactDetails(
-                propertiesManager.getProperty("usermail"),
-                propertiesManager.getProperty("phonenumber"),
-                propertiesManager.getProperty("username"));
         pageActions.waitPageLoad();
         mobileCheckOutPage.getInputFio().click();//ещё один клик для того чтобы не перекрывалась кнопка "Оформить Заказ"
         mobileCheckOutPage.clickCheckout();

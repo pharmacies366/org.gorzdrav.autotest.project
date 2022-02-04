@@ -14,8 +14,8 @@ public class SplitTest extends BaseSettingsWebTests {
     @DisplayName("Авторизованный пользователь оформил заказ содержащий Партнерский товар + Не партнерский")
     @Test
     public void split() {
-        cookiePage.reCaptchaKey();
         cookiePage.cookieAuthorization();
+        pageActions.reloadPage();
         cartPage.checkCartQuantity();
         mainPage.setSearchInput(propertiesManager.getProperty("productcode1"));
         cartPage.clickBuyButton();
@@ -26,12 +26,10 @@ public class SplitTest extends BaseSettingsWebTests {
         pageActions.waitPageLoad();
         cartPage.clickToCartButton();
         cartPage.clickMakeOrder();
+        pageActions.waitPageLoad();
         checkOutPage.clickChangeAptekaList();
         checkOutPage.getAvailabilityAndChooseThisPharmacy();
-        checkOutPage.contactDetails(
-                propertiesManager.getProperty("usermail"),
-                propertiesManager.getProperty("phonenumber"),
-                propertiesManager.getProperty("username"));
+        pageActions.waitPageLoad();
         checkOutPage.clickCheckout();
         pageActions.waitPageLoad();
         thankForTheOrderPage.checkSuccessMessage();

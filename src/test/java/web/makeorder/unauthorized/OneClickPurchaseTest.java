@@ -27,8 +27,10 @@ public class OneClickPurchaseTest extends BaseSettingsWebTests {
         productCardPage.clickBuyOneClick();
         checkOutPage.setInputOneClickPhoneNumber(propertiesManager.getProperty("phonenumber"));
         checkOutPage.clickBookingButton();//на этом шаге иногда появляется капча
+        cookiePage.reCaptchaKey();
         pageActions.waitPageLoad();
         thankForTheOrderPage.checkSuccessMessage();
+
     }
 
 

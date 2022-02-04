@@ -31,7 +31,7 @@ public class MedicationsPage extends MainTestBase {
     //Методы
 
     @Step("Пользователь нажимает на чекбокс - 'Купить дешевле''")
-    public void clickMedicationsButton() {
+    public void clickBuyCheaper() {
         getCheckboxBuyCheaper().click();
         logger.info("Пользователь нажимает на чекбокс - 'Купить дешевле''");
     }

@@ -15,6 +15,7 @@ public class SelfPickupOrderingTest extends BaseSettingsWebTests {
     @Test
     public void pickup() {
         cookiePage.reCaptchaKey();
+        mainPage.clickClosePopUp();
         mainPage.setSearchInput(propertiesManager.getProperty("productcode1"));
         cartPage.clickBuyButton();
         pageActions.waitPageLoad();
@@ -24,11 +25,14 @@ public class SelfPickupOrderingTest extends BaseSettingsWebTests {
         productCardPage.checkVisibilityMap();
         pageActions.waitPageLoad();
         productCardPage.clickChangeAptekaList();
+        pageActions.waitPageLoad();
         checkOutPage.getAvailabilityAndChooseThisPharmacy();
+        pageActions.waitPageLoad();
         checkOutPage.contactDetails(
                 propertiesManager.getProperty("usermail"),
                 propertiesManager.getProperty("phonenumber"),
                 propertiesManager.getProperty("username"));
+        pageActions.waitPageLoad();
         checkOutPage.clickCheckout();
         pageActions.waitPageLoad();
         thankForTheOrderPage.checkSuccessMessage();

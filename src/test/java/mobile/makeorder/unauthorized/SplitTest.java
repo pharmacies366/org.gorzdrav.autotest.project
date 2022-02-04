@@ -27,8 +27,11 @@ public class SplitTest extends BaseSettingsMobileTests {
         pageActions.waitPageLoad();
         mobileCartPage.clickToCartButton();
         mobileCartPage.clickToMakeOrder();
+        pageActions.waitPageLoad();
         mobileCheckOutPage.clickChangeAptekaList();
+        pageActions.waitPageLoad();
         mobileCheckOutPage.getAvailabilityAndChooseThisPharmacy();
+        pageActions.waitPageLoad();
         mobileCheckOutPage.contactDetails(
                 propertiesManager.getProperty("usermail"),
                 propertiesManager.getProperty("phonenumber"),

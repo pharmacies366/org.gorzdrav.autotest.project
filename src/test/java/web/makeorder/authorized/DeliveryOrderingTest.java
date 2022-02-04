@@ -14,8 +14,8 @@ public class DeliveryOrderingTest extends BaseSettingsWebTests {
     @DisplayName("Оформление заказа доставкой. Авторизованный пользователь")
     @Test
     public void delivery() {
-        cookiePage.reCaptchaKey();
         cookiePage.cookieAuthorization();
+        pageActions.reloadPage();
         cartPage.checkCartQuantity();
         mainPage.setSearchInput(propertiesManager.getProperty("productcode1"));
         pageActions.waitPageLoad();
@@ -25,11 +25,6 @@ public class DeliveryOrderingTest extends BaseSettingsWebTests {
         cartPage.clickToMakeOrder();
         checkOutPage.clickDeliveryMethod();
         checkOutPage.addressDelivery("Сиреневый бульвар 68", "2", "3", "34");
-        pageActions.waitPageLoad();
-        checkOutPage.contactDetails(
-                propertiesManager.getProperty("usermail"),
-                propertiesManager.getProperty("phonenumber"),
-                propertiesManager.getProperty("username"));
         pageActions.waitPageLoad();
         checkOutPage.clickToFinalButton();
         pageActions.waitPageLoad();
@@ -43,3 +38,4 @@ public class DeliveryOrderingTest extends BaseSettingsWebTests {
         cookiePage.deleteAllCookie();
     }
 }
+

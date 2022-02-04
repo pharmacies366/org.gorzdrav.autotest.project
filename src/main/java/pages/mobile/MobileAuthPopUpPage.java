@@ -87,4 +87,5 @@ public class MobileAuthPopUpPage extends MainTestBase {
     public void clickToLoginButton() {
         getLoginButoon().click();
     }
+
 }

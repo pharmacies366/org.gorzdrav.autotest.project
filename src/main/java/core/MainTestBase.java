@@ -41,17 +41,23 @@ public class MainTestBase {
         pageActions = new PageActions(driver);
         driver.get(propertiesManager.getProperty("baseurl"));
         logger.info("Открывается главная страница сайта Горздрав");
+        //driver.manage().deleteAllCookies();
+
     }
 
     @After
     public void finish() {
     driver.close();
     }
-    /**
-     * Повторный запуск тестов при падении
-     */
+
+     //Повторный запуск тестов при падении
+
+/*
     @Rule
     public RetryRule rule = new RetryRule(3);
+*/
+
+
 
     /**
      * Управление действиями, при различных исходах теста

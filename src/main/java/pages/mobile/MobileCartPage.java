@@ -13,9 +13,9 @@ public class MobileCartPage extends MainTestBase {
     private static final String BUY_BUTTON_XPATH = "xpath;//button[contains(@class, \"js-add-to-cart\")]";
     private static final String MAKE_ORDER_XPATH = "xpath;//a[@href='/cart/checkout']";
     private static final String PRODUCT_CARD_XPATH = "xpath;//*[@class='c-prod-item__thumb']";
-    private static final String CLEAR_ALL_FROM_CARD_CSS = "css;.js-cart-clear";
-    private static final String CONFIRM_CLEAN_ALL_CSS = "css;.js-cart-clear-yes";
     private static final String CARD_COUNT_CSS = "css;.js-mini-cart-count";
+    private static final String CLEAR_ALL_FROM_CARD_XPATH = "xpath;//a[@class='js-cart-clear b-item--clean']";
+    private static final String CONFIRM_CLEAN_ALL_XPATH = "xpath;//input[@class='js-cart-clear-yes b-btn i-float-l']";
     private static final String PICKUP_BUTTON_XPATH = "xpath;(//div[contains(@class,'content')])[2]";
 
     //конструктор
@@ -40,20 +40,20 @@ public class MobileCartPage extends MainTestBase {
         return new PageElementActions(PRODUCT_CARD_XPATH, driver);
     }
 
+    public PageElementActions getCartCount() {
+        return new PageElementActions(CARD_COUNT_CSS, driver);
+    }
+
     public PageElementActions getClearAllFromCart() {
-        return new PageElementActions(CLEAR_ALL_FROM_CARD_CSS, driver);
+        return new PageElementActions(CLEAR_ALL_FROM_CARD_XPATH, driver);
     }
 
     public PageElementActions getConfirmCleanAll() {
-        return new PageElementActions(CONFIRM_CLEAN_ALL_CSS, driver);
+        return new PageElementActions(CONFIRM_CLEAN_ALL_XPATH, driver);
     }
 
     public PageElementActions getCartButton() {
         return new PageElementActions(CARD_BUTTON_CSS, driver);
-    }
-
-    public PageElementActions getCartCount() {
-        return new PageElementActions(CARD_COUNT_CSS, driver);
     }
 
     public PageElementActions getPickUpButton() {

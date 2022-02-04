@@ -83,7 +83,7 @@ public class ProductCardPage extends MainTestBase {
 
     @Step("Пользователь вводит адрес - {addres}")
     public void setInputSearchAddres(String addres) {
-        getPharmacyAddressInput().sendKeys(addres);
+        getPharmacyAddressInput().sendKeysAndEnter(addres);
     }
 
     @Step("Пользователь нажимает на кнопку 'Купить в 1 клик'")

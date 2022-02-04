@@ -14,8 +14,8 @@ public class OspProductListTest extends BaseSettingsWebTests {
     @DisplayName("Авторизованный пользователь покупает товар со страниц ОСП")
     @Test
     public void checkOsp() {
-        cookiePage.reCaptchaKey();
         cookiePage.cookieAuthorization();
+        pageActions.reloadPage();
         cartPage.checkCartQuantity();
         mainPage.clickLetterN();
         ospPage.clickProductName();
@@ -23,14 +23,12 @@ public class OspProductListTest extends BaseSettingsWebTests {
         pageActions.waitPageLoad();
         cartPage.clickToCartButton();
         cartPage.clickToMakeOrder();
+        pageActions.waitPageLoad();
         cartPage.clickPickUpButton();
         productCardPage.setInputSearchAddres("метро Автозаводская");
         checkOutPage.clickChangeAptekaList();
         checkOutPage.getAvailabilityAndChooseThisPharmacy();
-        checkOutPage.contactDetails(
-                propertiesManager.getProperty("usermail"),
-                propertiesManager.getProperty("phonenumber"),
-                propertiesManager.getProperty("username"));
+        pageActions.waitPageLoad();
         checkOutPage.clickMakeOrder();
         pageActions.waitPageLoad();
         thankForTheOrderPage.checkSuccessMessage();

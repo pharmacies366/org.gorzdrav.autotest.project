@@ -14,8 +14,7 @@ public class MainPageTest extends BaseSettingsWebTests {
     @DisplayName("Проверка отображения логотипа")
     @Test
     public void checkVisibilityLogoMainPage(){
-        mainPage.getSiteLogo().elementIsVisibility();
-        logger.info("Логотип отображается на сайте");
+        mainPage.checkElementIsCorrect();
     }
 
     @DisplayName("Проверка кликабельности логотипа")

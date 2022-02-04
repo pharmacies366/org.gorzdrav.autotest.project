@@ -15,11 +15,13 @@ public class DeliveryOrderingTest extends BaseSettingsWebTests {
     @Test
     public void delivery() {
         cookiePage.reCaptchaKey();
+        mainPage.clickClosePopUp();
         mainPage.setSearchInput(propertiesManager.getProperty("productcode1"));
         pageActions.waitPageLoad();
         cartPage.clickBuyButton();
         pageActions.waitPageLoad();
         cartPage.clickToCartButton();
+        pageActions.waitPageLoad();
         cartPage.clickToMakeOrder();
         checkOutPage.clickDeliveryMethod();
         checkOutPage.addressDelivery("Сиреневый бульвар 68", "2", "3", "34");
@@ -35,9 +37,11 @@ public class DeliveryOrderingTest extends BaseSettingsWebTests {
                 propertiesManager.getProperty("cardnumber"),
                 propertiesManager.getProperty("monthyear"),
                 propertiesManager.getProperty("cvv"));
+        pageActions.waitPageLoad();
         sberPage.clickOnSubmitButton();
         pageActions.waitPageLoad();
         thankForTheOrderPage.checkPaymentError();
     }
 
 }
+

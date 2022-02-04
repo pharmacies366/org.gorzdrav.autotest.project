@@ -88,6 +88,7 @@ public class WebDriverFactory {
         chromeOptions.setExperimentalOption("mobileEmulation", mobileEmulation);
 
         driver = new ChromeDriver(chromeOptions);
+        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
         return driver;
     }

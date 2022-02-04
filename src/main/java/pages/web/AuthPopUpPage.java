@@ -86,4 +86,5 @@ public class AuthPopUpPage extends MainTestBase {
     public void clickToLoginButton() {
         getLoginButoon().click();
     }
+
 }
