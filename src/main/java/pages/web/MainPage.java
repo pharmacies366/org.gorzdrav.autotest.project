@@ -48,6 +48,12 @@ public class MainPage extends MainTestBase {
         logger.info("Лого отображается");
     }
 
+    @Step("Пользователь нажимает на кнопку Логотипа и переходит на главную страницу сайта")
+    public void clickSiteLogo(){
+        getSiteLogo().click();
+        logger.info("Пользователь нажимает на кнопку Логотипа и переходит на главную страницу сайта");
+    }
+
     @Step("Пользователь вводит артикул товара в поисковую строку - {search}")
     public void setSearchInput(String search) {
         getSearchInput().sendKeys(search);

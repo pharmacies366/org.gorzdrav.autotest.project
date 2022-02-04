@@ -15,12 +15,15 @@ public class DiscountOrderingTest extends BaseSettingsWebTests {
     @DisplayName("Авторизованный пользователь покупает товар по дисконтной цене в 1клик")
     @Test
     public void discount() {
+        mainPage.clickClosePopUp();
         cookiePage.cookieAuthorization();
+        cookiePage.reCaptchaKey();
         pageActions.reloadPage();
         cartPage.checkCartQuantity();
+        pageActions.waitPageLoad();
         mainPage.checkCatalogButton();
         catalogPage.clickMedicationsButton();
-        medicationsPage.clickMedicationsButton();
+        medicationsPage.clickBuyCheaper();
         pageActions.waitPageLoad();
         medicationsPage.clickSomeProduct();
         pageActions.waitPageLoad();
@@ -41,7 +44,6 @@ public class DiscountOrderingTest extends BaseSettingsWebTests {
         checkOutPage.clickBookingButton();
         pageActions.waitPageLoad();
         thankForTheOrderPage.checkSuccessMessage();
-        cookiePage.deleteAllCookie();
 
     }
 

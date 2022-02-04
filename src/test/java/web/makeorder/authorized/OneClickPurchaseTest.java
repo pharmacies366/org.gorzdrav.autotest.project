@@ -14,9 +14,12 @@ public class OneClickPurchaseTest extends BaseSettingsWebTests {
     @DisplayName("Авторизованный пользователь покупает товар в 1клик")
     @Test
     public void oneClick() {
+        mainPage.clickClosePopUp();
         cookiePage.cookieAuthorization();
+        cookiePage.reCaptchaKey();
         pageActions.reloadPage();
         cartPage.checkCartQuantity();
+        pageActions.waitPageLoad();
         mainPage.setSearchInput(propertiesManager.getProperty("productcode1"));
         cartPage.clickProductCard();
         productCardPage.buyOneClick();
@@ -26,11 +29,11 @@ public class OneClickPurchaseTest extends BaseSettingsWebTests {
         productCardPage.getEmptyPlace().click();//делаем клик в пустое место, так как иначе на дальнейшем шаге идёт бесконечная загрузка лоудера
         pageActions.waitPageLoad();
         productCardPage.clickBuyOneClick();
+        pageActions.waitPageLoad();
         checkOutPage.setInputOneClickPhoneNumber(propertiesManager.getProperty("phonenumber"));
         checkOutPage.clickBookingButton();//на этом шаге иногда появляется капча
         pageActions.waitPageLoad();
         thankForTheOrderPage.checkSuccessMessage();
-        cookiePage.deleteAllCookie();
     }
 
 }

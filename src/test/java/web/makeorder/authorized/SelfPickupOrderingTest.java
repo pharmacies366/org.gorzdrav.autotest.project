@@ -14,7 +14,9 @@ public class SelfPickupOrderingTest extends BaseSettingsWebTests {
     @DisplayName("Авторизованный пользователь покупает товар со способом доставки - 'Самовывоз'")
     @Test
     public void pickup() {
+        mainPage.clickClosePopUp();
         cookiePage.cookieAuthorization();
+        cookiePage.reCaptchaKey();
         pageActions.reloadPage();
         cartPage.checkCartQuantity();
         pageActions.waitPageLoad();
@@ -22,18 +24,18 @@ public class SelfPickupOrderingTest extends BaseSettingsWebTests {
         cartPage.clickBuyButton();
         pageActions.waitPageLoad();
         cartPage.clickToCartButton();
+        pageActions.waitPageLoad();
         cartPage.clickMakeOrder();
         checkOutPage.getPharmacyAddressInput().sendKeys("метро Фили");
         productCardPage.checkVisibilityMap();
         pageActions.waitPageLoad();
         productCardPage.clickChangeAptekaList();
+        pageActions.waitPageLoad();
         checkOutPage.getAvailabilityAndChooseThisPharmacy();
         pageActions.waitPageLoad();
         checkOutPage.clickCheckout();
         pageActions.waitPageLoad();
         thankForTheOrderPage.checkSuccessMessage();
-        cookiePage.deleteAllCookie();
-
     }
 
 }

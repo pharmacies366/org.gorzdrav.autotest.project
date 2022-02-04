@@ -14,14 +14,18 @@ public class DeliveryOrderingTest extends BaseSettingsWebTests {
     @DisplayName("Оформление заказа доставкой. Авторизованный пользователь")
     @Test
     public void delivery() {
+        mainPage.clickClosePopUp();
         cookiePage.cookieAuthorization();
+        cookiePage.reCaptchaKey();
         pageActions.reloadPage();
         cartPage.checkCartQuantity();
+        pageActions.waitPageLoad();
         mainPage.setSearchInput(propertiesManager.getProperty("productcode1"));
         pageActions.waitPageLoad();
         cartPage.clickBuyButton();
         pageActions.waitPageLoad();
         cartPage.clickToCartButton();
+        pageActions.waitPageLoad();
         cartPage.clickToMakeOrder();
         checkOutPage.clickDeliveryMethod();
         checkOutPage.addressDelivery("Сиреневый бульвар 68", "2", "3", "34");
@@ -32,10 +36,10 @@ public class DeliveryOrderingTest extends BaseSettingsWebTests {
                 propertiesManager.getProperty("cardnumber"),
                 propertiesManager.getProperty("monthyear"),
                 propertiesManager.getProperty("cvv"));
+        pageActions.waitPageLoad();
         sberPage.clickOnSubmitButton();
         pageActions.waitPageLoad();
         thankForTheOrderPage.checkPaymentError();
-        cookiePage.deleteAllCookie();
     }
 }
 
