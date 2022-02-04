@@ -45,12 +45,14 @@ public class WebDriverFactory {
     @Step("Настройка удаленного драйвера")
     private void setupRemoteDriver() {
         setupMobileDriver();
-/*        logger.info("setup remote driver");
+        DesiredCapabilities capabilities = new DesiredCapabilities();
+        capabilities.setCapability("enableVNC", true);
+        capabilities.setCapability("enableVideo", false);
+    /*    logger.info("setup remote driver");
         String driverURL = System.getProperty("driverurl");
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setBrowserName("chrome");
         capabilities.setVersion("91.0");
-        capabilities.setCapability("platformName", "Android");
         capabilities.setCapability("enableVNC", true);
         capabilities.setCapability("enableVideo", false);
 
