@@ -1,3 +1,4 @@
+/*
 package web.front;
 
 import base.BaseSettingsWebTests;
@@ -34,3 +35,4 @@ public class VariableSampleTest extends BaseSettingsWebTests {
 
 
 
+*/

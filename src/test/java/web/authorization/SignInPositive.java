@@ -1,3 +1,4 @@
+/*
 package web.authorization;
 
 import base.BaseSettingsWebTests;
@@ -51,3 +52,4 @@ public class SignInPositive extends BaseSettingsWebTests {
         mainPage.checkElementIsCorrect();
     }
 }
+*/
