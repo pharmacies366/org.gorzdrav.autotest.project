@@ -44,11 +44,13 @@ public class WebDriverFactory {
 
     @Step("Настройка удаленного драйвера")
     private void setupRemoteDriver() {
-        logger.info("setup remote driver");
+        setupMobileDriver();
+/*        logger.info("setup remote driver");
         String driverURL = System.getProperty("driverurl");
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setBrowserName("chrome");
         capabilities.setVersion("91.0");
+        capabilities.setCapability("platformName", "Android");
         capabilities.setCapability("enableVNC", true);
         capabilities.setCapability("enableVideo", false);
 
@@ -61,7 +63,7 @@ public class WebDriverFactory {
             e.printStackTrace();
         }
         configureDriver();
-        logger.info("ЗАПУЩЕН УДАЛЕННЫЙ ДРАЙВЕР");
+        logger.info("ЗАПУЩЕН УДАЛЕННЫЙ ДРАЙВЕР");*/
     }
 
     @Step("Настройка локального драйвера")
