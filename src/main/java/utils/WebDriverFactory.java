@@ -26,24 +26,19 @@ public class WebDriverFactory {
     @Step("Получение типа драйвера")
     public WebDriver getDriver() {
         DriverType driverType = DriverType.valueOf(System.getProperty("driver").toUpperCase());
+        if (nameOfPackage.contains("mobile")) {
+            getDriver();
+            driver = setupMobileDriver();
+        } else {
             switch (driverType) {
                 case LOCAL:
-                    if (nameOfPackage.contains("mobile")) {
-                        driver = setupMobileDriver();
-                    }
-                    else {
-                        setupLocalDriver();
-                    }
+                    setupLocalDriver();
                     break;
                 case REMOTE:
-                    if (nameOfPackage.contains("mobile")) {
-                        driver = setupRemoteMobileDriver();
-                    }
-                    else {
-                        setupRemoteDriver();
-                    }
+                    setupRemoteDriver();
                     break;
             }
+        }
         return driver;
     }
 
@@ -78,51 +73,14 @@ public class WebDriverFactory {
         logger.info("ЗАПУЩЕН ЛОКАЛЬНЫЙ ДРАЙВЕР");
     }
 
-
     @Step("Конфигурация драйвера")
     private void configureDriver() {
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
     }
 
-
-    @Step("Настройка удаленного мобильного драйвера")
-    private RemoteWebDriver setupRemoteMobileDriver() {
-        logger.info("setup remote mobile driver");
-
-        String driverURL = System.getProperty("driverurl");
-        DesiredCapabilities capabilities = new DesiredCapabilities();
-        capabilities.setBrowserName("chrome");
-        capabilities.setVersion("91.0");
-        capabilities.setCapability("enableVNC", true);
-        capabilities.setCapability("enableVideo", false);
-
-        Map<String, String> mobileEmulation = new HashMap<>();
-        mobileEmulation.put("deviceName", "iPhone X");
-
-        ChromeOptions chromeOptions = new ChromeOptions();
-        chromeOptions.setExperimentalOption("mobileEmulation", mobileEmulation);
-
-        driver = new ChromeDriver(chromeOptions);
-
-        try {
-            driver = new RemoteWebDriver(
-                    URI.create(driverURL).toURL(),
-                    capabilities
-            );
-        } catch (MalformedURLException e) {
-            e.printStackTrace();
-        }
-        configureDriver();
-        logger.info("ЗАПУЩЕН УДАЛЕННЫЙ ДРАЙВЕР");
-
-        return driver;
-    }
-
-
-    @Step("Запуск локального мобильного драйвера")
+    @Step("Запуск мобильного драйвера")
     public RemoteWebDriver setupMobileDriver() {
-
         WebDriverManager.chromedriver().setup();
         Map<String, String> mobileEmulation = new HashMap<>();
         mobileEmulation.put("deviceName", "iPhone X");
