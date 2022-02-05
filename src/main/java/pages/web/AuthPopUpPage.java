@@ -87,4 +87,14 @@ public class AuthPopUpPage extends MainTestBase {
         getLoginButoon().click();
     }
 
+
+    @Step("Пользователь вводит Email, пароль и нажимает войти")
+    public void authorizeWithEmailAndPassword(String email, String password) {
+        setChangeToEmail();
+        getInputEmail().sendKeys(email);
+        getPasswordInput().sendKeys(password);
+        clickToLoginButton();
+    }
+
+
 }

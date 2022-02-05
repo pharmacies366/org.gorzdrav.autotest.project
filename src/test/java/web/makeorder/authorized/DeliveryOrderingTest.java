@@ -14,12 +14,12 @@ public class DeliveryOrderingTest extends BaseSettingsWebTests {
     @DisplayName("Оформление заказа доставкой. Авторизованный пользователь")
     @Test
     public void delivery() {
-        mainPage.clickClosePopUp();
-        cookiePage.cookieAuthorization();
         cookiePage.reCaptchaKey();
-        pageActions.reloadPage();
+        topPanelPage.clickToLoginIcon();
+        authPopUpPage.authorizeWithEmailAndPassword(
+                propertiesManager.getProperty("userauthmail2"),
+                propertiesManager.getProperty("userpass"));
         cartPage.checkCartQuantity();
-        pageActions.waitPageLoad();
         mainPage.setSearchInput(propertiesManager.getProperty("productcode1"));
         pageActions.waitPageLoad();
         cartPage.clickBuyButton();

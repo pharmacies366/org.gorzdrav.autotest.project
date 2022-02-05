@@ -14,10 +14,11 @@ public class OneClickPurchaseTest extends BaseSettingsWebTests {
     @DisplayName("Авторизованный пользователь покупает товар в 1клик")
     @Test
     public void oneClick() {
-        mainPage.clickClosePopUp();
-        cookiePage.cookieAuthorization();
         cookiePage.reCaptchaKey();
-        pageActions.reloadPage();
+        topPanelPage.clickToLoginIcon();
+        authPopUpPage.authorizeWithEmailAndPassword(
+                propertiesManager.getProperty("userauthmail1"),
+                propertiesManager.getProperty("userpass"));
         cartPage.checkCartQuantity();
         pageActions.waitPageLoad();
         mainPage.setSearchInput(propertiesManager.getProperty("productcode1"));

@@ -27,7 +27,6 @@ public class WebDriverFactory {
     public WebDriver getDriver() {
         DriverType driverType = DriverType.valueOf(System.getProperty("driver").toUpperCase());
         if (nameOfPackage.contains("mobile")) {
-            getDriver();
             driver = setupMobileDriver();
         } else {
             switch (driverType) {
