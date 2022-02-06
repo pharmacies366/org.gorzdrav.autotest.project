@@ -20,23 +20,16 @@ public class SelfPickupOrderingTest extends BaseSettingsMobileTests {
         mobileCookiePage.reCaptchaKey();
         pageActions.reloadPage();
         mobileCartPage.checkCartQuantity();
-        pageActions.waitPageLoad();
         mobileMainPage.setSearchInput(propertiesManager.getProperty("productcode1"));
         mobileCartPage.clickBuyButton();
-        pageActions.waitPageLoad();
         mobileCartPage.clickToCartButton();
         mobileCartPage.clickToMakeOrder();
         mobileCheckOutPage.getPharmacyAddressInput().sendKeys("метро Фили");
-        pageActions.waitPageLoad();
         mobileProductCardPage.checkVisibilityMap();
-        pageActions.waitPageLoad();
         mobileCheckOutPage.clickChangeAptekaList();
-        pageActions.waitPageLoad();
         mobileCheckOutPage.getAvailabilityAndChooseThisPharmacy();
-        pageActions.waitPageLoad();
         mobileCheckOutPage.getInputFio().click();//ещё один клик для того чтобы не перекрывалась кнопка "Оформить Заказ"
         mobileCheckOutPage.clickCheckout();
-        pageActions.waitPageLoad();
         mobileThankForTheOrderPage.checkSuccessMessage();
 
     }

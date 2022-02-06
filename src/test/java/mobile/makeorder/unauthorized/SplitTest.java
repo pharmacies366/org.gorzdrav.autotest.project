@@ -17,32 +17,22 @@ public class SplitTest extends BaseSettingsMobileTests {
     public void split() {
         mobileCookiePage.reCaptchaKey();
         mobileMainPage.clickClosePopUp();
-        pageActions.waitPageLoad();
         mobileMainPage.clickCloseMobileAppPopUp();
-        pageActions.waitPageLoad();
         mobileMainPage.setSearchInput(propertiesManager.getProperty("productcode1"));
         mobileCartPage.clickBuyButton();
-        pageActions.waitPageLoad();
         mobileCartPage.clickToCartButton();
         mobileMainPage.setSearchInput(propertiesManager.getProperty("productcode2"));
         mobileCartPage.clickBuyButton();
-        pageActions.waitPageLoad();
         mobileCartPage.clickToCartButton();
-        pageActions.waitPageLoad();
         mobileCartPage.clickToMakeOrder();
-        pageActions.waitPageLoad();
         mobileCheckOutPage.clickChangeAptekaList();
-        pageActions.waitPageLoad();
         mobileCheckOutPage.getAvailabilityAndChooseThisPharmacy();
-        pageActions.waitPageLoad();
         mobileCheckOutPage.contactDetails(
                 propertiesManager.getProperty("usermail"),
                 propertiesManager.getProperty("phonenumber"),
                 propertiesManager.getProperty("username"));
-        pageActions.waitPageLoad();
         mobileCheckOutPage.getInputFio().click();//ещё один клик для того чтобы не перекрывалась кнопка "Оформить Заказ"
         mobileCheckOutPage.clickCheckout();
-        pageActions.waitPageLoad();
         mobileThankForTheOrderPage.checkSuccessMessage();
     }
 

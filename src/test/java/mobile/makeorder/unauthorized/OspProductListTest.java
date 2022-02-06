@@ -16,31 +16,23 @@ public class OspProductListTest extends BaseSettingsMobileTests {
     public void checkOsp() {
         mobileCookiePage.reCaptchaKey();
         mobileMainPage.clickClosePopUp();
-        pageActions.waitPageLoad();
         mobileMainPage.clickCloseMobileAppPopUp();
-        pageActions.waitPageLoad();
         mobileMainPage.clickLetterN();
         mobileOspPage.clickShowAll();
         mobileOspPage.clickProductName();
         mobileOspPage.clickBuyButton();
-        pageActions.waitPageLoad();
         mobileCartPage.clickToCartButton();
-        pageActions.waitPageLoad();
         mobileCartPage.clickToMakeOrder();
         mobileCartPage.clickPickUpButton();
         mobileCheckOutPage.setInputSearchAddres("метро Автозаводская");
-        pageActions.waitPageLoad();
         mobileCheckOutPage.clickChangeAptekaList();
-        pageActions.waitPageLoad();
         mobileCheckOutPage.getAvailabilityAndChooseThisPharmacy();
         mobileCheckOutPage.contactDetails(
                 propertiesManager.getProperty("usermail"),
                 propertiesManager.getProperty("phonenumber"),
                 propertiesManager.getProperty("username"));
-        pageActions.waitPageLoad();
         mobileCheckOutPage.getInputFio().click();//ещё один клик для того чтобы не перекрывалась кнопка "Оформить Заказ"
         mobileCheckOutPage.clickMakeOrder();
-        pageActions.waitPageLoad();
         mobileThankForTheOrderPage.checkSuccessMessage();
 
     }

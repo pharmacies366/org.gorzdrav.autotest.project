@@ -24,7 +24,6 @@ public class SignInPositive extends BaseSettingsMobileTests {
                 propertiesManager.getProperty("userauthcard"),
                 propertiesManager.getProperty("userpass"));
         mobileAuthPopUpPage.clickToLoginButton();
-        pageActions.waitPageLoad();
         mobileMainPage.checkElementIsCorrect();
     }
 
@@ -41,7 +40,6 @@ public class SignInPositive extends BaseSettingsMobileTests {
                 propertiesManager.getProperty("userauthmail"),
                 propertiesManager.getProperty("userpass"));
         mobileAuthPopUpPage.clickToLoginButton();
-        pageActions.waitPageLoad();
         mobileMainPage.checkElementIsCorrect();
     }
 
@@ -55,7 +53,6 @@ public class SignInPositive extends BaseSettingsMobileTests {
         mobileTopPanelPage.clickToLoginIcon();
         mobileAuthPopUpPage.setPhoneNumber(propertiesManager.getProperty("userauthphone"));
         mobileAuthPopUpPage.clickToLoginButton();
-        pageActions.waitPageLoad();
         mobileMainPage.checkElementIsCorrect();
     }
 }

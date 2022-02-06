@@ -20,27 +20,18 @@ public class DiscountOrderingTest extends BaseSettingsWebTests {
         mainPage.checkCatalogButton();
         catalogPage.clickMedicationsButton();
         medicationsPage.clickBuyCheaper();
-        pageActions.waitPageLoad();
         medicationsPage.clickSomeProduct();
-        pageActions.waitPageLoad();
         int usuallyPrice= productCardPage.getPriceValue().formatElementToValue();
         productCardPage.getDiscountPriceButton().clickIndex(3);
-        pageActions.waitPageLoad();
         productCardPage.getAptekaMap().elementIsVisibility();
         int discountPrice = productCardPage.getPriceValue().formatElementToValue();
         Assert.assertTrue(usuallyPrice > discountPrice);
         productCardPage.setInputSearchAddres("метро Автозаводская");
-        pageActions.waitPageLoad();
         productCardPage.clickAptekaList();
-        pageActions.waitPageLoad();
         productCardPage.buyOneClick();
-        pageActions.waitPageLoad();
         productCardPage.clickBuyOneClick();
-        pageActions.waitPageLoad();
         checkOutPage.setInputOneClickPhoneNumber(propertiesManager.getProperty("phonenumber"));
-        pageActions.waitPageLoad();
         checkOutPage.clickBookingButton();
-        pageActions.waitPageLoad();
         thankForTheOrderPage.checkSuccessMessage();
     }
 
