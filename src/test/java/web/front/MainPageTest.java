@@ -1,4 +1,3 @@
-/*
 package web.front;
 
 import base.BaseSettingsWebTests;
@@ -25,4 +24,3 @@ public class MainPageTest extends BaseSettingsWebTests {
         logger.info("Логотип кликабелен");
     }
 }
-*/

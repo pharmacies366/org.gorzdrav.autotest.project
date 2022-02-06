@@ -1,4 +1,3 @@
-/*
 package web.makeorder.authorized;
 
 import base.BaseSettingsWebTests;
@@ -40,4 +39,3 @@ public class SelfPickupOrderingTest extends BaseSettingsWebTests {
     }
 
 }
-*/

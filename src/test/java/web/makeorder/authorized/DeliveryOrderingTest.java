@@ -1,4 +1,3 @@
-/*
 package web.makeorder.authorized;
 
 import base.BaseSettingsWebTests;
@@ -44,4 +43,3 @@ public class DeliveryOrderingTest extends BaseSettingsWebTests {
     }
 }
 
-*/
