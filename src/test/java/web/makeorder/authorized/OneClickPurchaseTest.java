@@ -16,19 +16,29 @@ public class OneClickPurchaseTest extends BaseSettingsWebTests {
     public void oneClick() {
         cookiePage.reCaptchaKey();
         topPanelPage.clickToLoginIcon();
+        pageActions.waitPageLoad();
         authPopUpPage.authorizeWithEmailAndPassword(
                 propertiesManager.getProperty("userauthmail1"),
                 propertiesManager.getProperty("userpass"));
+        pageActions.waitPageLoad();
         cartPage.checkCartQuantity();
+        pageActions.waitPageLoad();
         mainPage.setSearchInput(propertiesManager.getProperty("productcode1"));
+        pageActions.waitPageLoad();
         cartPage.clickProductCard();
+        pageActions.waitPageLoad();
         productCardPage.buyOneClick();
+        pageActions.waitPageLoad();
         productCardPage.checkVisibilityMap();
         productCardPage.setInputSearchAddres("метро Фили");
         productCardPage.getEmptyPlace().click();//делаем клик в пустое место, так как иначе на дальнейшем шаге идёт бесконечная загрузка лоудера
+        pageActions.waitPageLoad();
         productCardPage.clickBuyOneClick();
+        pageActions.waitPageLoad();
         checkOutPage.setInputOneClickPhoneNumber(propertiesManager.getProperty("phonenumber"));
+        pageActions.waitPageLoad();
         checkOutPage.clickBookingButton();//на этом шаге иногда появляется капча
+        pageActions.waitPageLoad();
         thankForTheOrderPage.checkSuccessMessage();
     }
 

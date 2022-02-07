@@ -16,19 +16,26 @@ public class SelfPickupOrderingTest extends BaseSettingsWebTests {
     public void pickup() {
         cookiePage.reCaptchaKey();
         mainPage.clickClosePopUp();
+        pageActions.waitPageLoad();
         mainPage.setSearchInput(propertiesManager.getProperty("productcode1"));
         cartPage.clickBuyButton();
+        pageActions.waitPageLoad();
         cartPage.clickToCartButton();
+        pageActions.waitPageLoad();
         cartPage.clickMakeOrder();
         checkOutPage.getPharmacyAddressInput().sendKeys("метро Фили");
         productCardPage.checkVisibilityMap();
         productCardPage.clickChangeAptekaList();
+        pageActions.waitPageLoad();
         checkOutPage.getAvailabilityAndChooseThisPharmacy();
+        pageActions.waitPageLoad();
         checkOutPage.contactDetails(
                 propertiesManager.getProperty("usermail"),
                 propertiesManager.getProperty("phonenumber"),
                 propertiesManager.getProperty("username"));
+        pageActions.waitPageLoad();
         checkOutPage.clickCheckout();
+        pageActions.waitPageLoad();
         thankForTheOrderPage.checkSuccessMessage();
     }
 
