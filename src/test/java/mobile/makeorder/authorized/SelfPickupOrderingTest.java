@@ -29,6 +29,7 @@ public class SelfPickupOrderingTest extends BaseSettingsMobileTests {
         pageActions.waitPageLoad();
         mobileCartPage.clickToMakeOrder();
         mobileCheckOutPage.getPharmacyAddressInput().sendKeys("метро Фили");
+        pageActions.waitPageLoad();
         mobileProductCardPage.checkVisibilityMap();
         pageActions.waitPageLoad();
         mobileCheckOutPage.clickChangeAptekaList();

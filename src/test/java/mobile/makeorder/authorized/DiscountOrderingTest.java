@@ -48,6 +48,7 @@ public class DiscountOrderingTest extends BaseSettingsMobileTests {
         pageActions.waitPageLoad();
         mobileProductCardPage.checkVisibilityMap();
         mobileProductCardPage.setInputSearchAddres("метро Автозаводская");
+        pageActions.waitPageLoad();
         mobileProductCardPage.clickLupaButton();
         pageActions.waitPageLoad();
         mobileProductCardPage.clickAptekaList();

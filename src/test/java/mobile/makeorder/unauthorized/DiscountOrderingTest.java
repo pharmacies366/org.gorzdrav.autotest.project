@@ -17,27 +17,42 @@ public class DiscountOrderingTest extends BaseSettingsMobileTests {
     public void discount() {
         mobileCookiePage.reCaptchaKey();
         mobileMainPage.clickClosePopUp();
+        pageActions.waitPageLoad();
         mobileMainPage.clickCloseMobileAppPopUp();
+        pageActions.waitPageLoad();
         mobileTopPanelPage.clickBurgerButton();
+        pageActions.waitPageLoad();
         mobileMainPage.checkCatalogButton();//изменить на mobileTopPanelPage
+        pageActions.waitPageLoad();
         mobileCatalogPage.clickMedicationsButton();
+        pageActions.waitPageLoad();
         mobileCatalogPage.allMedicationsPageButton();
+        pageActions.waitPageLoad();
         mobileMedicationsPage.clickFilterButton();
+        pageActions.waitPageLoad();
         mobileMedicationsPage.clickBuyCheaperButtons();
+        pageActions.waitPageLoad();
         mobileMedicationsPage.clickDiscontProduct();
+        pageActions.waitPageLoad();
         int usuallyPrice = mobileProductCardPage.getProductPrice();
         mobileProductCardPage.selectDiscountProduct();
         int discountPrice = mobileProductCardPage.getProductPrice();
         Assert.assertTrue(usuallyPrice > discountPrice);
         logger.info("Выбран дисконтный товар");
         mobileProductCardPage.buyOneClick();
+        pageActions.waitPageLoad();
         mobileProductCardPage.checkVisibilityMap();
         mobileProductCardPage.setInputSearchAddres("метро Автозаводская");
+        pageActions.waitPageLoad();
         mobileProductCardPage.clickLupaButton();
+        pageActions.waitPageLoad();
         mobileProductCardPage.clickAptekaList();
+        pageActions.waitPageLoad();
         mobileProductCardPage.oneClickAptekaButtons();
+        pageActions.waitPageLoad();
         mobileCheckOutPage.setInputOneClickPhoneNumber(propertiesManager.getProperty("phonenumber"));
         mobileCheckOutPage.clickBookingButton();
+        pageActions.waitPageLoad();
         mobileThankForTheOrderPage.checkSuccessMessage();
 
     }

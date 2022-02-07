@@ -38,6 +38,7 @@ public class OspProductListTest extends BaseSettingsMobileTests {
         pageActions.waitPageLoad();
         mobileCartPage.clickPickUpButton();
         mobileCheckOutPage.setInputSearchAddres("метро Автозаводская");
+        pageActions.waitPageLoad();
         mobileCheckOutPage.clickChangeAptekaList();
         pageActions.waitPageLoad();
         mobileCheckOutPage.getAvailabilityAndChooseThisPharmacy();

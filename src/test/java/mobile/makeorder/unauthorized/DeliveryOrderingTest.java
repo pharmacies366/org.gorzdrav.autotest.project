@@ -24,6 +24,7 @@ public class DeliveryOrderingTest extends BaseSettingsMobileTests {
         mobileCheckOutPage.clickDeliveryMethod();
         mobileCheckOutPage.clickDataDetailButton();
         mobileCheckOutPage.addressDelivery("Сиреневый бульвар 68", "2", "3", "34");
+        pageActions.waitPageLoad();
         mobileCheckOutPage.contactDetails(
                 propertiesManager.getProperty("usermail"),
                 propertiesManager.getProperty("phonenumber"),
@@ -34,7 +35,9 @@ public class DeliveryOrderingTest extends BaseSettingsMobileTests {
                 propertiesManager.getProperty("cardnumber"),
                 propertiesManager.getProperty("monthyear"),
                 propertiesManager.getProperty("cvv"));
+        pageActions.waitPageLoad();
         mobileSberPage.clickOnSubmitButton();
+        pageActions.waitPageLoad();
         mobileThankForTheOrderPage.checkPaymentError();
     }
 
