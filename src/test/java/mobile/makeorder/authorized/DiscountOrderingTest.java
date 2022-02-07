@@ -16,53 +16,32 @@ public class DiscountOrderingTest extends BaseSettingsMobileTests {
     @Test
     public void discount() {
         mobileMainPage.clickClosePopUp();
-        pageActions.waitPageLoad();
+        
         mobileMainPage.clickCloseMobileAppPopUp();
         mobileCookiePage.cookieAuthorization();
         mobileCookiePage.reCaptchaKey();
         pageActions.reloadPage();
-        pageActions.waitPageLoad();
         mobileCartPage.checkCartQuantity();
-        pageActions.waitPageLoad();
         mobileTopPanelPage.clickBurgerButton();
-        pageActions.waitPageLoad();
         mobileMainPage.checkCatalogButton();//изменить на mobileTopPanelPage
         mobileCatalogPage.clickMedicationsButton();
-        pageActions.waitPageLoad();
         mobileCatalogPage.allMedicationsPageButton();
-        pageActions.waitPageLoad();
         mobileMedicationsPage.clickFilterButton();
-        pageActions.waitPageLoad();
         mobileMedicationsPage.clickBuyCheaperButtons();
-        pageActions.waitPageLoad();
         mobileMedicationsPage.clickDiscontProduct();
-        pageActions.waitPageLoad();
         int usuallyPrice = mobileProductCardPage.getProductPrice();
-        pageActions.waitPageLoad();
         mobileProductCardPage.selectDiscountProduct();
-        pageActions.waitPageLoad();
         int discountPrice = mobileProductCardPage.getProductPrice();
-        pageActions.waitPageLoad();
         Assert.assertTrue(usuallyPrice > discountPrice);
-        pageActions.waitPageLoad();
         logger.info("Выбран дисконтный товар");
-        pageActions.waitPageLoad();
         mobileProductCardPage.buyOneClick();
-        pageActions.waitPageLoad();
         mobileProductCardPage.checkVisibilityMap();
-        pageActions.waitPageLoad();
         mobileProductCardPage.setInputSearchAddres("метро Автозаводская");
-        pageActions.waitPageLoad();
         mobileProductCardPage.clickLupaButton();
-        pageActions.waitPageLoad();
         mobileProductCardPage.clickAptekaList();
-        pageActions.waitPageLoad();
         mobileProductCardPage.oneClickAptekaButtons();
-        pageActions.waitPageLoad();
         mobileCheckOutPage.setInputOneClickPhoneNumber(propertiesManager.getProperty("phonenumber"));
-        pageActions.waitPageLoad();
         mobileCheckOutPage.clickBookingButton();
-        pageActions.waitPageLoad();
         mobileThankForTheOrderPage.checkSuccessMessage();
 
     }

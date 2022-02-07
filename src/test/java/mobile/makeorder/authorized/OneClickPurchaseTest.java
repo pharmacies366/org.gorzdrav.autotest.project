@@ -15,31 +15,21 @@ public class OneClickPurchaseTest extends BaseSettingsMobileTests {
     @Test
     public void oneClick() {
         mobileMainPage.clickClosePopUp();
-        pageActions.waitPageLoad();
         mobileMainPage.clickCloseMobileAppPopUp();
         mobileCookiePage.cookieAuthorization();
         mobileCookiePage.reCaptchaKey();
         pageActions.reloadPage();
-        pageActions.waitPageLoad();
         mobileCartPage.checkCartQuantity();
-        pageActions.waitPageLoad();
         mobileMainPage.setSearchInput(propertiesManager.getProperty("productcode1"));
         mobileCartPage.clickProductCard();
-        pageActions.waitPageLoad();
         mobileProductCardPage.buyOneClick();
         mobileProductCardPage.setInputSearchAddres("метро Фили");
         mobileProductCardPage.clickLupaButton();
-        pageActions.waitPageLoad();
         mobileProductCardPage.checkVisibilityMap();
-        pageActions.waitPageLoad();
         mobileProductCardPage.clickAptekaList();
-        pageActions.waitPageLoad();
         mobileProductCardPage.oneClickAptekaButtons();
-        pageActions.waitPageLoad();
         mobileCheckOutPage.setInputOneClickPhoneNumber(propertiesManager.getProperty("phonenumber"));
-        pageActions.waitPageLoad();
         mobileCheckOutPage.clickBookingButton();
-        pageActions.waitPageLoad();
         mobileThankForTheOrderPage.checkSuccessMessage();
     }
 

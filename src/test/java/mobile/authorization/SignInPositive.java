@@ -16,7 +16,6 @@ public class SignInPositive extends BaseSettingsMobileTests {
     public void loginUserCardNumber() {
         mobileCookiePage.reCaptchaKey();
         mobileMainPage.clickClosePopUp();
-        pageActions.waitPageLoad();
         mobileMainPage.clickCloseMobileAppPopUp();
         mobileTopPanelPage.clickBurgerButton();
         mobileTopPanelPage.clickToLoginIcon();
@@ -25,7 +24,6 @@ public class SignInPositive extends BaseSettingsMobileTests {
                 propertiesManager.getProperty("userauthcard"),
                 propertiesManager.getProperty("userpass"));
         mobileAuthPopUpPage.clickToLoginButton();
-        pageActions.waitPageLoad();
         mobileMainPage.checkElementIsCorrect();
     }
 
@@ -34,7 +32,6 @@ public class SignInPositive extends BaseSettingsMobileTests {
     public void loginUserEmail() {
         mobileCookiePage.reCaptchaKey();
         mobileMainPage.clickClosePopUp();
-        pageActions.waitPageLoad();
         mobileMainPage.clickCloseMobileAppPopUp();
         mobileTopPanelPage.clickBurgerButton();
         mobileTopPanelPage.clickToLoginIcon();
@@ -43,7 +40,6 @@ public class SignInPositive extends BaseSettingsMobileTests {
                 propertiesManager.getProperty("userauthmail"),
                 propertiesManager.getProperty("userpass"));
         mobileAuthPopUpPage.clickToLoginButton();
-        pageActions.waitPageLoad();
         mobileMainPage.checkElementIsCorrect();
     }
 
@@ -52,13 +48,11 @@ public class SignInPositive extends BaseSettingsMobileTests {
     public void loginUserPhone() {
         mobileCookiePage.reCaptchaKey();
         mobileMainPage.clickClosePopUp();
-        pageActions.waitPageLoad();
         mobileMainPage.clickCloseMobileAppPopUp();
         mobileTopPanelPage.clickBurgerButton();
         mobileTopPanelPage.clickToLoginIcon();
         mobileAuthPopUpPage.setPhoneNumber(propertiesManager.getProperty("userauthphone"));
         mobileAuthPopUpPage.clickToLoginButton();
-        pageActions.waitPageLoad();
         mobileMainPage.checkElementIsCorrect();
     }
 }
