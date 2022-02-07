@@ -8,7 +8,7 @@ import org.junit.Assert;
 import org.junit.Test;
 
 @Feature(value = "Web")
-@Story("Покупка дисконтного товар")
+@Story("Покупка дисконтного товара на сайте Gorzdrav")
 @DisplayName("Оформление дисконтного товара в 1клик")
 public class DiscountOrderingTest extends BaseSettingsWebTests {
 

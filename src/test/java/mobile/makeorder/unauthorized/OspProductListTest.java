@@ -7,7 +7,7 @@ import io.qameta.allure.junit4.DisplayName;
 import org.junit.Test;
 
 @Feature(value = "Мобильная версия")
-@Story("Пользователь покупает товар со страницы ОСП. Мобильная версия")
+@Story("Пользователь покупает товар со страницы ОСП на сайте Gorzdrav")
 @DisplayName("Оформление товара со страниц ОСП. Мобильная версия")
 public class OspProductListTest extends BaseSettingsMobileTests {
 

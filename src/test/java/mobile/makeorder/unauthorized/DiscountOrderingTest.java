@@ -8,7 +8,7 @@ import org.junit.Assert;
 import org.junit.Test;
 
 @Feature(value = "Мобильная версия")
-@Story("Покупка дисконтного товар. Мобильная версия")
+@Story("Покупка дисконтного товара на сайте Gorzdrav")
 @DisplayName("Оформление дисконтного товара в 1клик. Мобильная версия")
 public class DiscountOrderingTest extends BaseSettingsMobileTests {
 

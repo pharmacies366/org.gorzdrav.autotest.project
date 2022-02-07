@@ -7,7 +7,7 @@ import io.qameta.allure.junit4.DisplayName;
 import org.junit.Test;
 
 @Feature(value = "Web")
-@Story("Оформление сплит заказа")
+@Story("Оформление сплит заказа на сайте Gorzdrav")
 @DisplayName("Оформление сплит заказа")
 public class SplitTest extends BaseSettingsWebTests {
 

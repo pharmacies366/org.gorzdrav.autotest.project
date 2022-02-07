@@ -7,7 +7,7 @@ import io.qameta.allure.junit4.DisplayName;
 import org.junit.Test;
 
 @Feature(value = "Web")
-@Story(value = "оформление заказа самовывозом")
+@Story(value = "Оформление заказа самовывозом на сайте Gorzdrav")
 @DisplayName("Оформление заказа самовывозом")
 public class SelfPickupOrderingTest extends BaseSettingsWebTests {
 

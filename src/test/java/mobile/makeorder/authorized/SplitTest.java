@@ -7,7 +7,7 @@ import io.qameta.allure.junit4.DisplayName;
 import org.junit.Test;
 
 @Feature(value = "Мобильная версия")
-@Story("Оформление сплит заказа. Мобильная версия")
+@Story("Оформление сплит заказа на сайте Gorzdrav")
 @DisplayName("Оформление сплит заказа. Мобильная версия")
 public class SplitTest extends BaseSettingsMobileTests {
 

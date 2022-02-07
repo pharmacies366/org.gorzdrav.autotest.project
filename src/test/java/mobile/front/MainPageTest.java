@@ -7,7 +7,7 @@ import io.qameta.allure.junit4.DisplayName;
 import org.junit.Test;
 
 @Feature(value = "Мобильная версия")
-@Story("Проверка главной страницы сайта")
+@Story("Проверка главной страницы на сайте Gorzdrav")
 @DisplayName("Проверка главной страницы")
 public class MainPageTest extends BaseSettingsMobileTests {
 
