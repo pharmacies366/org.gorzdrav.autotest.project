@@ -31,6 +31,7 @@ public class OneClickPurchaseTest extends BaseSettingsWebTests {
         pageActions.waitPageLoad();
         productCardPage.checkVisibilityMap();
         productCardPage.setInputSearchAddres("метро Фили");
+        pageActions.waitPageLoad();
         productCardPage.getEmptyPlace().click();//делаем клик в пустое место, так как иначе на дальнейшем шаге идёт бесконечная загрузка лоудера
         pageActions.waitPageLoad();
         productCardPage.clickBuyOneClick();

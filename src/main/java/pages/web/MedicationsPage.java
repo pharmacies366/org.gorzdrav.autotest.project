@@ -9,7 +9,7 @@ public class MedicationsPage extends MainTestBase {
 
 
     //элементы
-    private static final String CHECKBOX_BUY_CHEAPER_XPATH = "xpath;(//span[contains(@class,'b-custom-input')][1])";
+    private static final String CHECKBOX_BUY_CHEAPER_XPATH = "xpath;(//span[@class='b-trim-str'])[2]";
     private static final String INDEX_INPUT_PRODUCT_XPATH = "xpath;(//img[@class=' lazyloaded'])";
 
 

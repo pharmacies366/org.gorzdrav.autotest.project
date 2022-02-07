@@ -36,7 +36,10 @@ public class DiscountOrderingTest extends BaseSettingsMobileTests {
         mobileMedicationsPage.clickBuyCheaperButtons();
         pageActions.waitPageLoad();
         mobileMedicationsPage.clickDiscontProduct();
+        pageActions.waitPageLoad();
         int usuallyPrice = mobileProductCardPage.getProductPrice();
+        pageActions.waitPageLoad();
+        mobileProductCardPage.selectDiscountProduct();
         pageActions.waitPageLoad();
         int discountPrice = mobileProductCardPage.getProductPrice();
         pageActions.waitPageLoad();
@@ -47,6 +50,7 @@ public class DiscountOrderingTest extends BaseSettingsMobileTests {
         mobileProductCardPage.buyOneClick();
         pageActions.waitPageLoad();
         mobileProductCardPage.checkVisibilityMap();
+        pageActions.waitPageLoad();
         mobileProductCardPage.setInputSearchAddres("метро Автозаводская");
         pageActions.waitPageLoad();
         mobileProductCardPage.clickLupaButton();
@@ -56,6 +60,7 @@ public class DiscountOrderingTest extends BaseSettingsMobileTests {
         mobileProductCardPage.oneClickAptekaButtons();
         pageActions.waitPageLoad();
         mobileCheckOutPage.setInputOneClickPhoneNumber(propertiesManager.getProperty("phonenumber"));
+        pageActions.waitPageLoad();
         mobileCheckOutPage.clickBookingButton();
         pageActions.waitPageLoad();
         mobileThankForTheOrderPage.checkSuccessMessage();

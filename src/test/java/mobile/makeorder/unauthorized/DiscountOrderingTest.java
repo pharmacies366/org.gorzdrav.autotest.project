@@ -36,6 +36,7 @@ public class DiscountOrderingTest extends BaseSettingsMobileTests {
         pageActions.waitPageLoad();
         int usuallyPrice = mobileProductCardPage.getProductPrice();
         mobileProductCardPage.selectDiscountProduct();
+        pageActions.waitPageLoad();
         int discountPrice = mobileProductCardPage.getProductPrice();
         Assert.assertTrue(usuallyPrice > discountPrice);
         logger.info("Выбран дисконтный товар");
