@@ -15,13 +15,10 @@ public class DiscountOrderingTest extends BaseSettingsWebTests {
     @DisplayName("Авторизованный пользователь покупает товар по дисконтной цене в 1клик")
     @Test
     public void discount() {
+        mainPage.clickClosePopUp();
+        cookiePage.cookieAuthorization();
         cookiePage.reCaptchaKey();
-        topPanelPage.clickToLoginIcon();
-        pageActions.waitPageLoad();
-        authPopUpPage.authorizeWithEmailAndPassword(
-                propertiesManager.getProperty("userauthmail3"),
-                propertiesManager.getProperty("userpass"));
-        pageActions.waitPageLoad();
+        pageActions.reloadPage();
         cartPage.checkCartQuantity();
         pageActions.waitPageLoad();
         mainPage.checkCatalogButton();

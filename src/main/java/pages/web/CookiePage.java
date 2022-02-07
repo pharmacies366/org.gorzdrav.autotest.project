@@ -24,10 +24,20 @@ public class CookiePage extends MainTestBase {
         logger.info("ПРОИЗОШЛА АВТОРИЗАЦИЯ ПОЛЬЗОВАТЕЛЯ ЧЕРЕЗ COOKIE");
 
 
-        // S1
+ /*       // S1
         driver.manage().addCookie(new Cookie("acceleratorSecureGUID", "91dfbff30a7d6812d033e327a61bd49d6bc8f653"));
         driver.manage().addCookie(new Cookie("avestorefrontRememberMe", "W2dvcnpkcmF2XTkzMTM2MDA5NDE6MTY0NjQ3Njc5NDE0MToyNjUyOTFlZGNkNDZiZjk2MzNmY2EzYzk5MDU3NTMzZQ"));
         driver.manage().addCookie(new Cookie("ROUTE", ".accstorefront-569ff799ff-f47jh"));
+
+    }
+    public void reCaptchaKey(){
+        driver.manage().addCookie(new Cookie("acceleratorSecureGUID", "23b3b99c12da43c02b8967f11d0f9dff2516fcbe"));
+    }*/
+
+        // P1
+        driver.manage().addCookie(new Cookie("acceleratorSecureGUID", "e47c8beb8d2e41bfb0762da44e297471ff85e970"));
+        driver.manage().addCookie(new Cookie("avestorefrontRememberMe", "W2dvcnpkcmF2XTkzMTM2MDA5NDE6MTY0NjgzOTYwMDYzMToyMjk4NDMzMDNmMmMwYjE3NGUwYjQ3MGRkNWEyNGU3MA"));
+        driver.manage().addCookie(new Cookie("ROUTE", ".accstorefront-5f97bcbc9d-8xqc9"));
 
     }
     public void reCaptchaKey(){
