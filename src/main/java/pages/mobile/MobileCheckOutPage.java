@@ -29,6 +29,7 @@ public class MobileCheckOutPage extends MainTestBase {
     private static final String CHECKOUT_BUTTON_XPATH = "xpath;//button[contains(.,'Оформить заказ')]";
     private static final String AVAILABILITY_XPATH = "xpath;(//a[contains(@class,'b-btn b-btn--outline js-store-choose')])[1]";
     private static final String CHOOSE_THIS_PHARMACY_XPATH = "xpath;(//a[contains(@class,'b-btn b-btn--outline js-store-choose')])[1]";
+    private static final String PICKUP_BUTTON_XPATH = "xpath;(//div[contains(@class,'content')])[2]";
 
 
     //конструктор
@@ -91,6 +92,10 @@ public class MobileCheckOutPage extends MainTestBase {
 
     public PageElementActions getInputFio() {
         return new PageElementActions(INPUT_FIO_XPATH, driver);
+    }
+
+    public PageElementActions getPickUpButton() {
+        return new PageElementActions(PICKUP_BUTTON_XPATH, driver);
     }
 
     //Методы
@@ -166,5 +171,11 @@ public class MobileCheckOutPage extends MainTestBase {
         getCheckoutButton().click();
         logger.info("Пользователь нажимает на кнопку 'Забронировать'");
     }
+    @Step("Пользователь выбирает способ доставки 'Самовывоз'")
+    public void clickPickUpButton() {
+        getPickUpButton().click();
+        logger.info("Пользователь выбирает способ доставки 'Самовывоз'");
+    }
+
 
 }

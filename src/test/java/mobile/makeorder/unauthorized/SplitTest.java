@@ -20,7 +20,7 @@ public class SplitTest extends BaseSettingsMobileTests {
         mobileMainPage.clickCloseMobileAppPopUp();
         mobileMainPage.setSearchInput(propertiesManager.getProperty("productcode1"));
         mobileCartPage.clickBuyButton();
-        mobileCartPage.clickToCartButton();
+        mobileMainPage.clickSiteLogo();
         mobileMainPage.setSearchInput(propertiesManager.getProperty("productcode2"));
         mobileCartPage.clickBuyButton();
         mobileCartPage.clickToCartButton();
