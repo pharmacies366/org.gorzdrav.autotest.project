@@ -9,7 +9,8 @@ public class MobileMainPage extends MainTestBase {
 
     //элементы
     private static final String SITE_LOGO_XPATH = "xpath;//img[@alt='ГЗ лого.svg']";
-    private static final String SEARCH_INPUT_XPATH = "xpath;//a[contains(.,'Поиск')]";
+    private static final String SEARCH_INPUT_CLICK_XPATH = "xpath;//input[@class='b-search__input']";
+    private static final String SEARCH_INPUT_SENDKEYS_XPATH = "xpath;//input[@id='js-site-search-input']";
     private static final String LETTER_N_XPATH = "xpath;//*[@href=\"/littera-Н/\"]";
     private static final String CATALOG_XPATH = "xpath;(//a[contains(.,'Каталог')])[1]";
     private static final String POP_UP_BUTTON_XPATH = "xpath;//button[contains(.,'Спасибо, понятно')]";
@@ -25,8 +26,12 @@ public class MobileMainPage extends MainTestBase {
         return new PageElementActions(SITE_LOGO_XPATH, driver);
     }
 
-    public PageElementActions getSearchInput() {
-        return new PageElementActions(SEARCH_INPUT_XPATH, driver);
+    public PageElementActions getSearchInputClick() {
+        return new PageElementActions(SEARCH_INPUT_CLICK_XPATH, driver);
+    }
+
+    public PageElementActions getSearchInputSendKeys() {
+        return new PageElementActions(SEARCH_INPUT_SENDKEYS_XPATH, driver);
     }
 
     public PageElementActions getLetterN() {
@@ -73,7 +78,8 @@ public class MobileMainPage extends MainTestBase {
 
     @Step("Пользователь вводит артикул товара в поисковую строку - {search}")
     public void setSearchInput(String search) {
-        getSearchInput().clickAndSendKeys(search);
+        getSearchInputClick().click();
+        getSearchInputSendKeys().clickAndSendKeys(search);
         logger.info("Пользователь вводит артикул товара в поисковую строку");
     }
 

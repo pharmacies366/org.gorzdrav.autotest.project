@@ -25,7 +25,8 @@ public class OspProductListTest extends BaseSettingsWebTests {
         ospPage.clickBuyButton();
         cartPage.clickToCartButton();
         cartPage.clickToMakeOrder();
-        productCardPage.setInputSearchAddres("метро Автозаводская");
+        checkOutPage.clickPickUpButton();
+        checkOutPage.sendAddressPickUp("метро Автозаводская");
         checkOutPage.clickChangeAptekaList();
         checkOutPage.getAvailabilityAndChooseThisPharmacy();
         checkOutPage.clickMakeOrder();

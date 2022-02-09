@@ -5,7 +5,7 @@ import core.MainTestBase;
 import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
 
-public class CheckOutPage extends MainTestBase{
+public class CheckOutPage extends MainTestBase {
 
     //элементы
     private static final String PHARMACY_ADDRESS_INPUT_XPATH = "xpath;//input[@name='q']";
@@ -25,8 +25,10 @@ public class CheckOutPage extends MainTestBase{
     private static final String MAKE_ORDER_BUTTON_CSS = "css;.js-checkout--mixed__contacts";
     private static final String BOOKING_BUTTON_XPATH = "xpath;//input[@value='Забронировать']";
     private static final String CHECKOUT_BUTTON_XPATH = "xpath;//button[contains(.,'Оформить заказ')]";
-    private static final String AVAILABILITY_XPATH= "xpath;(//a[@class='b-btn b-btn--outline js-store-choose'])[1]";
+    private static final String AVAILABILITY_XPATH = "xpath;(//a[@class='b-btn b-btn--outline js-store-choose'])[1]";
     private static final String CHOOSE_THIS_PHARMACY_XPATH = "xpath;(//a[@class='b-btn b-btn--outline js-store-choose'])[1]";
+    private static final String APTEKA_MAP_XPATH = "xpath;//*[@id='store-finder-map']";
+    private static final String PICKUP_BUTTON_XPATH = "xpath;(//div[contains(@class,'content')])[2]";
 
     //конструктор
     public CheckOutPage(WebDriver driver) {
@@ -78,9 +80,19 @@ public class CheckOutPage extends MainTestBase{
         return new PageElementActions(AVAILABILITY_XPATH, driver);
     }
 
+
     public PageElementActions getChooseThisPharmacy() {
         return new PageElementActions(CHOOSE_THIS_PHARMACY_XPATH, driver);
     }
+
+    public PageElementActions getAptekaMap() {
+        return new PageElementActions(APTEKA_MAP_XPATH, driver);
+    }
+
+    public PageElementActions getPickUpButton() {
+        return new PageElementActions(PICKUP_BUTTON_XPATH, driver);
+    }
+
 
     //Методы
     @Step("Заполнение данных адреса доставки")
@@ -89,6 +101,17 @@ public class CheckOutPage extends MainTestBase{
         getBaseInputDelivery(String.format(BASE_INPUT_DELIVERY_XPATH, Entrance)).sendKeys(entrance);
         getBaseInputDelivery(String.format(BASE_INPUT_DELIVERY_XPATH, Level)).sendKeys(level);
         getBaseInputDelivery(String.format(BASE_INPUT_DELIVERY_XPATH, Flat)).sendKeys(flat);
+    }
+
+    @Step("Пользователь выбирает способ доставки 'Самовывоз'")
+    public void clickPickUpButton() {
+        getPickUpButton().click();
+        logger.info("Пользователь выбирает способ доставки 'Самовывоз'");
+    }
+
+    @Step("Заполнение данных адреса самовывоза")
+    public void sendAddressPickUp(String address) {
+        getPharmacyAddressInput().sendKeysAndEnter(address);
     }
 
     @Step("Пользователь заполняет контактные данные")
@@ -117,26 +140,26 @@ public class CheckOutPage extends MainTestBase{
     }
 
     @Step("Пользователь нажимает на кнопку 'Забронировать'")
-    public void clickBookingButton(){
+    public void clickBookingButton() {
         getBookingButton().click();
         logger.info("Пользователь нажимает на кнопку 'Забронировать'");
     }
 
     @Step("Пользователь нажимает на кнопку 'Сделать заказ'")
-    public void clickMakeOrder(){
+    public void clickMakeOrder() {
         getMakeOrderButton().click();
         logger.info("Пользователь нажимает на кнопку 'Сделать заказ'");
     }
 
     @Step("Пользователь нажимает на кнопки 'Узнать о наличии' и 'Выбрать эту аптеку'")
-    public void getAvailabilityAndChooseThisPharmacy(){
+    public void getAvailabilityAndChooseThisPharmacy() {
         getAvailability().click();
         getChooseThisPharmacy().click();
         logger.info("Пользователь нажимает на кнопки 'Узнать о наличии' и 'Выбрать эту аптеку'");
     }
 
     @Step("Пользователь нажимает на кнопку 'Оформить заказ'")
-    public void clickCheckout(){
+    public void clickCheckout() {
         getCheckoutButton().click();
         logger.info("Пользователь нажимает на кнопку 'Оформить заказ'");
     }
@@ -145,6 +168,12 @@ public class CheckOutPage extends MainTestBase{
     public void clickChangeAptekaList() {
         getChangeAptekaList().click();
         logger.info("Пользователь нажимает на список доступных Аптек");
+    }
+
+    @Step("Пользователь проверяет отображении карты на странице")
+    public void checkVisibilityMap() {
+        getAptekaMap().elementIsVisibility();
+        logger.info("Пользователь проверяет отображении карты на странице");
     }
 
 }

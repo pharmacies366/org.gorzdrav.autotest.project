@@ -20,9 +20,10 @@ public class SelfPickupOrderingTest extends BaseSettingsWebTests {
         cartPage.clickBuyButton();
         cartPage.clickToCartButton();
         cartPage.clickMakeOrder();
-        checkOutPage.getPharmacyAddressInput().sendKeys("метро Фили");
-        productCardPage.checkVisibilityMap();
-        productCardPage.clickChangeAptekaList();
+        checkOutPage.clickPickUpButton();
+        checkOutPage.sendAddressPickUp("метро Фили");
+        checkOutPage.checkVisibilityMap();
+        checkOutPage.clickChangeAptekaList();
         checkOutPage.getAvailabilityAndChooseThisPharmacy();
         checkOutPage.contactDetails(
                 propertiesManager.getProperty("usermail"),

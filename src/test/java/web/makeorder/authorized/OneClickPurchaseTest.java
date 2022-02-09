@@ -23,11 +23,10 @@ public class OneClickPurchaseTest extends BaseSettingsWebTests {
         cartPage.clickProductCard();
         productCardPage.buyOneClick();
         productCardPage.checkVisibilityMap();
-        productCardPage.setInputSearchAddres("метро Фили");
-        productCardPage.getEmptyPlace().click();//делаем клик в пустое место, так как иначе на дальнейшем шаге идёт бесконечная загрузка лоудера
+        productCardPage.setInputSearchAddres("москва");
         productCardPage.clickBuyOneClick();
         checkOutPage.setInputOneClickPhoneNumber(propertiesManager.getProperty("phonenumber"));
-        checkOutPage.clickBookingButton();//на этом шаге иногда появляется капча
+        checkOutPage.clickBookingButton();
         thankForTheOrderPage.checkSuccessMessage();
     }
 

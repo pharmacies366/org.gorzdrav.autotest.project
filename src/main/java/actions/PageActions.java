@@ -61,6 +61,7 @@ public class PageActions extends MainTestBase {
         driver.findElement(By.xpath("//*[text()='" + text + "']")).isDisplayed();
     }
 
+
     //Ожидание загрузки на странице Javascript
     public void waitPageLoad() {
 

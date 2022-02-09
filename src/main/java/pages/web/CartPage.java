@@ -12,7 +12,7 @@ public class CartPage extends MainTestBase {
     private static final String CARD_BUTTON_CSS = "css;.c-mini-cart__icon";
     private static final String BUY_BUTTON_XPATH = "xpath;//button[contains(@class, \"js-add-to-cart\")]";
     private static final String MAKE_ORDER_XPATH = "xpath;//a[@href='/cart/checkout']";
-    private static final String PRODUCT_CARD_XPATH = "xpath;//*[@class='c-prod-item__thumb']";
+    private static final String PRODUCT_CARD_XPATH = "xpath;//div[contains(@class,'c-prod-item__title')]";
     private static final String CLEAR_ALL_FROM_CARD_XPATH = "xpath;//a[@class='js-cart-clear b-item--clean']";
     private static final String CONFIRM_CLEAN_ALL_XPATH = "xpath;//input[@class='js-cart-clear-yes b-btn i-float-l']";
     private static final String CARD_COUNT_CSS = "css;.js-mini-cart-count";
@@ -59,6 +59,8 @@ public class CartPage extends MainTestBase {
     public PageElementActions getPickUpButton() {
         return new PageElementActions(PICKUP_BUTTON_XPATH, driver);
     }
+
+
 
     //Методы
     @Step("Проверка состояния корзины: Если корзина не пустая, удаляем все содержимое")
