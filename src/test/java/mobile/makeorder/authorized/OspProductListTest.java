@@ -16,9 +16,12 @@ public class OspProductListTest extends BaseSettingsMobileTests {
     public void checkOsp() {
         mobileMainPage.clickClosePopUp();
         mobileMainPage.clickCloseMobileAppPopUp();
-        mobileCookiePage.cookieAuthorization();
+        mobileTopPanelPage.clickBurgerButton();
+        mobileTopPanelPage.clickToLoginIcon();
         mobileCookiePage.reCaptchaKey();
-        pageActions.reloadPage();
+        mobileAuthPopUpPage.authorizeWithEmailAndPassword(
+                propertiesManager.getProperty("mobileuserauthmail4"),
+                propertiesManager.getProperty("userpass"));
         mobileCartPage.checkCartQuantity();
         mobileMainPage.clickSiteLogo();
         mobileMainPage.clickLetterN();

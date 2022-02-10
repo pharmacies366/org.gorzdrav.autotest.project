@@ -16,11 +16,13 @@ public class DiscountOrderingTest extends BaseSettingsMobileTests {
     @Test
     public void discount() {
         mobileMainPage.clickClosePopUp();
-        
         mobileMainPage.clickCloseMobileAppPopUp();
-        mobileCookiePage.cookieAuthorization();
+        mobileTopPanelPage.clickBurgerButton();
+        mobileTopPanelPage.clickToLoginIcon();
         mobileCookiePage.reCaptchaKey();
-        pageActions.reloadPage();
+        mobileAuthPopUpPage.authorizeWithEmailAndPassword(
+                propertiesManager.getProperty("mobileuserauthmail2"),
+                propertiesManager.getProperty("userpass"));
         mobileCartPage.checkCartQuantity();
         mobileTopPanelPage.clickBurgerButton();
         mobileMainPage.checkCatalogButton();//изменить на mobileTopPanelPage
@@ -41,6 +43,7 @@ public class DiscountOrderingTest extends BaseSettingsMobileTests {
         mobileProductCardPage.clickAptekaList();
         mobileProductCardPage.oneClickAptekaButtons();
         mobileCheckOutPage.setInputOneClickPhoneNumber(propertiesManager.getProperty("phonenumber"));
+        mobileCookiePage.reCaptchaKey();
         mobileCheckOutPage.clickBookingButton();
         mobileThankForTheOrderPage.checkSuccessMessage();
 

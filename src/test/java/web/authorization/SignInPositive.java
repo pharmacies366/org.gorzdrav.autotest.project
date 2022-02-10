@@ -18,7 +18,7 @@ public class SignInPositive extends BaseSettingsWebTests {
         topPanelPage.clickToLoginIcon();
         authPopUpPage.setChangeToCardNumber();
         authPopUpPage.setCardNumberAandPassword(
-                propertiesManager.getProperty("userauthcard"),
+                propertiesManager.getProperty("bonuscard1"),
                 propertiesManager.getProperty("userpass"));
         authPopUpPage.clickToLoginButton();
         pageActions.waitPageLoad();
@@ -32,7 +32,7 @@ public class SignInPositive extends BaseSettingsWebTests {
         topPanelPage.clickToLoginIcon();
         authPopUpPage.setChangeToEmail();
         authPopUpPage.setEmailAndPassword(
-                propertiesManager.getProperty("userauthmail"),
+                propertiesManager.getProperty("userauthmail1"),
                 propertiesManager.getProperty("userpass"));
         authPopUpPage.clickToLoginButton();
         pageActions.waitPageLoad();
@@ -45,7 +45,7 @@ public class SignInPositive extends BaseSettingsWebTests {
         cookiePage.reCaptchaKey();
         topPanelPage.clickToLoginIcon();
         authPopUpPage.getPhoneNumberInput().click();
-        authPopUpPage.setPhoneNumber(propertiesManager.getProperty("userauthphone"));
+        authPopUpPage.setPhoneNumber(propertiesManager.getProperty("phonenumber1"));
         authPopUpPage.clickToLoginButton();
         pageActions.waitPageLoad();
         mainPage.checkElementIsCorrect();

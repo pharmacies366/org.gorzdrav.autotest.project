@@ -16,9 +16,11 @@ public class DiscountOrderingTest extends BaseSettingsWebTests {
     @Test
     public void discount() {
         mainPage.clickClosePopUp();
-        cookiePage.cookieAuthorization();
+        topPanelPage.clickToLoginIcon();
         cookiePage.reCaptchaKey();
-        pageActions.reloadPage();
+        authPopUpPage.authorizeWithEmailAndPassword(
+                propertiesManager.getProperty("userauthmail2"),
+                propertiesManager.getProperty("userpass"));
         cartPage.checkCartQuantity();
         mainPage.checkCatalogButton();
         catalogPage.clickMedicationsButton();
@@ -34,9 +36,9 @@ public class DiscountOrderingTest extends BaseSettingsWebTests {
         productCardPage.buyOneClick();
         productCardPage.clickBuyOneClick();
         checkOutPage.setInputOneClickPhoneNumber(propertiesManager.getProperty("phonenumber"));
+        cookiePage.reCaptchaKey();
         checkOutPage.clickBookingButton();
-       // pageActions.waitPageLoad();
-        //thankForTheOrderPage.checkSuccessMessage();
+        thankForTheOrderPage.checkSuccessMessage();
 
     }
 
