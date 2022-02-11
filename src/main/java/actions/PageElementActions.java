@@ -35,6 +35,16 @@ public class PageElementActions extends MainTestBase {
         pageActions.waitPageLoad();
     }
 
+    //Двойной клик по элементу
+    public void doubleClick() {
+        this.moveToElement();
+        Actions actions = new Actions(driver);
+        actions.moveToElement(waitUntilElementToBeClickable(getBySelector(element), DEFAULT_ELEMENT_WAIT_TIME_S)).doubleClick().perform();
+        saveAllureScreenshot();
+        pageActions.waitPageLoad();
+    }
+
+
 
     //Клик по индексу элемента
     public void clickIndex(int number) {
