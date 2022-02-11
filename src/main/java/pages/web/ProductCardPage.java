@@ -20,6 +20,7 @@ public class ProductCardPage extends MainTestBase {
     private static final String ADD_TO_CARD_BUTTON_XPATH = "xpath;//button[@data-gtm-source='details']";
     private static final String APTEKA_MAP_XPATH = "xpath;//*[@id='store-finder-map']";
     private static final String EMPTY_PLACE_XPATH = "xpath;//main[contains(@data-currency-iso-code,'RUB')]";
+    private static final String SCALE_DOWN_BUTTON_XPATH = "xpath;//div[@id='zoom-out']";
 
 
     //конструктор
@@ -72,6 +73,10 @@ public class ProductCardPage extends MainTestBase {
         return new PageElementActions(EMPTY_PLACE_XPATH, driver);
     }
 
+    public PageElementActions getScaleDownButton() {
+        return new PageElementActions(SCALE_DOWN_BUTTON_XPATH, driver);
+    }
+
 
     //Методы
 
@@ -121,6 +126,12 @@ public class ProductCardPage extends MainTestBase {
         int price = getPriceLable().formatElementToValue();
         logger.info("Запоминаем цену товара");
         return price;
+    }
+
+    @Step("Пользователь уменьшает маштаб карты в 2 раза")
+    public void scaleDownMap() {
+        getScaleDownButton().doubleClick();
+        logger.info("Пользователь уменьшает маштаб карты в 2 раза");
     }
 
 }
