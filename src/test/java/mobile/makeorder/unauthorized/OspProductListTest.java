@@ -32,8 +32,8 @@ public class OspProductListTest extends BaseSettingsMobileTests {
                 propertiesManager.getProperty("phonenumber"),
                 propertiesManager.getProperty("username"));
         mobileCheckOutPage.getInputFio().click();//ещё один клик для того чтобы не перекрывалась кнопка "Оформить Заказ"
-        mobileCheckOutPage.clickMakeOrder();
-        mobileThankForTheOrderPage.checkSuccessMessage();
+     //   mobileCheckOutPage.clickMakeOrder();
+     //   mobileThankForTheOrderPage.checkSuccessMessage();
 
     }
 }

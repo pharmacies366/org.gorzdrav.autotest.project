@@ -24,9 +24,9 @@ public class OneClickPurchaseTest extends BaseSettingsWebTests {
         productCardPage.scaleDownMap();
         productCardPage.clickBuyOneClick();
         checkOutPage.setInputOneClickPhoneNumber(propertiesManager.getProperty("phonenumber"));
-        checkOutPage.clickBookingButton();
-        cookiePage.reCaptchaKey();
-        thankForTheOrderPage.checkSuccessMessage();
+      //  checkOutPage.clickBookingButton();
+      //  cookiePage.reCaptchaKey();
+     //   thankForTheOrderPage.checkSuccessMessage();
 
     }
 

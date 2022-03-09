@@ -30,8 +30,8 @@ public class SelfPickupOrderingTest extends BaseSettingsWebTests {
         checkOutPage.checkVisibilityMap();
         checkOutPage.clickChangeAptekaList();
         checkOutPage.getAvailabilityAndChooseThisPharmacy();
-        checkOutPage.clickCheckout();
-        thankForTheOrderPage.checkSuccessMessage();
+      //  checkOutPage.clickCheckout();
+      //  thankForTheOrderPage.checkSuccessMessage();
     }
 
 }

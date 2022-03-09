@@ -1,3 +1,4 @@
+/*
 package mobile.makeorder.unauthorized;
 
 import base.BaseSettingsMobileTests;
@@ -40,3 +41,4 @@ public class DeliveryOrderingTest extends BaseSettingsMobileTests {
 
 }
 
+*/

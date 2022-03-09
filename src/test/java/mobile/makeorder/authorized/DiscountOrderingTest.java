@@ -44,8 +44,8 @@ public class DiscountOrderingTest extends BaseSettingsMobileTests {
         mobileProductCardPage.oneClickAptekaButtons();
         mobileCheckOutPage.setInputOneClickPhoneNumber(propertiesManager.getProperty("phonenumber"));
         mobileCookiePage.reCaptchaKey();
-        mobileCheckOutPage.clickBookingButton();
-        mobileThankForTheOrderPage.checkSuccessMessage();
+      //  mobileCheckOutPage.clickBookingButton();
+      //  mobileThankForTheOrderPage.checkSuccessMessage();
 
     }
 
