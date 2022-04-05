@@ -19,11 +19,15 @@ public class VariableSampleTest extends BaseSettingsMobileTests {
         mobileMainPage.clickCloseMobileAppPopUp();
         openUrl(propertiesManager.getProperty("baseurl") + "p/29992");
         mobileProductCardPage.clickToCartButton();
+        pageActions.waitPageLoad();
         int firstPrice = mobileProductCardPage.getProductPrice();
         openUrl(propertiesManager.getProperty("baseurl") + "p/33090");
+        pageActions.waitPageLoad();
         mobileProductCardPage.clickToCartButton();
+        pageActions.waitPageLoad();
         int secondPrice = mobileProductCardPage.getProductPrice();
         openUrl(propertiesManager.getProperty("baseurl") + "cart");
+        pageActions.waitPageLoad();
         int totalPrice = mobileCartPage.getPriceTotal();
         Assert.assertEquals(firstPrice + secondPrice,totalPrice);
     }
