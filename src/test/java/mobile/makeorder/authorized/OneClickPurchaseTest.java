@@ -32,8 +32,8 @@ public class OneClickPurchaseTest extends BaseSettingsMobileTests {
         mobileProductCardPage.clickAptekaList();
         mobileProductCardPage.oneClickAptekaButtons();
         mobileCheckOutPage.setInputOneClickPhoneNumber(propertiesManager.getProperty("phonenumber"));
-      //  mobileCheckOutPage.clickBookingButton();
-      //  mobileThankForTheOrderPage.checkSuccessMessage();
+        //  mobileCheckOutPage.clickBookingButton();
+        //  mobileThankForTheOrderPage.checkSuccessMessage();
     }
 
 

@@ -16,8 +16,7 @@ public class MobileProductCardPage extends MainTestBase {
     private static final String ONE_CKICK_CSS = "css;.js-order-quick-navigate";
     private static final String LUPA_BUTTON_CARD_XPATH = "xpath;//*[@class='b-search js-store-finder-search__form']//*[contains(@class, 'b-search__buttons')]";
     private static final String ONE_CKICK_APTEKA_BUTTONS_XPATH = "xpath;(//button[contains(.,'Купить в 1 клик')])";
-    // private static final String ADD_TO_CARD_BUTTON_XPATH = "xpath;//button[@data-gtm-source='details']";
-    private static final String ADD_TO_CARD_BUTTON_XPATH = "xpath;(//button[@type='submit'])[2]";
+    private static final String ADD_TO_CARD_BUTTON_XPATH = "xpath;//button[@data-gtm-source='details']";
     private static final String APTEKA_LIST_BUTTON_XPATH = "xpath;//span[contains(.,'Списком')]";
     private static final String APTEKA_MAP_XPATH = "xpath;//*[@id='store-finder-map']";
 

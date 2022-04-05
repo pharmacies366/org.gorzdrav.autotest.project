@@ -17,7 +17,8 @@ public class ProductCardPage extends MainTestBase {
     private static final String CHANGE_APTEKA_LIST_XPATH = "xpath;//span[contains(@class, 'p-checkout--mixed__control-labelText ')]";
     private static final String APTEKA_LIST_BUTTON_XPATH = "xpath;//a[contains(.,'Списком')]";
     private static final String PRICE_LABLE_CSS = "css;.js-price-value";
-    private static final String ADD_TO_CARD_BUTTON_XPATH = "xpath;//button[@data-gtm-source='details']";
+   // private static final String ADD_TO_CARD_BUTTON_XPATH = "xpath;//button[@data-gtm-source='details']";
+    private static final String ADD_TO_CARD_BUTTON_XPATH = "xpath;(//button[@type='submit'])[2]";
     private static final String APTEKA_MAP_XPATH = "xpath;//*[@id='store-finder-map']";
     private static final String EMPTY_PLACE_XPATH = "xpath;//main[contains(@data-currency-iso-code,'RUB')]";
     private static final String SCALE_DOWN_BUTTON_XPATH = "xpath;//div[@id='zoom-out']";
@@ -133,5 +134,6 @@ public class ProductCardPage extends MainTestBase {
         getScaleDownButton().doubleClick();
         logger.info("Пользователь уменьшает маштаб карты в 2 раза");
     }
+
 
 }

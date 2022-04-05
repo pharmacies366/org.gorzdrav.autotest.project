@@ -1,3 +1,7 @@
+package web.makeorder.authorized;
+//Отключили на проде, так как формируется реальная заявка на доставку и курьеры едут за заказами
+
+
 /*
 package web.makeorder.authorized;
 

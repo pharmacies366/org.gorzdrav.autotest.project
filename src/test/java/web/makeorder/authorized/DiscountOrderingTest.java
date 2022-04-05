@@ -36,9 +36,9 @@ public class DiscountOrderingTest extends BaseSettingsWebTests {
         productCardPage.buyOneClick();
         productCardPage.clickBuyOneClick();
         checkOutPage.setInputOneClickPhoneNumber(propertiesManager.getProperty("phonenumber"));
-        cookiePage.reCaptchaKey();
-      //  checkOutPage.clickBookingButton();
-      //  thankForTheOrderPage.checkSuccessMessage();
+        // cookiePage.reCaptchaKey();
+        //  checkOutPage.clickBookingButton();
+        //   thankForTheOrderPage.checkSuccessMessage();
 
     }
 

@@ -30,7 +30,7 @@ public class OspProductListTest extends BaseSettingsWebTests {
                 propertiesManager.getProperty("usermail"),
                 propertiesManager.getProperty("phonenumber"),
                 propertiesManager.getProperty("username"));
-      //  checkOutPage.clickMakeOrder();
-       // thankForTheOrderPage.checkSuccessMessage();
+        //  checkOutPage.clickMakeOrder();
+        //  thankForTheOrderPage.checkSuccessMessage();
     }
 }

@@ -45,7 +45,6 @@ public class PageElementActions extends MainTestBase {
     }
 
 
-
     //Клик по индексу элемента
     public void clickIndex(int number) {
         this.moveToElement();

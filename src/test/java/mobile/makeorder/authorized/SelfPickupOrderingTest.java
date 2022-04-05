@@ -23,6 +23,7 @@ public class SelfPickupOrderingTest extends BaseSettingsMobileTests {
                 propertiesManager.getProperty("mobileuserauthmail5"),
                 propertiesManager.getProperty("userpass"));
         mobileCartPage.checkCartQuantity();
+        mobileMainPage.clickSiteLogo();
         mobileMainPage.setSearchInput(propertiesManager.getProperty("productcode1"));
         mobileCartPage.clickBuyButton();
         mobileCartPage.clickToCartButton();
@@ -33,8 +34,8 @@ public class SelfPickupOrderingTest extends BaseSettingsMobileTests {
         mobileCheckOutPage.clickChangeAptekaList();
         mobileCheckOutPage.getAvailabilityAndChooseThisPharmacy();
         mobileCheckOutPage.getInputFio().click();//ещё один клик для того чтобы не перекрывалась кнопка "Оформить Заказ"
-      //  mobileCheckOutPage.clickCheckout();
-      //  mobileThankForTheOrderPage.checkSuccessMessage();
+        //  mobileCheckOutPage.clickCheckout();
+        //   mobileThankForTheOrderPage.checkSuccessMessage();
 
     }
 

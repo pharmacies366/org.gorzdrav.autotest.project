@@ -71,14 +71,16 @@ public class WebDriverFactory {
     public void setupLocalDriver() {
         logger.info("setup local web driver");
         ChromeOptions chromeOptions = new ChromeOptions();
+
+
         if (nameOfPackage.contains("mobile")) {
             WebDriverManager.chromedriver().setup();
             Map<String, String> mobileEmulation = new HashMap<>();
             mobileEmulation.put("deviceName", "iPhone X");
-
-
             chromeOptions.setExperimentalOption("mobileEmulation", mobileEmulation);
         }
+
+
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver(chromeOptions);
         configureDriver();

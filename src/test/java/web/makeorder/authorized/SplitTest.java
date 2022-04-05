@@ -30,7 +30,7 @@ public class SplitTest extends BaseSettingsWebTests {
         cartPage.clickMakeOrder();
         checkOutPage.clickChangeAptekaList();
         checkOutPage.getAvailabilityAndChooseThisPharmacy();
-     //   checkOutPage.clickCheckout();
-      //  thankForTheOrderPage.checkSuccessMessage();
+        //  checkOutPage.clickCheckout();
+        //  thankForTheOrderPage.checkSuccessMessage();
     }
 }

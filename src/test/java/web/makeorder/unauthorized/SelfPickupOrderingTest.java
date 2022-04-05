@@ -29,8 +29,8 @@ public class SelfPickupOrderingTest extends BaseSettingsWebTests {
                 propertiesManager.getProperty("usermail"),
                 propertiesManager.getProperty("phonenumber"),
                 propertiesManager.getProperty("username"));
-      //  checkOutPage.clickCheckout();
-     //   thankForTheOrderPage.checkSuccessMessage();
+        //checkOutPage.clickCheckout();
+        // thankForTheOrderPage.checkSuccessMessage();
     }
 
 }

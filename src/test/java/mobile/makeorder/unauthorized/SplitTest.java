@@ -32,8 +32,8 @@ public class SplitTest extends BaseSettingsMobileTests {
                 propertiesManager.getProperty("phonenumber"),
                 propertiesManager.getProperty("username"));
         mobileCheckOutPage.getInputFio().click();//ещё один клик для того чтобы не перекрывалась кнопка "Оформить Заказ"
-       // mobileCheckOutPage.clickCheckout();
-     //   mobileThankForTheOrderPage.checkSuccessMessage();
+        //    mobileCheckOutPage.clickCheckout();
+        //   mobileThankForTheOrderPage.checkSuccessMessage();
     }
 
 }

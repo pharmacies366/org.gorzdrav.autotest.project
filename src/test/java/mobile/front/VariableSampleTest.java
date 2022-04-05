@@ -18,11 +18,9 @@ public class VariableSampleTest extends BaseSettingsMobileTests {
         mobileMainPage.clickClosePopUp();
         mobileMainPage.clickCloseMobileAppPopUp();
         openUrl(propertiesManager.getProperty("baseurl") + "p/29992");
-        pageActions.waitPageLoad();
         mobileProductCardPage.clickToCartButton();
         int firstPrice = mobileProductCardPage.getProductPrice();
         openUrl(propertiesManager.getProperty("baseurl") + "p/33090");
-        pageActions.waitPageLoad();
         mobileProductCardPage.clickToCartButton();
         int secondPrice = mobileProductCardPage.getProductPrice();
         openUrl(propertiesManager.getProperty("baseurl") + "cart");
