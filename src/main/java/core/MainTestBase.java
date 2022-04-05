@@ -40,25 +40,28 @@ public class MainTestBase {
         driver = driverFactory.getDriver();
         pageActions = new PageActions(driver);
         driver.get(propertiesManager.getProperty("baseurl"));
-        logger.info("Открывается главная страница сайта Горздрав");
-        //driver.manage().deleteAllCookies();
+        logger.info("Открывается главная страница сайта 36.6");
 
     }
 
     @After
     public void finish() {
-    driver.close();
+        driver.quit();
     }
 
-     //Повторный запуск тестов при падении
 
+
+    /*
+     * Повторный запуск тестов при падении
+     */
+/*
     @Rule
-    public RetryRule rule = new RetryRule(3);
-
+    public RetryRule rule = new RetryRule(4);*/
 
     /**
      * Управление действиями, при различных исходах теста
      */
+
     @Rule
     public TestWatcher watchman = new TestWatcher() {
         @Override
@@ -81,6 +84,7 @@ public class MainTestBase {
             nameOfPackage = description.getTestClass().getPackage().getName();
             logger.info("Тест старт " + description.getMethodName());
         }
+
     };
 
     /**

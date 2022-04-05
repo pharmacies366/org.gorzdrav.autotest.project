@@ -39,13 +39,14 @@ public class SignInPositive extends BaseSettingsWebTests {
         mainPage.checkElementIsCorrect();
     }
 
-    @DisplayName("Авторизация пользователя на сайте по номеру телефона")
+    @DisplayName("Авторизация пользователя на сайте по номеру телефона и паролю")
     @Test
     public void loginUserPhone() {
         cookiePage.reCaptchaKey();
         topPanelPage.clickToLoginIcon();
         authPopUpPage.getPhoneNumberInput().click();
-        authPopUpPage.setPhoneNumber(propertiesManager.getProperty("phonenumber1"));
+        authPopUpPage.setPhoneNumber(propertiesManager.getProperty("phonenumber1"),
+        propertiesManager.getProperty("userpass"));
         authPopUpPage.clickToLoginButton();
         pageActions.waitPageLoad();
         mainPage.checkElementIsCorrect();

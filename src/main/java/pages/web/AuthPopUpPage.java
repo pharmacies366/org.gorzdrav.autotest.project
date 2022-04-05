@@ -16,6 +16,7 @@ public class AuthPopUpPage extends MainTestBase {
     private static final String _CHANGE_TO_EMAIL_XPATH = "xpath;//a[contains(.,'E-mail')]";
     private static final String _AUTH_EMAIL_XPATH = "xpath;//input[@id='login-email']";
     private static final String _PASSWORD_INPUT_ID = "id;login-pass";
+    private static final String GO_TO_PASSWORD = "xpath;//a[@class='b-link--auth js-auth-ext__button']";
 
 
     //конструктор
@@ -44,7 +45,7 @@ public class AuthPopUpPage extends MainTestBase {
         return new PageElementActions(_AUTH_CARD_NUMBER_ID, driver);
     }
 
-    public PageElementActions getChanchToEmail() {
+    public PageElementActions getChangeToEmail() {
         return new PageElementActions(_CHANGE_TO_EMAIL_XPATH, driver);
     }
 
@@ -52,21 +53,30 @@ public class AuthPopUpPage extends MainTestBase {
         return new PageElementActions(_AUTH_EMAIL_XPATH, driver);
     }
 
+    public PageElementActions getGoToPassword() {
+        return new PageElementActions(GO_TO_PASSWORD, driver);
+    }
+
     //Методы
 
     @Step("Пользователь переключается на вход по номеру бонусной карты")
     public void setChangeToCardNumber() {
         getChanchToCardNumber().click();
+        logger.info("Пользователь переключается на вход по номеру бонусной карты");
     }
 
     @Step("Пользователь переключается на вход по Email")
     public void setChangeToEmail() {
-        getChanchToEmail().click();
+        getChangeToEmail().click();
+        logger.info("Пользователь переключается на вход по Email");
     }
 
-    @Step("Пользователь вводит номер телефона")
-    public void setPhoneNumber(String phoneNumber) {
+    @Step("Пользователь вводит номер телефона и пароль")
+    public void setPhoneNumber(String phoneNumber, String password) {
         getPhoneNumberInput().sendKeys(phoneNumber);
+        getGoToPassword().click();
+        getPasswordInput().sendKeys(password);
+        logger.info("Пользователь вводит номер телефона и пароль");
     }
 
 
@@ -74,17 +84,20 @@ public class AuthPopUpPage extends MainTestBase {
     public void setCardNumberAandPassword(String cardNumber, String password) {
         getAuthCardNumber().sendKeys(cardNumber);
         getPasswordInput().sendKeys(password);
+        logger.info("Пользователь вводит номер бонусной карты и пароль");
     }
 
     @Step("Пользователь вводит Email и пароль")
     public void setEmailAndPassword(String email, String password) {
         getInputEmail().sendKeys(email);
         getPasswordInput().sendKeys(password);
+        logger.info("Пользователь вводит Email и пароль");
     }
 
-    @Step("клик на кнопку \"войти\"")
+    @Step("Пользователь нажимает на кнопку: Войти")
     public void clickToLoginButton() {
         getLoginButoon().click();
+        logger.info("Пользователь нажимает на кнопку: Войти");
     }
 
 
@@ -94,6 +107,7 @@ public class AuthPopUpPage extends MainTestBase {
         getInputEmail().sendKeys(email);
         getPasswordInput().sendKeys(password);
         clickToLoginButton();
+        logger.info("Пользователь вводит Email, пароль и нажимает войти");
     }
 
 
