@@ -15,6 +15,7 @@ public class MobileMainPage extends MainTestBase {
     private static final String CATALOG_XPATH = "xpath;(//a[contains(.,'Каталог')])[1]";
     private static final String POP_UP_BUTTON_XPATH = "xpath;//button[contains(.,'Спасибо, понятно')]";
     private static final String MOBILE_APP_POP_UP_BUTTON_XPATH = "xpath;//div[contains(@class,'flyer--close')]";
+    private static final String ADD_TO_CART_BUTTON_XPATH = "xpath;(//button[contains(.,'Купить')])[1]";
 
     //конструктор
     public MobileMainPage(WebDriver driver) {
@@ -48,6 +49,10 @@ public class MobileMainPage extends MainTestBase {
 
     public PageElementActions getMobileAppPopUpButton() {
         return new PageElementActions(MOBILE_APP_POP_UP_BUTTON_XPATH, driver);
+    }
+
+    public PageElementActions getAddToCartButton() {
+        return new PageElementActions(ADD_TO_CART_BUTTON_XPATH, driver);
     }
 
     //Методы
@@ -93,5 +98,11 @@ public class MobileMainPage extends MainTestBase {
     public void clickLetterN() {
         getLetterN().click();
         logger.info("Пользователь нажимает на букву 'Н' Русского алфавита");
+    }
+
+    @Step("Пользователь нажимает на кнопку 'Купить'")
+    public void clickAddToCardButton() {
+        getAddToCartButton().click();
+        logger.info("Пользователь нажимает на кнопку 'Купить'");
     }
 }

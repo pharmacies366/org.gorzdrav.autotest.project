@@ -26,6 +26,7 @@ public class BaseSettingsMobileTests extends MainTestBase {
     protected MobileSberPage mobileSberPage;
     protected MobileThankForTheOrderPage mobileThankForTheOrderPage;
     protected MobileCookiePage mobileCookiePage;
+    protected MobileFavoritesPharmaciesPage mobileFavoritesPharmaciesPage;
   //  protected MobileMedicationsCategorysPopUpPage mobileMedicationsCategoryPage;
   //  protected MobileMyOrdersPage mobileMyOrdersPage;
     protected MobileHeaderBlock mobileHeaderBlock;
@@ -62,6 +63,7 @@ public class BaseSettingsMobileTests extends MainTestBase {
         mobileHeaderBlock = new MobileHeaderBlock(driver);
         mobileBasementBlock = new MobileBasementBlock(driver);
         mobileMainPopUpBlock = new MobileMainPopUpBlock(driver);
+        mobileFavoritesPharmaciesPage = new MobileFavoritesPharmaciesPage(driver);
       //  mobilePersonalAccountPage = new MobilePersonalAccountPage(driver);
       //  mobileChangePasswordPage = new MobileChangePasswordPage(driver);
       //  mobileFavoritesPage = new MobileFavoritesPage(driver);

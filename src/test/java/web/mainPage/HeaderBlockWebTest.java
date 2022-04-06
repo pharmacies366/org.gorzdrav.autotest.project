@@ -8,7 +8,7 @@ import org.junit.Assert;
 import org.junit.Test;
 
 @Feature(value = "Web")
-@Story("Проверка шапки сайта 36.6")
+@Story("Проверка шапки сайта gorzdrav")
 @DisplayName("Проверка шапки сайта")
 public class HeaderBlockWebTest extends BaseSettingsWebTests {
 
