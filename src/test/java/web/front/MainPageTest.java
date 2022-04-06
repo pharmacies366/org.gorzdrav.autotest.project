@@ -14,13 +14,13 @@ public class MainPageTest extends BaseSettingsWebTests {
     @DisplayName("Проверка отображения логотипа")
     @Test
     public void checkVisibilityLogoMainPage(){
-        mainPage.checkElementIsCorrect();
+        headerBlock.checkElementIsCorrect();
     }
 
     @DisplayName("Проверка кликабельности логотипа")
     @Test
     public void checkClickableLogoMainPage(){
-        mainPage.getSiteLogo().elementIsClickable();
+        headerBlock.getSiteLogo().elementIsClickable();
         logger.info("Логотип кликабелен");
     }
 }

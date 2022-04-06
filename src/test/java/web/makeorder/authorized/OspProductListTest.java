@@ -21,7 +21,7 @@ public class OspProductListTest extends BaseSettingsWebTests {
                 propertiesManager.getProperty("userauthmail4"),
                 propertiesManager.getProperty("userpass"));
         cartPage.checkCartQuantity();
-        mainPage.clickSiteLogo();
+        headerBlock.clickSiteLogo();
         mainPage.clickLetterN();
         ospPage.clickProductName();
         ospPage.clickBuyButton();

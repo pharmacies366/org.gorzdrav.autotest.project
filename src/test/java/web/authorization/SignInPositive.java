@@ -22,7 +22,7 @@ public class SignInPositive extends BaseSettingsWebTests {
                 propertiesManager.getProperty("userpass"));
         authPopUpPage.clickToLoginButton();
         pageActions.waitPageLoad();
-        mainPage.checkElementIsCorrect();
+        headerBlock.checkElementIsCorrect();
     }
 
     @DisplayName("Авторизация пользователя на сайте через E-mail")
@@ -36,7 +36,7 @@ public class SignInPositive extends BaseSettingsWebTests {
                 propertiesManager.getProperty("userpass"));
         authPopUpPage.clickToLoginButton();
         pageActions.waitPageLoad();
-        mainPage.checkElementIsCorrect();
+        headerBlock.checkElementIsCorrect();
     }
 
     @DisplayName("Авторизация пользователя на сайте по номеру телефона и паролю")
@@ -49,6 +49,6 @@ public class SignInPositive extends BaseSettingsWebTests {
         propertiesManager.getProperty("userpass"));
         authPopUpPage.clickToLoginButton();
         pageActions.waitPageLoad();
-        mainPage.checkElementIsCorrect();
+        headerBlock.checkElementIsCorrect();
     }
 }

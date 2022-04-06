@@ -129,10 +129,10 @@ public class ProductCardPage extends MainTestBase {
         return price;
     }
 
-    @Step("Пользователь уменьшает маштаб карты в 2 раза")
+    @Step("Пользователь уменьшает масштаб карты в 2 раза")
     public void scaleDownMap() {
         getScaleDownButton().doubleClick();
-        logger.info("Пользователь уменьшает маштаб карты в 2 раза");
+        logger.info("Пользователь уменьшает масштаб карты в 2 раза");
     }
 
 

@@ -39,11 +39,25 @@ public class PageActions extends MainTestBase {
             driver.switchTo().window(windowHandle);
     }
 
+    //Переключиться на iFrame по title
+    public void switchToiFrame(String titleName) {
+        driver.switchTo().frame(driver.findElement(By.cssSelector("iframe[title='" + titleName + "']")));
+    }
+
+    //Переключиться на iFrame по индексу
+    public void switchToiFrame(int index) {
+        driver.switchTo().frame(index);
+    }
 
     //Проверка url
     public void checkUrl(String url) {
         driver.getCurrentUrl();
         Assert.assertTrue(url.equals(url));
+    }
+
+    //Возвращение на предыдущую страницу
+    public void returnBackPage() {
+        driver.navigate().back();
     }
 
     //Получить Title
@@ -59,13 +73,23 @@ public class PageActions extends MainTestBase {
     //Проверка видимости текста на странице
     public void contentIsDisplayed(String text) {
         driver.findElement(By.xpath("//*[text()='" + text + "']")).isDisplayed();
+        saveAllureScreenshot();
+    }
+
+    //Статичное ожидание на странице
+    public void staticWait(int time) {
+        try {
+            Thread.sleep(time);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 
     //Ожидание загрузки на странице Javascript
     public void waitPageLoad() {
 
         JavascriptExecutor js = (JavascriptExecutor) driver;
-        WebDriverWait wait = new WebDriverWait(driver, 20);
+        WebDriverWait wait = new WebDriverWait(driver, 25);
         WebDriverWait jqWait = new WebDriverWait(driver, 25);
 
 

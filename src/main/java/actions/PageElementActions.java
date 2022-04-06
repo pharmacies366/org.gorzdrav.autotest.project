@@ -32,7 +32,15 @@ public class PageElementActions extends MainTestBase {
         this.moveToElement();
         waitUntilElementToBeClickable(getBySelector(element), DEFAULT_ELEMENT_WAIT_TIME_S).click();
         saveAllureScreenshot();
-        pageActions.waitPageLoad();
+    }
+
+    //Клик по элементу с помощью JS
+    public void clickJs() {
+        moveToElementJs();
+        WebElement ele = waitUntilElementToBeClickable(getBySelector(element), DEFAULT_ELEMENT_WAIT_TIME_S);
+        JavascriptExecutor jse = (JavascriptExecutor)driver;
+        jse.executeScript("arguments[0].click()", ele);
+        saveAllureScreenshot();
     }
 
     //Двойной клик по элементу
@@ -45,13 +53,30 @@ public class PageElementActions extends MainTestBase {
     }
 
 
+/*
+    //Перемещение элемента
+    public void drugAndDrop(By by) {
+        Actions actions = new Actions(driver);
+        WebDriverWait wait = new WebDriverWait(driver, DEFAULT_ELEMENT_WAIT_TIME_S);
+        WebElement element2 = wait.until(ExpectedConditions.visibilityOfElementLocated(by));
+        actions.moveToElement(waitUntilElementToBeClickable(getBySelector(element), DEFAULT_ELEMENT_WAIT_TIME_S)).clickAndHold().moveToElement(element2).release().build().perform();
+    }
+*/
+
+
+    //Перемещение элемента по заданным координатам
+    public void drugAndDropToOffSet(int x, int y) {
+        Actions actions = new Actions(driver);
+        actions.moveToElement(waitUntilElementToBeClickable(getBySelector(element), DEFAULT_ELEMENT_WAIT_TIME_S)).clickAndHold().moveByOffset(x, y).release().build().perform();
+    }
+
+
     //Клик по индексу элемента
     public void clickIndex(int number) {
         this.moveToElement();
         waitUntilElementToBeClickable(getBySelector(element), DEFAULT_ELEMENT_WAIT_TIME_S);
         driver.findElements(getBySelector(element)).get(number).click();
         saveAllureScreenshot();
-        pageActions.waitPageLoad();
     }
 
     //Перевести строку в числовое значение
@@ -67,7 +92,6 @@ public class PageElementActions extends MainTestBase {
         this.moveToElement();
         waitUntilVisibilityOfElementLocated(getBySelector(element), DEFAULT_ELEMENT_WAIT_TIME_S).sendKeys(keysToSend);
         saveAllureScreenshot();
-        pageActions.waitPageLoad();
     }
 
     //Перейти к элементу, кликнуть и ввести текст
@@ -76,7 +100,6 @@ public class PageElementActions extends MainTestBase {
         waitUntilElementToBeClickable(getBySelector(element), DEFAULT_ELEMENT_WAIT_TIME_S).click();
         waitUntilVisibilityOfElementLocated(getBySelector(element), DEFAULT_ELEMENT_WAIT_TIME_S).sendKeys(keysToSend);
         saveAllureScreenshot();
-        pageActions.waitPageLoad();
     }
 
     //Перейти к элементу, ввести текст и нажать Enter
@@ -84,20 +107,32 @@ public class PageElementActions extends MainTestBase {
         this.moveToElement();
         waitUntilVisibilityOfElementLocated(getBySelector(element), DEFAULT_ELEMENT_WAIT_TIME_S).sendKeys(keysToSend, Keys.ENTER);
         saveAllureScreenshot();
-        pageActions.waitPageLoad();
     }
 
     //Очистить содержимое элемента
     public void clean() {
         waitUntilVisibilityOfElementLocated(getBySelector(element), DEFAULT_ELEMENT_WAIT_TIME_S).clear();
+        waitUntilVisibilityOfElementLocated(getBySelector(element), DEFAULT_ELEMENT_WAIT_TIME_S).sendKeys(Keys.chord(Keys.LEFT_CONTROL, "A"));
+        waitUntilVisibilityOfElementLocated(getBySelector(element), DEFAULT_ELEMENT_WAIT_TIME_S).sendKeys(Keys.BACK_SPACE);
         saveAllureScreenshot();
-        pageActions.waitPageLoad();
+    }
+
+    //Получение значение атрибута элемента
+    public String getAttribute(String attributeName) {
+        String attribute = waitUntilVisibilityOfElementLocated(getBySelector(element), DEFAULT_ELEMENT_WAIT_TIME_S).getAttribute(attributeName);
+        return attribute;
+    }
+
+
+    //Получение значение атрибута элемента и сравнивает с ожидаемым результатом
+    public void checkAttribute(String attributeName, String expectedText) {
+        String result = getAttribute(attributeName);
+        Assert.assertEquals(expectedText, result);
     }
 
     //Ожидание загрузки видимости элемента
     public void elementIsVisibility() {
         waitUntilVisibilityOfElementLocated(getBySelector(element), DEFAULT_ELEMENT_WAIT_TIME_S);
-        saveAllureScreenshot();
     }
 
     //Ожидание загрузки видимости элемента
@@ -113,6 +148,36 @@ public class PageElementActions extends MainTestBase {
         saveAllureScreenshot();
     }
 
+    //Проверяет видимость элемента на странице, возвращает статус true либо Exception
+    public boolean isElementDisplayed() {
+        return driver.findElement(getBySelector(element)).isDisplayed();
+    }
+
+    //Проверяет видимость элемента на странице по индексу
+    public void isElementDisplayedWithIndex(int index) {
+        driver.findElements(getBySelector(element)).get(index).isDisplayed();
+    }
+
+
+    public boolean isElementVisible() {
+        boolean isVisible = false;
+        try {
+            isVisible = driver.findElement(getBySelector(element)).isDisplayed();
+        } catch (NoSuchElementException ignored) {
+        }
+        return isVisible;
+    }
+
+    //
+    public int getSize() {
+        return driver.findElements(getBySelector(element)).size();
+    }
+
+    //Проверяет видимость текста {string} на странице
+    public void contentIsDisplayed(String text) {
+        driver.findElement(By.xpath("//*[text()='" + text + "']")).isDisplayed();
+    }
+
 
     //Ожидание кликабельности элемента
     public WebElement waitUntilElementToBeClickable(By by, int _secondsToWait) {
@@ -121,19 +186,45 @@ public class PageElementActions extends MainTestBase {
         return element;
     }
 
+    //Ожидание что элимент не кликабелен
+    public void waitUntilElementToBeUnClickable(By by, int _secondsToWait) {
+        WebDriverWait wait = new WebDriverWait(driver, _secondsToWait);
+        wait.until(ExpectedConditions.not(
+                ExpectedConditions.elementToBeClickable(by)));
+    }
+
+
     //Ожидание кликабельности элемента
     public void elementIsClickable() {
         waitUntilElementToBeClickable(getBySelector(element), DEFAULT_ELEMENT_WAIT_TIME_S);
     }
 
-    //Перейти к элементу, когда он выходит за границы видимости текущего просмотра
+    //Ожидание, что элемент не кликабелен
+    public void elementIsNotClickable() {
+        waitUntilElementToBeUnClickable(getBySelector(element), DEFAULT_ELEMENT_WAIT_TIME_S);
+    }
+
+
+    //Ожидание, что элемент недоступен???
+    public boolean elementIsEnabled() {
+        waitUntilElementToBeClickable(getBySelector(element), DEFAULT_ELEMENT_WAIT_TIME_S).isEnabled();
+        return true;
+    }
+
+
+    //Перейти к элементу, когда он выходит за границы видимости текущего просмотра с помощью selenium
     public void moveToElement() {
         Actions actions = new Actions(driver);
         try {
             actions.moveToElement(waitUntilElementToBeClickable(getBySelector(element), DEFAULT_ELEMENT_WAIT_TIME_S)).perform();
-        } catch (org.openqa.selenium.interactions.MoveTargetOutOfBoundsException ex) {
+        } catch (org.openqa.selenium.interactions.MoveTargetOutOfBoundsException | ElementNotInteractableException ex) {
             scrollElementIntoView(getBySelector(element));
         }
+    }
+
+    //Перейти к элементу, когда он выходит за границы видимости текущего просмотра с помощью js
+    public void moveToElementJs() {
+        scrollElementIntoView(getBySelector(element));
     }
 
     //Пользователь скроллит страницу до элемента
@@ -142,20 +233,11 @@ public class PageElementActions extends MainTestBase {
         ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
     }
 
-    //Пользователь скроллит страницу вверх
-    public void ScrollToObject() {
-        ((JavascriptExecutor) driver).executeScript("scroll(0,400)");
-        // ((JavascriptExecutor) driver).executeScript("window.scrollBy(0, -250)");
-        logger.info("СТРАНИЦА ПРОСКРОЛЛЕНА ВВЕРХ НА N ПИКСЕЛЕЙ");
-    }
-
-
     public String getText() {
-        this.moveToElement();
+        // this.moveToElement();
         String result = waitUntilVisibilityOfElementLocated(getBySelector(element), DEFAULT_ELEMENT_WAIT_TIME_S).getText();
         return result;
     }
-
 
     public By getBySelector(String propKey) {
         String[] split = propKey.split(";");
