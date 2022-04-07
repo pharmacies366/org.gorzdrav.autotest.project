@@ -30,15 +30,17 @@ public class DiscountOrderingTest extends BaseSettingsMobileTests {
         int discountPrice = mobileProductCardPage.getProductPrice();
         Assert.assertTrue(usuallyPrice > discountPrice);
         logger.info("Выбран дисконтный товар");
+        pageActions.waitPageLoad();
         mobileProductCardPage.buyOneClick();
-        mobileProductCardPage.checkVisibilityMap();
-        mobileProductCardPage.setInputSearchAddres("метро Автозаводская");
+        mobileProductCardPage.setInputSearchAddres("метро Фили");
         mobileProductCardPage.clickLupaButton();
+        mobileProductCardPage.checkVisibilityMap();
+        pageActions.waitPageLoad();
         mobileProductCardPage.clickAptekaList();
         mobileProductCardPage.oneClickAptekaButtons();
         mobileCheckOutPage.setInputOneClickPhoneNumber(propertiesManager.getProperty("phonenumber"));
-        // mobileCheckOutPage.clickBookingButton();
-        // mobileThankForTheOrderPage.checkSuccessMessage();
+        //   mobileCheckOutPage.clickBookingButton();//на этом шаге иногда появляется капча
+        //   mobileThankForTheOrderPage.checkSuccessMessage();
 
     }
 

@@ -1,3 +1,4 @@
+/*
 package web.mainPage;
 
 import base.BaseSettingsWebTests;
@@ -57,3 +58,4 @@ public class BasementBlockWebTest extends BaseSettingsWebTests {
 
 
 }
+*/

@@ -23,7 +23,7 @@ public class OspProductListTest extends BaseSettingsMobileTests {
         mobileOspPage.clickBuyButton();
         mobileCartPage.clickToCartButton();
         mobileCartPage.clickToMakeOrder();
-        mobileCartPage.clickPickUpButton();
+       // mobileCartPage.clickPickUpButton();
         mobileCheckOutPage.setInputSearchAddres("метро Автозаводская");
         mobileCheckOutPage.clickChangeAptekaList();
         mobileCheckOutPage.getAvailabilityAndChooseThisPharmacy();
