@@ -20,7 +20,8 @@ public class SelfPickupOrderingTest extends BaseSettingsWebTests {
         cartPage.clickBuyButton();
         cartPage.clickToCartButton();
         cartPage.clickMakeOrder();
-        checkOutPage.clickPickUpButton();
+        pageActions.waitPageLoad();
+       // checkOutPage.clickPickUpButton();
         checkOutPage.sendAddressPickUp("метро Фили");
         checkOutPage.checkVisibilityMap();
         checkOutPage.clickChangeAptekaList();

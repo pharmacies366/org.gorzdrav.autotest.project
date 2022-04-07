@@ -22,12 +22,14 @@ public class OneClickPurchaseTest extends BaseSettingsMobileTests {
         mobileAuthPopUpPage.authorizeWithEmailAndPassword(
                 propertiesManager.getProperty("mobileuserauthmail3"),
                 propertiesManager.getProperty("userpass"));
+        pageActions.waitPageLoad();
         mobileCartPage.checkCartQuantity();
         mobileMainPage.setSearchInput(propertiesManager.getProperty("productcode1"));
         mobileCartPage.clickProductCard();
         mobileProductCardPage.buyOneClick();
         mobileProductCardPage.setInputSearchAddres("метро Фили");
         mobileProductCardPage.clickLupaButton();
+        pageActions.waitPageLoad();
         mobileProductCardPage.checkVisibilityMap();
         mobileProductCardPage.clickAptekaList();
         mobileProductCardPage.oneClickAptekaButtons();

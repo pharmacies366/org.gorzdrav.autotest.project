@@ -20,6 +20,7 @@ public class OneClickPurchaseTest extends BaseSettingsWebTests {
         authPopUpPage.authorizeWithEmailAndPassword(
                 propertiesManager.getProperty("userauthmail3"),
                 propertiesManager.getProperty("userpass"));
+        pageActions.waitPageLoad();
         cartPage.checkCartQuantity();
         mainPage.setSearchInput(propertiesManager.getProperty("productcode4"));
         cartPage.clickProductCard();

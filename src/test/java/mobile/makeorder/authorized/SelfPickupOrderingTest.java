@@ -22,13 +22,14 @@ public class SelfPickupOrderingTest extends BaseSettingsMobileTests {
         mobileAuthPopUpPage.authorizeWithEmailAndPassword(
                 propertiesManager.getProperty("mobileuserauthmail5"),
                 propertiesManager.getProperty("userpass"));
+        pageActions.waitPageLoad();
         mobileCartPage.checkCartQuantity();
         mobileMainPage.clickSiteLogo();
         mobileMainPage.setSearchInput(propertiesManager.getProperty("productcode1"));
         mobileCartPage.clickBuyButton();
         mobileCartPage.clickToCartButton();
         mobileCartPage.clickToMakeOrder();
-        mobileCheckOutPage.clickPickUpButton();
+       // mobileCheckOutPage.clickPickUpButton();
         mobileCheckOutPage.getPharmacyAddressInput().sendKeys("метро Фили");
         mobileProductCardPage.checkVisibilityMap();
         mobileCheckOutPage.clickChangeAptekaList();

@@ -22,6 +22,7 @@ public class OspProductListTest extends BaseSettingsMobileTests {
         mobileAuthPopUpPage.authorizeWithEmailAndPassword(
                 propertiesManager.getProperty("mobileuserauthmail4"),
                 propertiesManager.getProperty("userpass"));
+        pageActions.waitPageLoad();
         mobileCartPage.checkCartQuantity();
         mobileMainPage.clickSiteLogo();
         mobileMainPage.clickLetterN();
@@ -30,7 +31,7 @@ public class OspProductListTest extends BaseSettingsMobileTests {
         mobileOspPage.clickBuyButton();
         mobileCartPage.clickToCartButton();
         mobileCartPage.clickToMakeOrder();
-        mobileCartPage.clickPickUpButton();
+        //mobileCartPage.clickPickUpButton();
         mobileCheckOutPage.setInputSearchAddres("метро Автозаводская");
         mobileCheckOutPage.clickChangeAptekaList();
         mobileCheckOutPage.getAvailabilityAndChooseThisPharmacy();

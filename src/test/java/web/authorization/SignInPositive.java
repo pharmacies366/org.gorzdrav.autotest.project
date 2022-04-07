@@ -11,7 +11,7 @@ import org.junit.Test;
 @DisplayName("Авторизация пользователя")
 public class SignInPositive extends BaseSettingsWebTests {
 
-    @DisplayName("Авторизация пользователя на сайте по номеру Бонусной карты")
+/*    @DisplayName("Авторизация пользователя на сайте по номеру Бонусной карты")
     @Test
     public void loginUserCardNumber() {
         cookiePage.reCaptchaKey();
@@ -23,7 +23,7 @@ public class SignInPositive extends BaseSettingsWebTests {
         authPopUpPage.clickToLoginButton();
         pageActions.waitPageLoad();
         headerBlock.checkElementIsCorrect();
-    }
+    }*/
 
     @DisplayName("Авторизация пользователя на сайте через E-mail")
     @Test

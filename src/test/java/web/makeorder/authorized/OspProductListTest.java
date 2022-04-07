@@ -20,6 +20,7 @@ public class OspProductListTest extends BaseSettingsWebTests {
         authPopUpPage.authorizeWithEmailAndPassword(
                 propertiesManager.getProperty("userauthmail4"),
                 propertiesManager.getProperty("userpass"));
+        pageActions.waitPageLoad();
         cartPage.checkCartQuantity();
         headerBlock.clickSiteLogo();
         mainPage.clickLetterN();
@@ -27,8 +28,9 @@ public class OspProductListTest extends BaseSettingsWebTests {
         ospPage.clickBuyButton();
         cartPage.clickToCartButton();
         cartPage.clickToMakeOrder();
-        checkOutPage.clickPickUpButton();
+       // checkOutPage.clickPickUpButton();
         checkOutPage.sendAddressPickUp("метро Автозаводская");
+        pageActions.waitPageLoad();
         checkOutPage.clickChangeAptekaList();
         checkOutPage.getAvailabilityAndChooseThisPharmacy();
         //  checkOutPage.clickMakeOrder();

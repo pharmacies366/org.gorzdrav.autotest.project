@@ -11,7 +11,7 @@ import org.junit.Test;
 @DisplayName("Авторизация пользователя")
 public class SignInPositive extends BaseSettingsMobileTests {
 
-    @DisplayName("Авторизация пользователя на сайте по номеру Бонусной карты")
+/*    @DisplayName("Авторизация пользователя на сайте по номеру Бонусной карты")
     @Test
     public void loginUserCardNumber() {
         mobileCookiePage.reCaptchaKey();
@@ -25,7 +25,7 @@ public class SignInPositive extends BaseSettingsMobileTests {
                 propertiesManager.getProperty("userpass"));
         mobileAuthPopUpPage.clickToLoginButton();
         mobileMainPage.checkElementIsCorrect();
-    }
+    }*/
 
     @DisplayName("Авторизация пользователя на сайте через E-mail")
     @Test

@@ -21,10 +21,11 @@ public class OspProductListTest extends BaseSettingsWebTests {
         ospPage.clickBuyButton();
         cartPage.clickToCartButton();
         cartPage.clickToMakeOrder();
-        cartPage.clickPickUpButton();
-        checkOutPage.clickPickUpButton();
+       // cartPage.clickPickUpButton();
+        //checkOutPage.clickPickUpButton();
         checkOutPage.sendAddressPickUp("метро Автозаводская");
         checkOutPage.clickChangeAptekaList();
+        pageActions.waitPageLoad();
         checkOutPage.getAvailabilityAndChooseThisPharmacy();
         checkOutPage.contactDetails(
                 propertiesManager.getProperty("usermail"),

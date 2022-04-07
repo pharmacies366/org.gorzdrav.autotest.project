@@ -23,6 +23,7 @@ public class DiscountOrderingTest extends BaseSettingsMobileTests {
         mobileAuthPopUpPage.authorizeWithEmailAndPassword(
                 propertiesManager.getProperty("mobileuserauthmail2"),
                 propertiesManager.getProperty("userpass"));
+        pageActions.waitPageLoad();
         mobileCartPage.checkCartQuantity();
         mobileTopPanelPage.clickBurgerButton();
         mobileMainPage.checkCatalogButton();//изменить на mobileTopPanelPage
@@ -40,6 +41,7 @@ public class DiscountOrderingTest extends BaseSettingsMobileTests {
         mobileProductCardPage.checkVisibilityMap();
         mobileProductCardPage.setInputSearchAddres("метро Автозаводская");
         mobileProductCardPage.clickLupaButton();
+        pageActions.waitPageLoad();
         mobileProductCardPage.clickAptekaList();
         mobileProductCardPage.oneClickAptekaButtons();
         mobileCheckOutPage.setInputOneClickPhoneNumber(propertiesManager.getProperty("phonenumber"));

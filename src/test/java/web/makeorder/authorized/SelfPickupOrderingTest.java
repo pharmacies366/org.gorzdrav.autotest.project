@@ -20,12 +20,13 @@ public class SelfPickupOrderingTest extends BaseSettingsWebTests {
         authPopUpPage.authorizeWithEmailAndPassword(
                 propertiesManager.getProperty("userauthmail5"),
                 propertiesManager.getProperty("userpass"));
+        pageActions.waitPageLoad();
         cartPage.checkCartQuantity();
         mainPage.setSearchInput(propertiesManager.getProperty("productcode1"));
         cartPage.clickBuyButton();
         cartPage.clickToCartButton();
         cartPage.clickMakeOrder();
-        checkOutPage.clickPickUpButton();
+       // checkOutPage.clickPickUpButton();
         checkOutPage.sendAddressPickUp("метро Фили");
         checkOutPage.checkVisibilityMap();
         checkOutPage.clickChangeAptekaList();
