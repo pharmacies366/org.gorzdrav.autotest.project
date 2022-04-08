@@ -43,16 +43,6 @@ public class PageElementActions extends MainTestBase {
         saveAllureScreenshot();
     }
 
-    //Двойной клик по элементу
-    public void doubleClick() {
-        this.moveToElement();
-        Actions actions = new Actions(driver);
-        actions.moveToElement(waitUntilElementToBeClickable(getBySelector(element), DEFAULT_ELEMENT_WAIT_TIME_S)).doubleClick().perform();
-        saveAllureScreenshot();
-        pageActions.waitPageLoad();
-    }
-
-
 /*
     //Перемещение элемента
     public void drugAndDrop(By by) {
@@ -234,7 +224,7 @@ public class PageElementActions extends MainTestBase {
     }
 
     public String getText() {
-        // this.moveToElement();
+       // this.moveToElement();
         String result = waitUntilVisibilityOfElementLocated(getBySelector(element), DEFAULT_ELEMENT_WAIT_TIME_S).getText();
         return result;
     }

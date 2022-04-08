@@ -1,4 +1,3 @@
-/*
 package web.mainPage;
 
 import base.BaseSettingsWebTests;
@@ -26,11 +25,11 @@ public class BasementBlockWebTest extends BaseSettingsWebTests {
                 {"/apteki/map/", "Где получить заказ", "Работает сейчас"},
                 {"/faq/", "Вопрос-ответ", "Вопрос-ответ"},
                 {"/feedback/", "Задать вопрос", "Обратная связь"},
-               // {"/delivery/", "Доставка", "Курьерская доставка заказов"},//нет на s1
+                {"/delivery/", "Доставка", "Курьерская доставка заказов"},
                 //Сервис
                 {"/polzovatelskoe-soglashenie/", "Пользовательское соглашение", "Пользовательское соглашение"},
                 {"/politika-konfidencialnosti/", "Политика конфиденциальности", "Политика конфиденциальности"},
-                {"/mnn/", "Действующие вещества", "Действующие вещества"},
+                {"/mnn/", "Действующие вещества", "Все вещества"},
                 {"/promotions/", "Акции", "Акции"},
                 {"/articles/", "Статьи", "Статьи"},
                 //О Компании
@@ -49,6 +48,7 @@ public class BasementBlockWebTest extends BaseSettingsWebTests {
     @UseDataProvider("data")
     public void test(String LOCATOR, String LINK_TEXT, String PAGE_MESSAGE) {
         mainPage.clickClosePopUp();
+        mainPage.ClickClosePopUpNewsButton();
         basementBlock.checkLinksValidation(LOCATOR, LINK_TEXT);
         logger.info("Ссылка видна на странице и написана корректно");
         basementBlock.selectBasementButtons(LOCATOR);
@@ -58,4 +58,3 @@ public class BasementBlockWebTest extends BaseSettingsWebTests {
 
 
 }
-*/

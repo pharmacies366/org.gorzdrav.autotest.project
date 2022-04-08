@@ -114,7 +114,6 @@ public class WebDriverFactory {
             WebDriverManager.chromedriver().setup();
             Map<String, String> mobileEmulation = new HashMap<>();
             mobileEmulation.put("deviceName", "iPhone X");
-            //mobileEmulation.put("deviceName", "Nexus 7");
             chromeOptions.setExperimentalOption("mobileEmulation", mobileEmulation);
         }
 
@@ -131,6 +130,8 @@ public class WebDriverFactory {
     private void configureDriver() {
         driver.manage().deleteAllCookies();
         driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
     }
+
+
 }

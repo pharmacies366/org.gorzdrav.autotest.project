@@ -11,12 +11,12 @@ public class MobileHeaderBlock extends MainTestBase {
     private static final String CARD_COUNT_XPATH = "xpath;//div[contains(@class,'count js-mini-cart-count')]";
     private static final String CLEAR_ALL_FROM_CARD_XPATH = "xpath;//a[contains(.,'Очистить все')]";
     private static final String CONFIRM_CLEAN_ALL_XPATH = "xpath;//input[@value='Да, подтверждаю']";
-    private static final String BURGER_BUTTON_XPATH = "xpath;//i[@class='c-header__icon b-catalog-icn']";
-    private static final String SITE_LOGO_XPATH = "xpath;//img[@alt='ГЗ лого.svg']";
-    private static final String SEARCH_INPUT1_XPATH = "xpath;//input[@class='b-search__input']";
+    private static final String BURGER_BUTTON_XPATH = "xpath;//div[contains(@class,'toggle js-toggle-sm-navigation')]";
+    private static final String SITE_LOGO_XPATH = "xpath;//img[contains(@alt,'9477014323230.png')]";
+    private static final String SEARCH_INPUT1_XPATH = "xpath;//div[@class='header_search_mobile__toggle js-toggle-xs-search js-header-search-mobile-toggle']";
     private static final String SEARCH_INPUT_XPATH = "xpath;//input[@id='js-site-search-input']";
     private static final String CARD_BUTTON_XPATH = "xpath;//div[@id='js-mini-cart-link']";
-    private static final String FAVORITES_PHARMACIES_BUTTON_XPATH = "xpath;//div[@class='c-store-favorite__icon']";
+    private static final String FAVORITES_BUTTON_XPATH = "xpath;//span[contains(@class,'header_favorites_mobile__icon')]";
     private static final String GET_SELECTED_REGION_XPATH = "xpath;(//span[contains(@class,'b-login-link i-fw-b')])[3]";
 
     //конструктор
@@ -57,8 +57,8 @@ public class MobileHeaderBlock extends MainTestBase {
         return new PageElementActions(CARD_BUTTON_XPATH, driver);
     }
 
-    public PageElementActions getFavoritesPharmaciesButton() {
-        return new PageElementActions(FAVORITES_PHARMACIES_BUTTON_XPATH, driver);
+    public PageElementActions getFavoritesButton() {
+        return new PageElementActions(FAVORITES_BUTTON_XPATH, driver);
     }
 
     public PageElementActions getSelectedRegion() {
@@ -79,10 +79,10 @@ public class MobileHeaderBlock extends MainTestBase {
         logger.info("Пользователь на логотип сайта и поподает на главную страницу сайта");
     }
 
-    @Step("Пользователь нажимает на иконку 'Любимая аптека'")
-    public void clickFavoritesPharmacies(){
-        getFavoritesPharmaciesButton().click();
-        logger.info("Пользователь нажимает на иконку 'Любимая аптека'");
+    @Step("Пользователь нажимает на иконку 'Избранное'")
+    public void clickFavorites(){
+        getFavoritesButton().click();
+        logger.info("Пользователь нажимает на иконку 'Избранное'");
     }
 
     @Step("Пользователь вводит артикул товара в поисковую строку - {vendorCode}")
@@ -117,6 +117,12 @@ public class MobileHeaderBlock extends MainTestBase {
     public void clickToCartButton() {
         getCartButton().click();
         logger.info("Пользователь нажимает на иконку корзины");
+    }
+
+    @Step("Пользователь нажимает кнопку избранное")
+    public void clickFavoritesButton() {
+        getFavoritesButton().click();
+        logger.info("Пользователь нажимает кнопку избранное");
     }
 
     @Step("Пользователь проверяет выбранный регион")

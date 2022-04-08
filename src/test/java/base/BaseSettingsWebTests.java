@@ -6,8 +6,24 @@ import blocks.web.WebHeaderBlock;
 import core.MainTestBase;
 import org.junit.Before;
 import pages.commonActions.web.CommonActionsOnWebPages;
-import pages.web.*;
-
+import pages.web.authorization.AuthPopUpPage;
+import pages.web.bonusCard.BonusCardPopUpPage;
+import pages.web.botConsultant.BotConsultantPopUpPage;
+import pages.web.cart.CartPage;
+import pages.web.catalog.CatalogPage;
+import pages.web.categories.MedicationsCategoryPage;
+import pages.web.checkout.CheckOutPage;
+import pages.web.cities.CitiesPopUpPage;
+import pages.web.cookie.CookiePage;
+import pages.web.main.MainPage;
+import pages.web.orders.MyOrdersPage;
+import pages.web.osp.OspPage;
+import pages.web.privateOffice.ChangePasswordPage;
+import pages.web.privateOffice.FavoritesPage;
+import pages.web.privateOffice.PersonalDataPage;
+import pages.web.product.ProductCardPage;
+import pages.web.sber.SberPage;
+import pages.web.thanks.ThankForTheOrderPage;
 
 public class BaseSettingsWebTests extends MainTestBase {
 
@@ -22,18 +38,17 @@ public class BaseSettingsWebTests extends MainTestBase {
     protected SberPage sberPage;
     protected ThankForTheOrderPage thankForTheOrderPage;
     protected OspPage ospPage;
-  //  protected MyOrdersPage myOrdersPage;
+    protected MyOrdersPage myOrdersPage;
     protected WebHeaderBlock headerBlock;
     protected WebBasementBlock basementBlock;
-  //  protected PersonalDataPage personalDataPage;
-  //  protected BonusCardPopUpPage bonusCardPopUpPage;
-  //  protected ChangePasswordPage changePasswordPage;
-  //  protected FavoritesPage favoritesPage;
+    protected PersonalDataPage personalDataPage;
+    protected BonusCardPopUpPage bonusCardPopUpPage;
+    protected ChangePasswordPage changePasswordPage;
+    protected FavoritesPage favoritesPage;
     protected CatalogPage catalogPage;
-    protected TopPanelPage topPanelPage;
-    protected MedicationsPage medicationsPage;
-  //  protected CitiesPopUpPage citiesPopUpPage;
-  //  protected BotConsultantPopUpPage botConsultantPopUpPage;
+    protected MedicationsCategoryPage medicationsCategoryPage;
+    protected CitiesPopUpPage citiesPopUpPage;
+    protected BotConsultantPopUpPage botConsultantPopUpPage;
 
 
 
@@ -50,18 +65,17 @@ public class BaseSettingsWebTests extends MainTestBase {
         sberPage = new SberPage(driver);
         thankForTheOrderPage = new ThankForTheOrderPage(driver);
         ospPage = new OspPage(driver);
-     //   myOrdersPage = new MyOrdersPage(driver);
+        myOrdersPage = new MyOrdersPage(driver);
         headerBlock = new WebHeaderBlock(driver);
         basementBlock = new WebBasementBlock(driver);
-     //   personalDataPage = new PersonalDataPage(driver);
-     //   bonusCardPopUpPage = new BonusCardPopUpPage(driver);
-     //   changePasswordPage = new ChangePasswordPage(driver);
-     //   favoritesPage = new FavoritesPage(driver);
+        personalDataPage = new PersonalDataPage(driver);
+        bonusCardPopUpPage = new BonusCardPopUpPage(driver);
+        changePasswordPage = new ChangePasswordPage(driver);
+        favoritesPage = new FavoritesPage(driver);
         catalogPage = new CatalogPage(driver);
-        topPanelPage = new TopPanelPage(driver);
-        medicationsPage = new MedicationsPage(driver);
-     //   citiesPopUpPage = new CitiesPopUpPage(driver);
-     //   botConsultantPopUpPage = new BotConsultantPopUpPage(driver);
+        medicationsCategoryPage = new MedicationsCategoryPage(driver);
+        citiesPopUpPage = new CitiesPopUpPage(driver);
+        botConsultantPopUpPage = new BotConsultantPopUpPage(driver);
     }
 
 }

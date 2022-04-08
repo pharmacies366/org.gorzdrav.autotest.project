@@ -1,16 +1,29 @@
 package web.mainPage;
 
 import base.BaseSettingsWebTests;
+import com.tngtech.java.junit.dataprovider.DataProvider;
+import com.tngtech.java.junit.dataprovider.DataProviderRunner;
+import com.tngtech.java.junit.dataprovider.UseDataProvider;
 import io.qameta.allure.Feature;
+import io.qameta.allure.Step;
 import io.qameta.allure.Story;
 import io.qameta.allure.junit4.DisplayName;
 import org.junit.Assert;
 import org.junit.Test;
+import org.junit.runner.RunWith;
 
 @Feature(value = "Web")
-@Story("Проверка шапки сайта gorzdrav")
+@Story("Проверка шапки сайта 36.6")
 @DisplayName("Проверка шапки сайта")
+@RunWith(DataProviderRunner.class)
 public class HeaderBlockWebTest extends BaseSettingsWebTests {
+
+    @DisplayName("Проверка отображения логотипа")//возможно нужно убрать данную проверку,
+    // так как по супи в проверки кликабельности уже входит под капотом проверка на видимость
+    @Test
+    public void checkVisibilityLogo(){
+        headerBlock.getSiteLogo().elementIsVisibility();
+    }
 
     @DisplayName("Проверка кликабельности логотипа")
     @Test
@@ -30,7 +43,7 @@ public class HeaderBlockWebTest extends BaseSettingsWebTests {
     @Test
     public void testingTheSearch(){
         headerBlock.setSearchInput(propertiesManager.getProperty("productcode4"));
-        pageActions.checkUrl("https://gorzdrav.org/search/?text=44226");
+        pageActions.checkUrl("https://366.cwzw6gg24a-llcapteka1-p1-public.model-t.cc.commerce.ondemand.com/search/?text=44226");
         logger.info("Поиск работает корректно");
     }
 
@@ -38,11 +51,14 @@ public class HeaderBlockWebTest extends BaseSettingsWebTests {
     @Test
     public void testingTheCart(){
         mainPage.clickClosePopUp();
+        mainPage.ClickClosePopUpNewsButton();
         mainPage.clickAddToCardButton();
         pageActions.waitPageLoad();
         int quantity = headerBlock.checkCartQuantity();
         Assert.assertEquals(1, quantity);
-        logger.info("Проверка прошла успешно");
+        headerBlock.clickToCartButton();
+        pageActions.contentIsDisplayed("В корзине 1 товар");
+        logger.info("Проверки прошли успешно");
     }
 
     @DisplayName("Проверка кликабельности и корректности перехода по кнопке для выбора городов")
@@ -50,6 +66,14 @@ public class HeaderBlockWebTest extends BaseSettingsWebTests {
     public void checkButtonSelectCities(){
         headerBlock.clickCitiesButton();
         Assert.assertEquals("Выбор города", headerBlock.checkCitiesPopUp());
+        logger.info("Проверка прошла успешно");
+    }
+
+    @DisplayName("Проверка кликабельности и корректности перехода по кнопке 'аптеки'")
+    @Test
+    public void checkButtonPharmacies(){
+        headerBlock.clickPharmaciesButton();
+        pageActions.contentIsDisplayed("Работает сейчас");
         logger.info("Проверка прошла успешно");
     }
 
@@ -63,45 +87,8 @@ public class HeaderBlockWebTest extends BaseSettingsWebTests {
     @DisplayName("Проверка кликабельности кнопки 'Зарегистрироваться'")
     @Test
     public void checkClickableSignUp(){
-        headerBlock.clickToSignInButton();
         headerBlock.clickToSignUpButton();
         logger.info("Кнопка 'Зарегистрироваться' кликабельна");
-    }
-
-    @DisplayName("Проверка релевантного перехода по кнопке: 'Аптеки'")
-    @Test
-    public void clickPharmacyButton(){
-        headerBlock.clickPharmacyButton();
-        pageActions.checkUrl("https://gorzdrav.org/apteki/map/");
-    }
-
-    @DisplayName("Проверка релевантного перехода по кнопке: 'Карта Горздрав'")
-    @Test
-    public void clickGorzdravMapButton(){
-        headerBlock.clickGorzdravMap();
-        pageActions.checkUrl("https://gorzdrav.org/club/");
-    }
-
-    @DisplayName("Проверка релевантного перехода по кнопке: 'Доставка'")
-    @Test
-    public void clickDeliveryButton(){
-        headerBlock.clickDeliveryButton();
-        pageActions.checkUrl("https://gorzdrav.org/delivery/");
-    }
-
-    @DisplayName("Проверка релевантного перехода по кнопке: 'Бронирование'")
-    @Test
-    public void clickBookingButton(){
-        headerBlock.clickBookingButton();
-        pageActions.checkUrl("https://gorzdrav.org/");
-        pageActions.contentIsDisplayed("Как сделать заказ");
-    }
-
-    @DisplayName("Проверка релевантного перехода по кнопке: 'Вакансии'")
-    @Test
-    public void clickVacanciesButton(){
-        headerBlock.clickVacanciesButton();
-        pageActions.checkUrl("https://gorzdrav.org/vacansii/");
     }
 
     @DisplayName("Проверка кликабельности номера телефона")
@@ -109,6 +96,28 @@ public class HeaderBlockWebTest extends BaseSettingsWebTests {
     public void checkClickablePhoneNumber(){
         headerBlock.getPhoneNumber().elementIsClickable();
         logger.info("Номер телефона кликабелен");
+    }
+
+
+    @DataProvider
+    public static Object[][] data() {
+        return new Object[][]{
+                {"/howToOrderNew/", "Как сделать заказ*", "Как оформить заказ на сайте?"},
+                {"/pravila_programmy/", "Клуб 36,6", "Условия выдачи карты"},
+                {"/certificates/", "Подарочные сертификаты", "Подарочные сертификаты"},
+        };
+    }
+
+    @DisplayName("Проверка релевантности ссылок в шапке сайта")
+    @Step("В шапке сайта переходит по ссылке => {LINKTEXT}")
+    @Test
+    @UseDataProvider("data")
+    public void test(String LOCATOR, String LINKTEXT, String PAGEMESSAGE) {
+        headerBlock.checkLinksValidation(LOCATOR, LINKTEXT);
+        logger.info("Ссылка видна на странице и написана корректно");
+        headerBlock.selectHeaderButtons(LOCATOR);
+        pageActions.contentIsDisplayed(PAGEMESSAGE);
+        logger.info("Ссылка кликабельна и ведёт на нужную страницу");
     }
 
 }
