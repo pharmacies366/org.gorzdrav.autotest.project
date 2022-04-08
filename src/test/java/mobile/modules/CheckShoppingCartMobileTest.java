@@ -8,7 +8,7 @@ import org.junit.Assert;
 import org.junit.Test;
 
 @Feature(value = "Мобильная версия")
-@Story(value = "Изменения корзины на сайте 36.6")
+@Story(value = "Изменения корзины на сайте Gorzdrav")
 @DisplayName("Изменения корзины")
 public class CheckShoppingCartMobileTest extends BaseSettingsMobileTests {
 

@@ -12,7 +12,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 
 @Feature(value = "Web")
-@Story("Проверка подвала сайта 36.6")
+@Story("Проверка подвала сайта Gorzdrav")
 @DisplayName("Проверка подвала сайта")
 @RunWith(DataProviderRunner.class)
 public class BasementBlockWebTest extends BaseSettingsWebTests {

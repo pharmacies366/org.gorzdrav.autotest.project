@@ -8,7 +8,7 @@ import io.qameta.allure.junit4.DisplayName;
 import org.junit.Test;
 
 @Feature(value = "Web")
-@Story("Оформление заказа на сайте 36.6")
+@Story("Оформление заказа на сайте Gorzdrav")
 @DisplayName("Оформление заказа для неавторизованного пользователя")
 public class MakeOrdersUnauthorizedWebTest extends BaseSettingsWebTests {
 

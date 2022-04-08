@@ -9,7 +9,7 @@ import org.junit.Test;
 
 
 @Feature(value = "Мобильная версия")
-@Story(value = "Изменение количества товара в корине на сайте 36.6")
+@Story(value = "Изменение количества товара в корине на сайте Gorzdrav")
 @DisplayName("Изменение количества товара в корзине")
 public class ChangeQuantityMaterialsMobileTest extends BaseSettingsMobileTests {
 

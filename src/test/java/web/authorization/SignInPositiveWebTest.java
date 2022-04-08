@@ -7,48 +7,48 @@ import io.qameta.allure.junit4.DisplayName;
 import org.junit.Test;
 
 @Feature(value = "Web")
-@Story("Авторизация пользователя на сайте 36.6")
+@Story("Авторизация пользователя на сайте Gorzdrav")
 @DisplayName("Авторизация пользователя")
 public class SignInPositiveWebTest extends BaseSettingsWebTests {
 
-    @DisplayName("Авторизация пользователя на сайте по номеру телефона и паролю")
+/*    @DisplayName("Авторизация пользователя на сайте по номеру Бонусной карты")
     @Test
-    public void loginUserPhoneNumberAndPassword() {
+    public void loginUserCardNumber() {
         cookiePage.reCaptchaKey();
         headerBlock.clickToSignInButton();
-        authPopUpPage.setPhoneAndPassword(
-                propertiesManager.getProperty("phonenumber"),
+        authPopUpPage.setChangeToCardNumber();
+        authPopUpPage.setCardNumberAandPassword(
+                propertiesManager.getProperty("bonuscard1"),
                 propertiesManager.getProperty("userpass"));
         authPopUpPage.clickToLoginButton();
+        pageActions.waitPageLoad();
         headerBlock.checkElementIsCorrect();
-    }
+    }*/
 
-    /*    @DisplayName("Авторизация пользователя на сайте через E-mail")
-     *//*  работает только для старых пользователей у которых нет номера телефона
-    нужно каждый раз как то создавать предварительно такого пользователя
-    так как тест отработает только 1 раз и нужно будет ввести номер телефона*//*
+    @DisplayName("Авторизация пользователя на сайте через E-mail")
     @Test
     public void loginUserEmail() {
         cookiePage.reCaptchaKey();
         headerBlock.clickToSignInButton();
         authPopUpPage.setChangeToEmail();
         authPopUpPage.setEmailAndPassword(
-                propertiesManager.getProperty("usermail"),
+                propertiesManager.getProperty("userauthmail1"),
                 propertiesManager.getProperty("userpass"));
         authPopUpPage.clickToLoginButton();
+        pageActions.waitPageLoad();
         headerBlock.checkElementIsCorrect();
-    */
+    }
 
-/*    @DisplayName("Авторизация пользователя на сайте по номеру телефона")
-// Нужно как то отлавливать код, который приходит на телефон
+    @DisplayName("Авторизация пользователя на сайте по номеру телефона и паролю")
     @Test
     public void loginUserPhone() {
         cookiePage.reCaptchaKey();
         headerBlock.clickToSignInButton();
         authPopUpPage.getPhoneNumberInput().click();
-        authPopUpPage.setPhoneNumber(propertiesManager.getProperty("phonenumber"));
+        authPopUpPage.setPhoneNumber(propertiesManager.getProperty("phonenumber1"),
+                propertiesManager.getProperty("userpass"));
         authPopUpPage.clickToLoginButton();
+        pageActions.waitPageLoad();
         headerBlock.checkElementIsCorrect();
-    }*/
-
+    }
 }

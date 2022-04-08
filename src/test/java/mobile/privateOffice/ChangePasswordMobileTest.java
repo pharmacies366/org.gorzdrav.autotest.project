@@ -7,7 +7,7 @@ import io.qameta.allure.junit4.DisplayName;
 import org.junit.Test;
 
 @Feature(value = "Мобильная версия")
-@Story(value = "Личный кабинет на сайте 36.6")
+@Story(value = "Личный кабинет на сайте Gorzdrav")
 @DisplayName("Личный кабинет")
 public class ChangePasswordMobileTest extends BaseSettingsMobileTests {
 

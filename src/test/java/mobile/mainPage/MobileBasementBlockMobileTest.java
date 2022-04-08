@@ -12,7 +12,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 
 @Feature(value = "Мобильная версия")
-@Story("Проверка главной страницы сайта 36.6")
+@Story("Проверка главной страницы сайта Gorzdrav")
 @DisplayName("Проверка подвала сайта")
 @RunWith(DataProviderRunner.class)
 public class MobileBasementBlockMobileTest extends BaseSettingsMobileTests {

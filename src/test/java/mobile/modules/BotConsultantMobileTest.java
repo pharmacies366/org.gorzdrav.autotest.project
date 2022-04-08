@@ -9,7 +9,7 @@ import io.qameta.allure.junit4.DisplayName;
 import org.junit.Test;
 
 @Feature(value = "Мобильная версия")
-@Story(value = "Консультант бот на сайте 36.6")
+@Story(value = "Консультант бот на сайте Gorzdrav")
 @DisplayName("Консультант бот")
 public class BotConsultantMobileTest extends BaseSettingsMobileTests {
 

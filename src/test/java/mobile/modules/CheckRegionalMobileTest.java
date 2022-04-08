@@ -7,7 +7,7 @@ import io.qameta.allure.junit4.DisplayName;
 import org.junit.Test;
 
 @Feature(value = "Мобильная версия")
-@Story(value = "Изменение региональности на сайте 36.6")
+@Story(value = "Изменение региональности на сайте Gorzdrav")
 @DisplayName("Изменение региональности")
 public class CheckRegionalMobileTest extends BaseSettingsMobileTests {
 

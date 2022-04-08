@@ -8,7 +8,7 @@ import org.junit.Assert;
 import org.junit.Test;
 
 @Feature(value = "Мобильная версия")
-@Story("Проверка шапки сайта 36.6")
+@Story("Проверка шапки сайта Gorzdrav")
 @DisplayName("Проверка шапки сайта")
 public class MobileHeaderBlockMobileTest extends BaseSettingsMobileTests {
 

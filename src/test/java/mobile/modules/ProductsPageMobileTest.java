@@ -13,7 +13,7 @@ import org.junit.runner.RunWith;
 
 
 @Feature(value = "Мобильная версия")
-@Story(value = "Страница товаров на сайте 36.6")
+@Story(value = "Страница товаров на сайте Gorzdrav")
 @DisplayName("Страница товаров")
 @RunWith(DataProviderRunner.class)
 public class ProductsPageMobileTest extends BaseSettingsMobileTests {

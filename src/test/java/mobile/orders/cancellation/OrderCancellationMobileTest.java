@@ -9,7 +9,7 @@ import org.junit.Assert;
 import org.junit.Test;
 
 @Feature(value = "Мобильная версия")
-@Story(value = "Отмена заказа на сайте 36.6")
+@Story(value = "Отмена заказа на сайте Gorzdrav")
 @DisplayName("Отмена созданного заказа")
 public class OrderCancellationMobileTest extends BaseSettingsMobileTests {
 

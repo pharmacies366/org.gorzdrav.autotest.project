@@ -6,7 +6,7 @@ import io.qameta.allure.Story;
 import io.qameta.allure.junit4.DisplayName;
 
 @Feature(value = "Web")
-@Story(value = "Отмена заказа на сайте 36.6")
+@Story(value = "Отмена заказа на сайте Gorzdrav")
 @DisplayName("Отмена созданного заказа")
 public class OrderCancellationWebTest extends BaseSettingsWebTests {
 

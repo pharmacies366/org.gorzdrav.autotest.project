@@ -12,7 +12,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 
 @Feature(value = "Web")
-@Story(value = "Личный кабинет на сайте 36.6")
+@Story(value = "Личный кабинет на сайте Gorzdrav")
 @DisplayName("Личный кабинет")
 @RunWith(DataProviderRunner.class)
 public class PersonalDataMobileTest extends BaseSettingsMobileTests {
