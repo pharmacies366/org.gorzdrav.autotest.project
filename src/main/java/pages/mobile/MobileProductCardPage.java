@@ -13,7 +13,7 @@ public class MobileProductCardPage extends MainTestBase {
     private static final String DISCOUNT_PRICE_BUTTON_XPATH = "xpath;(//div[@class='c-product-discount__text'])";
     private static final String PHARMACY_ADDRESS_INPUT_XPATH = "xpath;//input[@name='q']";
     private static final String PRICE_VALUE_XPATH = "xpath;//span[@class='js-price-value']";
-    private static final String ONE_CKICK_CSS = "css;.js-order-quick-navigate";
+    private static final String ONE_CLICK_XPATH = "xpath;//div[@class='btn-choose-other btn-choose-other--navigate js-order-quick-navigate']";
     private static final String LUPA_BUTTON_CARD_XPATH = "xpath;//*[@class='b-search js-store-finder-search__form']//*[contains(@class, 'b-search__buttons')]";
     private static final String ONE_CKICK_APTEKA_BUTTONS_XPATH = "xpath;(//button[contains(.,'Купить в 1 клик')])";
     private static final String ADD_TO_CARD_BUTTON_XPATH = "xpath;//button[@data-gtm-source='details']";
@@ -29,7 +29,7 @@ public class MobileProductCardPage extends MainTestBase {
 
     //геттеры элементов с получением доступа к действиям с элементами
     public PageElementActions getOneClick() {
-        return new PageElementActions(ONE_CKICK_CSS, driver);
+        return new PageElementActions(ONE_CLICK_XPATH, driver);
     }
 
     public PageElementActions getLupaButtonCard() {
