@@ -12,7 +12,8 @@ public class CartPage extends MainTestBase {
     private static final String CLEAR_ALL_FROM_CARD_XPATH = "xpath;//a[contains(.,'Очистить все')]";
     private static final String CONFIRM_CLEAN_ALL_XPATH = "xpath;//input[@value='Да, подтверждаю']";
     private static final String TOTAL_PRICE_XPATH = "xpath;//div[@class='cart-summary_value js-revenue']";
-    private static final String ADD_CART_BUTTON_XPATH = "xpath;(//span[contains(.,'В корзину')])[1]";
+    private static final String BUY_ONE_CLICK_XPATH = "xpath;(//button[@type='submit'])[3]";
+    private static final String BUY_PRODUCT_XPATH = "xpath;(//button[@type='submit'])[2]";
     private static final String MAKE_ORDER_XPATH = "xpath;//a[@href='/cart/checkout']";
     private static final String PRODUCT_CARD_XPATH = "xpath;//a[@data-gtm-source='search list']";
     private static final String INCREASE_QUANTITY_XPATH = "xpath;(//div[contains(@class,'btn btn_count_plus')])[1]";
@@ -20,7 +21,7 @@ public class CartPage extends MainTestBase {
     private static final String DELETE_PRODUCT_XPATH = "xpath;//button[@class='js-remove-entry-button b-btn--clean']";
     private static final String FAVORITES_BUTTON_XPATH = "xpath;//button[@data-gtm-source='cart']";
     private static final String BANNER_XPATH = "xpath;(//img[contains(@class,'img js-responsive-image  lazyloaded')])[1]";
-    private static final String TEXT_DO_NOT_ADD_TO_CART_XPATH = "xpath;//div[@class='c-gallery__header js-products__tabs__item active']//child::h2";
+    private static final String TEXT_DO_NOT_ADD_TO_CART_XPATH = "xpath;//div[contains(@class,'c-gallery__title')]";
     private static final String DO_NOT_ADD_TO_CART_PRODUCTS_LIST_XPATH = "xpath;//div[@class='owl-wrapper c-gallery__content-wrapper active']";
 
     //конструктор
@@ -45,8 +46,12 @@ public class CartPage extends MainTestBase {
         return new PageElementActions(CARD_COUNT_XPATH, driver);
     }
 
-    public PageElementActions getClickAddCartButton() {
-        return new PageElementActions(ADD_CART_BUTTON_XPATH, driver);
+    public PageElementActions getBuyProductButton() {
+        return new PageElementActions(BUY_PRODUCT_XPATH, driver);
+    }
+
+    public PageElementActions getBuyOneClickButton() {
+        return new PageElementActions(BUY_ONE_CLICK_XPATH, driver);
     }
 
     public PageElementActions getMakeOrder() {
@@ -122,10 +127,16 @@ public class CartPage extends MainTestBase {
         return price;
     }
 
-    @Step("Пользователь нажимает на кнопку 'В корзину'")
+    @Step("Пользователь нажимает на кнопку 'Купить'")
     public void clickAddCartButton() {
-        getClickAddCartButton().click();
-        logger.info("Пользователь нажимает на кнопку 'В корзину'");
+        getBuyProductButton().click();
+        logger.info("Пользователь нажимает на кнопку 'Купить'");
+    }
+
+    @Step("Пользователь нажимает на кнопку 'Купить в 1 клик'")
+    public void clickBuyOneClick() {
+        getBuyOneClickButton().click();
+        logger.info("Пользователь нажимает на кнопку 'Купить в 1 клик'");
     }
 
     @Step("Пользователь нажимае на кнопку 'Оформить заказ'")

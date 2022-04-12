@@ -8,8 +8,8 @@ import org.openqa.selenium.WebDriver;
 public class CitiesPopUpPage extends MainTestBase {
 
     //элементы
-    private static final String MSK_BUTTON_XPATH = "xpath;(//a[contains(.,'Москва и МО')])[3]";
-    private static final String SPB_UP_BUTTON_XPATH = "xpath;(//a[contains(.,'Санкт-Петербург и ЛО')])[3]";
+    private static final String MSK_BUTTON_XPATH = "xpath;(//a[contains(@class,'region ')])[1]";
+    private static final String SPB_UP_BUTTON_XPATH = "xpath;(//a[contains(@class,'region ')])[2]";
 
 
 

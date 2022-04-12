@@ -7,7 +7,7 @@ import io.qameta.allure.junit4.DisplayName;
 import org.junit.Test;
 
 @Feature(value = "Web")
-@Story("Оформление заказа на сайте Gorzdrav")
+@Story("Оформление заказа на сайте 36.6")
 @DisplayName("Оформление заказа для авторизованного пользователя")
 public class MakeOrdersAuthorizedWebTest extends BaseSettingsWebTests {
 
@@ -57,19 +57,18 @@ public class MakeOrdersAuthorizedWebTest extends BaseSettingsWebTests {
         pageActions.waitPageLoad();
         productCardPage.buyOneClick();
         productCardPage.checkVisibilityMap();
-        productCardPage.setInputSearchAddress("Москва");
+        productCardPage.setInputSearchAddress("Фили");
         pageActions.waitPageLoad();
         productCardPage.clickBuyOneClick();
         cookiePage.reCaptchaKey();
         // checkOutPage.clickBookingButton();
-       // thankForTheOrderPage.checkSuccessMessage();
+        // thankForTheOrderPage.checkSuccessMessage();
     }
 
     @DisplayName("Авторизованный пользователь покупает товар со страниц ОСП")
     @Test
     public void checkOsp() {
         mainPage.clickClosePopUp();
-        mainPage.ClickClosePopUpNewsButton();
         headerBlock.clickToSignInButton();
         cookiePage.reCaptchaKey();
         authPopUpPage.authorizeWithPhoneAndPassword(
@@ -84,12 +83,13 @@ public class MakeOrdersAuthorizedWebTest extends BaseSettingsWebTests {
         cartPage.clickAddCartButton();
         headerBlock.clickToCartButton();
         cartPage.clickToMakeOrder();
-        checkOutPage.clickSelectApteka();
+       // checkOutPage.clickSelectApteka();
         productCardPage.setInputSearchAddress("метро Автозаводская");
         checkOutPage.clickChangeAptekaList();
+        pageActions.waitPageLoad();
         checkOutPage.getAvailabilityAndChooseThisPharmacy();
-       // checkOutPage.clickMakeOrder();
-       // thankForTheOrderPage.checkSuccessMessage();
+        // checkOutPage.clickMakeOrder();
+        // thankForTheOrderPage.checkSuccessMessage();
     }
 
     @DisplayName("Авторизованный пользователь покупает товар со способом доставки - 'Самовывоз'")
@@ -107,7 +107,7 @@ public class MakeOrdersAuthorizedWebTest extends BaseSettingsWebTests {
         cartPage.clickAddCartButton();
         headerBlock.clickToCartButton();
         cartPage.clickToMakeOrder();
-        checkOutPage.clickSelectApteka();
+       // checkOutPage.clickSelectApteka();
         checkOutPage.setInputSearchAddres("метро Фили");
         checkOutPage.checkVisibilityMap();
         checkOutPage.clickChangeAptekaList();
@@ -136,7 +136,7 @@ public class MakeOrdersAuthorizedWebTest extends BaseSettingsWebTests {
         checkOutPage.clickSelectApteka();
         checkOutPage.clickChangeAptekaList();
         checkOutPage.getAvailabilityAndChooseThisPharmacy();
-      //  checkOutPage.clickMakeOrder();
-       // thankForTheOrderPage.checkSuccessMessage();
+        //  checkOutPage.clickMakeOrder();
+        // thankForTheOrderPage.checkSuccessMessage();
     }
 }

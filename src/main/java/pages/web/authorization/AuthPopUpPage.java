@@ -10,13 +10,13 @@ public class AuthPopUpPage extends MainTestBase {
 
     //элементы
     private static final String _PHONE_NUMBER_INPUT_XPATH = "xpath;//input[@id='login-phone']";
-    private static final String _GO_PASSWORD_INPUT_XPATH = "xpath;//div[contains(@class,'popup_login_link js-auth-ext__button')]";
+    private static final String GO_PASSWORD_INPUT_XPATH = "xpath;//a[@class='b-link--auth js-auth-ext__button']";
     private static final String _PASSWORD_INPUT_XPATH = "xpath;//input[@id='login-pass']";
     private static final String _CHANGE_TO_EMAIL_XPATH = "xpath;//a[contains(.,'E-mail')]";
     private static final String _AUTH_EMAIL_XPATH = "xpath;//input[@id='login-email']";
     private static final String _LOGIN_BUTTON_XPATH = "xpath;//button[contains(.,'Войти')]";
     private static final String _PASSWORD_INPUT_ID = "id;login-pass";
-    private static final String GO_TO_PASSWORD = "xpath;//a[@class='b-link--auth js-auth-ext__button']";
+    private static final String GO_TO_PASSWORD_XPATH = "xpath;//a[@class='b-link--auth js-auth-ext__button']";
     private static final String _CHANGE_TO_CARD_NUMBER_XPATH = "xpath;//a[contains(.,'Номер карты')]";
     private static final String _AUTH_CARD_NUMBER_ID = "id;login-cardNumber";
 
@@ -37,7 +37,7 @@ public class AuthPopUpPage extends MainTestBase {
     }
 
     public PageElementActions getGoPassword() {
-        return new PageElementActions(_GO_PASSWORD_INPUT_XPATH, driver);
+        return new PageElementActions(GO_PASSWORD_INPUT_XPATH, driver);
     }
 
     public PageElementActions getPassword() {
@@ -53,7 +53,7 @@ public class AuthPopUpPage extends MainTestBase {
     }
 
     public PageElementActions getGoToPassword() {
-        return new PageElementActions(GO_TO_PASSWORD, driver);
+        return new PageElementActions(GO_TO_PASSWORD_XPATH, driver);
     }
 
     public PageElementActions getPasswordInput() {
