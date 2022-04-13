@@ -11,8 +11,8 @@ public class CatalogPage extends MainTestBase {
     //элементы
 
     //категории
-    private static final String BASE_INPUT_CATEGORYS_BUTTON_XPATH = "xpath;(//a[@href='%s'])[1]";
-    private static final String MEDICATIONS = "/c/lekarstva/";
+    private static final String BASE_INPUT_CATEGORYS_BUTTON_XPATH = "xpath;(//a[@href='%s'])[3]";
+    private static final String MEDICATIONS = "/category/lekarstva/";
 
     //подкатегории
     private static final String ALLERGY = "/c/allergija/";

@@ -18,22 +18,6 @@ import org.junit.runner.RunWith;
 @RunWith(DataProviderRunner.class)
 public class ProductsPageWebTest extends BaseSettingsWebTests {
 
-    @DisplayName("Пользователь проверяет работу слайдера для изменения цены")
-    @Test
-    public void checkChangePricesRangeWithSlider() {
-        mainPage.clickClosePopUp();
-        headerBlock.clickCatalogButton();
-        catalogPage.clickMedicationsButtons();
-        int startPriceRange = commonActionsOnWebPages.getFromPriceRange();
-        int finishPriceRange = commonActionsOnWebPages.getToPriceRange();
-        commonActionsOnWebPages.changePricesRangeWithSlider();
-        pageActions.staticWait(500);
-        int newStartPriceRange = commonActionsOnWebPages.getFromPriceRange();
-        int newFinishPriceRange = commonActionsOnWebPages.getToPriceRange();
-        Assert.assertTrue(startPriceRange < newStartPriceRange);
-        Assert.assertTrue(finishPriceRange > newFinishPriceRange);
-    }
-
     @DisplayName("Пользователь проверяет изменения диапазона цены вручную")
     @Test
     public void checkChangePricesRangeWithHands() {

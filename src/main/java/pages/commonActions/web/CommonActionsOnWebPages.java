@@ -14,12 +14,10 @@ public class CommonActionsOnWebPages extends MainTestBase {
     //элементы
     private static final String PRODUCT_BUTTON_XPATH = "xpath;//a[@data-gtm-position='%s']";
     private static final String BANNER_XPATH = "xpath;(//img[contains(@class,'img js-responsive-image  lazyloaded')])[1]";
-    private static final String SLIDER_FROM_XPATH = "xpath;//span[contains(@class,'irs-slider from')]";
-    private static final String SLIDER_TO_XPATH = "xpath;//span[@class='irs-slider to']";
     private static final String PRICE_RANGE_FROM_XPATH = "xpath;//input[@class='b-range__input js-range-from']";
     private static final String PRICE_RANGE_TO_XPATH = "xpath;//input[@class='b-range__input js-range-to']";
-    private static final String PRODUCT_PRICES_RANGE_LIST_XPATH = "xpath;//div[@class='listing_product__price']";
-    private static final String BASE_INPUT_CHECK_PRODUCT_PRICE_XPATH = "xpath;(//div[@class='listing_product__price']//child::span)[%s]";
+    private static final String PRODUCT_PRICES_RANGE_LIST_XPATH = "xpath;//button[@data-gtm-source='products list']";
+    private static final String BASE_INPUT_CHECK_PRODUCT_PRICE_XPATH = "xpath;(//span[@class='b-price '])[%s]";
     private static final String BASE_INPUT_CHECK_PRODUCT_DELIVERY_METHOD_XPATH = "xpath;(//span[@class='b-prod-label b-prod-label_delivery'])[%s]";
     private static final String CHECKBOX_DELIVERY_XPATH = "xpath;//span[@class='b-trim-str'][contains(.,'Доставка')]";
     private static final String GET_SELECTED_CHECKBOX_XPATH = "xpath;//div[@class='filters_selected'][contains(.,'%s')]";
@@ -38,7 +36,6 @@ public class CommonActionsOnWebPages extends MainTestBase {
     private static final String WITHOUT_RECIPE_XPATH = "xpath;//span[contains(.,'Отпуск без рецепта')]";
     private static final String SORTING_BUTTON_XPATH = "xpath;//select[@id='sortOptions2']";
     private static final String SORTING_NAME_XPATH = "xpath;//span[@class='ui-selectmenu-text']";
-    private static final String BASE_LIST_TITLE_PRODUCTS_XPATH = "xpath;(//a[@data-gtm-source='products list'])[%s]";
     private static final String BASE_INPUT_SORTING_OPTIONS_XPATH = "xpath;//div[contains(@id,'ui-id-%s')]";
     private static final String PRICE_REDUCTION = "5";
     private static final String PRICE_INCREASE = "4";
@@ -59,14 +56,6 @@ public class CommonActionsOnWebPages extends MainTestBase {
 
     public PageElementActions getBanner() {
         return new PageElementActions(BANNER_XPATH, driver);
-    }
-
-    public PageElementActions getSliderFrom() {
-        return new PageElementActions(SLIDER_FROM_XPATH, driver);
-    }
-
-    public PageElementActions getSliderTo() {
-        return new PageElementActions(SLIDER_TO_XPATH, driver);
     }
 
     public PageElementActions getPriceRangeFrom() {
@@ -153,10 +142,6 @@ public class CommonActionsOnWebPages extends MainTestBase {
         return new PageElementActions(SORTING_BUTTON_XPATH, driver);
     }
 
-    public PageElementActions getListTitleProducts() {
-        return new PageElementActions(BASE_LIST_TITLE_PRODUCTS_XPATH, driver);
-    }
-
     public PageElementActions getSortingName() {
         return new PageElementActions(SORTING_NAME_XPATH, driver);
     }
@@ -172,13 +157,6 @@ public class CommonActionsOnWebPages extends MainTestBase {
         pageActions.staticWait(1000);
         getBanner().click();
         logger.info("Пользователь проверяет и переходит по банеру");
-    }
-
-    @Step("Пользователь изменяет нижный и верхний диапозон цены")
-    public void changePricesRangeWithSlider() {
-        getSliderFrom().drugAndDropToOffSet(50, 0);
-        getSliderTo().drugAndDropToOffSet(-50, 0);
-        logger.info("Пользователь изменяет нижный и верхний диапозон цены");
     }
 
     @Step("Пользователь получает значение начального диапазона цены")
