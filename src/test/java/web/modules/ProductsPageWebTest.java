@@ -32,7 +32,7 @@ public class ProductsPageWebTest extends BaseSettingsWebTests {
         Assert.assertTrue(price <= ToPriceRange);
     }
 
-/*    @DisplayName("Пользователь выбирет чекбокс Доставка и проверяет корректное изменение списка товаров")
+    @DisplayName("Пользователь выбирет чекбокс Доставка и проверяет корректное изменение списка товаров")
     @Test
     public void checkProductsOnlyDelivery() {
         mainPage.clickClosePopUp();
@@ -67,7 +67,7 @@ public class ProductsPageWebTest extends BaseSettingsWebTests {
         commonActionsOnWebPages.checkSelectedProductsWithDeliveryMethod();
         commonActionsOnWebPages.clickResetCheckboxes();
         commonActionsOnWebPages.checkSelectedProductsWithAllMethods();
-    }*/
+    }
 
     @DisplayName("Пользователь проверяет коррекность работы пагинации страниц")
     @Test
@@ -79,14 +79,14 @@ public class ProductsPageWebTest extends BaseSettingsWebTests {
         commonActionsOnWebPages.clickPrevPage();
     }
 
-    @DataProvider
+/*    @DataProvider
     public static Object[][] checkingCheckboxes() {
         return new Object[][]{
                 {1, 1},//Форма выпуска
-                {2, 107},//Бренд
-                {3, 230},//Теги
-                {4, 246},//Для кого
-                {5, 260},//Производители
+                {2, 114},//Бренд
+               // {3, 230},//Теги
+                //{4, 246},//Для кого
+                {5, 314},//Производители
         };
     }
 
@@ -99,7 +99,7 @@ public class ProductsPageWebTest extends BaseSettingsWebTests {
         catalogPage.clickMedicationsButtons();
         commonActionsOnWebPages.clickShowAll(INDEX_SHOW_ALL);
         commonActionsOnWebPages.clickAndCheckCheckboxes(INDEX_OPTION);
-    }
+    }*/
 
     @DisplayName("Пользователь проверяет корректную выдачу товаров по рецепту")
     @Test
@@ -123,7 +123,7 @@ public class ProductsPageWebTest extends BaseSettingsWebTests {
         Assert.assertEquals(recipeInfo, "Без рецепта");
     }
 
-    @DisplayName("Пользователь проверяет сортировку выдачи товаров по уменьшению цены")
+/*    @DisplayName("Пользователь проверяет сортировку выдачи товаров по уменьшению цены")
     @Test
     public void checkSortingPriceReduction() {
         mainPage.clickClosePopUp();
@@ -158,7 +158,7 @@ public class ProductsPageWebTest extends BaseSettingsWebTests {
         commonActionsOnWebPages.clickSortingButton();
         commonActionsOnWebPages.clickSortingNameOption();
         commonActionsOnWebPages.checkSortingOption("по названию");
-    }
+    }*/
 
 
 
