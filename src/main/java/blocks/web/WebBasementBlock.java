@@ -8,7 +8,7 @@ import org.openqa.selenium.WebDriver;
 public class WebBasementBlock extends MainTestBase {
 
     //элементы
-    private static final String BASE_INPUT_XPATH = "xpath;//div[@class='b-section--as-content']//child::a[@href='%s']";
+    private static final String BASE_INPUT_XPATH = "xpath;//div[@class='c-block-view-ch__content']//child::a[@href='%s']";
 
 
     //конструктор

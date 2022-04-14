@@ -21,24 +21,29 @@ public class BasementBlockWebTest extends BaseSettingsWebTests {
     public static Object[][] data() {
         return new Object[][]{
                 //Помощь
-                {"/howToOrderNew/", "Как сделать заказ", "Как оформить заказ на сайте?"},
+                {"/howtoorder/", "Как сделать заказ", "Как оформить заказ на сайте?"},
                 {"/apteki/map/", "Где получить заказ", "Работает сейчас"},
                 {"/faq/", "Вопрос-ответ", "Вопрос-ответ"},
                 {"/feedback/", "Задать вопрос", "Обратная связь"},
-                {"/delivery/", "Доставка", "Курьерская доставка заказов"},
+                {"/delivery/", "Доставка", "Доставка"},
+                {"/oplata/", "Оплата", "Оплата"},
+                {"/refund/", "Обмен и возврат", "Правила обмена и возврата товара"},
+                {"/warranty/", "Гарантии", "Гарантии"},
                 //Сервис
-                {"/polzovatelskoe-soglashenie/", "Пользовательское соглашение", "Пользовательское соглашение"},
-                {"/politika-konfidencialnosti/", "Политика конфиденциальности", "Политика конфиденциальности"},
+                {"/ofertagorzdrav/", "Публичная оферта", "Публичная оферта"},
+                {"/personaldata/", "Политика конфиденциальности", "Политика конфиденциальности"},
+                {"/manufacturers/", "Производители", "Все производители"},
+                {"/partnersgz/", "Партнеры", "Партнеры"},
                 {"/mnn/", "Действующие вещества", "Все вещества"},
-                {"/promotions/", "Акции", "Акции"},
-                {"/articles/", "Статьи", "Статьи"},
+                {"/shares/", "Акции", "Акции"},
+                {"/blog/", "Статьи", "Статьи"},
+                {"/news/", "Новости", "Новости"},
                 //О Компании
                 {"/aboutus/", "О нас", "О нас"},
                 {"/contacts/", "Контактные данные", "Контактные данные"},
-                {"/manufacturers/", "Производители", "Производители"},
+                {"/feedback/", "Оставить отзыв", "Обратная связь"},
                 {"/advertisingplacement/", "Размещение рекламы", "Размещение рекламы"},
-                {"/license/", "Лицензии", "Лицензии"},
-                {"/vakansii/", "Вакансии", "Фармацевт/Провизор"},
+                {"/licenses/", "Лицензии", "Лицензии"},
         };
     }
 
@@ -48,7 +53,6 @@ public class BasementBlockWebTest extends BaseSettingsWebTests {
     @UseDataProvider("data")
     public void test(String LOCATOR, String LINK_TEXT, String PAGE_MESSAGE) {
         mainPage.clickClosePopUp();
-        mainPage.ClickClosePopUpNewsButton();
         basementBlock.checkLinksValidation(LOCATOR, LINK_TEXT);
         logger.info("Ссылка видна на странице и написана корректно");
         basementBlock.selectBasementButtons(LOCATOR);

@@ -16,7 +16,6 @@ public class CheckShoppingCartWebTest extends BaseSettingsWebTests {
     @Test
     public void increaseQuantityMaterialOnCartPage() {
         mainPage.clickClosePopUp();
-       // mainPage.ClickClosePopUpNewsButton();
         mainPage.clickAddToCardButton();
         headerBlock.clickToCartButton();
         cartPage.clickIncreaseQuantity();
@@ -29,7 +28,6 @@ public class CheckShoppingCartWebTest extends BaseSettingsWebTests {
     @Test
     public void decreaseQuantityMaterialOnCartPage() {
         mainPage.clickClosePopUp();
-        //mainPage.ClickClosePopUpNewsButton();
         mainPage.clickAddToCardButton();
         pageActions.waitPageLoad();
         mainPage.clickIncreaseQuantity();
@@ -93,6 +91,7 @@ public class CheckShoppingCartWebTest extends BaseSettingsWebTests {
         mainPage.clickClosePopUp();
         openUrl(propertiesManager.getProperty("baseurl") + "p/29992");
         productCardPage.clickAddCartButton();
+        pageActions.waitPageLoad();
         int firstPrice = productCardPage.getProductPrice();
         openUrl(propertiesManager.getProperty("baseurl") + "p/44226");
         productCardPage.clickAddCartButton();
@@ -104,19 +103,6 @@ public class CheckShoppingCartWebTest extends BaseSettingsWebTests {
         Assert.assertEquals(1, cartPage.checkCartQuantity());
         int finalPrice = cartPage.getPriceTotal();
         Assert.assertEquals(firstPrice, finalPrice);
-    }
-
-    @DisplayName("Пользователь проверяет, что добавленный товар в корзину, возможно добавить в избранное со странице корзины")
-    @Test
-    public void addProductToFavoritePageOnShoppingCartPage() {
-        mainPage.clickClosePopUp();
-        mainPage.ClickClosePopUpNewsButton();
-        mainPage.clickAddToCardButton();
-        headerBlock.clickToCartButton();
-        cartPage.clickFavoritesButton();
-        headerBlock.clickFavoritesButton();
-        int count =  headerBlock.checkQuantityProductsOnFavoritesPage();
-        Assert.assertEquals(count,1);
     }
 
     @DisplayName("Пользователь проверяет, что в блоке - не забудьте положить в корзину, отображаются: - Мини-карточки товаров в виде макета")
