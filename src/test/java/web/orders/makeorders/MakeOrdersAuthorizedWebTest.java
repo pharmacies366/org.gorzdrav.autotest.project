@@ -65,7 +65,7 @@ public class MakeOrdersAuthorizedWebTest extends BaseSettingsWebTests {
         // thankForTheOrderPage.checkSuccessMessage();
     }
 
-    @DisplayName("Авторизованный пользователь покупает товар со страниц ОСП")
+/*    @DisplayName("Авторизованный пользователь покупает товар со страниц ОСП") // так как локатор на добавление отличается индексом ждём задачу от разрабов
     @Test
     public void checkOsp() {
         mainPage.clickClosePopUp();
@@ -90,7 +90,7 @@ public class MakeOrdersAuthorizedWebTest extends BaseSettingsWebTests {
         checkOutPage.getAvailabilityAndChooseThisPharmacy();
         // checkOutPage.clickMakeOrder();
         // thankForTheOrderPage.checkSuccessMessage();
-    }
+    }*/
 
     @DisplayName("Авторизованный пользователь покупает товар со способом доставки - 'Самовывоз'")
     @Test
@@ -126,17 +126,25 @@ public class MakeOrdersAuthorizedWebTest extends BaseSettingsWebTests {
                 propertiesManager.getProperty("userpass"));
         pageActions.waitPageLoad();
         cartPage.checkAndClearCartQuantity();
-        headerBlock.setSearchInput(propertiesManager.getProperty("productcode4"));
+        headerBlock.clickSiteLogo();
+        headerBlock.setSearchInput(propertiesManager.getProperty("productcode1"));
+        pageActions.waitPageLoad();
         cartPage.clickAddCartButton();
+        pageActions.waitPageLoad();
         headerBlock.clickSiteLogo();
         headerBlock.setSearchInput(propertiesManager.getProperty("productcode2"));
+        pageActions.waitPageLoad();
         cartPage.clickAddCartButton();
+        pageActions.waitPageLoad();
         headerBlock.clickToCartButton();
         cartPage.clickToMakeOrder();
-        checkOutPage.clickSelectApteka();
         checkOutPage.clickChangeAptekaList();
         checkOutPage.getAvailabilityAndChooseThisPharmacy();
+        checkOutPage.contactDetails(
+                propertiesManager.getProperty("username"),
+                propertiesManager.getProperty("phonenumber"),
+                propertiesManager.getProperty("usermail"));
         //  checkOutPage.clickMakeOrder();
-        // thankForTheOrderPage.checkSuccessMessage();
+        //  thankForTheOrderPage.checkSuccessMessage();
     }
 }
