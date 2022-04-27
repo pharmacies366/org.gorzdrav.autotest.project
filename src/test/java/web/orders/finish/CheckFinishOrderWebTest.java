@@ -25,7 +25,6 @@ public class CheckFinishOrderWebTest extends BaseSettingsWebTests {
         cartPage.clickAddCartButton();
         headerBlock.clickToCartButton();
         cartPage.clickToMakeOrder();
-        checkOutPage.clickSelectApteka();
         checkOutPage.setInputSearchAddres("метро Фили");
         checkOutPage.checkVisibilityMap();
         checkOutPage.clickChangeAptekaList();
