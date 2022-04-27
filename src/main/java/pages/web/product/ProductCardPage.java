@@ -16,8 +16,9 @@ public class ProductCardPage extends MainTestBase {
     private static final String PHARMACY_MAP_XPATH = "xpath;//*[@id='store-finder-map']";
     private static final String PHARMACY_ADDRESS_INPUT_XPATH = "xpath;//input[@name='q']";
     private static final String ONE_CLICK_PHARMACY_BUTTONS_XPATH = "xpath;(//button[contains(.,'Купить в 1 клик')])";
-    private static final String INCREASE_QUANTITY_XPATH = "xpath;(//span[contains(@class, 'product_counter_short__plus')])[1]";
-    private static final String QUANTITY_PRODUCT_XPATH = "xpath;(//span[contains(@class,'product_counter_short__qty')])[1]";
+    private static final String INCREASE_QUANTITY_XPATH = "xpath;//button[@data-autotest='selector_plus']";
+    private static final String DECREASE_QUANTITY_XPATH = "xpath;//button[@data-autotest='selector_minus']";
+    private static final String QUANTITY_PRODUCT_XPATH = "xpath;//input[contains(@class,'b-counter__input js-qty-selector-input js-qty-selector-input-zero js-product-add-on-change')]";
     private static final String CARD_BUTTON_XPATH = "xpath;//div[@id='js-mini-cart-link']";
     private static final String MAIN_BUTTON_XPATH = "xpath;//span[contains(.,'Главная')]";
     private static final String BANNER_XPATH = "xpath;(//img[@class='b-bnr--responsive__img '])[1]";

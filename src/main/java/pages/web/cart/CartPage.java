@@ -17,7 +17,7 @@ public class CartPage extends MainTestBase {
     private static final String MAKE_ORDER_XPATH = "xpath;//a[@href='/cart/checkout']";
     private static final String PRODUCT_CARD_XPATH = "xpath;//a[@data-gtm-source='search list']";
     private static final String INCREASE_QUANTITY_XPATH = "xpath;//button[@data-autotest = 'selector_plus']";
-    private static final String DECRESE_QUANTITY_XPATH = "xpath;//button[@data-autotest = 'selector_minus']";
+    private static final String DECREASE_QUANTITY_XPATH = "xpath;//button[@data-autotest = 'selector_minus']";
     private static final String QUANTITY_PRODUCT_XPATH = "xpath;//input[@data-autotest='selector_quantity']";
     private static final String DELETE_PRODUCT_XPATH = "xpath;//button[@class='js-remove-entry-button b-btn--clean']";
     private static final String FAVORITES_BUTTON_XPATH = "xpath;//button[@data-gtm-source='cart']";
@@ -68,7 +68,7 @@ public class CartPage extends MainTestBase {
     }
 
     public PageElementActions getDecreaseQuantity() {
-        return new PageElementActions(DECRESE_QUANTITY_XPATH, driver);
+        return new PageElementActions(DECREASE_QUANTITY_XPATH, driver);
     }
 
     public PageElementActions getProductQuantity() {
