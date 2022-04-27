@@ -12,7 +12,7 @@ public class MainPage extends MainTestBase {
     private static final String LETTER_N_XPATH = "xpath;//a[@href='/littera-Н/']";
     private static final String ADD_TO_CART_BUTTON_XPATH = "xpath;(//button[@type='submit' and @class='b-btn js-enable-btn js-add-to-cart-listing--gz b-btn--without-merger-modifications'])[1]";
     private static final String QUANTITY_MATERIALS_XPATH = "xpath;(//div[contains(@class,'product_counter__qty')])[1]";
-    private static final String INCREASE_QUANTITY_XPATH = "xpath;(//div[contains(@class,'btn btn_count_plus')])[1]";
+    private static final String INCREASE_QUANTITY_XPATH = "xpath;//button[@data-autotest = 'selector_minus']";
     private static final String DECREASE_QUANTITY_XPATH = "xpath;(//div[contains(@class,'btn btn_count_minus')])[1]";
     private static final String FAVORITES_ICON_XPATH = "xpath;(//button[contains(@class,'button b-star')])[1]";
     private static final String BANNER_LIST_XPATH = "xpath;(//button[@type='button'])";

@@ -16,8 +16,9 @@ public class CartPage extends MainTestBase {
     private static final String BUY_PRODUCT_XPATH = "xpath;(//button[@type='submit'])[2]";
     private static final String MAKE_ORDER_XPATH = "xpath;//a[@href='/cart/checkout']";
     private static final String PRODUCT_CARD_XPATH = "xpath;//a[@data-gtm-source='search list']";
-    private static final String INCREASE_QUANTITY_XPATH = "xpath;(//div[contains(@class,'btn btn_count_plus')])[1]";
-    private static final String QUANTITY_PRODUCT_XPATH = "xpath;(//div[contains(@class,'product_counter__qty')])[1]";
+    private static final String INCREASE_QUANTITY_XPATH = "xpath;//button[@data-autotest = 'selector_plus']";
+    private static final String DECRESE_QUANTITY_XPATH = "xpath;//button[@data-autotest = 'selector_minus']";
+    private static final String QUANTITY_PRODUCT_XPATH = "xpath;//input[@data-autotest='selector_quantity']";
     private static final String DELETE_PRODUCT_XPATH = "xpath;//button[@class='js-remove-entry-button b-btn--clean']";
     private static final String FAVORITES_BUTTON_XPATH = "xpath;//button[@data-gtm-source='cart']";
     private static final String BANNER_XPATH = "xpath;(//img[@class='b-bnr--responsive__img '])[1]";
@@ -64,6 +65,10 @@ public class CartPage extends MainTestBase {
 
     public PageElementActions getIncreaseQuantity() {
         return new PageElementActions(INCREASE_QUANTITY_XPATH, driver);
+    }
+
+    public PageElementActions getDecreaseQuantity() {
+        return new PageElementActions(DECRESE_QUANTITY_XPATH, driver);
     }
 
     public PageElementActions getProductQuantity() {
@@ -157,11 +162,17 @@ public class CartPage extends MainTestBase {
         logger.info("Пользователь нажимает '+' увеличивая количество шт. товара");
     }
 
+    @Step("Пользователь нажимает '-' уменьшая количество шт. товара")
+    public void clickDecreaseQuantity() {
+        getDecreaseQuantity().click();
+        logger.info("Пользователь нажимает '-' уменьшая количество шт. товара");
+    }
+
     @Step("Сохранение количества товаров")
     public int getQuantityMaterials() {
-        int quantity = getProductQuantity().formatElementToValue();
+        String stringQuantity = getProductQuantity().getAttribute("defaultValue");
         logger.info("Запоминаем количество товара");
-        return quantity;
+        return Integer.parseInt(stringQuantity);
     }
 
     @Step("Пользователь нажимает на иконку удаления товара")
