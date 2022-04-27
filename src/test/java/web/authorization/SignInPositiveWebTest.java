@@ -25,7 +25,7 @@ public class SignInPositiveWebTest extends BaseSettingsWebTests {
         headerBlock.checkElementIsCorrect();
     }*/
 
-    @DisplayName("Авторизация пользователя на сайте через E-mail")
+/*    @DisplayName("Авторизация пользователя на сайте через E-mail")
     @Test
     public void loginUserEmail() {
         cookiePage.reCaptchaKey();
@@ -37,7 +37,7 @@ public class SignInPositiveWebTest extends BaseSettingsWebTests {
         authPopUpPage.clickToLoginButton();
         pageActions.waitPageLoad();
         headerBlock.checkElementIsCorrect();
-    }
+    }*/
 
     @DisplayName("Авторизация пользователя на сайте по номеру телефона и паролю")
     @Test

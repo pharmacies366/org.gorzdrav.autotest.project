@@ -13,7 +13,7 @@ public class CommonActionsOnWebPages extends MainTestBase {
 
     //элементы
     private static final String PRODUCT_BUTTON_XPATH = "xpath;//a[@data-gtm-position='%s']";
-    private static final String BANNER_XPATH = "xpath;(//img[contains(@class,'img js-responsive-image  lazyloaded')])[1]";
+    private static final String BANNER_XPATH = "xpath;(//img[@class='b-bnr--responsive__img '])[1]";
     private static final String PRICE_RANGE_FROM_XPATH = "xpath;//input[@class='b-range__input js-range-from']";
     private static final String PRICE_RANGE_TO_XPATH = "xpath;//input[@class='b-range__input js-range-to']";
     private static final String PRODUCT_PRICES_RANGE_LIST_XPATH = "xpath;//button[@data-gtm-source='products list']";

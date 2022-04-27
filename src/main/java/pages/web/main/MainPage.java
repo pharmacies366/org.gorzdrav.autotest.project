@@ -16,15 +16,15 @@ public class MainPage extends MainTestBase {
     private static final String DECREASE_QUANTITY_XPATH = "xpath;(//div[contains(@class,'btn btn_count_minus')])[1]";
     private static final String FAVORITES_ICON_XPATH = "xpath;(//button[contains(@class,'button b-star')])[1]";
     private static final String BANNER_LIST_XPATH = "xpath;(//button[@type='button'])";
-    private static final String CHECK_START_BANNER_XPATH = "xpath;//li[@class='slick-active' and @aria-controls='navigation00']";
+    private static final String CHECK_START_BANNER_XPATH = "xpath;(//img[@class='b-bnr--responsive__img '])[1]";
     private static final String PREV_BANNER_XPATH = "xpath;//button[@class='slick-prev slick-arrow']";
     private static final String NEXT_BANNER_XPATH = "xpath;//button[@class='slick-next slick-arrow']";
     private static final String BANNER_PIN_BUTTONS_XPATH = "xpath;//button[@type='button'][contains(.,'%s')]";
-    private static final String BANNERS_BUTTONS_XPATH = "xpath;(//div[@class='yCmsContentSlot'])[1]";
-    private static final String MAIN_BUTTON_XPATH = "xpath;//div[@class='breadcrumbs__item']";
+    private static final String BANNERS_BUTTONS_XPATH = "xpath;//div[@class='p_slider js-banner-slider _infinite slick-initialized slick-slider']";
+    private static final String MAIN_BUTTON_XPATH = "xpath;//span[contains(.,'Главная')]";
     private static final String QUANTITY_BANNERS_XPATH = "xpath;//ul[contains(@role,'tablist')]";
     private static final String CLOSE_POP_UP_NEWS_BUTTON_XPATH = "xpath;//div[@class='popmechanic-close']";
-    private static final String CATALOG_BUTTON_XPATH = "xpath;//div[@class='catalog_menu js-switch-menu']";
+    private static final String CATALOG_BUTTON_XPATH = "xpath;//div[@class='c-header-menu__item-title c-header-menu__item-title--modify js-dropdown-menu-button js-navigation-menu__title'][contains(.,'Каталог')]";
     private static final String PRODUCT_BUTTON_XPATH = "xpath;(//div[@class='c-prod-item__title'])[1]";
     private static final String BOT_CONSULTANT_BUTTON_XPATH = "xpath;//jdiv[@id='jvlabelWrap']";
 
