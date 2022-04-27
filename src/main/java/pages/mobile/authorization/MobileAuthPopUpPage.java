@@ -10,7 +10,7 @@ public class MobileAuthPopUpPage extends MainTestBase {
 
     //элементы
     private static final String _PHONE_NUMBER_INPUT_XPATH = "xpath;//input[@id='login-phone']";
-    private static final String _GO_PASSWORD_INPUT_XPATH = "xpath;//div[contains(@class,'popup_login_link js-auth-ext__button')]";
+    private static final String _GO_PASSWORD_INPUT_XPATH = "xpath;//a[@href='#'][contains(.,'Войти c паролем')]";
     private static final String _PASSWORD_INPUT_XPATH = "xpath;//input[@id='login-pass']";
     private static final String _CHANGE_TO_EMAIL_XPATH = "xpath;//a[contains(.,'E-mail')]";
     private static final String _AUTH_EMAIL_XPATH = "xpath;//input[@id='login-email']";

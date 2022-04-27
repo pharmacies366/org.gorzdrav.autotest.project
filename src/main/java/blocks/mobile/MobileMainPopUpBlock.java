@@ -7,7 +7,7 @@ import org.openqa.selenium.WebDriver;
 
 public class MobileMainPopUpBlock extends MainTestBase {
     //элементы
-    private static final String LOGIN_ICON_XPATH = "xpath;(//a[contains(.,'Войти')])[3]";
+    private static final String LOGIN_ICON_XPATH = "xpath;(//div[contains(.,'Войти')])[26]";
     private static final String PERSONAL_ACCOUNT_XPATH = "xpath;(//span[@class='js-check-user-status'])[3]";
     private static final String MY_ORDERS_XPATH = "xpath;(//a[@href='/my-account/orders'])[3]";
     private static final String TITLE_IFRAME_POP_UP = "uxfb_form";
