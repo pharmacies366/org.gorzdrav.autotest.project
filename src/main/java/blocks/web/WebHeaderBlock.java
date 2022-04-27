@@ -13,7 +13,7 @@ public class WebHeaderBlock extends MainTestBase {
     private static final String SIGN_UP_BUTTON_XPATH = "xpath;//a[@class='b-link b-link--auth js-register-ext__button']";
     private static final String LOGOUT_BUTTON_XPATH = "xpath;(//a[@href='/logout/'])[1]";
     private static final String MY_ORDERS_XPATH = "xpath;(//a[@href='/my-account/orders'])[1]";
-    private static final String PERSONAL_ACCOUNT_XPATH = "xpath;(//span[@class='js-check-user-status'])[1]";
+    private static final String PERSONAL_ACCOUNT_XPATH = "xpath;(//i[contains(@class,'b-icn--user')])[2]";
     private static final String BASE_INPUT_XPATH = "xpath;(//a[@href='%s'])[1]";
     private static final String SITE_LOGO_XPATH = "xpath;//img[@alt='ГЗ лого.svg']";
     private static final String CATALOG_BUTTON_XPATH = "xpath;(//div[@class='b-section--as-content']//child::div)[2]";
@@ -25,7 +25,7 @@ public class WebHeaderBlock extends MainTestBase {
     private static final String PHARMACIES_BUTTON_XPATH = "xpath;(//a[@href='/apteki/map'])[1]";
     private static final String PHONE_NUMBER_XPATH = "xpath;(//a[@class='b-icn--phone i-fw-b'])[3]";
     private static final String PERSONAL_DATA_XPATH = "xpath;(//a[@href='/my-account/profile'])[1]";
-    private static final String CHANGE_PASSWORD_BUTTON_XPATH = "xpath;(//a[@href='/my-account/update-password'])[1]";
+    private static final String CHANGE_PASSWORD_BUTTON_XPATH = "xpath;(//a[@href='/my-account/update-password'])[2]";
     private static final String FAVORITES_BUTTON_XPATH = "xpath;(//div[contains(@class,'js-header__favorites')])[1]";
     private static final String GET_COUNT_FAVORITES_XPATH = "xpath;//div[@class='c-prod-item-list c-prod-item-list-favorites']";
     private static final String GET_SELECTED_REGION_XPATH = "xpath;(//span[@class='b-login-link i-fw-b'])[1]";

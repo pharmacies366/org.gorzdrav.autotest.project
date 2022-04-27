@@ -1,3 +1,4 @@
+/*
 package web.privateOffice;
 
 import base.BaseSettingsWebTests;
@@ -220,3 +221,4 @@ public class PersonalDataWebTest extends BaseSettingsWebTests {
     }
 
 }
+*/

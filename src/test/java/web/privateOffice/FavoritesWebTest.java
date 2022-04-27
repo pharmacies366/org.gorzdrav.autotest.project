@@ -1,3 +1,4 @@
+/*
 package web.privateOffice;
 
 import base.BaseSettingsWebTests;
@@ -93,6 +94,7 @@ public class FavoritesWebTest extends BaseSettingsWebTests {
         logger.info("Количество товара равно 2-м");
     }
 
+*/
 /*    // TODO: проверить после bugfix
     @DisplayName("Пользователь уменьшает количество шт. товара в корзине на странице избранное")
     @Test
@@ -114,7 +116,8 @@ public class FavoritesWebTest extends BaseSettingsWebTests {
         int finalQuantity = cartPage.getQuantityMaterials();
         Assert.assertEquals(1, finalQuantity);
         logger.info("Количество товара равно 1-му");
-    }*/
+    }*//*
+
 
     @DisplayName("Пользователь проверяет, что товар который был добавлен в избранное," +
             " на странице корзины так же отмечен что он находится в избранном")
@@ -132,3 +135,4 @@ public class FavoritesWebTest extends BaseSettingsWebTests {
 
 
 }
+*/

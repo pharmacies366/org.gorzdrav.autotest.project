@@ -10,7 +10,6 @@ public class ChangePasswordPage extends MainTestBase {
 
     //элементы
     private static final String BASE_INPUT_PASSWORD_DATA_XPATH = "xpath;//input[@id='%s']";
-    private static final String OldPassword = "currentPassword";
     private static final String NewPassword = "newPassword";
     private static final String CheckNewPassword = "checkNewPassword";
     private static final String CHANGE_BUTTON_XPATH = "xpath;//button[@class='b-btn']";
@@ -43,8 +42,7 @@ public class ChangePasswordPage extends MainTestBase {
     //Методы
 
     @Step("Пользователь вводит старый и новый пароли")
-    public void clickChangePassword(String oldPassword, String newPassword, String checkNewPassword) {
-        getBaseInputePrsonalDetails(String.format(BASE_INPUT_PASSWORD_DATA_XPATH, OldPassword)).sendKeys(oldPassword);
+    public void clickChangePassword(String newPassword, String checkNewPassword) {
         getBaseInputePrsonalDetails(String.format(BASE_INPUT_PASSWORD_DATA_XPATH, NewPassword)).sendKeys(newPassword);
         getBaseInputePrsonalDetails(String.format(BASE_INPUT_PASSWORD_DATA_XPATH, CheckNewPassword)).sendKeys(checkNewPassword);
         logger.info("Пользователь вводит старый и новый пароли");
