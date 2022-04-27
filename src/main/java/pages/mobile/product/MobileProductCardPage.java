@@ -12,7 +12,7 @@ public class MobileProductCardPage extends MainTestBase {
     //элементы
     private static final String ADD_TO_CARD_BUTTON_XPATH = "xpath;//form[@class='product_counter__form js-add-to-cart__form js-add-to-cart__form-hide ']//child::button";
     private static final String PRICE_LABLE_XPATH = "xpath;//span[contains(@class,'price ')]";
-    private static final String ONE_CKICK_XPATH = "xpath;(//div[@class='btn btn_secondary js-order-quick-navigate'])[1]";
+    private static final String ONE_CKICK_XPATH = "xpath;//div[@class='btn-choose-other btn-choose-other--navigate js-order-quick-navigate'][contains(.,'Купить в 1 клик')]";
     private static final String APTEKA_MAP_XPATH = "xpath;//*[@id='store-finder-map']";
     private static final String PHARMACY_ADDRESS_INPUT_XPATH = "xpath;//input[@name='q']";
     private static final String CHANGE_APTEKA_LIST_XPATH = "xpath;//label[@class='js-storefinder-sort js-product-stores__head-item js-storefinder-recommend']";

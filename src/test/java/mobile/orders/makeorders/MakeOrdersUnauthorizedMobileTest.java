@@ -1,3 +1,4 @@
+/*
 package mobile.orders.makeorders;
 
 import base.BaseSettingsMobileTests;
@@ -13,6 +14,7 @@ public class MakeOrdersUnauthorizedMobileTest extends BaseSettingsMobileTests {
 
     //Отключили на проде, так как формируется реальная заявка на доставку и курьеры едут за заказами
 
+*/
 /*    @DisplayName("Оформление заказа доставкой. Неавторизованный пользователь")
     @Test
     public void delivery() {
@@ -35,13 +37,15 @@ public class MakeOrdersUnauthorizedMobileTest extends BaseSettingsMobileTests {
                 propertiesManager.getProperty("cvv"));
         mobileSberPage.clickOnSubmitButton();
         mobileThankForTheOrderPage.checkPaymentError();
-    }*/
+    }*//*
 
-    @DisplayName("Неавторизованный пользователь покупает товар в 1клик")
+
+*/
+/*    @DisplayName("Неавторизованный пользователь покупает товар в 1клик")
     @Test
     public void oneClick() {
         mobileCookiePage.reCaptchaKey();
-        mobileMainPage.clickClosePopUp();
+      //  mobileMainPage.clickClosePopUp();
         mobileMainPage.clickCloseMobileAppPopUp();
         mobileHeaderBlock.setSearchInput(propertiesManager.getProperty("productcode4"));
         pageActions.waitPageLoad();
@@ -56,13 +60,15 @@ public class MakeOrdersUnauthorizedMobileTest extends BaseSettingsMobileTests {
         mobileCheckOutPage.setInputOneClickPhoneNumber(propertiesManager.getProperty("phonenumber"));
        // mobileCheckOutPage.clickBookingButton();
        // mobileThankForTheOrderPage.checkSuccessMessage();
-    }
+    }*//*
 
-    @DisplayName("Неавторизованный пользователь покупает товар со страниц ОСП")
+
+*/
+/*    @DisplayName("Неавторизованный пользователь покупает товар со страниц ОСП")
     @Test
     public void checkOsp() {
         mobileCookiePage.reCaptchaKey();
-        mobileMainPage.clickClosePopUp();
+       // mobileMainPage.clickClosePopUp();
         mobileMainPage.clickCloseMobileAppPopUp();
         pageActions.reloadPage();
         pageActions.waitPageLoad();
@@ -83,13 +89,14 @@ public class MakeOrdersUnauthorizedMobileTest extends BaseSettingsMobileTests {
         mobileCheckOutPage.ckickSelect();
       //  mobileCheckOutPage.clickMakeOrder();
       //  mobileThankForTheOrderPage.checkSuccessMessage();
-    }
+    }*//*
+
 
     @DisplayName("Неавторизованный пользователь покупает товар со способом доставки - 'Самовывоз'")
     @Test
     public void pickup() {
         mobileCookiePage.reCaptchaKey();
-        mobileMainPage.clickClosePopUp();
+       // mobileMainPage.clickClosePopUp();
         mobileMainPage.clickCloseMobileAppPopUp();
         mobileHeaderBlock.setSearchInput(propertiesManager.getProperty("productcode1"));
         pageActions.reloadPage();
@@ -114,7 +121,7 @@ public class MakeOrdersUnauthorizedMobileTest extends BaseSettingsMobileTests {
     @Test
     public void split() {
         mobileCookiePage.reCaptchaKey();
-        mobileMainPage.clickClosePopUp();
+      //  mobileMainPage.clickClosePopUp();
         mobileMainPage.clickCloseMobileAppPopUp();
         mobileHeaderBlock.setSearchInput(propertiesManager.getProperty("productcode1"));
         mobileCartPage.сlickAddCartButton();
@@ -137,3 +144,4 @@ public class MakeOrdersUnauthorizedMobileTest extends BaseSettingsMobileTests {
       //  mobileThankForTheOrderPage.checkSuccessMessage();
     }
 }
+*/

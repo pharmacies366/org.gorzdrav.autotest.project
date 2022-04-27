@@ -1,3 +1,4 @@
+/*
 package mobile.orders.makeorders;
 
 import base.BaseSettingsMobileTests;
@@ -13,7 +14,8 @@ public class MakeOrdersAuthorizedMobileTest extends BaseSettingsMobileTests {
 
     //Отключили на проде, так как формируется реальная заявка на доставку и курьеры едут за заказами
 
- /*   @DisplayName("Оформление заказа доставкой. Авторизованный пользователь")
+ */
+/*   @DisplayName("Оформление заказа доставкой. Авторизованный пользователь")
     @Test
     public void delivery() {
         mobileMainPage.clickClosePopUp();
@@ -39,7 +41,8 @@ public class MakeOrdersAuthorizedMobileTest extends BaseSettingsMobileTests {
                 propertiesManager.getProperty("cvv"));
         mobileSberPage.clickOnSubmitButton();
         mobileThankForTheOrderPage.checkPaymentError();
-    }*/
+    }*//*
+
 
     @DisplayName("Аавторизованный пользователь покупает товар в 1клик")
     @Test
@@ -157,3 +160,4 @@ public class MakeOrdersAuthorizedMobileTest extends BaseSettingsMobileTests {
       //  mobileThankForTheOrderPage.checkSuccessMessage();
     }
 }
+*/
