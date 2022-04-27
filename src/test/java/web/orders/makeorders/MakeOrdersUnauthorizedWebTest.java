@@ -92,15 +92,14 @@ public class MakeOrdersUnauthorizedWebTest extends BaseSettingsWebTests {
         cartPage.clickAddCartButton();
         headerBlock.clickToCartButton();
         cartPage.clickToMakeOrder();
-        checkOutPage.contactDetails(
-                propertiesManager.getProperty("username"),
-                propertiesManager.getProperty("phonenumber"),
-                propertiesManager.getProperty("usermail"));
-        checkOutPage.clickSelectApteka();
         checkOutPage.checkVisibilityMap();
         checkOutPage.setInputSearchAddres("метро Фили");
         checkOutPage.clickChangeAptekaList();
         checkOutPage.getAvailabilityAndChooseThisPharmacy();
+        checkOutPage.contactDetails(
+                propertiesManager.getProperty("username"),
+                propertiesManager.getProperty("phonenumber"),
+                propertiesManager.getProperty("usermail"));
       //  checkOutPage.clickMakeOrder();
       //  thankForTheOrderPage.checkSuccessMessage();
     }
@@ -113,19 +112,20 @@ public class MakeOrdersUnauthorizedWebTest extends BaseSettingsWebTests {
         headerBlock.setSearchInput(propertiesManager.getProperty("productcode1"));
         pageActions.waitPageLoad();
         cartPage.clickAddCartButton();
+        pageActions.waitPageLoad();
         headerBlock.clickSiteLogo();
         headerBlock.setSearchInput(propertiesManager.getProperty("productcode2"));
         pageActions.waitPageLoad();
         cartPage.clickAddCartButton();
+        pageActions.waitPageLoad();
         headerBlock.clickToCartButton();
         cartPage.clickToMakeOrder();
+        checkOutPage.clickChangeAptekaList();
+        checkOutPage.getAvailabilityAndChooseThisPharmacy();
         checkOutPage.contactDetails(
                 propertiesManager.getProperty("username"),
                 propertiesManager.getProperty("phonenumber"),
                 propertiesManager.getProperty("usermail"));
-        checkOutPage.clickSelectApteka();
-        checkOutPage.clickChangeAptekaList();
-        checkOutPage.getAvailabilityAndChooseThisPharmacy();
       //  checkOutPage.clickMakeOrder();
       //  thankForTheOrderPage.checkSuccessMessage();
     }

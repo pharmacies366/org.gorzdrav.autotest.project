@@ -13,7 +13,7 @@ public class CartPage extends MainTestBase {
     private static final String CONFIRM_CLEAN_ALL_XPATH = "xpath;//input[@value='Да, подтверждаю']";
     private static final String TOTAL_PRICE_XPATH = "xpath;//div[@class='c-cart-summary__total js-cart-summary-total']";
     private static final String BUY_ONE_CLICK_XPATH = "xpath;(//button[@type='submit'])[3]";
-    private static final String BUY_PRODUCT_XPATH = "xpath;(//button[@type='submit'])[3]";
+    private static final String BUY_PRODUCT_XPATH = "xpath;(//button[@type='submit'])[2]";
     private static final String MAKE_ORDER_XPATH = "xpath;//a[@href='/cart/checkout']";
     private static final String PRODUCT_CARD_XPATH = "xpath;//a[@data-gtm-source='search list']";
     private static final String INCREASE_QUANTITY_XPATH = "xpath;//button[@data-autotest = 'selector_plus']";
