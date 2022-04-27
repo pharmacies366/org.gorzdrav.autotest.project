@@ -10,8 +10,8 @@ public class ProductCardPage extends MainTestBase {
 
 
     //элементы
-    private static final String PRICE_LABEL_XPATH = "xpath;(//span[@class='product_price__val'])[1]";
-    private static final String ADD_TO_CARD_BUTTON_XPATH = "xpath;//button[@data-gtm-source='search list']";
+    private static final String PRICE_LABEL_XPATH = "xpath;//span[@class='js-price-value']";
+    private static final String ADD_TO_CARD_BUTTON_XPATH = "xpath;(//button[@type='submit'])[2]";
     private static final String ONE_CLICK_XPATH = "xpath;(//div[contains(.,'Купить в 1 клик')])[14]";
     private static final String PHARMACY_MAP_XPATH = "xpath;//*[@id='store-finder-map']";
     private static final String PHARMACY_ADDRESS_INPUT_XPATH = "xpath;//input[@name='q']";

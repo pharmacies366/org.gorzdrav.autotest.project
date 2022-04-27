@@ -11,7 +11,7 @@ public class CartPage extends MainTestBase {
     private static final String CARD_COUNT_XPATH = "xpath;//div[contains(@class,'count js-mini-cart-count')]";
     private static final String CLEAR_ALL_FROM_CARD_XPATH = "xpath;//a[contains(.,'Очистить все')]";
     private static final String CONFIRM_CLEAN_ALL_XPATH = "xpath;//input[@value='Да, подтверждаю']";
-    private static final String TOTAL_PRICE_XPATH = "xpath;//div[@class='cart-summary_value js-revenue']";
+    private static final String TOTAL_PRICE_XPATH = "xpath;//div[@class='c-cart-summary__total js-cart-summary-total']";
     private static final String BUY_ONE_CLICK_XPATH = "xpath;(//button[@type='submit'])[3]";
     private static final String BUY_PRODUCT_XPATH = "xpath;(//button[@type='submit'])[2]";
     private static final String MAKE_ORDER_XPATH = "xpath;//a[@href='/cart/checkout']";

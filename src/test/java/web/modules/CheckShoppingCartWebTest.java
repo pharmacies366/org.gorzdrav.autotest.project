@@ -21,7 +21,7 @@ public class CheckShoppingCartWebTest extends BaseSettingsWebTests {
         headerBlock.clickToCartButton();
         pageActions.waitPageLoad();
         cartPage.clickIncreaseQuantity();
-        pageActions.waitPageLoad();
+        pageActions.staticWait(1000);
         int quantity = cartPage.getQuantityMaterials();
         Assert.assertEquals(2, quantity);
         logger.info("Количество товара равно 2-м");
@@ -87,11 +87,15 @@ public class CheckShoppingCartWebTest extends BaseSettingsWebTests {
     public void checkTotalAmountProducts() {
         mainPage.clickClosePopUp();
         openUrl(propertiesManager.getProperty("baseurl") + "p/29992");
-        productCardPage.clickAddCartButton();
+        pageActions.waitPageLoad();
         int firstPrice = productCardPage.getProductPrice();
-        openUrl(propertiesManager.getProperty("baseurl") + "p/44226");
         productCardPage.clickAddCartButton();
+        pageActions.waitPageLoad();
+        openUrl(propertiesManager.getProperty("baseurl") + "p/44226");
+        pageActions.waitPageLoad();
         int secondPrice = productCardPage.getProductPrice();
+        productCardPage.clickAddCartButton();
+        pageActions.waitPageLoad();
         openUrl(propertiesManager.getProperty("baseurl") + "cart");
         int totalPrice = cartPage.getPriceTotal();
         Assert.assertEquals(firstPrice + secondPrice, totalPrice);
