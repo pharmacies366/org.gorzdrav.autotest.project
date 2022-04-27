@@ -63,22 +63,21 @@ public class MakeOrdersUnauthorizedWebTest extends BaseSettingsWebTests {
     public void checkOsp() {
         cookiePage.reCaptchaKey();
         mainPage.clickClosePopUp();
-        mainPage.ClickClosePopUpNewsButton();
+       // mainPage.ClickClosePopUpNewsButton();
         mainPage.clickLetterN();
         ospPage.clickProductName();
         cartPage.clickAddCartButton();
         pageActions.waitPageLoad();
         headerBlock.clickToCartButton();
         cartPage.clickToMakeOrder();
+        checkOutPage.setInputSearchAddres("метро Автозаводская");
+        pageActions.waitPageLoad();
+        checkOutPage.clickChangeAptekaList();
+        checkOutPage.getAvailabilityAndChooseThisPharmacy();
         checkOutPage.contactDetails(
                 propertiesManager.getProperty("username"),
                 propertiesManager.getProperty("phonenumber"),
                 propertiesManager.getProperty("usermail"));
-        checkOutPage.clickSelectApteka();
-        productCardPage.setInputSearchAddress("метро Автозаводская");//Перенести в чекаут
-        pageActions.waitPageLoad();
-        checkOutPage.clickChangeAptekaList();
-        checkOutPage.getAvailabilityAndChooseThisPharmacy();
       //  checkOutPage.clickMakeOrder();
       //  thankForTheOrderPage.checkSuccessMessage();
     }

@@ -23,7 +23,7 @@ public class CheckOutPage extends MainTestBase{
     private static final String INPUT_PHONE_NUMBER_XPATH = "xpath;//input[@name='phone']";
     private static final String BOOKING_BUTTON_XPATH = "xpath;//input[@value='Забронировать']";
     private static final String SELECT_APTEKA_XPATH = "xpath;//span[contains(.,'Выбрать аптеку')]";
-    private static final String CHANGE_APTEKA_LIST_XPATH = "xpath;//span[@class='p-checkout--mixed__control-labelText  ']";
+    private static final String CHANGE_APTEKA_LIST_XPATH = "xpath;//label[@data-autotest='checkout_list']";
     private static final String AVAILABILITY_XPATH= "xpath;(//a[contains(@class,'b-btn b-btn--outline js-store-choose')])[1]";
     private static final String CHOOSE_THIS_PHARMACY_XPATH = "xpath;(//a[@class='b-btn b-btn--outline js-store-choose'])[1]";
     private static final String MAKE_ORDER_BUTTON_XPATH = "xpath;//button[@data-autotest='summary_btn']";
