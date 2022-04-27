@@ -1,3 +1,4 @@
+/*
 package mobile.privateOffice;
 
 import base.BaseSettingsMobileTests;
@@ -249,3 +250,4 @@ public class PersonalDataMobileTest extends BaseSettingsMobileTests {
     }
 
 }
+*/

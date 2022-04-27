@@ -1,3 +1,4 @@
+/*
 package mobile.privateOffice;
 
 import base.BaseSettingsMobileTests;
@@ -41,3 +42,4 @@ public class ChangePasswordMobileTest extends BaseSettingsMobileTests {
         mobileChangePasswordPage.getMessageAboutChangePassword();
     }
 }
+*/

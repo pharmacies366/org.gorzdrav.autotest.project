@@ -1,3 +1,4 @@
+/*
 package mobile.materials;
 
 import base.BaseSettingsMobileTests;
@@ -71,3 +72,4 @@ public class ChangeQuantityMaterialsMobileTest extends BaseSettingsMobileTests {
     }
 
 }
+*/

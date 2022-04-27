@@ -1,3 +1,4 @@
+/*
 package mobile.mainPage;
 
 import base.BaseSettingsMobileTests;
@@ -53,3 +54,4 @@ public class MobileHeaderBlockMobileTest extends BaseSettingsMobileTests {
 
 
 }
+*/

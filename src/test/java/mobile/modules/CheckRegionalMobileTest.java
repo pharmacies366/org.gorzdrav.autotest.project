@@ -1,3 +1,4 @@
+/*
 package mobile.modules;
 
 import base.BaseSettingsMobileTests;
@@ -54,3 +55,4 @@ public class CheckRegionalMobileTest extends BaseSettingsMobileTests {
         mobileProductCardPage.checkSelectedRegion("Санкт-Петербург");
     }
 }
+*/

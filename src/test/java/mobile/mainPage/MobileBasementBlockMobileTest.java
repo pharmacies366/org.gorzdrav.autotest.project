@@ -1,3 +1,4 @@
+/*
 package mobile.mainPage;
 
 import base.BaseSettingsMobileTests;
@@ -21,7 +22,9 @@ public class MobileBasementBlockMobileTest extends BaseSettingsMobileTests {
     public static Object[][] help() {
         return new Object[][]{
                 //Помощь
-                /*{"howToOrderNew", "Как сделать заказ", "Как оформить заказ на сайте?"},*/
+                */
+/*{"howToOrderNew", "Как сделать заказ", "Как оформить заказ на сайте?"},*//*
+
                 {"/apteki/map/", "Где получить заказ", "Работает сейчас"},
                 {"/faq/", "Вопрос-ответ", "Вопрос-ответ"},
                 {"/feedback/", "Задать вопрос", "Обратная связь"},
@@ -110,3 +113,4 @@ public class MobileBasementBlockMobileTest extends BaseSettingsMobileTests {
     }
 
 }
+*/

@@ -1,3 +1,4 @@
+/*
 package mobile.modules;
 
 import base.BaseSettingsMobileTests;
@@ -143,3 +144,4 @@ public class CheckShoppingCartMobileTest extends BaseSettingsMobileTests {
     }
 
 }
+*/

@@ -1,3 +1,4 @@
+/*
 package mobile.banners;
 
 import base.BaseSettingsMobileTests;
@@ -11,19 +12,23 @@ import org.junit.Test;
 @DisplayName("Проверка работы банеров на сайте")
 public class BannersMobileTest extends BaseSettingsMobileTests {
 
+*/
 /*    @DisplayName("Пользователь проверяет прокрутку банеров вперед по стрелке и возврат к первоначальному баннеру на главной странице")
     @Test
     public void checkNextBannerOnMainPage() {
         mobileMainPage.checkNextBannerList();
-    }*/
+    }*//*
 
+
+*/
 /*
    @DisplayName("Пользователь проверяет прокрутку банеров назад по стрелке и возврат к первоначальному баннеру на главной странице")
     @Test
     public void checkPrevBannerOnMainPage() {
         mobileMainPage.checkPrevBannerList();
     }
-*/
+*//*
+
 
     @DisplayName("Пользователь проверяет смену банеров по пинам на главной странице")
     @Test
@@ -96,3 +101,4 @@ public class BannersMobileTest extends BaseSettingsMobileTests {
         mobileMainPage.clickSiteLogo();
     }
 }
+*/

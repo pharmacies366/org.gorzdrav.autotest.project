@@ -1,3 +1,4 @@
+/*
 package mobile.privateOffice;
 
 import base.BaseSettingsMobileTests;
@@ -110,7 +111,8 @@ public class FavoritesMobileTest extends BaseSettingsMobileTests {
     }
 
 
-  /*   TODO: проверить после bugfix
+  */
+/*   TODO: проверить после bugfix
     @DisplayName("Пользователь уменьшает количество шт. товара в корзине на странице избранное")
     @Test
     public void decreaseQuantityMaterialOnFavoritesPage() {
@@ -131,7 +133,8 @@ public class FavoritesMobileTest extends BaseSettingsMobileTests {
         int finalQuantity = mobileCartPage.getQuantityMaterials();
         Assert.assertEquals(1, finalQuantity);
         logger.info("Количество товара равно 1-му");
-    }*/
+    }*//*
+
 
 
     @DisplayName("Пользователь проверяет, что товар который был добавлен в избранное," +
@@ -150,3 +153,4 @@ public class FavoritesMobileTest extends BaseSettingsMobileTests {
 
 
 }
+*/
