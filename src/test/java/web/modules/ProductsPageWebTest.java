@@ -123,7 +123,8 @@ public class ProductsPageWebTest extends BaseSettingsWebTests {
         Assert.assertEquals(recipeInfo, "Без рецепта");
     }
 
-/*    @DisplayName("Пользователь проверяет сортировку выдачи товаров по уменьшению цены")
+/*
+   @DisplayName("Пользователь проверяет сортировку выдачи товаров по уменьшению цены")
     @Test
     public void checkSortingPriceReduction() {
         mainPage.clickClosePopUp();
