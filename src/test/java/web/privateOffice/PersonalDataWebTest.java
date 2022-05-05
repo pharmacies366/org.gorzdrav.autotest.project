@@ -21,11 +21,11 @@ public class PersonalDataWebTest extends BaseSettingsWebTests {
     @DataProvider
     public static Object[][] checkDisplaedOptions() {
         return new Object[][]{
-                {"/my-account/orders", "Мои заказы", "Мои заказы"},
-                {"/my-account/profile", "Личные данные", "Личные данные"},
+                {"/my-account/my-profile", "Мой профиль", "Мой профиль"},
                 {"/my-account/update-password", "Изменить пароль", "Изменить пароль"},
-                {"/favorites", "Избранное", "Избранное"},
-                {"/my-account/invite-friend", "Приведи друга", "Приведи друга"},
+                {"/my-account/orders", "Мои покупки", "Мои заказы"},
+                {"/my-account/my-promotions", "Мои акции", "Мои акции"},
+                {"/my-account/my-advice", "Здрав Совет", "Здрав Совет"},
                 {"/logout/", "Выйти", "Как сделать заказ"}
         };
     }
@@ -35,17 +35,14 @@ public class PersonalDataWebTest extends BaseSettingsWebTests {
     @Step("В личном кабинете переходит по ссылке => {LINKTEXT}")
     @Test
     @UseDataProvider("checkDisplaedOptions")
-    public void checkDisplaedOptions(String LOCATOR, String LINKTEXT, String PAGEMESSAGE) {
-        mainPage.clickClosePopUp();
+    public void checkDisplayedOptions(String LOCATOR, String LINKTEXT, String PAGEMESSAGE) {
         headerBlock.clickToSignInButton();
         cookiePage.reCaptchaKey();
         authPopUpPage.authorizeWithPhoneAndPassword(
                 propertiesManager.getProperty("phonenumber7"),
                 propertiesManager.getProperty("userpass"));
         pageActions.waitPageLoad();
-        cartPage.checkAndClearCartQuantity();
         headerBlock.clickToPersonalAccount();
-        headerBlock.clickPersonalData();
         personalDataPage.checkLinksValidation(LOCATOR, LINKTEXT);
         logger.info("Ссылка видна на странице и написана корректно");
         personalDataPage.selectPersonalDataButtons(LOCATOR);
