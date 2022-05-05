@@ -25,7 +25,7 @@ public class MakeOrdersAuthorizedWebTest extends BaseSettingsWebTests {
                 propertiesManager.getProperty("userpass"));
                 pageActions.waitPageLoad();
         cartPage.checkAndClearCartQuantity();
-        headerBlock.setSearchInput(propertiesManager.getProperty("productcode1"));
+        headerBlock.setSearchInput(propertiesManager.getProperty("productcode4"));
         pageActions.waitPageLoad();
         cartPage.сlickAddCartButton();
         headerBlock.clickToCartButton();
@@ -104,7 +104,7 @@ public class MakeOrdersAuthorizedWebTest extends BaseSettingsWebTests {
                 propertiesManager.getProperty("userpass"));
         pageActions.waitPageLoad();
         cartPage.checkAndClearCartQuantity();
-        headerBlock.setSearchInput(propertiesManager.getProperty("productcode1"));
+        headerBlock.setSearchInput(propertiesManager.getProperty("productcode4"));
         cartPage.clickAddCartButton();
         headerBlock.clickToCartButton();
         cartPage.clickToMakeOrder();
@@ -128,7 +128,7 @@ public class MakeOrdersAuthorizedWebTest extends BaseSettingsWebTests {
         pageActions.waitPageLoad();
         cartPage.checkAndClearCartQuantity();
         headerBlock.clickSiteLogo();
-        headerBlock.setSearchInput(propertiesManager.getProperty("productcode1"));
+        headerBlock.setSearchInput(propertiesManager.getProperty("productcode4"));
         pageActions.waitPageLoad();
         cartPage.clickAddCartButton();
         pageActions.waitPageLoad();

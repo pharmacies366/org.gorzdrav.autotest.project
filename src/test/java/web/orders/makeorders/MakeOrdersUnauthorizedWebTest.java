@@ -19,7 +19,7 @@ public class MakeOrdersUnauthorizedWebTest extends BaseSettingsWebTests {
     public void delivery() {
         cookiePage.reCaptchaKey();
         mainPage.clickClosePopUp();
-        headerBlock.setSearchInput(propertiesManager.getProperty("productcode1"));
+        headerBlock.setSearchInput(propertiesManager.getProperty("productcode4"));
         pageActions.waitPageLoad();
         cartPage.сlickAddCartButton();
         headerBlock.clickToCartButton();
@@ -89,14 +89,16 @@ public class MakeOrdersUnauthorizedWebTest extends BaseSettingsWebTests {
     public void pickup() {
         cookiePage.reCaptchaKey();
         mainPage.clickClosePopUp();
-        headerBlock.setSearchInput(propertiesManager.getProperty("productcode1"));
+        headerBlock.setSearchInput(propertiesManager.getProperty("productcode4"));
         pageActions.waitPageLoad();
         cartPage.clickAddCartButton();
         headerBlock.clickToCartButton();
         cartPage.clickToMakeOrder();
         checkOutPage.checkVisibilityMap();
         checkOutPage.setInputSearchAddres("метро Фили");
+        pageActions.waitPageLoad();
         checkOutPage.clickChangeAptekaList();
+        pageActions.waitPageLoad();
         checkOutPage.getAvailabilityAndChooseThisPharmacy();
         checkOutPage.contactDetails(
                 propertiesManager.getProperty("username"),
@@ -111,7 +113,7 @@ public class MakeOrdersUnauthorizedWebTest extends BaseSettingsWebTests {
     public void split() {
         cookiePage.reCaptchaKey();
         mainPage.clickClosePopUp();
-        headerBlock.setSearchInput(propertiesManager.getProperty("productcode1"));
+        headerBlock.setSearchInput(propertiesManager.getProperty("productcode4"));
         pageActions.waitPageLoad();
         cartPage.clickAddCartButton();
         pageActions.waitPageLoad();
