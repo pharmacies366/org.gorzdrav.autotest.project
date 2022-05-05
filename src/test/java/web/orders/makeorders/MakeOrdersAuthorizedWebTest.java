@@ -43,7 +43,6 @@ public class MakeOrdersAuthorizedWebTest extends BaseSettingsWebTests {
 
     @DisplayName("Авторизованный пользователь покупает товар в 1клик")
     @Test
-    @Tag("api")
     public void oneClick() {
         mainPage.clickClosePopUp();
         headerBlock.clickToSignInButton();
