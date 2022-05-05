@@ -11,7 +11,7 @@ import org.junit.Test;
 @DisplayName("Личный кабинет")
 public class ChangePasswordWebTest extends BaseSettingsWebTests {
 
-/*    @DisplayName("Пользователь изменяет пароль")
+    @DisplayName("Пользователь изменяет пароль")
     @Test
     public void changePassword() {
         mainPage.clickClosePopUp();
@@ -24,18 +24,19 @@ public class ChangePasswordWebTest extends BaseSettingsWebTests {
         cartPage.checkAndClearCartQuantity();
         headerBlock.clickSiteLogo();
         headerBlock.clickToPersonalAccount();
+        pageActions.waitPageLoad();
         headerBlock.clickChangePassword();
         pageActions.waitPageLoad();
         changePasswordPage.clickChangePassword(
-                propertiesManager.getProperty("olduserpass"),
+                propertiesManager.getProperty("newuserpass"),
                 propertiesManager.getProperty("newuserpass"));
         changePasswordPage.clickChangeButton();
         changePasswordPage.getMessageAboutChangePassword();
         pageActions.waitPageLoad();
         changePasswordPage.clickChangePassword(
-                propertiesManager.getProperty("newuserpass"),
+                propertiesManager.getProperty("olduserpass"),
                 propertiesManager.getProperty("olduserpass"));
         changePasswordPage.clickChangeButton();
         changePasswordPage.getMessageAboutChangePassword();
-    }*/
+    }
 }
