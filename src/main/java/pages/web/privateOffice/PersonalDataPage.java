@@ -131,11 +131,10 @@ public class PersonalDataPage extends MainTestBase {
         getBaseInputBasementLinks(String.format(BASE_INPUT_OPTIONS_XPATH, LOCATOR)).contentIsDisplayed(LINKTEXT);
     }
 
-    @Step("Пользователь заполняет фамилию и отчество")
-    public void personalDetails(String lastName, String patronymic) {
-        getBaseInputePrsonalDetails(String.format(BASE_INPUT_PERSONAL_DATA_XPATH, LastName)).sendKeys(lastName);
+    @Step("Пользователь заполняет поле отчество")
+    public void personalDetails(String patronymic) {
         getBaseInputePrsonalDetails(String.format(BASE_INPUT_PERSONAL_DATA_XPATH, Patronymic)).sendKeys(patronymic);
-        logger.info("Пользователь заполняет фамилию и отчество");
+        logger.info("Пользователь заполняет поле отчество");
     }
 
     @Step("Пользователь нажимает кнопку сохранить")
@@ -146,9 +145,7 @@ public class PersonalDataPage extends MainTestBase {
 
     @Step("Пользователь проверяет, что фамилия и отчество сохранились корректно")
     public void checkSavePersonalData() {
-        getBaseInputePrsonalDetails(String.format(BASE_INPUT_PERSONAL_DATA_XPATH, LastName)).checkAttribute("class", "form-control valid");
         getBaseInputePrsonalDetails(String.format(BASE_INPUT_PERSONAL_DATA_XPATH, Patronymic)).checkAttribute("class", "form-control valid");
-        getBaseInputePrsonalDetails(String.format(BASE_INPUT_PERSONAL_DATA_XPATH, LastName)).checkAttribute("value", propertiesManager.getProperty("lastname"));
         getBaseInputePrsonalDetails(String.format(BASE_INPUT_PERSONAL_DATA_XPATH, Patronymic)).checkAttribute("value", propertiesManager.getProperty("patronymic"));
         logger.info("Пользователь проверяет, что фамилия и отчество сохранились корректно");
     }
@@ -163,11 +160,10 @@ public class PersonalDataPage extends MainTestBase {
     }
 
 
-    @Step("Пользователь очищает поля фамилии и отчества")
-    public void clearLastNameAndPatronymic() {
-        getBaseInputePrsonalDetails(String.format(BASE_INPUT_PERSONAL_DATA_XPATH, LastName)).clean();
+    @Step("Пользователь очищает поле отчество")
+    public void clearPatronymic() {
         getBaseInputePrsonalDetails(String.format(BASE_INPUT_PERSONAL_DATA_XPATH, Patronymic)).clean();
-        logger.info("Пользователь очищает поля фамилии и отчества");
+        logger.info("Пользователь очищает поле отчество");
     }
 
     @Step("Пользователь очищает поля имя")

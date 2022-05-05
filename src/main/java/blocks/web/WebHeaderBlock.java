@@ -24,7 +24,7 @@ public class WebHeaderBlock extends MainTestBase {
     private static final String SELECT_CITIES_XPATH = "xpath;//div[contains(@class,'title i-float-l')]";
     private static final String PHARMACIES_BUTTON_XPATH = "xpath;(//a[@href='/apteki/map'])[1]";
     private static final String PHONE_NUMBER_XPATH = "xpath;(//a[@class='b-icn--phone i-fw-b'])[3]";
-    private static final String PERSONAL_DATA_XPATH = "xpath;(//a[@href='/my-account/profile'])[1]";
+    private static final String PERSONAL_DATA_XPATH = "xpath;(//a[@href='/my-account/my-profile'])[2]";
     private static final String CHANGE_PASSWORD_BUTTON_XPATH = "xpath;(//a[@href='/my-account/update-password'])[2]";
     private static final String FAVORITES_BUTTON_XPATH = "xpath;(//div[contains(@class,'js-header__favorites')])[1]";
     private static final String GET_COUNT_FAVORITES_XPATH = "xpath;//div[@class='c-prod-item-list c-prod-item-list-favorites']";
@@ -179,10 +179,10 @@ public class WebHeaderBlock extends MainTestBase {
         logger.info("Пользователь нажимает на иконку авторизации");
     }
 
-    @Step("Пользователь нажимает на кнопку Личные данные")
+    @Step("Пользователь нажимает на кнопку Мой профиль")
     public void clickPersonalData() {
         getPersonalData().click();
-        logger.info("Пользователь нажимает на кнопку Личные данные");
+        logger.info("Пользователь нажимает на кнопку Мой профиль");
     }
 
     @Step("Пользователь нажимает на кнопку Изменить пароль")

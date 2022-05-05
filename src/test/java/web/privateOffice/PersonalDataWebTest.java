@@ -49,9 +49,8 @@ public class PersonalDataWebTest extends BaseSettingsWebTests {
         pageActions.contentIsDisplayed(PAGEMESSAGE);
         logger.info("Ссылка кликабельна и ведёт на нужную страницу");
     }
-}
-/*
-    @DisplayName("Пользователь заполняет фамилию и отчество и сохраняет данные")
+
+    @DisplayName("Пользователь заполняет отчество и сохраняет данные")
     @Test
     public void checkPersonalData() {
         mainPage.clickClosePopUp();
@@ -63,15 +62,16 @@ public class PersonalDataWebTest extends BaseSettingsWebTests {
         pageActions.waitPageLoad();
         headerBlock.clickToPersonalAccount();
         headerBlock.clickPersonalData();
-        personalDataPage.clearLastNameAndPatronymic();
+        personalDataPage.clearPatronymic();
         personalDataPage.ckickSaveButton();
+        pageActions.waitPageLoad();
         personalDataPage.personalDetails(
-                propertiesManager.getProperty("lastname"),
                 propertiesManager.getProperty("patronymic"));
         personalDataPage.ckickSaveButton();
         personalDataPage.checkSavePersonalData();
     }
-
+}
+/*
     @DisplayName("Пользователь очищает поля фамилии и отчества и сохраняет данные")
     @Test
     public void clearPersonalDeta() {
