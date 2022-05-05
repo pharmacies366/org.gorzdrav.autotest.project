@@ -4,6 +4,7 @@ import base.BaseSettingsWebTests;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Story;
 import io.qameta.allure.junit4.DisplayName;
+import io.qameta.allure.junit4.Tag;
 import org.junit.Test;
 
 @Feature(value = "Web")
@@ -42,6 +43,7 @@ public class MakeOrdersAuthorizedWebTest extends BaseSettingsWebTests {
 
     @DisplayName("Авторизованный пользователь покупает товар в 1клик")
     @Test
+    @Tag("api")
     public void oneClick() {
         mainPage.clickClosePopUp();
         headerBlock.clickToSignInButton();
