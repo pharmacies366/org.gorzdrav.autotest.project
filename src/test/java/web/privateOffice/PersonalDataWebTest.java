@@ -1,4 +1,4 @@
-/*
+
 package web.privateOffice;
 
 import base.BaseSettingsWebTests;
@@ -52,7 +52,8 @@ public class PersonalDataWebTest extends BaseSettingsWebTests {
         pageActions.contentIsDisplayed(PAGEMESSAGE);
         logger.info("Ссылка кликабельна и ведёт на нужную страницу");
     }
-
+}
+/*
     @DisplayName("Пользователь заполняет фамилию и отчество и сохраняет данные")
     @Test
     public void checkPersonalDeta() {
