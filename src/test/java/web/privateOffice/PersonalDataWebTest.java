@@ -19,7 +19,7 @@ import org.junit.runner.RunWith;
 public class PersonalDataWebTest extends BaseSettingsWebTests {
 
     @DataProvider
-    public static Object[][] checkDisplaedOptions() {
+    public static Object[][] checkDisplayedOptions() {
         return new Object[][]{
                 {"/my-account/my-profile", "Мой профиль", "Мой профиль"},
                 {"/my-account/update-password", "Изменить пароль", "Изменить пароль"},
@@ -34,7 +34,7 @@ public class PersonalDataWebTest extends BaseSettingsWebTests {
             " и релевантный переход")
     @Step("В личном кабинете переходит по ссылке => {LINKTEXT}")
     @Test
-    @UseDataProvider("checkDisplaedOptions")
+    @UseDataProvider("checkDisplayedOptions")
     public void checkDisplayedOptions(String LOCATOR, String LINKTEXT, String PAGEMESSAGE) {
         headerBlock.clickToSignInButton();
         cookiePage.reCaptchaKey();
@@ -53,7 +53,7 @@ public class PersonalDataWebTest extends BaseSettingsWebTests {
 /*
     @DisplayName("Пользователь заполняет фамилию и отчество и сохраняет данные")
     @Test
-    public void checkPersonalDeta() {
+    public void checkPersonalData() {
         mainPage.clickClosePopUp();
         headerBlock.clickToSignInButton();
         cookiePage.reCaptchaKey();
