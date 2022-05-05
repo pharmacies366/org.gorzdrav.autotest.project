@@ -1,0 +1,20 @@
+#!groovy
+// Check ub1 properties
+properties([disableConcurrentBuilds()])
+
+pipeline {
+    agent {
+        label 'master'
+        }
+    options {
+        buildDiscarder(logRotator(numToKeepStr: '2', artifactNumToKeepStr: '2'))
+        timestamps()
+    }
+    stages {
+        stage("First step") {
+            steps {
+                sh "mvn clean test -Ddriver=remote -Ddriverurl=http://${remoteDriver}/wd/hub -Denv=P1"
+            }
+        }
+        }
+    }
