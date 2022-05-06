@@ -70,24 +70,7 @@ public class PersonalDataWebTest extends BaseSettingsWebTests {
         personalDataPage.ckickSaveButton();
         personalDataPage.checkSavePersonalData();
     }
-}
-/*
-    @DisplayName("Пользователь очищает поля фамилии и отчества и сохраняет данные")
-    @Test
-    public void clearPersonalDeta() {
-        mainPage.clickClosePopUp();
-        headerBlock.clickToSignInButton();
-        cookiePage.reCaptchaKey();
-        authPopUpPage.authorizeWithPhoneAndPassword(
-                propertiesManager.getProperty("phonenumber7"),
-                propertiesManager.getProperty("userpass"));
-        pageActions.waitPageLoad();
-        headerBlock.clickToPersonalAccount();
-        headerBlock.clickPersonalData();
-        personalDataPage.clearLastNameAndPatronymic();
-        personalDataPage.ckickSaveButton();
-        personalDataPage.checkClearPersonalData();
-    }
+
 
     @DisplayName("Пользователь очищает поля имя и получает ошибку")
     @Test
@@ -108,7 +91,7 @@ public class PersonalDataWebTest extends BaseSettingsWebTests {
 
     @DisplayName("Пользователь изменяет и сохраняет имя")
     @Test
-    public void chanchName() {
+    public void changeName() {
         mainPage.clickClosePopUp();
         headerBlock.clickToSignInButton();
         cookiePage.reCaptchaKey();
@@ -146,7 +129,7 @@ public class PersonalDataWebTest extends BaseSettingsWebTests {
         personalDataPage.ckickSaveButton();
     }
 
-    @DisplayName("Пользователь изменяет пол")
+/*    @DisplayName("Пользователь изменяет пол")
     @Test
     public void changeGender() {
         mainPage.clickClosePopUp();
@@ -164,7 +147,7 @@ public class PersonalDataWebTest extends BaseSettingsWebTests {
         personalDataPage.changeGender("MALE");
         personalDataPage.ckickSaveButton();
         personalDataPage.getMaleButton().checkAttribute("value", "MALE");
-    }
+    }*/
 
     @DisplayName("Пользователь очищает поля email, нажимает сохранить и получает ошибку")
     @Test
@@ -219,4 +202,3 @@ public class PersonalDataWebTest extends BaseSettingsWebTests {
     }
 
 }
-*/

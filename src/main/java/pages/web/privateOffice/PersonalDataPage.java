@@ -15,9 +15,9 @@ public class PersonalDataPage extends MainTestBase {
     private static final String LastName = "profile.lastName";
     private static final String Patronymic = "profile.middleName";
     private static final String Email = "profile.email";
-    private static final String BASE_INPUT_GENDER_XPATH = "xpath;//input[@value='%s']";
-    private static final String MALE_BUTTON_XPATH = "xpath;//input[@value='MALE']";
-    private static final String FEMALE_BUTTON_XPATH = "xpath;//input[@value='FEMALE']";
+    private static final String BASE_INPUT_GENDER_XPATH = "xpath;//label[@class='b-radio-inline__item']//child::input[@value='%s']";
+    private static final String MALE_BUTTON_XPATH = "xpath;(//span[@class='b-custom-input'])[1]";
+    private static final String FEMALE_BUTTON_XPATH = "xpath;(//span[@class='b-custom-input'])[2]";
     private static final String PHONE_NUMBER_XPATH = "xpath;//input[contains(@id,'profile.phone')]";
     private static final String CHECKBOX_NEWS_XPATH = "xpath;//span[@class='b-custom-input--special']";
     private static final String CHECKBOX_SELECTED_XPATH = "xpath;//input[@type='checkbox' and @checked]";
@@ -220,7 +220,7 @@ public class PersonalDataPage extends MainTestBase {
     @Step("Пользователь получает ошибку")
     public void gettingErrorWithEmail() {
         getBaseInputePrsonalDetails(String.format(BASE_INPUT_PERSONAL_DATA_XPATH, Email))
-                .checkAttribute("class", "form-control b-text--error ");
+                .checkAttribute("class", "form-control js-validate__email--simple b-text--error ");
         String message = getErrorEmailMessage().getText();
         Assert.assertEquals(ErrorEmailMessage, message);
         logger.info("Пользователь получает ошибку");
