@@ -98,7 +98,7 @@ public class AuthPopUpPage extends MainTestBase {
     }
 
     @Step("Пользователь вводит номер бонусной карты и пароль")
-    public void setCardNumberAandPassword(String cardNumber, String password) {
+    public void setCardNumberAndPassword(String cardNumber, String password) {
         getAuthCardNumber().sendKeys(cardNumber);
         getPasswordInput().sendKeys(password);
         logger.info("Пользователь вводит номер бонусной карты и пароль");
