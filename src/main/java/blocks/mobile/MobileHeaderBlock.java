@@ -12,7 +12,7 @@ public class MobileHeaderBlock extends MainTestBase {
     private static final String CLEAR_ALL_FROM_CARD_XPATH = "xpath;//a[contains(.,'Очистить все')]";
     private static final String CONFIRM_CLEAN_ALL_XPATH = "xpath;//input[@value='Да, подтверждаю']";
     private static final String BURGER_BUTTON_XPATH = "xpath;//i[@class='c-header__icon b-catalog-icn']";
-    private static final String SITE_LOGO_XPATH = "xpath;//img[contains(@alt,'9477014323230.png')]";
+    private static final String SITE_LOGO_XPATH = "xpath;//img[@alt='ГЗ лого.svg']";
     private static final String SEARCH_INPUT1_XPATH = "xpath;//a[@class='b-icn-header-search js-toggle-xs-search']";
     private static final String SEARCH_INPUT_XPATH = "xpath;//input[@id='js-site-search-input']";
     private static final String CARD_BUTTON_XPATH = "xpath;//div[@id='js-mini-cart-link']";

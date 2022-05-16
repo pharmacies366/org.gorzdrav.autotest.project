@@ -1,4 +1,3 @@
-/*
 package mobile.mainPage;
 
 import base.BaseSettingsMobileTests;
@@ -28,18 +27,10 @@ public class MobileHeaderBlockMobileTest extends BaseSettingsMobileTests {
         logger.info("Поиск работает корректно");
     }
 
-    @DisplayName("Проверка корекного перехода в избранное")
-    @Test
-    public void checkClickableFavorites(){
-        mobileHeaderBlock.clickFavorites();
-        pageActions.contentIsDisplayed("Избранное");
-        logger.info("Переход на страницу Избранное выполнен корректно");
-    }
-
     @DisplayName("Проверки работы корзины")
     @Test
     public void testingTheCart(){
-        mobileMainPage.clickClosePopUp();
+       // mobileMainPage.clickClosePopUp();
         mobileMainPage.clickCloseMobileAppPopUp();
         mobileMainPage.AddToCartClick();
         pageActions .waitPageLoad();
@@ -47,11 +38,9 @@ public class MobileHeaderBlockMobileTest extends BaseSettingsMobileTests {
         Assert.assertEquals(1, quantity);
         mobileHeaderBlock.clickToCartButton();
         pageActions.waitPageLoad();
-        pageActions.contentIsDisplayed("В корзине 1 товар");
-        logger.info("Проверки прошли успешно");
+        pageActions.contentIsDisplayed("Очистить все");
     }
 
 
 
 }
-*/
