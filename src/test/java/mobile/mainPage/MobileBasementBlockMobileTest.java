@@ -1,4 +1,3 @@
-/*
 package mobile.mainPage;
 
 import base.BaseSettingsMobileTests;
@@ -22,13 +21,14 @@ public class MobileBasementBlockMobileTest extends BaseSettingsMobileTests {
     public static Object[][] help() {
         return new Object[][]{
                 //Помощь
-                */
-/*{"howToOrderNew", "Как сделать заказ", "Как оформить заказ на сайте?"},*//*
-
+                {"/howtoorder/", "Как сделать заказ", "Как оформить заказ на сайте?"},
                 {"/apteki/map/", "Где получить заказ", "Работает сейчас"},
                 {"/faq/", "Вопрос-ответ", "Вопрос-ответ"},
                 {"/feedback/", "Задать вопрос", "Обратная связь"},
-                {"/delivery/", "Доставка", "Курьерская доставка заказов"},
+                {"/delivery/", "Доставка", "Доставка"},
+                {"/oplata/", "Оплата", "Оплата"},
+                {"/refund/", "Обмен и возврат", "Правила обмена и возврата товара"},
+                {"/warranty/", "Гарантии", "Гарантии"}
         };
     }
 
@@ -37,7 +37,7 @@ public class MobileBasementBlockMobileTest extends BaseSettingsMobileTests {
     @Test
     @UseDataProvider("help")
     public void helpTest(String LOCATOR, String LINKTEXT, String PAGEMESSAGE) {
-        mobileMainPage.clickClosePopUp();
+       // mobileMainPage.clickClosePopUp();
         mobileMainPage.clickCloseMobileAppPopUp();
         mobileBasementBlock.clickHelpButton();
         mobileBasementBlock.checkLinksValidation(LOCATOR, LINKTEXT);
@@ -51,12 +51,15 @@ public class MobileBasementBlockMobileTest extends BaseSettingsMobileTests {
     @DataProvider
     public static Object[][] Service() {
         return new Object[][]{
-                    //Сервис
-                    {"/polzovatelskoe-soglashenie/", "Пользовательское соглашение", "Пользовательское соглашение"},
-                    {"/politika-konfidencialnosti/", "Политика конфиденциальности", "Политика конфиденциальности"},
-                    {"/mnn/", "Действующие вещества", "Все вещества"},
-                    {"/promotions/", "Акции", "Акции"},
-                    {"/articles/", "Статьи", "Статьи"},
+                //Сервис
+                {"/ofertagorzdrav/", "Публичная оферта", "Публичная оферта"},
+                {"/personaldata/", "Политика конфиденциальности", "Политика конфиденциальности"},
+                {"/manufacturers/", "Производители", "Список лекарств по производителям"},
+                {"/partnersgz/", "Партнеры", "Партнеры"},
+                {"/mnn/", "Действующие вещества", "Действующие вещества"},
+                {"/shares/", "Акции", "Акции"},
+                {"/blog/", "Статьи", "Статьи"},
+                {"/news/", "Новости", "Новости"}
         };
     }
 
@@ -65,7 +68,7 @@ public class MobileBasementBlockMobileTest extends BaseSettingsMobileTests {
     @Test
     @UseDataProvider("Service")
     public void serviceTest(String LOCATOR, String LINKTEXT, String PAGEMESSAGE) {
-        mobileMainPage.clickClosePopUp();
+       // mobileMainPage.clickClosePopUp();
         mobileMainPage.clickCloseMobileAppPopUp();
         pageActions.waitPageLoad();
         mobileBasementBlock.clickServiceButton();
@@ -80,13 +83,12 @@ public class MobileBasementBlockMobileTest extends BaseSettingsMobileTests {
     @DataProvider
     public static Object[][] aboutCompany() {
         return new Object[][]{
-                    //О Компании
-                    {"/aboutus/", "О нас", "О нас"},
-                    {"/contacts/", "Контактные данные", "Контактные данные"},
-                    {"/manufacturers/", "Производители", "Производители"},
-                    {"/advertisingplacement/", "Размещение рекламы", "Размещение рекламы"},
-                    {"/license/", "Лицензии", "Лицензии"},
-                    {"/vakansii/", "Вакансии", "Фармацевт/Провизор"},
+                //О Компании
+                {"/aboutus/", "О нас", "О нас"},
+                {"/contacts/", "Контактные данные", "Контактные данные"},
+              //  {"/feedback/", "Оставить отзыв", "Обратная связь"},
+                {"/advertisingplacement/", "Размещение рекламы", "Размещение рекламы"},
+                {"/licenses/", "Лицензии", "Лицензии"}
         };
     }
 
@@ -95,7 +97,7 @@ public class MobileBasementBlockMobileTest extends BaseSettingsMobileTests {
     @Test
     @UseDataProvider("aboutCompany")
     public void aboutCompanyTest(String LOCATOR, String LINKTEXT, String PAGEMESSAGE) {
-        mobileMainPage.clickClosePopUp();
+       // mobileMainPage.clickClosePopUp();
         mobileMainPage.clickCloseMobileAppPopUp();
         mobileBasementBlock.clickAboutCompanButton();
         mobileBasementBlock.checkLinksValidation(LOCATOR, LINKTEXT);
@@ -107,10 +109,9 @@ public class MobileBasementBlockMobileTest extends BaseSettingsMobileTests {
 
     @DisplayName("Проверка кликабельности и отображения номера телефона")
     @Test
-    public void checkClickablePhoneNumber(){
+    public void checkClickablePhoneNumber() {
         mobileBasementBlock.getPhoneNumber().elementIsClickable();
         logger.info("Номер телефона отображается и кликабелен");
     }
 
 }
-*/

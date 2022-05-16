@@ -7,7 +7,7 @@ import org.openqa.selenium.WebDriver;
 
 public class MobileBasementBlock extends MainTestBase {
     //элементы
-    private static final String BASE_INPUT_XPATH = "xpath;(//a[@href='%s'])";
+    private static final String BASE_INPUT_XPATH = "xpath;//div[@class='c-block-view-ch__content']//child::a[@href='%s']";
     private static final String HELP_BUTTON_XPATH = "xpath;(//label[@class='c-block-view-ch__label']//child::div)[1]";
     private static final String SERVICE_BUTTON_XPATH = "xpath;(//label[@class='c-block-view-ch__label']//child::div)[2]";
     private static final String ABOUT_COMPANY_BUTTON_XPATH = "xpath;(//label[@class='c-block-view-ch__label']//child::div)[3]";
