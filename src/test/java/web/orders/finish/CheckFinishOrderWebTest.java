@@ -21,7 +21,7 @@ public class CheckFinishOrderWebTest extends BaseSettingsWebTests {
                 propertiesManager.getProperty("phonenumber6"),
                 propertiesManager.getProperty("userpass"));
         cartPage.checkAndClearCartQuantity();
-        headerBlock.setSearchInput(propertiesManager.getProperty("productcode1"));
+        headerBlock.setSearchInput(propertiesManager.getProperty("productcode4"));
         cartPage.clickAddCartButton();
         headerBlock.clickToCartButton();
         cartPage.clickToMakeOrder();
