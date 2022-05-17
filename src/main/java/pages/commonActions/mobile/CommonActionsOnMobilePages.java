@@ -12,17 +12,19 @@ public class CommonActionsOnMobilePages extends MainTestBase {
 
 
     //элементы
-    private static final String FILTERS_BUTTON_XPATH = "xpath;//span[@class='sorting__toggle__inactive']";
+    private static final String FILTERS_BUTTON_XPATH = "xpath;//i[@class='b-icn--filter']";
+    private static final String DELIVERY_ALLOWED_BUTTON_XPATH = "xpath;(//div[@data-code='deliveryAllowed'])[1]";
+    private static final String COST_BUTTON_XPATH = "xpath;(//div[@data-code='priceValue'])[1]";
     private static final String PRODUCT_BUTTON_XPATH = "xpath;//a[@data-gtm-position='%s']";
     private static final String BANNER_XPATH = "xpath;(//img[contains(@class,'img js-responsive-image  lazyloaded')])[1]";
     private static final String SLIDER_FROM_XPATH = "xpath;//span[@class='irs-slider from']";
     private static final String SLIDER_TO_XPATH = "xpath;//span[@class='irs-slider to']";
-    private static final String PRICE_RANGE_FROM_XPATH = "xpath;//input[@class='b-range__input js-range-from']";
-    private static final String PRICE_RANGE_TO_XPATH = "xpath;//input[@class='b-range__input js-range-to']";
+    private static final String PRICE_RANGE_FROM_XPATH = "xpath;(//input[@class='b-range__input js-range-from'])[2]";
+    private static final String PRICE_RANGE_TO_XPATH = "xpath;(//input[@class='b-range__input js-range-to'])[2]";
     private static final String PRODUCT_PRICES_RANGE_LIST_XPATH = "xpath;//div[@class='listing_product__price']";
     private static final String BASE_INPUT_CHECK_PRODUCT_PRICE_XPATH = "xpath;(//div[@class='listing_product__price']//child::span)[%s]";
     private static final String BASE_INPUT_CHECK_PRODUCT_DELIVERY_METHOD_XPATH = "xpath;(//span[@class='b-prod-label b-prod-label_delivery'])[%s]";
-    private static final String CHECKBOX_DELIVERY_XPATH = "xpath;//span[@class='b-trim-str'][contains(.,'Доставка')]";
+    private static final String CHECKBOX_DELIVERY_XPATH = "xpath;(//span[@class='b-trim-str'][contains(.,'Доставка')])[2]";
     private static final String GET_SELECTED_CHECKBOX_XPATH = "xpath;//div[@class='filters_selected'][contains(.,'%s')]";
     private static final String CLOSE_CHECKBOX_DELIVERY_XPATH = "xpath;(//a[@class='b-icn--close c-facets__close-button'])[2]";
     private static final String PRODUCTS_WITHOUT_DELIVERY_METHOD_XPATH = "xpath;//span[@class='b-prod-label b-prod-label_delivery' and not(@type='b-prod-label b-prod-label_delivery')]";
@@ -137,6 +139,14 @@ public class CommonActionsOnMobilePages extends MainTestBase {
         return new PageElementActions(FILTERS_BUTTON_XPATH, driver);
     }
 
+    public PageElementActions getDeliveryAllowedButton() {
+        return new PageElementActions(DELIVERY_ALLOWED_BUTTON_XPATH, driver);
+    }
+
+    public PageElementActions getCostButton() {
+        return new PageElementActions(COST_BUTTON_XPATH, driver);
+    }
+
     public PageElementActions getNexPaginationButton() {
         return new PageElementActions(NEXT_PAGINATION_BUTTON_XPATH, driver);
     }
@@ -186,6 +196,18 @@ public class CommonActionsOnMobilePages extends MainTestBase {
     public void clickFiltersButton() {
         getFiltersButton().click();
         logger.info("Пользователь нажимает на кнопку фильтры");
+    }
+
+    @Step("Пользователь нажимает на кнопку Доступность доставки")
+    public void deliveryAllowedButton() {
+        getDeliveryAllowedButton().click();
+        logger.info("Пользователь нажимает на кнопку Доступность доставки");
+    }
+
+    @Step("Пользователь нажимает на кнопку Цена")
+    public void clickCostButton() {
+        getCostButton().click();
+        logger.info("Пользователь нажимает на кнопку Цена");
     }
 
     @Step("Пользователь получает значение начального диапазона цены")

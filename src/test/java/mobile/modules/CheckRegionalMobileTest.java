@@ -1,4 +1,3 @@
-/*
 package mobile.modules;
 
 import base.BaseSettingsMobileTests;
@@ -13,7 +12,7 @@ import org.junit.Test;
 public class CheckRegionalMobileTest extends BaseSettingsMobileTests {
 
 
-    @DisplayName("Пользователь устанавливает город Санкт-Петербург")
+/*    @DisplayName("Пользователь устанавливает город Санкт-Петербург")
     @Test
     public void checkChangeRegionOnMainPage() {
         mobileHeaderBlock.clickBurgerButton();
@@ -53,6 +52,5 @@ public class CheckRegionalMobileTest extends BaseSettingsMobileTests {
         mobileCitiesPopUpPage.selectSpbCity();
         mobileMainPage.clickFirstProductOnMainPage();
         mobileProductCardPage.checkSelectedRegion("Санкт-Петербург");
-    }
+    }*/
 }
-*/

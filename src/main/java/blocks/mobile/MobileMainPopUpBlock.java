@@ -16,7 +16,7 @@ public class MobileMainPopUpBlock extends MainTestBase {
     private static final String LOGOUT_BUTTON_XPATH = "xpath;(//a[@href='/logout/'])[3]";
     private static final String PERSONAL_DATA_XPATH = "xpath;(//a[@href='/my-account/my-profile'])[3]";
     private static final String MEDICATIONS_BUTTON_XPATH = "xpath;(//a[@href='/c/lekarstva/'])[3]";
-    private static final String CITIES_BUTTON_XPATH = "xpath;(//span[contains(@class,'b-login-link i-fw-b')])[3]";
+    private static final String CITIES_BUTTON_XPATH = "xpath;(//i[@class='b-icn--region'])[2]";
 
 
 
