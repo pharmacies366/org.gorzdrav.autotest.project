@@ -1,4 +1,3 @@
-/*
 package mobile.privateOffice;
 
 import base.BaseSettingsMobileTests;
@@ -15,7 +14,7 @@ public class ChangePasswordMobileTest extends BaseSettingsMobileTests {
     @DisplayName("Пользователь изменяет пароль")
     @Test
     public void changePassword() {
-        mobileMainPage.clickClosePopUp();
+        //mobileMainPage.clickClosePopUp();
         mobileMainPage.clickCloseMobileAppPopUp();
         mobileHeaderBlock.clickBurgerButton();
         mobileMainPopUpBlock.clickToLoginIcon();
@@ -29,17 +28,9 @@ public class ChangePasswordMobileTest extends BaseSettingsMobileTests {
         mobileMainPopUpBlock.clickToPersonalAccount();
         mobilePersonalAccountPage.clickChangePassword();
         mobileChangePasswordPage.clickChangePassword(
-                propertiesManager.getProperty("olduserpass"),
                 propertiesManager.getProperty("newuserpass"),
                 propertiesManager.getProperty("newuserpass"));
         mobileChangePasswordPage.clickChangeButton();
         mobileChangePasswordPage.getMessageAboutChangePassword();
-        mobileChangePasswordPage.clickChangePassword(
-                propertiesManager.getProperty("newuserpass"),
-                propertiesManager.getProperty("olduserpass"),
-                propertiesManager.getProperty("olduserpass"));
-        mobileChangePasswordPage.clickChangeButton();
-        mobileChangePasswordPage.getMessageAboutChangePassword();
     }
 }
-*/
