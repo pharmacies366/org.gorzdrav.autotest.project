@@ -1,4 +1,3 @@
-/*
 package mobile.privateOffice;
 
 import base.BaseSettingsMobileTests;
@@ -12,7 +11,7 @@ import io.qameta.allure.junit4.DisplayName;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
-@Feature(value = "Web")
+@Feature(value = "Мобильная версия")
 @Story(value = "Личный кабинет на сайте Gorzdrav")
 @DisplayName("Личный кабинет")
 @RunWith(DataProviderRunner.class)
@@ -21,11 +20,11 @@ public class PersonalDataMobileTest extends BaseSettingsMobileTests {
     @DataProvider
     public static Object[][] checkDisplaedOptions() {
         return new Object[][]{
-                {"/my-account/orders", "Мои заказы", "Мои заказы"},
-                {"/my-account/profile", "Личные данные", "Личные данные"},
+                {"/my-account/my-profile", "Мой профиль", "Мой профиль"},
                 {"/my-account/update-password", "Изменить пароль", "Изменить пароль"},
-                {"/favorites", "Избранное", "Избранное"},
-                {"/my-account/invite-friend", "Приведи друга", "Приведи друга"},
+                {"/my-account/orders", "Мои покупки", "Мои покупки"},
+                {"/my-account/my-promotions", "Мои акции", "Мои акции"},
+                {"/my-account/my-advice", "Здрав Совет", "Здрав Совет"},
                 {"/logout/", "Выйти", "Как сделать заказ"}
         };
     }
@@ -36,7 +35,7 @@ public class PersonalDataMobileTest extends BaseSettingsMobileTests {
     @Test
     @UseDataProvider("checkDisplaedOptions")
     public void checkDisplaedOptions(String LOCATOR, String LINKTEXT, String PAGEMESSAGE) {
-        mobileMainPage.clickClosePopUp();
+       // mobileMainPage.clickClosePopUp();
         mobileMainPage.clickCloseMobileAppPopUp();
         mobileHeaderBlock.clickBurgerButton();
         mobileMainPopUpBlock.clickToLoginIcon();
@@ -55,10 +54,10 @@ public class PersonalDataMobileTest extends BaseSettingsMobileTests {
         logger.info("Ссылка кликабельна и ведёт на нужную страницу");
     }
 
-    @DisplayName("Пользователь заполняет фамилию и отчество и сохраняет данные")
+    @DisplayName("Пользователь заполняет отчество и сохраняет данные")
     @Test
     public void checkPersonalDeta() {
-        mobileMainPage.clickClosePopUp();
+      //  mobileMainPage.clickClosePopUp();
         mobileMainPage.clickCloseMobileAppPopUp();
         mobileHeaderBlock.clickBurgerButton();
         mobileMainPopUpBlock.clickToLoginIcon();
@@ -70,39 +69,18 @@ public class PersonalDataMobileTest extends BaseSettingsMobileTests {
         mobileHeaderBlock.clickBurgerButton();
         mobileMainPopUpBlock.clickToPersonalAccount();
         mobileMainPopUpBlock.clickPersonalData();
-        mobilePersonalDataPage.clearLastNameAndPatronymic();
+        mobilePersonalDataPage.clearPatronymic();
         mobilePersonalDataPage.ckickSaveButton();
         mobilePersonalDataPage.personalDetails(
-                propertiesManager.getProperty("lastname"),
                 propertiesManager.getProperty("patronymic"));
         mobilePersonalDataPage.ckickSaveButton();
         mobilePersonalDataPage.checkSavePersonalData();
     }
 
-    @DisplayName("Пользователь очищает поля фамилии и отчества и сохраняет данные")
-    @Test
-    public void clearPersonalDeta() {
-        mobileMainPage.clickClosePopUp();
-        mobileMainPage.clickCloseMobileAppPopUp();
-        mobileHeaderBlock.clickBurgerButton();
-        mobileMainPopUpBlock.clickToLoginIcon();
-        mobileCookiePage.reCaptchaKey();
-        mobileAuthPopUpPage.authorizeWithPhoneAndPassword(
-                propertiesManager.getProperty("mobilephonenumber7"),
-                propertiesManager.getProperty("userpass"));
-        pageActions.waitPageLoad();
-        mobileHeaderBlock.clickBurgerButton();
-        mobileMainPopUpBlock.clickToPersonalAccount();
-        mobileMainPopUpBlock.clickPersonalData();
-        mobilePersonalDataPage.clearLastNameAndPatronymic();
-        mobilePersonalDataPage.ckickSaveButton();
-        mobilePersonalDataPage.checkClearPersonalData();
-    }
-
     @DisplayName("Пользователь очищает поля имя и получает ошибку")
     @Test
     public void clearNameAndGettingError() {
-        mobileMainPage.clickClosePopUp();
+       // mobileMainPage.clickClosePopUp();
         mobileMainPage.clickCloseMobileAppPopUp();
         mobileHeaderBlock.clickBurgerButton();
         mobileMainPopUpBlock.clickToLoginIcon();
@@ -122,7 +100,7 @@ public class PersonalDataMobileTest extends BaseSettingsMobileTests {
     @DisplayName("Пользователь изменяет и сохраняет имя")
     @Test
     public void chanchName() {
-        mobileMainPage.clickClosePopUp();
+      //  mobileMainPage.clickClosePopUp();
         mobileMainPage.clickCloseMobileAppPopUp();
         mobileHeaderBlock.clickBurgerButton();
         mobileMainPopUpBlock.clickToLoginIcon();
@@ -147,7 +125,7 @@ public class PersonalDataMobileTest extends BaseSettingsMobileTests {
     @DisplayName("Пользователь изменяет дату рождения")
     @Test
     public void changeBirthday() {
-        mobileMainPage.clickClosePopUp();
+       // mobileMainPage.clickClosePopUp();
         mobileMainPage.clickCloseMobileAppPopUp();
         mobileHeaderBlock.clickBurgerButton();
         mobileMainPopUpBlock.clickToLoginIcon();
@@ -165,10 +143,10 @@ public class PersonalDataMobileTest extends BaseSettingsMobileTests {
         mobilePersonalDataPage.ckickSaveButton();
     }
 
-    @DisplayName("Пользователь изменяет пол")
+/*    @DisplayName("Пользователь изменяет пол")
     @Test
     public void changeGender() {
-        mobileMainPage.clickClosePopUp();
+       // mobileMainPage.clickClosePopUp();
         mobileMainPage.clickCloseMobileAppPopUp();
         mobileHeaderBlock.clickBurgerButton();
         mobileMainPopUpBlock.clickToLoginIcon();
@@ -186,12 +164,12 @@ public class PersonalDataMobileTest extends BaseSettingsMobileTests {
         mobilePersonalDataPage.changeGender("MALE");
         mobilePersonalDataPage.ckickSaveButton();
         mobilePersonalDataPage.getMaleButton().checkAttribute("value", "MALE");
-    }
+    }*/
 
     @DisplayName("Пользователь очищает поля email, нажимает сохранить и получает ошибку")
     @Test
     public void clearEmail() {
-        mobileMainPage.clickClosePopUp();
+       // mobileMainPage.clickClosePopUp();
         mobileMainPage.clickCloseMobileAppPopUp();
         mobileHeaderBlock.clickBurgerButton();
         mobileMainPopUpBlock.clickToLoginIcon();
@@ -211,7 +189,7 @@ public class PersonalDataMobileTest extends BaseSettingsMobileTests {
     @DisplayName("Пользователь проверяет, что поле с номером телефона нельзя редактировать")
     @Test
     public void checkPhone() {
-        mobileMainPage.clickClosePopUp();
+      //  mobileMainPage.clickClosePopUp();
         mobileMainPage.clickCloseMobileAppPopUp();
         mobileHeaderBlock.clickBurgerButton();
         mobileMainPopUpBlock.clickToLoginIcon();
@@ -229,7 +207,7 @@ public class PersonalDataMobileTest extends BaseSettingsMobileTests {
     @DisplayName("Проверка чекбокса с новостной рассылкой")
     @Test
     public void checkReceiveNews() {
-        mobileMainPage.clickClosePopUp();
+       // mobileMainPage.clickClosePopUp();
         mobileMainPage.clickCloseMobileAppPopUp();
         mobileHeaderBlock.clickBurgerButton();
         mobileMainPopUpBlock.clickToLoginIcon();
@@ -250,4 +228,3 @@ public class PersonalDataMobileTest extends BaseSettingsMobileTests {
     }
 
 }
-*/

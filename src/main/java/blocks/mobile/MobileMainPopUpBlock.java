@@ -14,7 +14,7 @@ public class MobileMainPopUpBlock extends MainTestBase {
     private static final String CLOSE_POP_UP_XPATH = "xpath;//button[@class='uxf-close sc-bZQynM bYZQSZ']";
     private static final String TEST_TAGNAME = "tagName;iframe";
     private static final String LOGOUT_BUTTON_XPATH = "xpath;(//a[@href='/logout/'])[3]";
-    private static final String PERSONAL_DATA_XPATH = "xpath;(//a[@href='/my-account/profile'])[3]";
+    private static final String PERSONAL_DATA_XPATH = "xpath;(//a[@href='/my-account/my-profile'])[3]";
     private static final String MEDICATIONS_BUTTON_XPATH = "xpath;(//a[@href='/c/lekarstva/'])[3]";
     private static final String CITIES_BUTTON_XPATH = "xpath;(//span[contains(@class,'b-login-link i-fw-b')])[3]";
 
@@ -109,10 +109,10 @@ public class MobileMainPopUpBlock extends MainTestBase {
         logger.info("Пользователь нажимает на иконку авторизации");
     }
 
-    @Step("Пользователь нажимает на кнопку Личные данные")
+    @Step("Пользователь нажимает на кнопку Мой профиль")
     public void clickPersonalData() {
         getPersonalData().click();
-        logger.info("Пользователь нажимает на кнопку Личные данные");
+        logger.info("Пользователь нажимает на кнопку Мой профиль");
     }
 
     @Step("Пользователь нажимает на категорию лекарства")

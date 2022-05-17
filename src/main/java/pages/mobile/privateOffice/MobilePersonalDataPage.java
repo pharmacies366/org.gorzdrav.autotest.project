@@ -137,8 +137,7 @@ public class MobilePersonalDataPage extends MainTestBase {
     }
 
     @Step("Пользователь заполняет фамилию и отчество")
-    public void personalDetails(String lastName, String patronymic) {
-        getBaseInputePrsonalDetails(String.format(BASE_INPUT_PERSONAL_DATA_XPATH, LastName)).sendKeys(lastName);
+    public void personalDetails(String patronymic) {
         getBaseInputePrsonalDetails(String.format(BASE_INPUT_PERSONAL_DATA_XPATH, Patronymic)).sendKeys(patronymic);
         logger.info("Пользователь заполняет фамилию и отчество");
     }
@@ -149,13 +148,11 @@ public class MobilePersonalDataPage extends MainTestBase {
         logger.info("Пользователь нажимает кнопку сохранить");
     }
 
-    @Step("Пользователь проверяет, что фамилия и отчество сохранились корректно")
+    @Step("Пользователь проверяет, что отчество сохранились корректно")
     public void checkSavePersonalData() {
-        getBaseInputePrsonalDetails(String.format(BASE_INPUT_PERSONAL_DATA_XPATH, LastName)).checkAttribute("class", "form-control valid");
         getBaseInputePrsonalDetails(String.format(BASE_INPUT_PERSONAL_DATA_XPATH, Patronymic)).checkAttribute("class", "form-control valid");
-        getBaseInputePrsonalDetails(String.format(BASE_INPUT_PERSONAL_DATA_XPATH, LastName)).checkAttribute("value", propertiesManager.getProperty("lastname"));
         getBaseInputePrsonalDetails(String.format(BASE_INPUT_PERSONAL_DATA_XPATH, Patronymic)).checkAttribute("value", propertiesManager.getProperty("patronymic"));
-        logger.info("Пользователь проверяет, что фамилия и отчество сохранились корректно");
+        logger.info("Пользователь проверяет, что отчество сохранились корректно");
     }
 
     @Step("Пользователь проверяет, что поля фамилии и отчества очистились сохранились пустыми")
@@ -168,11 +165,10 @@ public class MobilePersonalDataPage extends MainTestBase {
     }
 
 
-    @Step("Пользователь очищает поля фамилии и отчества")
-    public void clearLastNameAndPatronymic() {
-        getBaseInputePrsonalDetails(String.format(BASE_INPUT_PERSONAL_DATA_XPATH, LastName)).clean();
+    @Step("Пользователь очищает поле отчества")
+    public void clearPatronymic() {
         getBaseInputePrsonalDetails(String.format(BASE_INPUT_PERSONAL_DATA_XPATH, Patronymic)).clean();
-        logger.info("Пользователь очищает поля фамилии и отчества");
+        logger.info("Пользователь очищает поле отчества");
     }
 
     @Step("Пользователь очищает поля имя")
@@ -229,7 +225,7 @@ public class MobilePersonalDataPage extends MainTestBase {
     @Step("Пользователь получает ошибку")
     public void gettingErrorWithEmail() {
         getBaseInputePrsonalDetails(String.format(BASE_INPUT_PERSONAL_DATA_XPATH, Email))
-                .checkAttribute("class", "form-control b-text--error ");
+                .checkAttribute("class", "form-control js-validate__email--simple b-text--error ");
         String message = getErrorEmailMessage().getText();
         Assert.assertEquals(ErrorEmailMessage, message);
         logger.info("Пользователь получает ошибку");
