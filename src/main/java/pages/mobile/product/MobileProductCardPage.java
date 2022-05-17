@@ -10,15 +10,15 @@ public class MobileProductCardPage extends MainTestBase {
 
 
     //элементы
-    private static final String ADD_TO_CARD_BUTTON_XPATH = "xpath;//form[@class='product_counter__form js-add-to-cart__form js-add-to-cart__form-hide ']//child::button";
+    private static final String ADD_TO_CARD_BUTTON_XPATH = "xpath;(//button[@type='submit'])[2]";
     private static final String PRICE_LABLE_XPATH = "xpath;//span[contains(@class,'price ')]";
     private static final String ONE_CKICK_XPATH = "xpath;//div[@class='btn-choose-other btn-choose-other--navigate js-order-quick-navigate'][contains(.,'Купить в 1 клик')]";
     private static final String APTEKA_MAP_XPATH = "xpath;//*[@id='store-finder-map']";
     private static final String PHARMACY_ADDRESS_INPUT_XPATH = "xpath;//input[@name='q']";
     private static final String CHANGE_APTEKA_LIST_XPATH = "xpath;//label[@class='js-storefinder-sort js-product-stores__head-item js-storefinder-recommend']";
     private static final String ONE_CKICK_APTEKA_BUTTONS_XPATH = "xpath;(//button[@class='b-btn b-btn--third js-order-quick__button'])[1]";
-    private static final String INCREASE_QUANTITY_XPATH = "xpath;(//span[contains(@class,'plus js-qty-selector-plus-gz')])[2]";
-    private static final String QUANTITY_PRODUCT_XPATH = "xpath;(//a[@class='product_counter_short__desc'])[2]";
+    private static final String INCREASE_QUANTITY_XPATH = "xpath;//button[@data-autotest='selector_plus']";
+    private static final String QUANTITY_PRODUCT_XPATH = "xpath;//span[@class='b-counter__input-wrapper']";
     private static final String CARD_BUTTON_XPATH = "xpath;//div[@id='js-mini-cart-link']";
     private static final String MAIN_BUTTON_XPATH = "xpath;//div[@class='breadcrumbs__item']";
     private static final String BANNER_XPATH = "xpath;(//img[contains(@class,'img js-responsive-image  lazyloaded')])[1]";
@@ -178,5 +178,11 @@ public class MobileProductCardPage extends MainTestBase {
         logger.info("Пользователь проверяет выбранный регион на странице");
     }
 
+    @Step("Сохранение шт. товара")
+    public int getQuantityMaterials() {
+        int quantity = getProductQuantity().formatElementToValue();
+        logger.info("Сохранение шт. товара");
+        return quantity;
+    }
 
 }

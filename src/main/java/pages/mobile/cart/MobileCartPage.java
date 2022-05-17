@@ -11,17 +11,18 @@ public class MobileCartPage extends MainTestBase {
     private static final String CARD_COUNT_XPATH = "xpath;//div[contains(@class,'count js-mini-cart-count')]";
     private static final String CLEAR_ALL_FROM_CARD_XPATH = "xpath;//a[contains(.,'Очистить все')]";
     private static final String CONFIRM_CLEAN_ALL_XPATH = "xpath;//input[@value='Да, подтверждаю']";
-    private static final String TOTAL_PRICE_XPATH = "xpath;//div[contains(@class,'cart-summary_value js-revenue')]";
+    private static final String TOTAL_PRICE_XPATH = "xpath;//span[@class='pull-right js-revenue']";
     private static final String ADD_CART_BUTTON_XPATH = "xpath;//span[contains(.,'В корзину')]";
     private static final String CARD_BUTTON_XPATH = "xpath;//span[@class='mini_cart_link__icon']";
     private static final String MAKE_ORDER_XPATH = "xpath;//a[@href='/cart/checkout']";
     private static final String PRODUCT_CARD_XPATH = "xpath;//a[@data-gtm-source='search list']";
-    private static final String QUANTITY_PRODUCT_XPATH = "xpath;(//div[contains(@class,'product_counter__qty')])[1]";
-    private static final String INCREASE_QUANTITY_XPATH = "xpath;(//div[contains(@class,'btn btn_count_plus')])[1]";
-    private static final String DELETE_PRODUCT_XPATH = "xpath;(//form[@action='/cart/update']//child::button)[2]";
+    private static final String QUANTITY_PRODUCT_XPATH = "xpath;//input[@data-autotest='selector_quantity']";
+    private static final String INCREASE_QUANTITY_XPATH = "xpath;//button[@data-autotest='selector_plus']";
+    private static final String DECREASE_QUANTITY_XPATH = "xpath;//button[@data-autotest = 'selector_minus']";
+    private static final String DELETE_PRODUCT_XPATH = "xpath;//button[@data-autotest='remove_entry_btn']";
     private static final String FAVORITES_BUTTON_XPATH = "xpath;//button[@data-gtm-source='cart']";
     private static final String BANNER_XPATH = "xpath;(//img[contains(@class,'img js-responsive-image  lazyloaded')])[1]";
-    private static final String TEXT_DO_NOT_ADD_TO_CART_XPATH = "xpath;//div[@class='c-gallery__header js-products__tabs__item active']//child::h2";
+    private static final String TEXT_DO_NOT_ADD_TO_CART_XPATH = "xpath;//div[@class='c-gallery__title']";
     private static final String DO_NOT_ADD_TO_CART_PRODUCTS_LIST_XPATH = "xpath;//div[@class='owl-wrapper c-gallery__content-wrapper active']";
 
 
@@ -71,6 +72,10 @@ public class MobileCartPage extends MainTestBase {
 
     public PageElementActions getIncreaseQuantity() {
         return new PageElementActions(INCREASE_QUANTITY_XPATH, driver);
+    }
+
+    public PageElementActions getDecreaseQuantity() {
+        return new PageElementActions(DECREASE_QUANTITY_XPATH, driver);
     }
 
     public PageElementActions getDeleteMaterials() {
@@ -139,17 +144,24 @@ public class MobileCartPage extends MainTestBase {
         getProductCard().click();
         logger.info("Пользователь нажимает на товар");
     }
-    @Step("Сохранение количества товаров")
+
+    @Step("Сохранение шт. товара")
     public int getQuantityMaterials() {
-        int quantity = getProductQuantity().formatElementToValue();
-        logger.info("Запоминаем количество товара");
-        return quantity;
+        String stringQuantity = getProductQuantity().getAttribute("defaultValue");
+        logger.info("Сохранение шт. товара");
+        return Integer.parseInt(stringQuantity);
     }
 
     @Step("Пользователь нажимает '+' увеличивая количество шт. товара")
     public void clickIncreaseQuantity(){
         getIncreaseQuantity().click();
         logger.info("Пользователь нажимает '+' увеличивая количество шт. товара");
+    }
+
+    @Step("Пользователь нажимает '-' уменьшая количество шт. товара")
+    public void clickDecreaseQuantity() {
+        getDecreaseQuantity().click();
+        logger.info("Пользователь нажимает '-' уменьшая количество шт. товара");
     }
 
     @Step("Пользователь нажимает на иконку удаления товара")
