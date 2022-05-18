@@ -11,6 +11,7 @@ import org.junit.Test;
 @DisplayName("Изменение региональности")
 public class CheckRegionalMobileTest extends BaseSettingsMobileTests {
 
+    // После правки багов
 
 /*    @DisplayName("Пользователь устанавливает город Санкт-Петербург")
     @Test
