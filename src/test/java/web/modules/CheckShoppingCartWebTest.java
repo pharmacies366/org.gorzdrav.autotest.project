@@ -57,12 +57,15 @@ public class CheckShoppingCartWebTest extends BaseSettingsWebTests {
     public void deleteMaterialsFromCart() {
         mainPage.clickClosePopUp();
         openUrl(propertiesManager.getProperty("baseurl") + "p/29992");
+        pageActions.waitPageLoad();
         productCardPage.clickAddCartButton();
         pageActions.waitPageLoad();
         openUrl(propertiesManager.getProperty("baseurl") + "p/33090");
+        pageActions.waitPageLoad();
         productCardPage.clickAddCartButton();
         pageActions.waitPageLoad();
         openUrl(propertiesManager.getProperty("baseurl") + "cart");
+        pageActions.waitPageLoad();
         cartPage.clickDeleteMaterials();
         pageActions.waitPageLoad();
         Assert.assertEquals(1, cartPage.checkCartQuantity());
@@ -73,12 +76,15 @@ public class CheckShoppingCartWebTest extends BaseSettingsWebTests {
     public void deleteAllMaterialsFromCart() {
         mainPage.clickClosePopUp();
         openUrl(propertiesManager.getProperty("baseurl") + "p/29992");
+        pageActions.waitPageLoad();
         productCardPage.clickAddCartButton();
         pageActions.waitPageLoad();
         openUrl(propertiesManager.getProperty("baseurl") + "p/33090");
+        pageActions.waitPageLoad();
         productCardPage.clickAddCartButton();
         pageActions.waitPageLoad();
         openUrl(propertiesManager.getProperty("baseurl") + "cart");
+        pageActions.waitPageLoad();
         cartPage.deleteAllMaterials();
         pageActions.waitPageLoad();
         Assert.assertEquals(0, cartPage.checkCartQuantity());
@@ -108,13 +114,17 @@ public class CheckShoppingCartWebTest extends BaseSettingsWebTests {
     public void checkNotificationCart() {
         mainPage.clickClosePopUp();
         openUrl(propertiesManager.getProperty("baseurl") + "p/29992");
+        pageActions.waitPageLoad();
         productCardPage.clickAddCartButton();
         pageActions.waitPageLoad();
         int firstPrice = productCardPage.getProductPrice();
         openUrl(propertiesManager.getProperty("baseurl") + "p/44226");
+        pageActions.waitPageLoad();
         productCardPage.clickAddCartButton();
+        pageActions.waitPageLoad();
         int secondPrice = productCardPage.getProductPrice();
         openUrl(propertiesManager.getProperty("baseurl") + "cart");
+        pageActions.waitPageLoad();
         int totalPrice = cartPage.getPriceTotal();
         Assert.assertEquals(firstPrice + secondPrice, totalPrice);
         cartPage.clickDeleteMaterials();
