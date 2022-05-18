@@ -21,7 +21,7 @@ public class CheckShoppingCartWebTest extends BaseSettingsWebTests {
         headerBlock.clickToCartButton();
         pageActions.waitPageLoad();
         cartPage.clickIncreaseQuantity();
-        pageActions.staticWait(1000);
+        pageActions.staticWait(3000);
         int quantity = cartPage.getQuantityMaterials();
         Assert.assertEquals(2, quantity);
         logger.info("Количество товара равно 2-м");
