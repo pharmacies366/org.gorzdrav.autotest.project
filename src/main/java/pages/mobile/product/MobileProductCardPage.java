@@ -21,7 +21,7 @@ public class MobileProductCardPage extends MainTestBase {
     private static final String QUANTITY_PRODUCT_XPATH = "xpath;//span[@class='b-counter__input-wrapper']";
     private static final String CARD_BUTTON_XPATH = "xpath;//div[@id='js-mini-cart-link']";
     private static final String MAIN_BUTTON_XPATH = "xpath;//div[@class='breadcrumbs__item']";
-    private static final String BANNER_XPATH = "xpath;(//img[contains(@class,'img js-responsive-image  lazyloaded')])[1]";
+    private static final String BANNER_XPATH = "xpath;//div[@class='b-preload-banner__inner']";
     private static final String REGION_TEXT_XPATH = "xpath;//h2[contains(.,'%s')]";
     private static final String RECIPE_INFO_XPATH = "xpath;(//span[@class='c-product__description'])[7]";
     private static final String PRODUCT_DETAILS_XPATH = "xpath;//div[@class='c-product-discount hidden-sm hidden-md hidden-lg hidden-xl js-product-accordion-block']";
@@ -158,7 +158,7 @@ public class MobileProductCardPage extends MainTestBase {
         logger.info("Пользователь нажимает на иконку корзины");
     }
 
-    @Step("Пользователь роверяет видимость кнопки в корзину")
+    @Step("Пользователь проверяет видимость кнопки в корзину")
     public void checkButtonToCartButton() {
         getCartButton().isElementDisplayed();
         logger.info("Пользователь роверяет видимость кнопки в корзину");

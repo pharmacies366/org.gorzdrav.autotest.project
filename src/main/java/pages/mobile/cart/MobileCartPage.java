@@ -21,7 +21,7 @@ public class MobileCartPage extends MainTestBase {
     private static final String DECREASE_QUANTITY_XPATH = "xpath;//button[@data-autotest = 'selector_minus']";
     private static final String DELETE_PRODUCT_XPATH = "xpath;//button[@data-autotest='remove_entry_btn']";
     private static final String FAVORITES_BUTTON_XPATH = "xpath;//button[@data-gtm-source='cart']";
-    private static final String BANNER_XPATH = "xpath;(//img[contains(@class,'img js-responsive-image  lazyloaded')])[1]";
+    private static final String BANNER_XPATH = "xpath;//div[@class='b-preload-banner__inner']";
     private static final String TEXT_DO_NOT_ADD_TO_CART_XPATH = "xpath;//div[@class='c-gallery__title']";
     private static final String DO_NOT_ADD_TO_CART_PRODUCTS_LIST_XPATH = "xpath;//div[@class='owl-wrapper c-gallery__content-wrapper active']";
 

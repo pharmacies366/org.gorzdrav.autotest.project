@@ -3,6 +3,7 @@ package pages.mobile.main;
 import actions.PageElementActions;
 import core.MainTestBase;
 import io.qameta.allure.Step;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 public class MobileMainPage extends MainTestBase {
@@ -21,7 +22,8 @@ public class MobileMainPage extends MainTestBase {
     private static final String FAVORITES_ICON_XPATH = "xpath;(//button[contains(@class,'button b-star')])[1]";
     private static final String QUANTITY_BANNERS_XPATH = "xpath;//ul[contains(@role,'tablist')]";
     private static final String BANNER_PIN_BUTTONS_XPATH = "xpath;//button[@type='button'][contains(.,'%s')]";
-    private static final String BANNERS_BUTTONS_XPATH = "xpath;(//div[@class='yCmsContentSlot'])[1]";
+    private static final String BANNERS_BUTTONS_XPATH = "xpath;(//div[@class='yCmsComponent b-section--as-content b-homepage-bottom'])[1]";
+    private static final String NEXT_BANNER_BUTTON = "xpath;//button[@aria-label='Next']";
     private static final String PRODUCT_BUTTON_XPATH = "xpath;(//img[@class=' lazyloaded'])[1]";
     private static final String ADD_TO_CART_BUTTON_XPATH = "xpath;(//button[@type='submit'])[2]";
     private static final String BOT_CONSULTANT_BUTTON_XPATH = "xpath;//jdiv[@class='wrap_b080 _orientationRight_fa84 __jivoMobileButton']";
@@ -83,6 +85,10 @@ public class MobileMainPage extends MainTestBase {
 
     public PageElementActions getAddToCartButton() {
         return new PageElementActions(ADD_TO_CART_BUTTON_XPATH, driver);
+    }
+
+    public PageElementActions getClickNextBanner() {
+        return new PageElementActions(NEXT_BANNER_BUTTON, driver);
     }
 
     public PageElementActions getBannersLocators() {
@@ -178,9 +184,16 @@ public class MobileMainPage extends MainTestBase {
         logger.info("Пользователь нажимает на кнопку 'В корзину'");
     }
 
+    @Step("Пользователь переключает банеры по стрелке вперёд")
+    public void clickNextBanner() {
+        getClickNextBanner().click();
+        logger.info("Пользователь переключает банеры по стрелке вперёд");
+    }
 
 
-/*    @Step("Пользователь переключает вперед банеры и проверяет, что возвращается к первому")
+
+/*
+    @Step("Пользователь переключает вперед банеры и проверяет, что возвращается к первому")
     public void checkNextBannerList() {
         String sizeAllLi = getStringQuantityBanners().getAttribute("childElementCount");
         int quantity = Integer.parseInt(sizeAllLi);
@@ -191,7 +204,8 @@ public class MobileMainPage extends MainTestBase {
         }
         getCheckStartBanner().isElementDisplayed();
         logger.info("Пользователь кликает по стрелке вперед, переключает банеры и проверяет, что возвращается к первому");
-    }*/
+    }
+*/
 
 
 
@@ -206,16 +220,15 @@ public class MobileMainPage extends MainTestBase {
         logger.info("Пользователь переключает банеры по пинам");
     }
 
-    @Step("Пользователь переключает банеры по пинам и возвращается на главную страницу")
+    @Step("Пользователь переключает банеры и возвращается на главную страницу")
     public void checkBannersClickable() {
         String sizeAllLi = getStringQuantityBanners().getAttribute("childElementCount");
         int quantity = Integer.parseInt(sizeAllLi);
-        System.out.println(quantity);
         for (int i = 1; i <= quantity; i++) {
-            getBaseInputBannersPinLocators(String.format(BANNER_PIN_BUTTONS_XPATH, i)).click();
-            pageActions.staticWait(1000);
             getBannersLocators().click();
             clickSiteLogo();
+            clickNextBanner();
+            pageActions.staticWait(1000);
         }
         logger.info("Пользователь переключает банеры по пинам и возвращается на главную страницу");
     }

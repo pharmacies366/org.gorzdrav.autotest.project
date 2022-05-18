@@ -10,7 +10,7 @@ public class MobileMedicationsCategorysPopUpPage extends MainTestBase {
 
 
     //элементы
-    private static final String ALLERGY_BUTTON_XPATH = "xpath;(//a[@href='/c/allergija/'])[2]";
+    private static final String ALLERGY_BUTTON_XPATH = "xpath;(//a[@href='/category/protivoallergicheskie/'])[1]";
 
 
     //конструктор

@@ -1,4 +1,3 @@
-/*
 package mobile.banners;
 
 import base.BaseSettingsMobileTests;
@@ -12,40 +11,35 @@ import org.junit.Test;
 @DisplayName("Проверка работы банеров на сайте")
 public class BannersMobileTest extends BaseSettingsMobileTests {
 
-*/
-/*    @DisplayName("Пользователь проверяет прокрутку банеров вперед по стрелке и возврат к первоначальному баннеру на главной странице")
+// Нужно подумать над реализацией
+
+/*
+    @DisplayName("Пользователь проверяет прокрутку банеров вперед по стрелке и возврат к первоначальному баннеру на главной странице")
     @Test
     public void checkNextBannerOnMainPage() {
         mobileMainPage.checkNextBannerList();
-    }*//*
+    }
 
 
-*/
-/*
+
    @DisplayName("Пользователь проверяет прокрутку банеров назад по стрелке и возврат к первоначальному баннеру на главной странице")
     @Test
     public void checkPrevBannerOnMainPage() {
         mobileMainPage.checkPrevBannerList();
     }
-*//*
-
-
-    @DisplayName("Пользователь проверяет смену банеров по пинам на главной странице")
-    @Test
-    public void checkBannerButtonsOnMainPage() {
-        mobileMainPage.checkNextBannerButtons();
-    }
 
     @DisplayName("Пользователь проверяет переход по банерам на главной странице")
     @Test
     public void checkBannersClickableOnMainPage() {
+        // mobileMainPage.clickClosePopUp();
+        mobileMainPage.clickCloseMobileAppPopUp();
         mobileMainPage.checkBannersClickable();
-    }
+    }*/
 
     @DisplayName("Пользователь проверяет переход по банерау на странице OSP")
     @Test
     public void checkBannersClickableOnOspPage() {
-        mobileMainPage.clickClosePopUp();
+        //mobileMainPage.clickClosePopUp();
         mobileMainPage.clickCloseMobileAppPopUp();
         pageActions.waitPageLoad();
         mobileMainPage.clickSiteLogo();
@@ -70,9 +64,10 @@ public class BannersMobileTest extends BaseSettingsMobileTests {
     @DisplayName("Пользователь проверяет переход по банерау на странице категории")
     @Test
     public void checkBannersClickableOnCategoryPage() {
-        mobileMainPage.clickClosePopUp();
+       // mobileMainPage.clickClosePopUp();
         mobileMainPage.clickCloseMobileAppPopUp();
         mobileHeaderBlock.clickBurgerButton();
+        mobileMainPopUpBlock.clickCatalogButton();
         mobileMainPopUpBlock.clickMedicationsButtons();
         mobileMedicationsCategoryPage.clickAllergyButton();
         mobileAllergyPage.checkAllergyPage();
@@ -84,7 +79,7 @@ public class BannersMobileTest extends BaseSettingsMobileTests {
     @DisplayName("Пользователь проверяет переход по банеру на странице поисковой выдачи")
     @Test
     public void checkBannersClickableWithSearch() {
-        mobileMainPage.clickClosePopUp();
+       // mobileMainPage.clickClosePopUp();
         mobileMainPage.clickCloseMobileAppPopUp();
         mobileHeaderBlock.setSearchInput("Лекарства");
         mobileMedicationsPage.clickBanner();
@@ -101,4 +96,3 @@ public class BannersMobileTest extends BaseSettingsMobileTests {
         mobileMainPage.clickSiteLogo();
     }
 }
-*/

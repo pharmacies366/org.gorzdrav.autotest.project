@@ -8,6 +8,7 @@ import org.openqa.selenium.WebDriver;
 public class MobileMainPopUpBlock extends MainTestBase {
     //элементы
     private static final String LOGIN_ICON_XPATH = "xpath;(//div[contains(.,'Войти')])[26]";
+    private static final String CATALOG_BUTTON_XPATH = "xpath;(//a[@href='#'][contains(.,'Каталог')])[1]";
     private static final String PERSONAL_ACCOUNT_XPATH = "xpath;(//span[@class='js-check-user-status'])[3]";
     private static final String MY_ORDERS_XPATH = "xpath;(//a[@href='/my-account/orders'])[3]";
     private static final String TITLE_IFRAME_POP_UP = "uxfb_form";
@@ -15,7 +16,7 @@ public class MobileMainPopUpBlock extends MainTestBase {
     private static final String TEST_TAGNAME = "tagName;iframe";
     private static final String LOGOUT_BUTTON_XPATH = "xpath;(//a[@href='/logout/'])[3]";
     private static final String PERSONAL_DATA_XPATH = "xpath;(//a[@href='/my-account/my-profile'])[3]";
-    private static final String MEDICATIONS_BUTTON_XPATH = "xpath;(//a[@href='/c/lekarstva/'])[3]";
+    private static final String MEDICATIONS_BUTTON_XPATH = "xpath;(//a[@href='/category/lekarstva/'])[1]";
     private static final String CITIES_BUTTON_XPATH = "xpath;(//i[@class='b-icn--region'])[2]";
 
 
@@ -29,6 +30,10 @@ public class MobileMainPopUpBlock extends MainTestBase {
 
     public PageElementActions getLoginIcon() {
         return new PageElementActions(LOGIN_ICON_XPATH, driver);
+    }
+
+    public PageElementActions getCatalog() {
+        return new PageElementActions(CATALOG_BUTTON_XPATH, driver);
     }
 
     public PageElementActions getPersonalAccount() {
@@ -70,6 +75,12 @@ public class MobileMainPopUpBlock extends MainTestBase {
         logger.info("Пользователь нажимает на иконку авторизации");
     }
 
+    @Step("Пользователь нажимает на кнопку каталог")
+    public void clickCatalogButton(){
+        getCatalog().click();
+        logger.info("Пользователь нажимает на кнопку каталог");
+    }
+
 /*
      @Step("Пользователь нажимает на иконку личного кабинета")
     public void clickToPersonalAccount() {
@@ -88,7 +99,6 @@ public class MobileMainPopUpBlock extends MainTestBase {
              getPersonalAccount().click();
          logger.info("Пользователь нажимает на иконку личного кабинета");
     }
-
 
     @Step("Пользователь закрывает попап с оценкой приложения")
     public void clickClosePopUp() {
