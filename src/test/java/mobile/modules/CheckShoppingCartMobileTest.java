@@ -64,6 +64,7 @@ public class CheckShoppingCartMobileTest extends BaseSettingsMobileTests {
         mobileProductCardPage.clickAddCartButton();
         pageActions.waitPageLoad();
         openUrl(propertiesManager.getProperty("baseurl") + "p/33090");
+        pageActions.waitPageLoad();
         mobileProductCardPage.clickAddCartButton();
         pageActions.waitPageLoad();
         openUrl(propertiesManager.getProperty("baseurl") + "cart");

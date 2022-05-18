@@ -37,7 +37,9 @@ public class CheckRegionalWebTest extends BaseSettingsWebTests {
         headerBlock.clickCitiesButton();
         citiesPopUpPage.selectSpbCity();
         headerBlock.checkSelectedRegion("Санкт-Петербург и ЛО");
+        pageActions.waitPageLoad();
         mainPage.clickFirstProductOnMainPage();
+        pageActions.waitPageLoad();
         productCardPage.checkSelectedRegion("Санкт-Петербург");
     }
 }
