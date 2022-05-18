@@ -18,7 +18,7 @@ import org.junit.runner.RunWith;
 public class PersonalDataMobileTest extends BaseSettingsMobileTests {
 
     @DataProvider
-    public static Object[][] checkDisplaedOptions() {
+    public static Object[][] checkDisplayedOptions() {
         return new Object[][]{
                 {"/my-account/my-profile", "Мой профиль", "Мой профиль"},
                 {"/my-account/update-password", "Изменить пароль", "Изменить пароль"},
@@ -33,8 +33,8 @@ public class PersonalDataMobileTest extends BaseSettingsMobileTests {
             " и релевантный переход")
     @Step("В личном кабинете переходит по ссылке => {LINKTEXT}")
     @Test
-    @UseDataProvider("checkDisplaedOptions")
-    public void checkDisplaedOptions(String LOCATOR, String LINKTEXT, String PAGEMESSAGE) {
+    @UseDataProvider("checkDisplayedOptions")
+    public void checkDisplayedOptions(String LOCATOR, String LINKTEXT, String PAGEMESSAGE) {
        // mobileMainPage.clickClosePopUp();
         mobileMainPage.clickCloseMobileAppPopUp();
         mobileHeaderBlock.clickBurgerButton();
@@ -56,7 +56,7 @@ public class PersonalDataMobileTest extends BaseSettingsMobileTests {
 
     @DisplayName("Пользователь заполняет отчество и сохраняет данные")
     @Test
-    public void checkPersonalDeta() {
+    public void checkPersonalData() {
       //  mobileMainPage.clickClosePopUp();
         mobileMainPage.clickCloseMobileAppPopUp();
         mobileHeaderBlock.clickBurgerButton();
@@ -99,7 +99,7 @@ public class PersonalDataMobileTest extends BaseSettingsMobileTests {
 
     @DisplayName("Пользователь изменяет и сохраняет имя")
     @Test
-    public void chanchName() {
+    public void changeName() {
       //  mobileMainPage.clickClosePopUp();
         mobileMainPage.clickCloseMobileAppPopUp();
         mobileHeaderBlock.clickBurgerButton();

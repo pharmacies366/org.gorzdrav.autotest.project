@@ -107,11 +107,4 @@ public class MobileBasementBlockMobileTest extends BaseSettingsMobileTests {
         logger.info("Ссылка кликабельна и ведёт на нужную страницу");
     }
 
-    @DisplayName("Проверка кликабельности и отображения номера телефона")
-    @Test
-    public void checkClickablePhoneNumber() {
-        mobileBasementBlock.getPhoneNumber().elementIsClickable();
-        logger.info("Номер телефона отображается и кликабелен");
-    }
-
 }
