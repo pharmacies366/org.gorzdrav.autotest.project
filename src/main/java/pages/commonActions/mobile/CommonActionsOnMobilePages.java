@@ -42,8 +42,10 @@ public class CommonActionsOnMobilePages extends MainTestBase {
     private static final String NEXT_PAGINATION_BUTTON_XPATH = "xpath;//a[@class='b-pagination__item js-pager-next']";
     private static final String PREV_PAGINATION_BUTTON_XPATH = "xpath;//a[@class='b-pagination__item']//child::i";
     private static final String BASE_INPUT_CHECKBOX_OPTION_XPATH = "xpath;(//span[@class='b-custom-input'])[%s]";
-    private static final String ON_RECIPE_XPATH = "xpath;//span[@class='b-trim-str'][contains(.,'Отпуск по рецепту')]";
-    private static final String WITHOUT_RECIPE_XPATH = "xpath;//span[contains(.,'Отпуск без рецепта')]";
+    private static final String ON_RECIPE_BUTTON_XPATH = "xpath;//div[@class='js-facet-name '][contains(.,'Отпуск по рецепту')]";
+    private static final String SOME_PRODUCTS_XPATH = "xpath;(//img[@class=' lazyloaded'])[1]";
+    private static final String ON_RECIPE_CHECKBOX_XPATH = "xpath;(//span[contains(.,'Отпуск по рецепту')])[4]";
+    private static final String WITHOUT_RECIPE_CHECKBOX_XPATH = "xpath;(//span[contains(.,'Отпуск без рецепта')])[2]";
     private static final String SORTING_BUTTON_XPATH = "xpath;//span[contains(@class,'ui-selectmenu-text')]";
     private static final String SORTING_NAME_XPATH = "xpath;//span[@class='ui-selectmenu-text']";
     private static final String BASE_INPUT_SORTING_OPTIONS_XPATH = "xpath;//div[contains(@id,'ui-id-%s')]";
@@ -180,12 +182,21 @@ public class CommonActionsOnMobilePages extends MainTestBase {
         return new PageElementActions(PREV_PAGINATION_BUTTON_XPATH, driver);
     }
 
+    public PageElementActions getOnRecipeButton() {
+        return new PageElementActions(ON_RECIPE_BUTTON_XPATH, driver);
+    }
+
+    public PageElementActions getClickSomeProducts() {
+        return new PageElementActions(SOME_PRODUCTS_XPATH, driver);
+    }
+
+
     public PageElementActions getOnRecipeCheckbox() {
-        return new PageElementActions(ON_RECIPE_XPATH, driver);
+        return new PageElementActions(ON_RECIPE_CHECKBOX_XPATH, driver);
     }
 
     public PageElementActions getWithoutRecipeCheckbox() {
-        return new PageElementActions(WITHOUT_RECIPE_XPATH, driver);
+        return new PageElementActions(WITHOUT_RECIPE_CHECKBOX_XPATH, driver);
     }
 
     public PageElementActions getSortingButton() {
@@ -425,36 +436,24 @@ public class CommonActionsOnMobilePages extends MainTestBase {
     }
 
 
-    @Step("Пользователь выбирает опцию: по рецепту - и проверяет содержание выбранной опции в блоке: Основная информация")
+    @Step("Пользователь выбирает опцию: по рецепту")
     public void checkCheckboxWithRecipe() {
+        getOnRecipeButton().click();
         getOnRecipeCheckbox().click();
-        logger.info("Пользователь нажимает на выбранную опцию");
-
-        int par = getProductList().getSize();
-        int randomNumberProduct;
-        if (par == 1) {//данный if выполняется для того чтобы не получать Exception: bound must be greater than origin
-            randomNumberProduct = 1;
-        } else {
-            randomNumberProduct = (new Random()).ints(1, par).iterator().nextInt();
-        }
-        getProductButton(String.format(PRODUCT_BUTTON_XPATH, randomNumberProduct)).click();
-        logger.info("Пользователь проверяет содержание опции - По рецепту в блоке: Основная информация");
+        logger.info("Пользователь выбирает опцию: по рецепту");
     }
 
-    @Step("Пользователь выбирает опцию: без рецепта - и проверяет содержание выбранной опции в блоке: Основная информация")
-    public void checkCheckboxWithoutRecipe() {
-        getWithoutRecipeCheckbox().click();
-        logger.info("Пользователь нажимает на выбранную опцию");
+    @Step("")
+    public void clickSomeProducts() {
+        getClickSomeProducts().click();
+        logger.info("");
+    }
 
-        int par = getProductList().getSize();
-        int randomNumberProduct;
-        if (par == 1) {//данный if выполняется для того чтобы не получать Exception: bound must be greater than origin
-            randomNumberProduct = 1;
-        } else {
-            randomNumberProduct = (new Random()).ints(1, par).iterator().nextInt();
-        }
-        getProductButton(String.format(PRODUCT_BUTTON_XPATH, randomNumberProduct)).click();
-        logger.info("Пользователь выбирает опцию: без рецепта - и проверяет содержание выбранной опции в блоке: Основная информация");
+    @Step("Пользователь выбирает опцию: без рецепта")
+    public void checkCheckboxWithoutRecipe() {
+        getOnRecipeButton().click();
+        getWithoutRecipeCheckbox().click();
+        logger.info("Пользователь выбирает опцию: без рецепта");
     }
 
     @Step("Пользователь листает вперёд страницы и проверяет релевантный переход")

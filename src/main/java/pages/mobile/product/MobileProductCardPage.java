@@ -23,7 +23,9 @@ public class MobileProductCardPage extends MainTestBase {
     private static final String MAIN_BUTTON_XPATH = "xpath;//div[@class='breadcrumbs__item']";
     private static final String BANNER_XPATH = "xpath;(//img[contains(@class,'img js-responsive-image  lazyloaded')])[1]";
     private static final String REGION_TEXT_XPATH = "xpath;//h2[contains(.,'%s')]";
-    private static final String RECIPE_INFO_XPATH = "xpath;(//div[contains(@class,'product__info__desc')])[6]";
+    private static final String RECIPE_INFO_XPATH = "xpath;(//span[@class='c-product__description'])[7]";
+    private static final String PRODUCT_DETAILS_XPATH = "xpath;//div[@class='c-product-discount hidden-sm hidden-md hidden-lg hidden-xl js-product-accordion-block']";
+
 
     //конструктор
     public MobileProductCardPage(WebDriver driver) {
@@ -88,6 +90,9 @@ public class MobileProductCardPage extends MainTestBase {
         return new PageElementActions(RECIPE_INFO_XPATH, driver);
     }
 
+    public PageElementActions getClickProductDetails() {
+        return new PageElementActions(PRODUCT_DETAILS_XPATH, driver);
+    }
 
 
     //Методы
@@ -183,6 +188,12 @@ public class MobileProductCardPage extends MainTestBase {
         int quantity = getProductQuantity().formatElementToValue();
         logger.info("Сохранение шт. товара");
         return quantity;
+    }
+
+    @Step("")
+    public void clickProductDetails() {
+        getClickProductDetails().click();
+        logger.info("");
     }
 
 }
