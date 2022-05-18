@@ -1,4 +1,3 @@
-/*
 package mobile.orders.makeorders;
 
 import base.BaseSettingsMobileTests;
@@ -14,7 +13,7 @@ public class MakeOrdersUnauthorizedMobileTest extends BaseSettingsMobileTests {
 
     //Отключили на проде, так как формируется реальная заявка на доставку и курьеры едут за заказами
 
-*/
+
 /*    @DisplayName("Оформление заказа доставкой. Неавторизованный пользователь")
     @Test
     public void delivery() {
@@ -37,10 +36,11 @@ public class MakeOrdersUnauthorizedMobileTest extends BaseSettingsMobileTests {
                 propertiesManager.getProperty("cvv"));
         mobileSberPage.clickOnSubmitButton();
         mobileThankForTheOrderPage.checkPaymentError();
-    }*//*
+    }*/
 
 
-*/
+    // баг на шаге Списком
+
 /*    @DisplayName("Неавторизованный пользователь покупает товар в 1клик")
     @Test
     public void oneClick() {
@@ -52,7 +52,9 @@ public class MakeOrdersUnauthorizedMobileTest extends BaseSettingsMobileTests {
         mobileCartPage.clickProductCard();
         pageActions.waitPageLoad();
         mobileProductCardPage.checkVisibilityMap();
+        pageActions.waitPageLoad();
         mobileProductCardPage.setInputSearchAddres("метро Фили");
+        pageActions.waitPageLoad();
         mobileProductCardPage.buyOneClick();
         pageActions.waitPageLoad();
         mobileProductCardPage.clickChangeAptekaList();
@@ -60,11 +62,10 @@ public class MakeOrdersUnauthorizedMobileTest extends BaseSettingsMobileTests {
         mobileCheckOutPage.setInputOneClickPhoneNumber(propertiesManager.getProperty("phonenumber"));
        // mobileCheckOutPage.clickBookingButton();
        // mobileThankForTheOrderPage.checkSuccessMessage();
-    }*//*
+    }
 
 
-*/
-/*    @DisplayName("Неавторизованный пользователь покупает товар со страниц ОСП")
+    @DisplayName("Неавторизованный пользователь покупает товар со страниц ОСП")
     @Test
     public void checkOsp() {
         mobileCookiePage.reCaptchaKey();
@@ -77,19 +78,18 @@ public class MakeOrdersUnauthorizedMobileTest extends BaseSettingsMobileTests {
         mobileOspPage.clickShowAll();
         mobileOspPage.clickProductName();
         mobileCartPage.сlickAddCartButton();
+        pageActions.waitPageLoad();
         mobileCartPage.clickToCartButton();
         mobileCartPage.clickToMakeOrder();
+        mobileCheckOutPage.setInputSearchAddres("метро Автозаводская");//возможно нужно кликнуть в пустое место
+        mobileCheckOutPage.clickChangeAptekaList();
         mobileCheckOutPage.contactDetails(
                 propertiesManager.getProperty("username"),
                 propertiesManager.getProperty("phonenumber"),
                 propertiesManager.getProperty("usermail"));
-        mobileCheckOutPage.clickSelectApteka();
-        mobileCheckOutPage.setInputSearchAddres("метро Автозаводская");//возможно нужно кликнуть в пустое место
-        mobileCheckOutPage.clickChangeAptekaList();
-        mobileCheckOutPage.ckickSelect();
       //  mobileCheckOutPage.clickMakeOrder();
       //  mobileThankForTheOrderPage.checkSuccessMessage();
-    }*//*
+    }
 
 
     @DisplayName("Неавторизованный пользователь покупает товар со способом доставки - 'Самовывоз'")
@@ -143,5 +143,5 @@ public class MakeOrdersUnauthorizedMobileTest extends BaseSettingsMobileTests {
      //   mobileCheckOutPage.clickMakeOrder();
       //  mobileThankForTheOrderPage.checkSuccessMessage();
     }
+ */
 }
-*/

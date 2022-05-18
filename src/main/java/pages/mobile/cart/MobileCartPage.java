@@ -12,8 +12,8 @@ public class MobileCartPage extends MainTestBase {
     private static final String CLEAR_ALL_FROM_CARD_XPATH = "xpath;//a[contains(.,'Очистить все')]";
     private static final String CONFIRM_CLEAN_ALL_XPATH = "xpath;//input[@value='Да, подтверждаю']";
     private static final String TOTAL_PRICE_XPATH = "xpath;//span[@class='pull-right js-revenue']";
-    private static final String ADD_CART_BUTTON_XPATH = "xpath;//span[contains(.,'В корзину')]";
-    private static final String CARD_BUTTON_XPATH = "xpath;//span[@class='mini_cart_link__icon']";
+    private static final String ADD_CART_BUTTON_XPATH = "xpath;(//button[@type='submit'])[2]";
+    private static final String CARD_BUTTON_XPATH = "xpath;//div[@class='b-icn--cart-bold']";
     private static final String MAKE_ORDER_XPATH = "xpath;//a[@href='/cart/checkout']";
     private static final String PRODUCT_CARD_XPATH = "xpath;//a[@data-gtm-source='search list']";
     private static final String QUANTITY_PRODUCT_XPATH = "xpath;//input[@data-autotest='selector_quantity']";

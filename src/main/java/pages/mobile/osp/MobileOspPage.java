@@ -11,8 +11,8 @@ public class MobileOspPage extends MainTestBase {
 
 
     //элементы
-    private static final String SHOW_ALL_BUTTON_XPATH = "xpath;//span[contains(.,'Показать все')]";
-    private static final String PRODUCT_NAME_XPATH = "xpath;//a[@href='/g/nurofen']";
+    private static final String SHOW_ALL_BUTTON_XPATH = "xpath;//span[contains(@class,'show-all js-show--all')]";
+    private static final String PRODUCT_NAME_XPATH = "xpath;//a[@href='/catalog/nurofen']";
     private static final String BANNER_XPATH = "xpath;//div[@class='b-preload-banner__inner']";
 
 
