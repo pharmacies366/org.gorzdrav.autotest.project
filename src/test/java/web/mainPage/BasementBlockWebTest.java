@@ -18,7 +18,7 @@ import org.junit.runner.RunWith;
 public class BasementBlockWebTest extends BaseSettingsWebTests {
 
     @DataProvider
-    public static Object[][] data() {
+    public static Object[][] basementLinks() {
         return new Object[][]{
                 //Помощь
                 {"/howtoorder/", "Как сделать заказ", "Как оформить заказ на сайте?"},
@@ -43,14 +43,14 @@ public class BasementBlockWebTest extends BaseSettingsWebTests {
                 {"/contacts/", "Контактные данные", "Контактные данные"},
                 {"/feedback/", "Оставить отзыв", "Обратная связь"},
                 {"/advertisingplacement/", "Размещение рекламы", "Размещение рекламы"},
-                {"/licenses/", "Лицензии", "Лицензии"},
+                {"/licenses/", "Лицензии", "Лицензии"}
         };
     }
 
     @DisplayName("Проверка релевантности ссылок в подвале сайта")
     @Step("В подвале сайта переходит по ссылке => {LINK_TEXT}")
     @Test
-    @UseDataProvider("data")
+    @UseDataProvider("basementLinks")
     public void test(String LOCATOR, String LINK_TEXT, String PAGE_MESSAGE) {
         mainPage.clickClosePopUp();
         basementBlock.checkLinksValidation(LOCATOR, LINK_TEXT);
@@ -59,6 +59,5 @@ public class BasementBlockWebTest extends BaseSettingsWebTests {
         pageActions.contentIsDisplayed(PAGE_MESSAGE);
         logger.info("Ссылка кликабельна и ведёт на нужную страницу");
     }
-
 
 }
