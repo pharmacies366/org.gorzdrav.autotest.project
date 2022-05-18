@@ -13,7 +13,12 @@ public class CommonActionsOnMobilePages extends MainTestBase {
 
     //элементы
     private static final String FILTERS_BUTTON_XPATH = "xpath;//i[@class='b-icn--filter']";
+    private static final String RELEASE_FORM_BUTTON_XPATH = "xpath;//div[@class='js-facet-name '][contains(.,'Форма выпуска')]";
+    private static final String BRAND_BUTTON_XPATH = "xpath;//div[@class='js-facet-name '][contains(.,'Бренд')]";
+    private static final String MANUFACTURERS_BUTTON_XPATH = "xpath;//div[@class='js-facet-name '][contains(.,'Производители')]";
+    private static final String BASE_INPUT_SELECTED_CHECKBOX_XPATH = "xpath;(//span[contains(.,'%s')])[2]";
     private static final String DELIVERY_ALLOWED_BUTTON_XPATH = "xpath;(//div[@data-code='deliveryAllowed'])[1]";
+    private static final String PAGE_TITLE_XPATH = "xpath;//h1[contains(@class,'b-page-title i-mg0 js-category-title')]";
     private static final String COST_BUTTON_XPATH = "xpath;(//div[@data-code='priceValue'])[1]";
     private static final String PRODUCT_BUTTON_XPATH = "xpath;//a[@data-gtm-position='%s']";
     private static final String BANNER_XPATH = "xpath;(//img[contains(@class,'img js-responsive-image  lazyloaded')])[1]";
@@ -21,7 +26,7 @@ public class CommonActionsOnMobilePages extends MainTestBase {
     private static final String SLIDER_TO_XPATH = "xpath;//span[@class='irs-slider to']";
     private static final String PRICE_RANGE_FROM_XPATH = "xpath;(//input[@class='b-range__input js-range-from'])[2]";
     private static final String PRICE_RANGE_TO_XPATH = "xpath;(//input[@class='b-range__input js-range-to'])[2]";
-    private static final String PRODUCT_PRICES_RANGE_LIST_XPATH = "xpath;//div[@class='listing_product__price']";
+    private static final String PRODUCT_PRICES_RANGE_LIST_XPATH = "xpath;//div[@class='c-prod-item c-prod-item--grid js-product-item']";
     private static final String BASE_INPUT_CHECK_PRODUCT_PRICE_XPATH = "xpath;(//div[@class='listing_product__price']//child::span)[%s]";
     private static final String BASE_INPUT_CHECK_PRODUCT_DELIVERY_METHOD_XPATH = "xpath;(//span[@class='b-prod-label b-prod-label_delivery'])[%s]";
     private static final String CHECKBOX_DELIVERY_XPATH = "xpath;(//span[@class='b-trim-str'][contains(.,'Доставка')])[2]";
@@ -139,8 +144,28 @@ public class CommonActionsOnMobilePages extends MainTestBase {
         return new PageElementActions(FILTERS_BUTTON_XPATH, driver);
     }
 
+    public PageElementActions getReleaseForm() {
+        return new PageElementActions(RELEASE_FORM_BUTTON_XPATH, driver);
+    }
+
+    public PageElementActions getBrand() {
+        return new PageElementActions(BRAND_BUTTON_XPATH, driver);
+    }
+
+    public PageElementActions getManufacturers() {
+        return new PageElementActions(MANUFACTURERS_BUTTON_XPATH, driver);
+    }
+
+    public PageElementActions getBaseInputSelectedCheckbox(String xpath) {
+        return new PageElementActions(xpath, driver);
+    }
+
     public PageElementActions getDeliveryAllowedButton() {
         return new PageElementActions(DELIVERY_ALLOWED_BUTTON_XPATH, driver);
+    }
+
+    public PageElementActions getPageTitle() {
+        return new PageElementActions(PAGE_TITLE_XPATH, driver);
     }
 
     public PageElementActions getCostButton() {
@@ -196,6 +221,37 @@ public class CommonActionsOnMobilePages extends MainTestBase {
     public void clickFiltersButton() {
         getFiltersButton().click();
         logger.info("Пользователь нажимает на кнопку фильтры");
+    }
+
+    @Step("Пользователь нажимает на кнопку Форма выпуска")
+    public void clickReleaseForm() {
+        getReleaseForm().click();
+        logger.info("Пользователь нажимает на кнопку Форма выпуска");
+    }
+
+    @Step("Пользователь нажимает на кнопку Бренд")
+    public void clickBrand() {
+        getBrand().click();
+        logger.info("Пользователь нажимает на кнопку Бренд");
+    }
+
+    @Step("Пользователь нажимает на кнопку Производители")
+    public void clickManufacturers() {
+        getManufacturers().click();
+        logger.info("Пользователь нажимает на кнопку Производители");
+    }
+
+    @Step("Пользователь нажимает выбранный чекбокс")
+    public void clickCheckbox(String SELECTED_CHECKBOX) {
+        getBaseInputSelectedCheckbox(String.format(BASE_INPUT_SELECTED_CHECKBOX_XPATH, SELECTED_CHECKBOX)).click();
+        logger.info("Пользователь нажимает на выбранную опцию");
+    }
+
+    @Step("Пользователь проверяет название странице")
+    public String checkPageTitle() {
+        String title = getPageTitle().getText();
+        logger.info("Пользователь проверяет название странице");
+        return title;
     }
 
     @Step("Пользователь нажимает на кнопку Доступность доставки")
