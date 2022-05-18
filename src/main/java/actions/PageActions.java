@@ -85,6 +85,7 @@ public class PageActions extends MainTestBase {
         }
     }
 
+
     //Ожидание загрузки на странице Javascript
     public void waitPageLoad() {
 

@@ -165,6 +165,8 @@ public class PageElementActions extends MainTestBase {
 
     //Проверяет видимость текста {string} на странице
     public void contentIsDisplayed(String text) {
+       /* WebDriverWait wait = new WebDriverWait(driver, 10);
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[text()='" + text + "']"))).isDisplayed();*/
         driver.findElement(By.xpath("//*[text()='" + text + "']")).isDisplayed();
     }
 
