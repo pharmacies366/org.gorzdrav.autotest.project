@@ -8,6 +8,9 @@ import org.openqa.selenium.WebDriver;
 
 public class ProductCardPage extends MainTestBase {
 
+    /**
+     * Действия на странице товара
+     */
 
     //элементы
     private static final String PRICE_LABEL_XPATH = "xpath;//span[@class='js-price-value']";

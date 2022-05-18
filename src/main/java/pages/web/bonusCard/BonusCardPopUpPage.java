@@ -5,6 +5,7 @@ import core.MainTestBase;
 import org.openqa.selenium.WebDriver;
 
 public class BonusCardPopUpPage extends MainTestBase {
+
     //элементы
     private static final String CHECKBOX_I_HAVE_BOBUS_CARD_XPATH = "xpath;(//span[@class='b-custom-input--special'])[2]";
     private static final String CHECKBOX_GET_A_BOBUS_CARD_XPATH = "xpath;(//span[@class='b-custom-input--special'])[3]";

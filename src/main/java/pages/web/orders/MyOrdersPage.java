@@ -7,6 +7,10 @@ import org.openqa.selenium.WebDriver;
 
 public class MyOrdersPage extends MainTestBase {
 
+    /**
+     * Действия на странице заказов
+     */
+
     //элементы
     private static final String ORDER_XPATH = "xpath;(//a[@class='c-order-item__link'])[1]";
     private static final String CANCEL_ORDER_XPATH = "xpath;//div[@class='b-btn hidden-xs b-btn--third js-cancel-order']";

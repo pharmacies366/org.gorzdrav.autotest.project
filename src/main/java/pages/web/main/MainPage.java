@@ -7,6 +7,10 @@ import org.openqa.selenium.WebDriver;
 
 public class MainPage extends MainTestBase {
 
+    /**
+     * Действия на главной странице
+     */
+
     //элементы
     private static final String POP_UP_BUTTON_XPATH = "xpath;//button[contains(.,'Спасибо, понятно')]";
     private static final String LETTER_N_XPATH = "xpath;//a[@href='/littera-Н/']";

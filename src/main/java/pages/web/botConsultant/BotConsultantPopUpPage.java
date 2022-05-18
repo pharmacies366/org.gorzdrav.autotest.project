@@ -10,6 +10,11 @@ import org.openqa.selenium.WebDriver;
 
 public class BotConsultantPopUpPage extends MainTestBase {
 
+    /**
+     * Действия на странице консультант бота
+     */
+
+
     //элементы
     private static final String BASE_INPUT_CONTACT_DETAILS_XPATH = "xpath;//input[@type='%s']";
     private static final String Name = "name";

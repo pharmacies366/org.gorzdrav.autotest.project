@@ -7,6 +7,10 @@ import org.openqa.selenium.WebDriver;
 
 public class CitiesPopUpPage extends MainTestBase {
 
+    /**
+     * Действия на странице с выбором городов
+     */
+
     //элементы
     private static final String MSK_BUTTON_XPATH = "xpath;(//a[contains(@class,'region ')])[1]";
     private static final String SPB_UP_BUTTON_XPATH = "xpath;(//a[contains(@class,'region ')])[2]";

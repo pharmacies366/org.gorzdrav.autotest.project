@@ -7,7 +7,9 @@ import org.openqa.selenium.WebDriver;
 
 public class ThankForTheOrderPage extends MainTestBase {
 
-
+    /**
+     * Действия на странице с благодарностью за заказ
+     */
 
     //элементы
     private static final String THANKS_ORDER_SELF_XPATH = "xpath;//h1[contains(.,'Спасибо за ваш заказ!')]";

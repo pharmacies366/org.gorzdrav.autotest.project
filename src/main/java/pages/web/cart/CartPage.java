@@ -7,6 +7,10 @@ import org.openqa.selenium.WebDriver;
 
 public class CartPage extends MainTestBase {
 
+    /**
+     * Действия на странице корзины
+     */
+
     //элементы
     private static final String CARD_COUNT_XPATH = "xpath;//div[contains(@class,'count js-mini-cart-count')]";
     private static final String CLEAR_ALL_FROM_CARD_XPATH = "xpath;//a[contains(.,'Очистить все')]";

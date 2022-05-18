@@ -8,6 +8,9 @@ import org.openqa.selenium.WebDriver;
 
 public class FavoritesPage extends MainTestBase {
 
+    /**
+     * Действия на странице избранное
+     */
 
     //элементы
     private static final String ADD_TO_CART_BUTTON_XPATH = "xpath;(//span[contains(.,'В корзину')])[1]";

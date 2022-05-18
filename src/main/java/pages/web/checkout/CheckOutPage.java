@@ -7,6 +7,9 @@ import org.openqa.selenium.WebDriver;
 
 public class CheckOutPage extends MainTestBase{
 
+    /**
+     * Действия на странице чекаута
+     */
 
     //элементы
     private static final String BASE_INPUT_CONTACT_DETAILS_XPATH = "xpath;//input[@id='%s']";

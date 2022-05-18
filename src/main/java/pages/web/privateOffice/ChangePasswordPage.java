@@ -8,6 +8,10 @@ import org.openqa.selenium.WebDriver;
 
 public class ChangePasswordPage extends MainTestBase {
 
+    /**
+     * Действия на странице с изменением пароля
+     */
+
     //элементы
     private static final String BASE_INPUT_PASSWORD_DATA_XPATH = "xpath;//input[@id='%s']";
     private static final String NewPassword = "newPassword";

@@ -8,6 +8,10 @@ import org.openqa.selenium.WebDriver;
 
 public class SberPage extends MainTestBase {
 
+    /**
+     * Действия на странице с оплатой
+     */
+
     //элементы
     private static final String BASE_INPUT_BANK_CARD_DETAILS_XPATH = "xpath;//input[@id='%s']";
     private static final String CARD_NUMBER = "pan";

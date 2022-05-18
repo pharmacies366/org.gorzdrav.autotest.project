@@ -8,6 +8,10 @@ import org.openqa.selenium.WebDriver;
 
 public class AuthPopUpPage extends MainTestBase {
 
+    /**
+     * Действия на странице авторизации
+    */
+
     //элементы
     private static final String _PHONE_NUMBER_INPUT_XPATH = "xpath;//input[@id='login-phone']";
     private static final String GO_PASSWORD_INPUT_XPATH = "xpath;//a[@class='b-link--auth js-auth-ext__button']";

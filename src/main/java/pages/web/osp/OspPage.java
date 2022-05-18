@@ -8,6 +8,9 @@ import org.openqa.selenium.WebDriver;
 
 public class OspPage extends MainTestBase {
 
+    /**
+     * Действия на странице ОСП
+     */
 
     //элементы
     private static final String PRODUCT_NAME_XPATH = "xpath;//a[@href='/catalog/nurofen']";
