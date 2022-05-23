@@ -97,12 +97,12 @@ public class CheckShoppingCartMobileTest extends BaseSettingsMobileTests {
     public void checkTotalAmountProducts() {
      //   mobileMainPage.clickClosePopUp();
         mobileMainPage.clickCloseMobileAppPopUp();
-        openUrl(propertiesManager.getProperty("baseurl") + "p/29992");
+        openUrl(propertiesManager.getProperty("baseurl") + "p/44226");
         pageActions.waitPageLoad();
         int firstPrice = mobileProductCardPage.getProductPrice();
         mobileProductCardPage.clickAddCartButton();
         pageActions.waitPageLoad();
-        openUrl(propertiesManager.getProperty("baseurl") + "p/44226");
+        openUrl(propertiesManager.getProperty("baseurl") + "p/33090");
         pageActions.waitPageLoad();
         int secondPrice = mobileProductCardPage.getProductPrice();
         mobileProductCardPage.clickAddCartButton();
@@ -117,7 +117,7 @@ public class CheckShoppingCartMobileTest extends BaseSettingsMobileTests {
     public void checkNotificationCart() {
       //  mobileMainPage.clickClosePopUp();
         mobileMainPage.clickCloseMobileAppPopUp();
-        openUrl(propertiesManager.getProperty("baseurl") + "p/29992");
+        openUrl(propertiesManager.getProperty("baseurl") + "p/33090");
         pageActions.waitPageLoad();
         mobileProductCardPage.clickAddCartButton();
         pageActions.waitPageLoad();

@@ -94,12 +94,12 @@ public class CheckShoppingCartWebTest extends BaseSettingsWebTests {
     @Test
     public void checkTotalAmountProducts() {
         mainPage.clickClosePopUp();
-        openUrl(propertiesManager.getProperty("baseurl") + "p/29992");
+        openUrl(propertiesManager.getProperty("baseurl") + "p/44226");
         pageActions.waitPageLoad();
         int firstPrice = productCardPage.getProductPrice();
         productCardPage.clickAddCartButton();
         pageActions.waitPageLoad();
-        openUrl(propertiesManager.getProperty("baseurl") + "p/44226");
+        openUrl(propertiesManager.getProperty("baseurl") + "p/33090");
         pageActions.waitPageLoad();
         int secondPrice = productCardPage.getProductPrice();
         productCardPage.clickAddCartButton();
@@ -113,12 +113,12 @@ public class CheckShoppingCartWebTest extends BaseSettingsWebTests {
     @Test
     public void checkNotificationCart() {
         mainPage.clickClosePopUp();
-        openUrl(propertiesManager.getProperty("baseurl") + "p/29992");
+        openUrl(propertiesManager.getProperty("baseurl") + "p/44226");
         pageActions.waitPageLoad();
         productCardPage.clickAddCartButton();
         pageActions.waitPageLoad();
         int firstPrice = productCardPage.getProductPrice();
-        openUrl(propertiesManager.getProperty("baseurl") + "p/44226");
+        openUrl(propertiesManager.getProperty("baseurl") + "p/33090");
         pageActions.waitPageLoad();
         productCardPage.clickAddCartButton();
         pageActions.waitPageLoad();
