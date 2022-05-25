@@ -20,14 +20,13 @@ public class BotConsultantPopUpPage extends MainTestBase {
     private static final String Name = "name";
     private static final String PhoneNumber = "tel";
     private static final String Email = "email";
-    private static final String CLOSE_BOT_BUTTON_XPATH = "xpath;//jdiv[@class='closeIcon_fc52']";
-    private static final String CAN_NOT_ORDER_BUTTON_XPATH = "xpath;(//jdiv[@class='button_acaf'])[1]";
-    private static final String NEED_A_DRUG_BUTTON_XPATH = "xpath;(//jdiv[@class='button_acaf'])[2]";
-    private static final String NEED_DELIVERY_BUTTON_XPATH = "xpath;(//jdiv[@class='button_acaf'])[3]";
+    private static final String CLOSE_BOT_BUTTON_XPATH = "xpath;//jdiv[@id='jivo_close_button']";
+    private static final String CAN_NOT_ORDER_BUTTON_XPATH = "xpath;//jdiv[@id='scrollbar-container']//jdiv[3]";
+    private static final String NEED_A_DRUG_BUTTON_XPATH = "xpath;//jdiv[@id='scrollbar-container']//jdiv[1]";
+    private static final String NEED_DELIVERY_BUTTON_XPATH = "xpath;//jdiv[@id='scrollbar-container']//jdiv[2]";
     private static final String ENTER_MESSAGE_INPUT_XPATH = "xpath;//jdiv[text()='Отправить']";
-    private static final String THANKS_MESSAGE_XPATH = "xpath;//jdiv[@class='submitSuccess_f0ba __show_ee7c']";
-    private static final String ANIMATION_BOT_XPATH = "xpath;(//jdiv[@class='globalClass_bc43']//child::jdiv)[1]";
-
+    private static final String THANKS_MESSAGE_XPATH = "xpath;//jdiv[@alt='\uD83C\uDF89']/..";
+    private static final String ANIMATION_BOT_XPATH = "xpath;//jdiv[@id='jcont']";
 
 
     //конструктор
@@ -70,7 +69,6 @@ public class BotConsultantPopUpPage extends MainTestBase {
     }
 
 
-
     //Методы
     @Step("Пользователь закрывает консультант бота")
     public void clickCloseBot() {
@@ -103,7 +101,7 @@ public class BotConsultantPopUpPage extends MainTestBase {
     }
 
     @Step("Пользователь заполняет контактные данные")
-    public void contactDetails(String name, String phoneNumber, String email ) {
+    public void contactDetails(String name, String phoneNumber, String email) {
         getBaseInputContactDetails(String.format(BASE_INPUT_CONTACT_DETAILS_XPATH, Name)).sendKeys(name);
         getBaseInputContactDetails(String.format(BASE_INPUT_CONTACT_DETAILS_XPATH, PhoneNumber)).sendKeys(phoneNumber);
         getBaseInputContactDetails(String.format(BASE_INPUT_CONTACT_DETAILS_XPATH, Email)).sendKeys(email);
@@ -118,14 +116,14 @@ public class BotConsultantPopUpPage extends MainTestBase {
 
     @Step("Пользователь проверяет сообщение с текстом 'Спасибо'")
     public void checkThanksMessage() {
-       String message = getThanksMessage().getText();
+        String message = getThanksMessage().getText();
         Assert.assertEquals(message, "\uD83C\uDF89 Спасибо!");
         logger.info("Пользователь проверяет сообщение с текстом 'Спасибо'");
     }
 
     @Step("Пользователь проверяет, что консультант бот закрылся")
     public void checkCloseBot() {
-      String statusBot = getStatusAnimationBot().getAttribute("style");
+        String statusBot = getStatusAnimationBot().getAttribute("style");
         MatcherAssert.assertThat(statusBot, CoreMatchers.containsString("Label_CLOSE"));
         logger.info("Пользователь проверяет, что консультант бот закрылся");
     }
