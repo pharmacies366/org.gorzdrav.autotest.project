@@ -13,7 +13,7 @@ import org.junit.Test;
 public class SignInPositiveWebTest extends BaseSettingsWebTests {
     
     @DisplayName("Авторизация пользователя на сайте по номеру телефона и паролю")
-    @Description("Пользователь вводит номер телеона и пароль и нажимет кнопку Войти")
+    @Description("Пользователь вводит номер телефона и пароль и нажимет кнопку Войти")
     @Test
     public void loginUserPhone() {
     cookiePage.reCaptchaKey();
