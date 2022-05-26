@@ -40,7 +40,7 @@ public class MainTestBase {
         driver = driverFactory.getDriver();
         pageActions = new PageActions(driver);
         driver.get(propertiesManager.getProperty("baseurl"));
-        logger.info("Открывается главная страница сайта 36.6");
+        logger.info("Открывается главная страница сайта Горздрав");
 
     }
 
@@ -55,8 +55,8 @@ public class MainTestBase {
      * Повторный запуск тестов при падении
      */
 
-
-   /* @Rule
+/*
+    @Rule
     public RetryRule rule = new RetryRule(3);
 
 */
