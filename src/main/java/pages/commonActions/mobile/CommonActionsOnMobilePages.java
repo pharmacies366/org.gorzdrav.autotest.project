@@ -49,6 +49,7 @@ public class CommonActionsOnMobilePages extends MainTestBase {
     private static final String SORTING_BUTTON_XPATH = "xpath;//span[contains(@class,'ui-selectmenu-text')]";
     private static final String SORTING_NAME_XPATH = "xpath;//span[@class='ui-selectmenu-text']";
     private static final String BASE_INPUT_SORTING_OPTIONS_XPATH = "xpath;//div[contains(@id,'ui-id-%s')]";
+    private static final String CLOSE_POPUP_BUTTON_XPATH = "xpath;//svg[@class='close-icon uxs-1oddrgm']";
     private static final String PRICE_REDUCTION = "5";
     private static final String PRICE_INCREASE = "4";
     private static final String SORTING_NAME = "3";
@@ -207,6 +208,10 @@ public class CommonActionsOnMobilePages extends MainTestBase {
         return new PageElementActions(SORTING_NAME_XPATH, driver);
     }
 
+    public PageElementActions getClosePopup() {
+        return new PageElementActions(CLOSE_POPUP_BUTTON_XPATH, driver);
+    }
+
     public PageElementActions getSortingOptions(String xpath) {
         return new PageElementActions(xpath, driver);
     }
@@ -242,7 +247,7 @@ public class CommonActionsOnMobilePages extends MainTestBase {
 
     @Step("Пользователь нажимает на кнопку Бренд")
     public void clickBrand() {
-        getBrand().click();
+        getBrand().clickJs();
         logger.info("Пользователь нажимает на кнопку Бренд");
     }
 
@@ -256,6 +261,12 @@ public class CommonActionsOnMobilePages extends MainTestBase {
     public void clickCheckbox(String SELECTED_CHECKBOX) {
         getBaseInputSelectedCheckbox(String.format(BASE_INPUT_SELECTED_CHECKBOX_XPATH, SELECTED_CHECKBOX)).click();
         logger.info("Пользователь нажимает на выбранную опцию");
+    }
+
+    @Step("Пользователь закрывает попап с оченкой приложения")
+    public void closePopupLikeApp() {
+        getClosePopup().click();
+        logger.info("Пользователь закрывает попап с оченкой приложения");
     }
 
     @Step("Пользователь проверяет название странице")
