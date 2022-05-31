@@ -31,6 +31,7 @@ public class ChangePasswordMobileTest extends BaseSettingsMobileTests {
                 propertiesManager.getProperty("newuserpass"),
                 propertiesManager.getProperty("newuserpass"));
         mobileChangePasswordPage.clickChangeButton();
+        pageActions.waitPageLoad();
         mobileChangePasswordPage.clickChangePassword(
                 propertiesManager.getProperty("olduserpass"),
                 propertiesManager.getProperty("olduserpass"));
