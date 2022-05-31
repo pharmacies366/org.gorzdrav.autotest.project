@@ -97,12 +97,13 @@ public class HeaderBlockWebTest extends BaseSettingsWebTests {
         pageActions.contentIsDisplayed("Как сделать заказ");
     }
 
-    @DisplayName("Проверка релевантного перехода по кнопке: 'Вакансии'")
+//нет на s1
+/*    @DisplayName("Проверка релевантного перехода по кнопке: 'Вакансии'")
     @Test
     public void clickVacanciesButton(){
         headerBlock.clickVacanciesButton();
         pageActions.checkUrl("https://gorzdrav.org/vacansii/");
-    }
+    }*/
 
     @DisplayName("Проверка кликабельности номера телефона")
     @Test
