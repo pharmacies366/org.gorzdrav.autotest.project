@@ -346,7 +346,9 @@ public class CommonActionsOnWebPages extends MainTestBase {
         } else {
             randomNumberProduct = (new Random()).ints(1, par).iterator().nextInt();
         }
+        pageActions.waitPageLoad();
         getProductButton(String.format(PRODUCT_BUTTON_XPATH, randomNumberProduct)).click();
+        pageActions.waitPageLoad();
         logger.info("Пользователь выбирает опцию: без рецепта - и проверяет содержание выбранной опции в блоке: Основная информация");
     }
 

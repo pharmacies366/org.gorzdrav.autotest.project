@@ -55,6 +55,7 @@ public class CheckShoppingCartWebTest extends BaseSettingsWebTests {
     @DisplayName("Пользователь удаляет 1 из 2-х товаров в корзине")
     @Test
     public void deleteMaterialsFromCart() {
+        pageActions.waitPageLoad();
         mainPage.clickClosePopUp();
         openUrl(propertiesManager.getProperty("baseurl") + "p/29992");
         pageActions.waitPageLoad();

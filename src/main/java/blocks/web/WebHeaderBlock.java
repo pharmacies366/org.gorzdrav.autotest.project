@@ -169,7 +169,7 @@ public class WebHeaderBlock extends MainTestBase {
 
     @Step("Пользователь нажимает на иконку личного кабинета")
     public void clickToPersonalAccount() {
-        getPersonalAccount().click();
+        getPersonalAccount().clickJs();
         logger.info("Пользователь нажимает на иконку личного кабинета");
     }
 

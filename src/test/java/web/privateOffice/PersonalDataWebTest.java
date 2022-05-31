@@ -63,11 +63,13 @@ public class PersonalDataWebTest extends BaseSettingsWebTests {
         headerBlock.clickToPersonalAccount();
         headerBlock.clickPersonalData();
         personalDataPage.clearPatronymic();
+        pageActions.waitPageLoad();
         personalDataPage.ckickSaveButton();
         pageActions.waitPageLoad();
         personalDataPage.personalDetails(
                 propertiesManager.getProperty("patronymic"));
         personalDataPage.ckickSaveButton();
+        pageActions.waitPageLoad();
         personalDataPage.checkSavePersonalData();
     }
 
@@ -124,8 +126,11 @@ public class PersonalDataWebTest extends BaseSettingsWebTests {
         headerBlock.clickToPersonalAccount();
         headerBlock.clickPersonalData();
         personalDataPage.changeBirthday("12","Апрель","1994");
+        pageActions.waitPageLoad();
         personalDataPage.ckickSaveButton();
+        pageActions.waitPageLoad();
         personalDataPage.changeBirthday("1","Февраль","1993");//Возврашаем в исходную дату
+        pageActions.waitPageLoad();
         personalDataPage.ckickSaveButton();
     }
 
