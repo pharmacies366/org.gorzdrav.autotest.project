@@ -30,7 +30,7 @@ public class ChangePasswordPage extends MainTestBase {
 
     //геттеры элементов с получением доступа к действиям с элементами
 
-    public PageElementActions getBaseInputePrsonalDetails(String xpath) {
+    public PageElementActions getBaseInputPersonalDetails(String xpath) {
         return new PageElementActions(xpath, driver);
     }
 
@@ -45,11 +45,11 @@ public class ChangePasswordPage extends MainTestBase {
 
     //Методы
 
-    @Step("Пользователь вводит старый и новый пароли")
+    @Step("Пользователь вводит и новый пароль и подтверждение пароля")
     public void clickChangePassword(String newPassword, String checkNewPassword) {
-        getBaseInputePrsonalDetails(String.format(BASE_INPUT_PASSWORD_DATA_XPATH, NewPassword)).sendKeys(newPassword);
-        getBaseInputePrsonalDetails(String.format(BASE_INPUT_PASSWORD_DATA_XPATH, CheckNewPassword)).sendKeys(checkNewPassword);
-        logger.info("Пользователь вводит старый и новый пароли");
+        getBaseInputPersonalDetails(String.format(BASE_INPUT_PASSWORD_DATA_XPATH, NewPassword)).sendKeys(newPassword);
+        getBaseInputPersonalDetails(String.format(BASE_INPUT_PASSWORD_DATA_XPATH, CheckNewPassword)).sendKeys(checkNewPassword);
+        logger.info("Пользователь вводит и новый пароль и подтверждение пароля");
     }
 
     @Step("Пользователь нажимает кнопку изменить")
