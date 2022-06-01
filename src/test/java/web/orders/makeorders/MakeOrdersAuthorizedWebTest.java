@@ -3,18 +3,20 @@ package web.orders.makeorders;
 import base.BaseSettingsWebTests;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Story;
-import io.qameta.allure.junit4.DisplayName;
-import io.qameta.allure.junit4.Tag;
-import org.junit.Test;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
+
 
 @Feature(value = "Web")
 @Story("Оформление заказа на сайте 36.6")
 @DisplayName("Оформление заказа для авторизованного пользователя")
+@Tag("Regression")
 public class MakeOrdersAuthorizedWebTest extends BaseSettingsWebTests {
 
     //Отключили на проде, так как формируется реальная заявка на доставку и курьеры едут за заказами
-
-/*    @DisplayName("Оформление заказа доставкой. Авторизованный пользователь")
+/*
+    @DisplayName("Оформление заказа доставкой. Авторизованный пользователь")
     @Test
     public void delivery() {
         mainPage.clickClosePopUp();
@@ -37,8 +39,8 @@ public class MakeOrdersAuthorizedWebTest extends BaseSettingsWebTests {
                 propertiesManager.getProperty("cardnumber"),
                 propertiesManager.getProperty("monthyear"),
                 propertiesManager.getProperty("cvv"));
-        sberPage.clickOnSubmitButton();
-        thankForTheOrderPage.checkPaymentError();
+     //   sberPage.clickOnSubmitButton();
+       // thankForTheOrderPage.checkPaymentError();
     }*/
 
     @DisplayName("Авторизованный пользователь покупает товар в 1клик")
@@ -66,7 +68,7 @@ public class MakeOrdersAuthorizedWebTest extends BaseSettingsWebTests {
         // thankForTheOrderPage.checkSuccessMessage();
     }
 
-/*    @DisplayName("Авторизованный пользователь покупает товар со страниц ОСП") // так как локатор на добавление отличается индексом ждём задачу от разрабов
+    @DisplayName("Авторизованный пользователь покупает товар со страниц ОСП") // так как локатор на добавление отличается индексом ждём задачу от разрабов
     @Test
     public void checkOsp() {
         mainPage.clickClosePopUp();
@@ -91,7 +93,7 @@ public class MakeOrdersAuthorizedWebTest extends BaseSettingsWebTests {
         checkOutPage.getAvailabilityAndChooseThisPharmacy();
         // checkOutPage.clickMakeOrder();
         // thankForTheOrderPage.checkSuccessMessage();
-    }*/
+    }
 
     @DisplayName("Авторизованный пользователь покупает товар со способом доставки - 'Самовывоз'")
     @Test

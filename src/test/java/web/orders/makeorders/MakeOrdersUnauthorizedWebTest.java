@@ -4,12 +4,14 @@ package web.orders.makeorders;
 import base.BaseSettingsWebTests;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Story;
-import io.qameta.allure.junit4.DisplayName;
-import org.junit.Test;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 
 @Feature(value = "Web")
 @Story("Оформление заказа на сайте Gorzdrav")
 @DisplayName("Оформление заказа для неавторизованного пользователя")
+@Tag("Regression")
 public class MakeOrdersUnauthorizedWebTest extends BaseSettingsWebTests {
 
     //Отключили на проде, так как формируется реальная заявка на доставку и курьеры едут за заказами
@@ -58,7 +60,7 @@ public class MakeOrdersUnauthorizedWebTest extends BaseSettingsWebTests {
        // thankForTheOrderPage.checkSuccessMessage();
     }
 
-/*  // так как локатор на добавление отличается индексом ждём задачу от разрабов
+      // так как локатор на добавление отличается индексом ждём задачу от разрабов
     @DisplayName("Неавторизованный пользователь покупает товар со страниц ОСП")
     @Test
     public void checkOsp() {
@@ -82,7 +84,7 @@ public class MakeOrdersUnauthorizedWebTest extends BaseSettingsWebTests {
       //  checkOutPage.clickMakeOrder();
       //  thankForTheOrderPage.checkSuccessMessage();
     }
-*/
+
 
     @DisplayName("Неавторизованный пользователь покупает товар со способом доставки - 'Самовывоз'")
     @Test

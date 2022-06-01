@@ -3,13 +3,15 @@ package web.mainPage;
 import base.BaseSettingsWebTests;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Story;
-import io.qameta.allure.junit4.DisplayName;
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 
 @Feature(value = "Web")
 @Story("Проверка шапки сайта gorzdrav")
 @DisplayName("Проверка шапки сайта")
+@Tag("Regression")
 public class HeaderBlockWebTest extends BaseSettingsWebTests {
 
     @DisplayName("Проверка кликабельности логотипа")
@@ -41,7 +43,7 @@ public class HeaderBlockWebTest extends BaseSettingsWebTests {
         mainPage.clickAddToCardButton();
         pageActions.waitPageLoad();
         int quantity = headerBlock.checkCartQuantity();
-        Assert.assertEquals(1, quantity);
+        Assertions.assertEquals(1, quantity);
         logger.info("Проверка прошла успешно");
     }
 
@@ -49,7 +51,7 @@ public class HeaderBlockWebTest extends BaseSettingsWebTests {
     @Test
     public void checkButtonSelectCities(){
         headerBlock.clickCitiesButton();
-        Assert.assertEquals("Выбор города", headerBlock.checkCitiesPopUp());
+        Assertions.assertEquals("Выбор города", headerBlock.checkCitiesPopUp());
         logger.info("Проверка прошла успешно");
     }
 

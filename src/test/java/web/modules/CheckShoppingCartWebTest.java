@@ -3,13 +3,15 @@ package web.modules;
 import base.BaseSettingsWebTests;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Story;
-import io.qameta.allure.junit4.DisplayName;
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 
 @Feature(value = "Web")
 @Story(value = "Изменения корзины на сайте Gorzdrav")
 @DisplayName("Изменения корзины")
+@Tag("Regression")
 public class CheckShoppingCartWebTest extends BaseSettingsWebTests {
 
     @DisplayName("Пользователь увеличивает количество шт. товара на странице корзины")
@@ -23,7 +25,7 @@ public class CheckShoppingCartWebTest extends BaseSettingsWebTests {
         cartPage.clickIncreaseQuantity();
         pageActions.staticWait(3000);
         int quantity = cartPage.getQuantityMaterials();
-        Assert.assertEquals(2, quantity);
+        Assertions.assertEquals(2, quantity);
         logger.info("Количество товара равно 2-м");
     }
 
@@ -39,16 +41,16 @@ public class CheckShoppingCartWebTest extends BaseSettingsWebTests {
         cartPage.getProductQuantity().contentIsDisplayed("2");
         int firstQuantity = cartPage.getQuantityMaterials();
         pageActions.waitPageLoad();
-        Assert.assertEquals(2, firstQuantity);
+        Assertions.assertEquals(2, firstQuantity);
         logger.info("Количество товара равно 2-м");
         cartPage.clickDecreaseQuantity();
         pageActions.staticWait(4000);
         int secondQuantity = cartPage.getQuantityMaterials();
-        Assert.assertEquals(1, secondQuantity);
+        Assertions.assertEquals(1, secondQuantity);
         logger.info("Количество товара равно 1-му");
         headerBlock.clickToCartButton();
         int finalQuantity = cartPage.getQuantityMaterials();
-        Assert.assertEquals(1, finalQuantity);
+        Assertions.assertEquals(1, finalQuantity);
         logger.info("Количество товара равно 1-му");
     }
 
@@ -68,7 +70,7 @@ public class CheckShoppingCartWebTest extends BaseSettingsWebTests {
         pageActions.waitPageLoad();
         cartPage.clickDeleteMaterials();
         pageActions.waitPageLoad();
-        Assert.assertEquals(1, cartPage.checkCartQuantity());
+        Assertions.assertEquals(1, cartPage.checkCartQuantity());
     }
 
     @DisplayName("Пользователь удаляет все товары в корзине")
@@ -87,7 +89,7 @@ public class CheckShoppingCartWebTest extends BaseSettingsWebTests {
         pageActions.waitPageLoad();
         cartPage.deleteAllMaterials();
         pageActions.waitPageLoad();
-        Assert.assertEquals(0, cartPage.checkCartQuantity());
+        Assertions.assertEquals(0, cartPage.checkCartQuantity());
     }
 
     @DisplayName("Пользователь добавляет в корзину 2 товара и проверяет общую сумму")
@@ -106,7 +108,7 @@ public class CheckShoppingCartWebTest extends BaseSettingsWebTests {
         pageActions.waitPageLoad();
         openUrl(propertiesManager.getProperty("baseurl") + "cart");
         int totalPrice = cartPage.getPriceTotal();
-        Assert.assertEquals(firstPrice + secondPrice, totalPrice);
+        Assertions.assertEquals(firstPrice + secondPrice, totalPrice);
     }
 
     @DisplayName("Пользователь проверяет нотификацию после удаления товара")
@@ -126,11 +128,11 @@ public class CheckShoppingCartWebTest extends BaseSettingsWebTests {
         openUrl(propertiesManager.getProperty("baseurl") + "cart");
         pageActions.waitPageLoad();
         int totalPrice = cartPage.getPriceTotal();
-        Assert.assertEquals(firstPrice + secondPrice, totalPrice);
+        Assertions.assertEquals(firstPrice + secondPrice, totalPrice);
         cartPage.clickDeleteMaterials();
-        Assert.assertEquals(1, cartPage.checkCartQuantity());
+        Assertions.assertEquals(1, cartPage.checkCartQuantity());
         int finalPrice = cartPage.getPriceTotal();
-        Assert.assertEquals(firstPrice, finalPrice);
+        Assertions.assertEquals(firstPrice, finalPrice);
     }
 
     @DisplayName("Пользователь проверяет, что в блоке - не забудьте положить в корзину, отображаются: - Мини-карточки товаров в виде макета")
@@ -138,9 +140,9 @@ public class CheckShoppingCartWebTest extends BaseSettingsWebTests {
     public void checkDoNotAddToCartBlock() {
         openUrl(propertiesManager.getProperty("baseurl") + "cart");
         String text = cartPage.checkTextDoNotAddToCart();
-        Assert.assertEquals(text,"Не забудьте положить в корзину");
+        Assertions.assertEquals(text,"Не забудьте положить в корзину");
         int count = cartPage.checkDoNotAddToCartProductsList();
-        Assert.assertTrue(count > 0);
+        Assertions.assertTrue(count > 0);
     }
 
     @DisplayName("Пользователь увеличивает количество шт. товара в корзине на главной странице")
@@ -151,11 +153,11 @@ public class CheckShoppingCartWebTest extends BaseSettingsWebTests {
         pageActions.waitPageLoad();
         mainPage.clickIncreaseQuantity();
         int firstQuantity = mainPage.getQuantityMaterials();
-        Assert.assertEquals(2, firstQuantity);
+        Assertions.assertEquals(2, firstQuantity);
         logger.info("Количество товара равно 2-м");
         headerBlock.clickToCartButton();
         int finalQuantity = cartPage.getQuantityMaterials();
-        Assert.assertEquals(2, finalQuantity);
+        Assertions.assertEquals(2, finalQuantity);
         logger.info("Количество товара равно 2-м");
     }
 
@@ -167,19 +169,19 @@ public class CheckShoppingCartWebTest extends BaseSettingsWebTests {
         pageActions.waitPageLoad();
         mainPage.clickIncreaseQuantity();
         int firstQuantity = mainPage.getQuantityMaterials();
-        Assert.assertEquals(2, firstQuantity);
+        Assertions.assertEquals(2, firstQuantity);
         logger.info("Количество товара равно 2-м");
         mainPage.clickDecreaseQuantity();
         int secondQuantity = mainPage.getQuantityMaterials();
-        Assert.assertEquals(1, secondQuantity);
+        Assertions.assertEquals(1, secondQuantity);
         logger.info("Количество товара равно 1-му");
         headerBlock.clickToCartButton();
         int finalQuantity = cartPage.getQuantityMaterials();
-        Assert.assertEquals(1, finalQuantity);
+        Assertions.assertEquals(1, finalQuantity);
         logger.info("Количество товара равно 1-му");
     }
 
-/*    @DisplayName("Пользователь увеличивает количество шт. товара в карточке товара")
+    @DisplayName("Пользователь увеличивает количество шт. товара в карточке товара")
     @Test
     public void increaseQuantityMaterialOnProductCartPage() {
         mainPage.clickClosePopUp();
@@ -190,13 +192,13 @@ public class CheckShoppingCartWebTest extends BaseSettingsWebTests {
         pageActions.waitPageLoad();
         pageActions.staticWait(3000);
         int quantity = productCardPage.getQuantityProduct();
-        Assert.assertEquals(2, quantity);
+        Assertions.assertEquals(2, quantity);
         logger.info("Количество товара равно 2-м");
         productCardPage.clickToCartButton();
         pageActions.waitPageLoad();
         int finalQuantity = cartPage.getQuantityMaterials();
-        Assert.assertEquals(2, finalQuantity);
+        Assertions.assertEquals(2, finalQuantity);
         logger.info("Количество товара равно 2-м");
-    }*/
+    }
     
 }

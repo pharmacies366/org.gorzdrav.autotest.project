@@ -4,12 +4,14 @@ import base.BaseSettingsWebTests;
 import io.qameta.allure.Description;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Story;
-import io.qameta.allure.junit4.DisplayName;
-import org.junit.Test;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 
 @Feature("Web")
 @Story("Авторизация пользователя на сайте Gorzdrav")
 @DisplayName("Авторизация пользователя")
+@Tag("Regression")
 public class SignInPositiveWebTest extends BaseSettingsWebTests {
     
     @DisplayName("Авторизация пользователя на сайте по номеру телефона и паролю")
@@ -25,33 +27,4 @@ public class SignInPositiveWebTest extends BaseSettingsWebTests {
         pageActions.waitPageLoad();
         headerBlock.checkElementIsCorrect();
     }
-
-    /*    @DisplayName("Авторизация пользователя на сайте по номеру Бонусной карты")
-    @Test
-    public void loginUserCardNumber() {
-        cookiePage.reCaptchaKey();
-        headerBlock.clickToSignInButton();
-        authPopUpPage.setChangeToCardNumber();
-        authPopUpPage.setCardNumberAandPassword(
-                propertiesManager.getProperty("bonuscard1"),
-                propertiesManager.getProperty("userpass"));
-        authPopUpPage.clickToLoginButton();
-        pageActions.waitPageLoad();
-        headerBlock.checkElementIsCorrect();
-    }*/
-
-/*    @DisplayName("Авторизация пользователя на сайте через E-mail")
-    @Test
-    public void loginUserEmail() {
-        cookiePage.reCaptchaKey();
-        headerBlock.clickToSignInButton();
-        authPopUpPage.setChangeToEmail();
-        authPopUpPage.setEmailAndPassword(
-                propertiesManager.getProperty("userauthmail1"),
-                propertiesManager.getProperty("userpass"));
-        authPopUpPage.clickToLoginButton();
-        pageActions.waitPageLoad();
-        headerBlock.checkElementIsCorrect();
-    }*/
-
 }

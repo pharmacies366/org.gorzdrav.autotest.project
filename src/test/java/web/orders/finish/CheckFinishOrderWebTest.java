@@ -3,12 +3,15 @@ package web.orders.finish;
 import base.BaseSettingsWebTests;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Story;
-import io.qameta.allure.junit4.DisplayName;
-import org.junit.Test;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
+
 
 @Feature(value = "Web")
 @Story(value = "Проверка создания заказа на сайте Gorzdrav")
 @DisplayName("Проверка создания заказа")
+@Tag("Regression")
 public class CheckFinishOrderWebTest extends BaseSettingsWebTests {
 
     @DisplayName("Пользователь проверяет информацию по заказу: Адрес аптеки, код заказа")

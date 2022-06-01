@@ -1,7 +1,8 @@
 package actions;
 
 import core.MainTestBase;
-import org.junit.Assert;
+import org.apache.logging.log4j.core.util.Assert;
+import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -52,7 +53,7 @@ public class PageActions extends MainTestBase {
     //Проверка url
     public void checkUrl(String url) {
         driver.getCurrentUrl();
-        Assert.assertTrue(url.equals(url));
+        Assertions.assertEquals(url, url);
     }
 
     //Возвращение на предыдущую страницу
@@ -67,7 +68,7 @@ public class PageActions extends MainTestBase {
 
     //Сравнить два текста
     public void assertEqualsTwoObject(String actual, String expected) {
-        Assert.assertEquals(actual, expected);
+        Assertions.assertEquals(actual, expected);
     }
 
     //Проверка видимости текста на странице

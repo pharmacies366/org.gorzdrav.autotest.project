@@ -1,23 +1,20 @@
 package mobile.privateOffice;
 
 import base.BaseSettingsMobileTests;
-import com.tngtech.java.junit.dataprovider.DataProvider;
-import com.tngtech.java.junit.dataprovider.DataProviderRunner;
-import com.tngtech.java.junit.dataprovider.UseDataProvider;
 import io.qameta.allure.Feature;
-import io.qameta.allure.Step;
 import io.qameta.allure.Story;
-import io.qameta.allure.junit4.DisplayName;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 
 @Feature(value = "Мобильная версия")
 @Story(value = "Личный кабинет на сайте Gorzdrav")
 @DisplayName("Личный кабинет")
-@RunWith(DataProviderRunner.class)
+@Tag("Regression")
+//@RunWith(DataProviderRunner.class)
 public class PersonalDataMobileTest extends BaseSettingsMobileTests {
 
-    @DataProvider
+/*    @DataProvider
     public static Object[][] checkDisplayedOptions() {
         return new Object[][]{
                 {"/my-account/my-profile", "Мой профиль", "Мой профиль"},
@@ -52,7 +49,7 @@ public class PersonalDataMobileTest extends BaseSettingsMobileTests {
         mobilePersonalDataPage.selectPersonalDataButtons(LOCATOR);
         pageActions.contentIsDisplayed(PAGEMESSAGE);
         logger.info("Ссылка кликабельна и ведёт на нужную страницу");
-    }
+    }*/
 
     @DisplayName("Пользователь заполняет отчество и сохраняет данные")
     @Test
@@ -143,7 +140,7 @@ public class PersonalDataMobileTest extends BaseSettingsMobileTests {
         mobilePersonalDataPage.ckickSaveButton();
     }
 
-/*    @DisplayName("Пользователь изменяет пол")
+    @DisplayName("Пользователь изменяет пол")
     @Test
     public void changeGender() {
        // mobileMainPage.clickClosePopUp();
@@ -164,7 +161,7 @@ public class PersonalDataMobileTest extends BaseSettingsMobileTests {
         mobilePersonalDataPage.changeGender("MALE");
         mobilePersonalDataPage.ckickSaveButton();
         mobilePersonalDataPage.getMaleButton().checkAttribute("value", "MALE");
-    }*/
+    }
 
     @DisplayName("Пользователь очищает поля email, нажимает сохранить и получает ошибку")
     @Test

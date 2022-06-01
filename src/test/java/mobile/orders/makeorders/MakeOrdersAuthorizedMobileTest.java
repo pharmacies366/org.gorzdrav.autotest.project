@@ -1,21 +1,22 @@
-/*
 package mobile.orders.makeorders;
 
 import base.BaseSettingsMobileTests;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Story;
-import io.qameta.allure.junit4.DisplayName;
-import org.junit.Test;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
+
 
 @Feature(value = "Мобильная версия")
 @Story("Оформление заказа на сайте Gorzdrav")
 @DisplayName("Оформление заказа для авторизованного пользователя")
+@Tag("Regression")
 public class MakeOrdersAuthorizedMobileTest extends BaseSettingsMobileTests {
 
     //Отключили на проде, так как формируется реальная заявка на доставку и курьеры едут за заказами
 
- */
-/*   @DisplayName("Оформление заказа доставкой. Авторизованный пользователь")
+   @DisplayName("Оформление заказа доставкой. Авторизованный пользователь")
     @Test
     public void delivery() {
         mobileMainPage.clickClosePopUp();
@@ -39,9 +40,9 @@ public class MakeOrdersAuthorizedMobileTest extends BaseSettingsMobileTests {
                 propertiesManager.getProperty("cardnumber"),
                 propertiesManager.getProperty("monthyear"),
                 propertiesManager.getProperty("cvv"));
-        mobileSberPage.clickOnSubmitButton();
-        mobileThankForTheOrderPage.checkPaymentError();
-    }*//*
+       // mobileSberPage.clickOnSubmitButton();
+      //  mobileThankForTheOrderPage.checkPaymentError();
+    }
 
 
     @DisplayName("Аавторизованный пользователь покупает товар в 1клик")
@@ -160,4 +161,4 @@ public class MakeOrdersAuthorizedMobileTest extends BaseSettingsMobileTests {
       //  mobileThankForTheOrderPage.checkSuccessMessage();
     }
 }
-*/
+

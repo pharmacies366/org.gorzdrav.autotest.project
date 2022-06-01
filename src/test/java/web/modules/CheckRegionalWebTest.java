@@ -3,12 +3,15 @@ package web.modules;
 import base.BaseSettingsWebTests;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Story;
-import io.qameta.allure.junit4.DisplayName;
-import org.junit.Test;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
+
 
 @Feature(value = "Web")
 @Story(value = "Изменение региональности на сайте Gorzdrav")
 @DisplayName("Изменение региональности")
+@Tag("Regression")
 public class CheckRegionalWebTest extends BaseSettingsWebTests {
 
 

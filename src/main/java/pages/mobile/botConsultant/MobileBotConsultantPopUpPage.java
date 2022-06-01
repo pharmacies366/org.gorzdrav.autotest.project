@@ -3,7 +3,8 @@ package pages.mobile.botConsultant;
 import actions.PageElementActions;
 import core.MainTestBase;
 import io.qameta.allure.Step;
-import org.junit.Assert;
+import org.apache.logging.log4j.core.util.Assert;
+import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.WebDriver;
 
 public class MobileBotConsultantPopUpPage extends MainTestBase {
@@ -17,21 +18,20 @@ public class MobileBotConsultantPopUpPage extends MainTestBase {
 
     private static final String CAN_NOT_ORDER_BUTTON_XPATH = "xpath;//jdiv[@id='scrollbar-container']//jdiv[3]";
     // или
-  //  private static final String CAN_NOT_ORDER_BUTTON_XPATH = "xpath;(//jdiv[contains(@class,'button')])[3]";
+    //  private static final String CAN_NOT_ORDER_BUTTON_XPATH = "xpath;(//jdiv[contains(@class,'button')])[3]";
 
     private static final String NEED_A_DRUG_BUTTON_XPATH = "xpath;(//jdiv[@id='scrollbar-container']//jdiv)[4]";
     // или
-  //  private static final String NEED_A_DRUG_BUTTON_XPATH = "xpath;(//jdiv[contains(@class,'button')])[1]";
+    //  private static final String NEED_A_DRUG_BUTTON_XPATH = "xpath;(//jdiv[contains(@class,'button')])[1]";
 
     private static final String NEED_DELIVERY_BUTTON_XPATH = "xpath;//jdiv[@id='scrollbar-container']//jdiv[2]";
     // или
-   // private static final String NEED_DELIVERY_BUTTON_XPATH = "xpath;(//jdiv[contains(@class,'button')])[2]";
+    // private static final String NEED_DELIVERY_BUTTON_XPATH = "xpath;(//jdiv[contains(@class,'button')])[2]";
 
     private static final String ENTER_MESSAGE_INPUT_XPATH = "xpath;//jdiv[text()='Отправить']";
     private static final String THANKS_MESSAGE_XPATH = "xpath;//jdiv[@alt='\uD83C\uDF89']/..";
     private static final String ANIMATION_BOT_XPATH = "xpath;(//jdiv[@class='globalClass_bc43']//child::jdiv)[1]";
     private static final String CONSULTANT_BOT_BUTTON_XPATH = "xpath;//jdiv[@class='button_e5c6']";
-
 
 
     //конструктор
@@ -78,7 +78,6 @@ public class MobileBotConsultantPopUpPage extends MainTestBase {
     }
 
 
-
     //Методы
     @Step("Пользователь закрывает консультант бота")
     public void clickCloseBot() {
@@ -111,7 +110,7 @@ public class MobileBotConsultantPopUpPage extends MainTestBase {
     }
 
     @Step("Пользователь заполняет контактные данные")
-    public void contactDetails(String name, String phoneNumber, String email ) {
+    public void contactDetails(String name, String phoneNumber, String email) {
         getBaseInputContactDetails(String.format(BASE_INPUT_CONTACT_DETAILS_XPATH, Name)).sendKeys(name);
         getBaseInputContactDetails(String.format(BASE_INPUT_CONTACT_DETAILS_XPATH, PhoneNumber)).sendKeys(phoneNumber);
         getBaseInputContactDetails(String.format(BASE_INPUT_CONTACT_DETAILS_XPATH, Email)).sendKeys(email);
@@ -126,8 +125,8 @@ public class MobileBotConsultantPopUpPage extends MainTestBase {
 
     @Step("Пользователь проверяет сообщение с текстом 'Спасибо'")
     public void checkThanksMessage() {
-       String message = getThanksMessage().getText();
-        Assert.assertEquals(message, "\uD83C\uDF89 Спасибо!");
+        String message = getThanksMessage().getText();
+        Assertions.assertEquals(message, "\uD83C\uDF89 Спасибо!");
         logger.info("Пользователь проверяет сообщение с текстом 'Спасибо'");
     }
 

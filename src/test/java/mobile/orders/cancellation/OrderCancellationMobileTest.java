@@ -4,13 +4,14 @@ package mobile.orders.cancellation;
 import base.BaseSettingsMobileTests;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Story;
-import io.qameta.allure.junit4.DisplayName;
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
 
 @Feature(value = "Мобильная версия")
 @Story(value = "Отмена заказа на сайте Gorzdrav")
 @DisplayName("Отмена созданного заказа")
+@Tag("Regression")
 public class OrderCancellationMobileTest extends BaseSettingsMobileTests {
 
     @DisplayName("Пользователь отменяет созданный заказ")
@@ -44,7 +45,8 @@ public class OrderCancellationMobileTest extends BaseSettingsMobileTests {
         mobileMainPopUpBlock.clickMyOrders();
         mobileMyOrdersPage.clickOrderNumber();
         mobileMyOrdersPage.clickCancelNumber();
-        Assert.assertEquals("Отменен", mobileMyOrdersPage.getOrderStatus());
+        Assertions.assertEquals("Отменен", mobileMyOrdersPage.getOrderStatus());
     }
 }
+
 */

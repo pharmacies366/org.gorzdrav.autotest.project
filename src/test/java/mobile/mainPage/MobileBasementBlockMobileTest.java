@@ -1,20 +1,19 @@
+/*
 package mobile.mainPage;
 
 import base.BaseSettingsMobileTests;
-import com.tngtech.java.junit.dataprovider.DataProvider;
-import com.tngtech.java.junit.dataprovider.DataProviderRunner;
-import com.tngtech.java.junit.dataprovider.UseDataProvider;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Step;
 import io.qameta.allure.Story;
-import io.qameta.allure.junit4.DisplayName;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
+
 
 @Feature(value = "Мобильная версия")
 @Story("Проверка главной страницы сайта Gorzdrav")
 @DisplayName("Проверка подвала сайта")
 @RunWith(DataProviderRunner.class)
+@Tag("Regression")
 public class MobileBasementBlockMobileTest extends BaseSettingsMobileTests {
 
     @DataProvider
@@ -108,3 +107,4 @@ public class MobileBasementBlockMobileTest extends BaseSettingsMobileTests {
     }
 
 }
+*/

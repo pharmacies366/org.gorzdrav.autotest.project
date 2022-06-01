@@ -4,7 +4,7 @@ import actions.PageElementActions;
 import blocks.web.WebBasementBlock;
 import blocks.web.WebHeaderBlock;
 import core.MainTestBase;
-import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 import pages.commonActions.web.CommonActionsOnWebPages;
 import pages.web.authorization.AuthPopUpPage;
 import pages.web.bonusCard.BonusCardPopUpPage;
@@ -52,7 +52,7 @@ public class BaseSettingsWebTests extends MainTestBase {
 
 
 
-    @Before
+    @BeforeEach
     public void PagesInitialization() {
         commonActionsOnWebPages = new CommonActionsOnWebPages(driver);
         mainPage = new MainPage(driver);

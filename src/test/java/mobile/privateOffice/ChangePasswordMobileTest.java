@@ -3,12 +3,15 @@ package mobile.privateOffice;
 import base.BaseSettingsMobileTests;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Story;
-import io.qameta.allure.junit4.DisplayName;
-import org.junit.Test;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
+
 
 @Feature(value = "Мобильная версия")
 @Story(value = "Личный кабинет на сайте Gorzdrav")
 @DisplayName("Личный кабинет")
+@Tag("Regression")
 public class ChangePasswordMobileTest extends BaseSettingsMobileTests {
 
     @DisplayName("Пользователь изменяет пароль")

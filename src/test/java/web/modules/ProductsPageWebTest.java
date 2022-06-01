@@ -1,21 +1,19 @@
 package web.modules;
 
 import base.BaseSettingsWebTests;
-import com.tngtech.java.junit.dataprovider.DataProvider;
-import com.tngtech.java.junit.dataprovider.DataProviderRunner;
-import com.tngtech.java.junit.dataprovider.UseDataProvider;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Story;
-import io.qameta.allure.junit4.DisplayName;
-import org.junit.Assert;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 
 
 @Feature(value = "Web")
 @Story(value = "Страница товаров на сайте Gorzdrav")
 @DisplayName("Страница товаров")
-@RunWith(DataProviderRunner.class)
+//@RunWith(DataProviderRunner.class)
+@Tag("Regression")
 public class ProductsPageWebTest extends BaseSettingsWebTests {
 
 /*//съезжает массив с ценами
@@ -112,7 +110,7 @@ public class ProductsPageWebTest extends BaseSettingsWebTests {
         catalogPage.clickMedicationsButtons();
         commonActionsOnWebPages.checkCheckboxWithRecipe();
         String recipeInfo = productCardPage.getRecipeInfo().getText();
-        Assert.assertEquals(recipeInfo, "По рецепту");
+        Assertions.assertEquals(recipeInfo, "По рецепту");
     }
 
     @DisplayName("Пользователь проверяет корректную выдачу товаров без рецепта")
@@ -123,7 +121,7 @@ public class ProductsPageWebTest extends BaseSettingsWebTests {
         catalogPage.clickMedicationsButtons();
         commonActionsOnWebPages.checkCheckboxWithoutRecipe();
         String recipeInfo = productCardPage.getRecipeInfo().getText();
-        Assert.assertEquals(recipeInfo, "Без рецепта");
+        Assertions.assertEquals(recipeInfo, "Без рецепта");
     }
 
 /*

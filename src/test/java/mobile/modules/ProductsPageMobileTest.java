@@ -3,14 +3,16 @@ package mobile.modules;
 import base.BaseSettingsMobileTests;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Story;
-import io.qameta.allure.junit4.DisplayName;
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 
 
 @Feature(value = "Мобильная версия")
 @Story(value = "Страница товаров на сайте Gorzdrav")
 @DisplayName("Страница товаров")
+@Tag("Regression")
 public class ProductsPageMobileTest extends BaseSettingsMobileTests {
 
     //баг при установки цены
@@ -99,7 +101,7 @@ public class ProductsPageMobileTest extends BaseSettingsMobileTests {
         commonActionsOnMobilePages.clickReleaseForm();
         commonActionsOnMobilePages.clickCheckbox("Ампулы");
         String titlePage = commonActionsOnMobilePages.checkPageTitle();
-        Assert.assertEquals(titlePage, "Лекарства форма выпуска ампулы");
+        Assertions.assertEquals(titlePage, "Лекарства форма выпуска ампулы");
 
     }
 
@@ -113,7 +115,7 @@ public class ProductsPageMobileTest extends BaseSettingsMobileTests {
         commonActionsOnMobilePages.clickBrand();
         commonActionsOnMobilePages.clickCheckbox("Доктор Мом");
         String titlePage = commonActionsOnMobilePages.checkPageTitle();
-        Assert.assertEquals(titlePage, "Лекарства Доктор Мом");
+        Assertions.assertEquals(titlePage, "Лекарства Доктор Мом");
     }
 
     @DisplayName("Пользователь проверяет соотвествие между выдачей товаров и производителями")
@@ -126,7 +128,7 @@ public class ProductsPageMobileTest extends BaseSettingsMobileTests {
         commonActionsOnMobilePages.clickManufacturers();
         commonActionsOnMobilePages.clickCheckbox("Озон");
         String titlePage = commonActionsOnMobilePages.checkPageTitle();
-        Assert.assertEquals(titlePage, "Лекарства от Озон");
+        Assertions.assertEquals(titlePage, "Лекарства от Озон");
     }
 
     @DisplayName("Пользователь проверяет корректную выдачу товаров по рецепту")
@@ -140,7 +142,7 @@ public class ProductsPageMobileTest extends BaseSettingsMobileTests {
         commonActionsOnMobilePages.clickSomeProducts();
         mobileProductCardPage.clickProductDetails();
         String recipeInfo = mobileProductCardPage.getRecipeInfo().getText();
-        Assert.assertEquals(recipeInfo, "По рецепту");
+        Assertions.assertEquals(recipeInfo, "По рецепту");
     }
 
     @DisplayName("Пользователь проверяет корректную выдачу товаров без рецепта")
@@ -154,7 +156,7 @@ public class ProductsPageMobileTest extends BaseSettingsMobileTests {
         commonActionsOnMobilePages.clickSomeProducts();
         mobileProductCardPage.clickProductDetails();
         String recipeInfo = mobileProductCardPage.getRecipeInfo().getText();
-        Assert.assertEquals(recipeInfo, "Без рецепта");
+        Assertions.assertEquals(recipeInfo, "Без рецепта");
     }
 
 

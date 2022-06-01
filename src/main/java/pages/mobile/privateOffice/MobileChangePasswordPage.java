@@ -3,7 +3,8 @@ package pages.mobile.privateOffice;
 import actions.PageElementActions;
 import core.MainTestBase;
 import io.qameta.allure.Step;
-import org.junit.Assert;
+import org.apache.logging.log4j.core.util.Assert;
+import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.WebDriver;
 
 public class MobileChangePasswordPage extends MainTestBase {
@@ -54,7 +55,7 @@ public class MobileChangePasswordPage extends MainTestBase {
     @Step("Пользователь получает сообщение об успешной смене пароля")
     public void getMessageAboutChangePassword() {
         String message = getMassageAboutPassword().getText();
-        Assert.assertEquals(Message_About_Change_Password, message);
+        Assertions.assertEquals(Message_About_Change_Password, message);
         logger.info("Пользователь получает сообщение об успешной смене пароля");
     }
 

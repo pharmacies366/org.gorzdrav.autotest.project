@@ -3,13 +3,15 @@ package mobile.mainPage;
 import base.BaseSettingsMobileTests;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Story;
-import io.qameta.allure.junit4.DisplayName;
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 
 @Feature(value = "Мобильная версия")
 @Story("Проверка шапки сайта Gorzdrav")
 @DisplayName("Проверка шапки сайта")
+@Tag("Regression")
 public class MobileHeaderBlockMobileTest extends BaseSettingsMobileTests {
 
     @DisplayName("Проверка кликабельности логотипа")
@@ -35,7 +37,7 @@ public class MobileHeaderBlockMobileTest extends BaseSettingsMobileTests {
         mobileMainPage.AddToCartClick();
         pageActions .waitPageLoad();
         int quantity = mobileHeaderBlock.checkCartQuantity();
-        Assert.assertEquals(1, quantity);
+        Assertions.assertEquals(1, quantity);
         mobileHeaderBlock.clickToCartButton();
         pageActions.waitPageLoad();
         pageActions.contentIsDisplayed("Очистить все");

@@ -2,22 +2,20 @@
 package web.privateOffice;
 
 import base.BaseSettingsWebTests;
-import com.tngtech.java.junit.dataprovider.DataProvider;
-import com.tngtech.java.junit.dataprovider.DataProviderRunner;
-import com.tngtech.java.junit.dataprovider.UseDataProvider;
 import io.qameta.allure.Feature;
-import io.qameta.allure.Step;
 import io.qameta.allure.Story;
-import io.qameta.allure.junit4.DisplayName;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 
 @Feature(value = "Web")
 @Story(value = "Личный кабинет на сайте Gorzdrav")
 @DisplayName("Личный кабинет")
-@RunWith(DataProviderRunner.class)
+//@RunWith(DataProviderRunner.class)
+@Tag("Regression")
 public class PersonalDataWebTest extends BaseSettingsWebTests {
 
+/*
     @DataProvider
     public static Object[][] checkDisplayedOptions() {
         return new Object[][]{
@@ -49,6 +47,7 @@ public class PersonalDataWebTest extends BaseSettingsWebTests {
         pageActions.contentIsDisplayed(PAGEMESSAGE);
         logger.info("Ссылка кликабельна и ведёт на нужную страницу");
     }
+*/
 
     @DisplayName("Пользователь заполняет отчество и сохраняет данные")
     @Test

@@ -3,18 +3,21 @@ package mobile.orders.makeorders;
 import base.BaseSettingsMobileTests;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Story;
-import io.qameta.allure.junit4.DisplayName;
-import org.junit.Test;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
+
 
 @Feature(value = "Мобильная версия")
 @Story("Оформление заказа на сайте Gorzdrav")
 @DisplayName("Оформление заказа для неавторизованного пользователя")
+@Tag("Regression")
 public class MakeOrdersUnauthorizedMobileTest extends BaseSettingsMobileTests {
 
     //Отключили на проде, так как формируется реальная заявка на доставку и курьеры едут за заказами
 
 
-/*    @DisplayName("Оформление заказа доставкой. Неавторизованный пользователь")
+    @DisplayName("Оформление заказа доставкой. Неавторизованный пользователь")
     @Test
     public void delivery() {
         mobileCookiePage.reCaptchaKey();
@@ -36,12 +39,11 @@ public class MakeOrdersUnauthorizedMobileTest extends BaseSettingsMobileTests {
                 propertiesManager.getProperty("cvv"));
         mobileSberPage.clickOnSubmitButton();
         mobileThankForTheOrderPage.checkPaymentError();
-    }*/
+    }
 
 
     // баг на шаге Списком
-
-/*    @DisplayName("Неавторизованный пользователь покупает товар в 1клик")
+    @DisplayName("Неавторизованный пользователь покупает товар в 1клик")
     @Test
     public void oneClick() {
         mobileCookiePage.reCaptchaKey();
@@ -143,5 +145,4 @@ public class MakeOrdersUnauthorizedMobileTest extends BaseSettingsMobileTests {
      //   mobileCheckOutPage.clickMakeOrder();
       //  mobileThankForTheOrderPage.checkSuccessMessage();
     }
- */
 }

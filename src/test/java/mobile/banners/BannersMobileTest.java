@@ -3,12 +3,14 @@ package mobile.banners;
 import base.BaseSettingsMobileTests;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Story;
-import io.qameta.allure.junit4.DisplayName;
-import org.junit.Test;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 
 @Feature(value = "Мобильная версия")
 @Story("Проверка работы банеров на сайте Gorzdrav")
 @DisplayName("Проверка работы банеров на сайте")
+@Tag("Regression")
 public class BannersMobileTest extends BaseSettingsMobileTests {
 
 // Нужно подумать над реализацией

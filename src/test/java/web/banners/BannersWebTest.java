@@ -3,12 +3,15 @@ package web.banners;
 import base.BaseSettingsWebTests;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Story;
-import io.qameta.allure.junit4.DisplayName;
-import org.junit.Test;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
+
 
 @Feature(value = "Web")
 @Story("Проверка работы банеров на сайте Gorzdrav")
 @DisplayName("Проверка работы банеров на сайте")
+@Tag("Regression")
 public class BannersWebTest extends BaseSettingsWebTests {
 
     @DisplayName("Пользователь проверяет прокрутку банеров вперед по стрелке и возврат к первоначальному баннеру на главной странице")
