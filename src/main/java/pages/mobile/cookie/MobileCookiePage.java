@@ -1,4 +1,4 @@
-package pages.mobile;
+package pages.mobile.cookie;
 
 import core.MainTestBase;
 import io.qameta.allure.Step;
