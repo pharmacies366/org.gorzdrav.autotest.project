@@ -128,7 +128,6 @@ public class MobileProductCardPage extends MainTestBase {
 
     @Step("Пользователь нажимает на список доступных Аптек")
     public void clickChangeAptekaList() {
-        pageActions.staticWait(500);
         getChangeAptekaList().click();
         logger.info("Пользователь нажимает на список доступных Аптек");
     }
@@ -172,7 +171,6 @@ public class MobileProductCardPage extends MainTestBase {
 
     @Step("Пользователь проверяет и переходит по банеру")
     public void clickBanner() {
-        pageActions.staticWait(1000);
         getBanner().click();
         logger.info("Пользователь проверяет и переходит по банеру");
     }

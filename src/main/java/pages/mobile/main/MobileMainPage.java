@@ -198,7 +198,6 @@ public class MobileMainPage extends MainTestBase {
         int quantity = Integer.parseInt(sizeAllLi);
         for (int i = 1; i <= quantity; i++) {
             getBannersLocators().drugAndDrop(By.xpath(""));
-            pageActions.staticWait(500);
             getBannerList().isElementDisplayedWithIndex(i);
         }
         getCheckStartBanner().isElementDisplayed();
@@ -214,7 +213,6 @@ public class MobileMainPage extends MainTestBase {
         int quantity = Integer.parseInt(sizeAllLi);
         for (int i = 1; i <= quantity; i++) {
             getBaseInputBannersPinLocators(String.format(BANNER_PIN_BUTTONS_XPATH, i)).click();
-            pageActions.staticWait(500);
         }
         logger.info("Пользователь переключает банеры по пинам");
     }
@@ -227,7 +225,6 @@ public class MobileMainPage extends MainTestBase {
             getBannersLocators().click();
             clickSiteLogo();
             clickNextBanner();
-            pageActions.staticWait(1000);
         }
         logger.info("Пользователь переключает банеры по пинам и возвращается на главную страницу");
     }

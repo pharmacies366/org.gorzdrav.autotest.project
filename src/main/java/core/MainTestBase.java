@@ -40,7 +40,6 @@ public class MainTestBase {
         pageActions.waitPageLoad();
         logger.info("Открывается главная страница сайта 36.6");
         //driver.manage().deleteAllCookies();
-
     }
 
     @AfterEach
