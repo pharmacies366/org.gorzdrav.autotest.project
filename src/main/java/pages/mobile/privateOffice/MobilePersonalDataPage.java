@@ -17,9 +17,10 @@ public class MobilePersonalDataPage extends MainTestBase {
     private static final String LastName = "profile.lastName";
     private static final String Patronymic = "profile.middleName";
     private static final String Email = "profile.email";
-    private static final String BASE_INPUT_GENDER_XPATH = "xpath;//input[@value='%s']";
-    private static final String MALE_BUTTON_XPATH = "xpath;//input[@value='MALE']";
-    private static final String FEMALE_BUTTON_XPATH = "xpath;//input[@value='FEMALE']";
+    private static final String BASE_INPUT_GENDER_XPATH = "xpath;(//span[@class='b-custom-input'])[%s]";
+    private static final String MALE_BUTTON_XPATH = "xpath;(//span[@class='b-custom-input'])[1]";
+    private static final String FEMALE_BUTTON_XPATH = "xpath;(//span[@class='b-custom-input'])[2]";
+    private static final String FEMALE_Check_XPATH = "xpath;//label[@class='b-radio-inline__item']//child::input[contains(@value,'FEMALE')]";
     private static final String PHONE_NUMBER_XPATH = "xpath;//input[contains(@id,'profile.phone')]";
     private static final String CHECKBOX_NEWS_XPATH = "xpath;//span[@class='b-custom-input--special']";
     private static final String CHECKBOX_SELECTED_XPATH = "xpath;//input[@type='checkbox' and @checked]";
@@ -68,6 +69,9 @@ public class MobilePersonalDataPage extends MainTestBase {
 
     public PageElementActions getFemaleButton() {
         return new PageElementActions(FEMALE_BUTTON_XPATH, driver);
+    }
+    public PageElementActions getFemaleCheck() {
+        return new PageElementActions(FEMALE_Check_XPATH, driver);
     }
 
     public PageElementActions getPhoneNumber() {
@@ -211,10 +215,10 @@ public class MobilePersonalDataPage extends MainTestBase {
         logger.info("Пользователь установливает новую дату рождения");
     }
 
-    @Step("Пользователь изменяет пол на {Gender}")
-    public void changeGender(String Gender) {
-        getBaseInputGender(String.format(BASE_INPUT_GENDER_XPATH, Gender)).click();
-        logger.info("Пользователь изменяет пол на {Gender}");
+    @Step("Пользователь изменяет пол")
+    public void changeGender(String GenderIndex) {
+        getBaseInputGender(String.format(BASE_INPUT_GENDER_XPATH, GenderIndex)).click();
+        logger.info("Пользователь изменяет пол");
     }
 
     @Step("Пользователь очищает поля Email")
