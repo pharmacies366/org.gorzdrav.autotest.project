@@ -33,7 +33,6 @@ public class BannersMobileTest extends BaseSettingsMobileTests {
     @DisplayName("Пользователь проверяет переход по банерам на главной странице")
     @Test
     public void checkBannersClickableOnMainPage() {
-        // mobileMainPage.clickClosePopUp();
         mobileMainPage.clickCloseMobileAppPopUp();
         mobileMainPage.checkBannersClickable();
     }*/
@@ -41,8 +40,6 @@ public class BannersMobileTest extends BaseSettingsMobileTests {
     @DisplayName("Пользователь проверяет переход по банерау на странице OSP")
     @Test
     public void checkBannersClickableOnOspPage() {
-        //mobileMainPage.clickClosePopUp();
-        mobileMainPage.clickCloseMobileAppPopUp();
         pageActions.waitPageLoad();
         mobileMainPage.clickSiteLogo();
         pageActions.waitPageLoad();
@@ -66,8 +63,6 @@ public class BannersMobileTest extends BaseSettingsMobileTests {
     @DisplayName("Пользователь проверяет переход по банерау на странице категории")
     @Test
     public void checkBannersClickableOnCategoryPage() {
-       // mobileMainPage.clickClosePopUp();
-        mobileMainPage.clickCloseMobileAppPopUp();
         mobileHeaderBlock.clickBurgerButton();
         mobileMainPopUpBlock.clickCatalogButton();
         mobileMainPopUpBlock.clickMedicationsButtons();
@@ -81,8 +76,6 @@ public class BannersMobileTest extends BaseSettingsMobileTests {
     @DisplayName("Пользователь проверяет переход по банеру на странице поисковой выдачи")
     @Test
     public void checkBannersClickableWithSearch() {
-       // mobileMainPage.clickClosePopUp();
-        mobileMainPage.clickCloseMobileAppPopUp();
         mobileHeaderBlock.setSearchInput("Лекарства");
         mobileMedicationsPage.clickBanner();
         mobileProductCardPage.checkButtonToCartButton();

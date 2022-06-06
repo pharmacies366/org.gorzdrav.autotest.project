@@ -17,8 +17,6 @@ public class BotConsultantMobileTest extends BaseSettingsMobileTests {
     @DisplayName("Пользователь выбирает пункт: Не могу оформить заказ, заполняет свои данные и получает ответ от бота")
     @Test
     public void checkItemCanNotCheckout() {
-       // mobileMainPage.clickClosePopUp();
-        mobileMainPage.clickCloseMobileAppPopUp();
         pageActions.reloadPage();
         mobileMainPage.clickBotConsultantButton();
         mobileBotConsultantPopUpPage.clickCantNotOrder();
@@ -30,8 +28,6 @@ public class BotConsultantMobileTest extends BaseSettingsMobileTests {
     @DisplayName("Пользователь выбирает пункт: Мне нужен препарат, заполняет свои данные и получает ответ от бота")
     @Test
     public void checkItemINeedADrug() {
-       // mobileMainPage.clickClosePopUp();
-        mobileMainPage.clickCloseMobileAppPopUp();
         pageActions.reloadPage();
         mobileMainPage.clickBotConsultantButton();
         mobileBotConsultantPopUpPage.clickNeedADrug();
@@ -43,8 +39,6 @@ public class BotConsultantMobileTest extends BaseSettingsMobileTests {
     @DisplayName("Пользователь выбирает пункт: Нужна доставка, заполняет свои данные и получает ответ от бота")
     @Test
     public void checkItemINeedDelivery() {
-       // mobileMainPage.clickClosePopUp();
-        mobileMainPage.clickCloseMobileAppPopUp();
         pageActions.reloadPage();
         mobileMainPage.clickBotConsultantButton();
         mobileBotConsultantPopUpPage.clickNeedDelivery();
@@ -56,8 +50,6 @@ public class BotConsultantMobileTest extends BaseSettingsMobileTests {
     @DisplayName("Пользователь проверяет закрытие консультант бота")
     @Test
     public void checkCloseBot() {
-      //  mobileMainPage.clickClosePopUp();
-        mobileMainPage.clickCloseMobileAppPopUp();
         pageActions.reloadPage();
         mobileMainPage.clickBotConsultantButton();
         mobileBotConsultantPopUpPage.clickCloseBot();

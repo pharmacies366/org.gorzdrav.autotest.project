@@ -32,8 +32,6 @@ public class PersonalDataMobileTest extends BaseSettingsMobileTests {
     @Test
     @UseDataProvider("checkDisplayedOptions")
     public void checkDisplayedOptions(String LOCATOR, String LINKTEXT, String PAGEMESSAGE) {
-       // mobileMainPage.clickClosePopUp();
-        mobileMainPage.clickCloseMobileAppPopUp();
         mobileHeaderBlock.clickBurgerButton();
         mobileMainPopUpBlock.clickToLoginIcon();
         mobileCookiePage.reCaptchaKey();
@@ -54,8 +52,6 @@ public class PersonalDataMobileTest extends BaseSettingsMobileTests {
     @DisplayName("Пользователь заполняет отчество и сохраняет данные")
     @Test
     public void checkPersonalData() {
-      //  mobileMainPage.clickClosePopUp();
-        mobileMainPage.clickCloseMobileAppPopUp();
         mobileHeaderBlock.clickBurgerButton();
         mobileMainPopUpBlock.clickToLoginIcon();
         mobileCookiePage.reCaptchaKey();
@@ -78,8 +74,6 @@ public class PersonalDataMobileTest extends BaseSettingsMobileTests {
     @DisplayName("Пользователь очищает поля имя и получает ошибку")
     @Test
     public void clearNameAndGettingError() {
-       // mobileMainPage.clickClosePopUp();
-        mobileMainPage.clickCloseMobileAppPopUp();
         mobileHeaderBlock.clickBurgerButton();
         mobileMainPopUpBlock.clickToLoginIcon();
         mobileCookiePage.reCaptchaKey();
@@ -98,8 +92,6 @@ public class PersonalDataMobileTest extends BaseSettingsMobileTests {
     @DisplayName("Пользователь изменяет и сохраняет имя")
     @Test
     public void changeName() {
-      //  mobileMainPage.clickClosePopUp();
-        mobileMainPage.clickCloseMobileAppPopUp();
         mobileHeaderBlock.clickBurgerButton();
         mobileMainPopUpBlock.clickToLoginIcon();
         mobileCookiePage.reCaptchaKey();
@@ -123,8 +115,6 @@ public class PersonalDataMobileTest extends BaseSettingsMobileTests {
     @DisplayName("Пользователь изменяет дату рождения")
     @Test
     public void changeBirthday() {
-       // mobileMainPage.clickClosePopUp();
-        mobileMainPage.clickCloseMobileAppPopUp();
         mobileHeaderBlock.clickBurgerButton();
         mobileMainPopUpBlock.clickToLoginIcon();
         mobileCookiePage.reCaptchaKey();
@@ -145,8 +135,6 @@ public class PersonalDataMobileTest extends BaseSettingsMobileTests {
     @DisplayName("Пользователь изменяет пол")
     @Test
     public void changeGender() {
-       // mobileMainPage.clickClosePopUp();
-        mobileMainPage.clickCloseMobileAppPopUp();
         mobileHeaderBlock.clickBurgerButton();
         mobileMainPopUpBlock.clickToLoginIcon();
         mobileCookiePage.reCaptchaKey();
@@ -170,8 +158,6 @@ public class PersonalDataMobileTest extends BaseSettingsMobileTests {
     @DisplayName("Пользователь очищает поля email, нажимает сохранить и получает ошибку")
     @Test
     public void clearEmail() {
-       // mobileMainPage.clickClosePopUp();
-        mobileMainPage.clickCloseMobileAppPopUp();
         mobileHeaderBlock.clickBurgerButton();
         mobileMainPopUpBlock.clickToLoginIcon();
         mobileCookiePage.reCaptchaKey();
@@ -190,8 +176,6 @@ public class PersonalDataMobileTest extends BaseSettingsMobileTests {
     @DisplayName("Пользователь проверяет, что поле с номером телефона нельзя редактировать")
     @Test
     public void checkPhone() {
-      //  mobileMainPage.clickClosePopUp();
-        mobileMainPage.clickCloseMobileAppPopUp();
         mobileHeaderBlock.clickBurgerButton();
         mobileMainPopUpBlock.clickToLoginIcon();
         mobileCookiePage.reCaptchaKey();
@@ -208,8 +192,6 @@ public class PersonalDataMobileTest extends BaseSettingsMobileTests {
     @DisplayName("Проверка чекбокса с новостной рассылкой")
     @Test
     public void checkReceiveNews() {
-       // mobileMainPage.clickClosePopUp();
-        mobileMainPage.clickCloseMobileAppPopUp();
         mobileHeaderBlock.clickBurgerButton();
         mobileMainPopUpBlock.clickToLoginIcon();
         mobileCookiePage.reCaptchaKey();

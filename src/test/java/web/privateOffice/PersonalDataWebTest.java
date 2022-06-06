@@ -52,7 +52,6 @@ public class PersonalDataWebTest extends BaseSettingsWebTests {
     @DisplayName("Пользователь заполняет отчество и сохраняет данные")
     @Test
     public void checkPersonalData() {
-        mainPage.clickClosePopUp();
         headerBlock.clickToSignInButton();
         cookiePage.reCaptchaKey();
         authPopUpPage.authorizeWithPhoneAndPassword(
@@ -74,7 +73,6 @@ public class PersonalDataWebTest extends BaseSettingsWebTests {
     @DisplayName("Пользователь очищает поля имя и получает ошибку")
     @Test
     public void clearNameAndGettingError() {
-        mainPage.clickClosePopUp();
         headerBlock.clickToSignInButton();
         cookiePage.reCaptchaKey();
         authPopUpPage.authorizeWithPhoneAndPassword(
@@ -91,7 +89,6 @@ public class PersonalDataWebTest extends BaseSettingsWebTests {
     @DisplayName("Пользователь изменяет и сохраняет имя")
     @Test
     public void changeName() {
-        mainPage.clickClosePopUp();
         headerBlock.clickToSignInButton();
         cookiePage.reCaptchaKey();
         authPopUpPage.authorizeWithPhoneAndPassword(
@@ -113,7 +110,6 @@ public class PersonalDataWebTest extends BaseSettingsWebTests {
     @DisplayName("Пользователь изменяет дату рождения")
     @Test
     public void changeBirthday() {
-        mainPage.clickClosePopUp();
         headerBlock.clickToSignInButton();
         cookiePage.reCaptchaKey();
         authPopUpPage.authorizeWithPhoneAndPassword(
@@ -131,7 +127,6 @@ public class PersonalDataWebTest extends BaseSettingsWebTests {
 /*    @DisplayName("Пользователь изменяет пол")
     @Test
     public void changeGender() {
-        mainPage.clickClosePopUp();
         headerBlock.clickToSignInButton();
         cookiePage.reCaptchaKey();
         authPopUpPage.authorizeWithPhoneAndPassword(
@@ -151,7 +146,6 @@ public class PersonalDataWebTest extends BaseSettingsWebTests {
     @DisplayName("Пользователь очищает поля email, нажимает сохранить и получает ошибку")
     @Test
     public void clearEmail() {
-        mainPage.clickClosePopUp();
         headerBlock.clickToSignInButton();
         cookiePage.reCaptchaKey();
         authPopUpPage.authorizeWithPhoneAndPassword(
@@ -168,7 +162,6 @@ public class PersonalDataWebTest extends BaseSettingsWebTests {
     @DisplayName("Пользователь проверяет, что поле с номером телефона нельзя редактировать")
     @Test
     public void checkPhone() {
-        mainPage.clickClosePopUp();
         headerBlock.clickToSignInButton();
         cookiePage.reCaptchaKey();
         authPopUpPage.authorizeWithPhoneAndPassword(
@@ -183,7 +176,6 @@ public class PersonalDataWebTest extends BaseSettingsWebTests {
     @DisplayName("Проверка чекбокса с новостной рассылкой")
     @Test
     public void checkReceiveNews() {
-        mainPage.clickClosePopUp();
         headerBlock.clickToSignInButton();
         cookiePage.reCaptchaKey();
         authPopUpPage.authorizeWithPhoneAndPassword(

@@ -17,8 +17,6 @@ public class MakeOrdersUnauthorizedMobileTest extends BaseSettingsMobileTests {
     @DisplayName("Оформление заказа доставкой. Неавторизованный пользователь")
     @Test
     public void delivery() {
-       // mobileMainPage.clickClosePopUp();
-        mobileMainPage.clickCloseMobileAppPopUp();
         mobileCartPage.сlickAddCartButton();
         mobileCartPage.clickToCartButton();
         mobileCartPage.clickToMakeOrder();
@@ -44,9 +42,6 @@ public class MakeOrdersUnauthorizedMobileTest extends BaseSettingsMobileTests {
     @DisplayName("Неавторизованный пользователь покупает товар в 1клик")
     @Test
     public void oneClick() {
-        mobileCookiePage.reCaptchaKey();
-      //  mobileMainPage.clickClosePopUp();
-        mobileMainPage.clickCloseMobileAppPopUp();
         mobileHeaderBlock.setSearchInput(propertiesManager.getProperty("productcode4"));
         pageActions.waitPageLoad();
         mobileCartPage.clickProductCard();
@@ -69,9 +64,6 @@ public class MakeOrdersUnauthorizedMobileTest extends BaseSettingsMobileTests {
     @DisplayName("Неавторизованный пользователь покупает товар со страниц ОСП")
     @Test
     public void checkOsp() {
-        mobileCookiePage.reCaptchaKey();
-       // mobileMainPage.clickClosePopUp();
-        mobileMainPage.clickCloseMobileAppPopUp();
         pageActions.reloadPage();
         pageActions.waitPageLoad();
         mobileMainPage.clickLetterN();
@@ -97,9 +89,6 @@ public class MakeOrdersUnauthorizedMobileTest extends BaseSettingsMobileTests {
     @DisplayName("Неавторизованный пользователь покупает товар со способом доставки - 'Самовывоз'")
     @Test
     public void pickup() {
-        mobileCookiePage.reCaptchaKey();
-       // mobileMainPage.clickClosePopUp();
-        mobileMainPage.clickCloseMobileAppPopUp();
         mobileHeaderBlock.setSearchInput(propertiesManager.getProperty("productcode1"));
         pageActions.reloadPage();
         mobileCartPage.сlickAddCartButton();
@@ -123,9 +112,6 @@ public class MakeOrdersUnauthorizedMobileTest extends BaseSettingsMobileTests {
     @DisplayName("Неавторизованный пользователь оформляет заказ содержащий Партнерский товар + Не партнерский")
     @Test
     public void split() {
-        mobileCookiePage.reCaptchaKey();
-      //  mobileMainPage.clickClosePopUp();
-        mobileMainPage.clickCloseMobileAppPopUp();
         mobileHeaderBlock.setSearchInput(propertiesManager.getProperty("productcode1"));
         mobileCartPage.сlickAddCartButton();
         mobileMainPage.clickSiteLogo();

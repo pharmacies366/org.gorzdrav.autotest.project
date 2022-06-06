@@ -39,7 +39,6 @@ public class HeaderBlockWebTest extends BaseSettingsWebTests {
     @DisplayName("Проверки работы корзины")
     @Test
     public void testingTheCart(){
-        mainPage.clickClosePopUp();
         mainPage.clickAddToCardButton();
         pageActions.waitPageLoad();
         int quantity = headerBlock.checkCartQuantity();

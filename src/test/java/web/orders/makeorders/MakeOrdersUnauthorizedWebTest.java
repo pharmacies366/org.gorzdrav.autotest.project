@@ -18,7 +18,6 @@ public class MakeOrdersUnauthorizedWebTest extends BaseSettingsWebTests {
     @DisplayName("Оформление заказа доставкой. Неавторизованный пользователь")
     @Test
     public void delivery() {
-        mainPage.clickClosePopUp();
         headerBlock.setSearchInput(propertiesManager.getProperty("productcode4"));
         pageActions.waitPageLoad();
         cartPage.clickAddCartButton();
@@ -44,8 +43,6 @@ public class MakeOrdersUnauthorizedWebTest extends BaseSettingsWebTests {
     @DisplayName("Неавторизованный пользователь покупает товар в 1клик")
     @Test
     public void oneClick() {
-        cookiePage.reCaptchaKey();
-        mainPage.clickClosePopUp();
         headerBlock.setSearchInput(propertiesManager.getProperty("productcode4"));
         pageActions.waitPageLoad();
         cartPage.clickProductCard();
@@ -65,8 +62,6 @@ public class MakeOrdersUnauthorizedWebTest extends BaseSettingsWebTests {
 /*    @DisplayName("Неавторизованный пользователь покупает товар со страниц ОСП")
     @Test
     public void checkOsp() {
-        cookiePage.reCaptchaKey();
-        mainPage.clickClosePopUp();
        // mainPage.ClickClosePopUpNewsButton();
         mainPage.clickLetterN();
         ospPage.clickProductName();
@@ -91,8 +86,6 @@ public class MakeOrdersUnauthorizedWebTest extends BaseSettingsWebTests {
     @DisplayName("Неавторизованный пользователь покупает товар со способом доставки - 'Самовывоз'")
     @Test
     public void pickup() {
-        cookiePage.reCaptchaKey();
-        mainPage.clickClosePopUp();
         headerBlock.setSearchInput(propertiesManager.getProperty("productcode4"));
         pageActions.waitPageLoad();
         cartPage.clickAddCartButton();
@@ -115,8 +108,6 @@ public class MakeOrdersUnauthorizedWebTest extends BaseSettingsWebTests {
     @DisplayName("Неавторизованный пользователь оформляет заказ содержащий Партнерский товар + Не партнерский")
     @Test
     public void split() {
-        cookiePage.reCaptchaKey();
-        mainPage.clickClosePopUp();
         headerBlock.setSearchInput(propertiesManager.getProperty("productcode4"));
         pageActions.waitPageLoad();
         cartPage.clickAddCartButton();
