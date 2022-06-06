@@ -10,6 +10,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.TestInfo;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import utils.PropertiesManager;
 import utils.WebDriverFactory;
@@ -36,29 +37,39 @@ public class MainTestBase {
         starting(testInfo);
         driver = driverFactory.getDriver();
         pageActions = new PageActions(driver);
-        driver.get(propertiesManager.getProperty("baseurl"));
-        pageActions.waitPageLoad();
-        // logger.info("Открывается главная страница сайта 36.6");
+        openStartPage();
+        logger.info("Открывается главная страница сайта 36.6");
         //driver.manage().deleteAllCookies();
     }
 
     @AfterEach
     public void finish() {
+        driver.close();
         driver.quit();
     }
 
 
     private void starting(TestInfo testInfo) {
         nameOfPackage = testInfo.getTestClass().get().getPackage().getName();
-       // logger.info("Тест старт " + testInfo.getDisplayName());
+        logger.info("Тест старт " + testInfo.getDisplayName());
     }
+
+    private void openStartPage() {
+        try {
+            driver.get(propertiesManager.getProperty("baseurl"));
+            // pageActions.checkUrl(propertiesManager.getProperty("baseurl"));
+        } catch (org.openqa.selenium.TimeoutException ex) {
+            driver.navigate().refresh();
+        }
+    }
+
 
     /**
      * @return - скриншот
      */
     @Attachment(value = "Скриншот", type = "image/png")
-    public byte [] saveAllureScreenshot(){
-        return ((TakesScreenshot)driver).getScreenshotAs(OutputType.BYTES);
+    public byte[] saveAllureScreenshot() {
+        return ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
     }
 
     /**
