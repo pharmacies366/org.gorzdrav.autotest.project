@@ -9,7 +9,7 @@ public class MobileCheckOutPage extends MainTestBase {
 
 
     //элементы
-    private static final String CHOOSE_DELIVERY_METHOD_XPATH = "xpath;(//span[contains(@class,'checkout_delivery_info__mark')])[2]";
+    private static final String CHOOSE_DELIVERY_METHOD_XPATH = "xpath;//div[@data-autotest='checkout_delivery']";
     private static final String BASE_INPUT_DELIVERY_XPATH = "xpath;//input[@id='address%s']";
     private static final String Address = "";
     private static final String Entrance = "-entrance";
@@ -24,6 +24,8 @@ public class MobileCheckOutPage extends MainTestBase {
     private static final String BOOKING_BUTTON_XPATH = "xpath;//input[@value='Забронировать']";
     private static final String SELECT_APTEKA_XPATH = "xpath;//span[contains(.,'Выбрать аптеку')]";
     private static final String PHARMACY_ADDRESS_INPUT_XPATH = "xpath;//input[@name='q']";
+
+    private static final String CHECK_DELIVERY_DETAILS_XPATH = "xpath;//a[contains(.,'Уточнить данные доставки')]";
     private static final String CHANGE_APTEKA_LIST_XPATH = "xpath;//label[@data-autotest='checkout_list']";
 
     private static final String CHECK_AVAILABILITY_XPATH= "xpath;(//a[@data-autotest='check_availability'])[1]";
@@ -70,6 +72,9 @@ public class MobileCheckOutPage extends MainTestBase {
     public PageElementActions getPharmacyAddressInput() {
         return new PageElementActions(PHARMACY_ADDRESS_INPUT_XPATH, driver);
     }
+  public PageElementActions checkDeliveryDetails() {
+        return new PageElementActions(CHECK_DELIVERY_DETAILS_XPATH, driver);
+    }
 
     public PageElementActions getChangeAptekaList() {
         return new PageElementActions(CHANGE_APTEKA_LIST_XPATH, driver);
@@ -114,7 +119,7 @@ public class MobileCheckOutPage extends MainTestBase {
 
     @Step("Пользователь нажимает на кнопку 'Сделать заказ'")
     public void clickMakeOrder(){
-        getMakeOrderButton().click();
+        getMakeOrderButton().clickJs();
         logger.info("Пользователь нажимает на кнопку 'Сделать заказ'");
     }
 
@@ -165,6 +170,11 @@ public class MobileCheckOutPage extends MainTestBase {
     public void setInputSearchAddres(String addres) {
         getPharmacyAddressInput().sendKeysAndEnter(addres);
         logger.info("Пользователь вводит адрес");
+    }
+    @Step("Пользователь нажимает - Уточнить данные доставки")
+    public void setInputSearchAddres() {
+        checkDeliveryDetails().click();
+        logger.info("Пользователь нажимает - Уточнить данные доставки");
     }
 
     @Step("Пользователь нажимает на список доступных Аптек")

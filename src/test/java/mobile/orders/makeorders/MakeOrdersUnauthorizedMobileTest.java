@@ -20,8 +20,7 @@ public class MakeOrdersUnauthorizedMobileTest extends BaseSettingsMobileTests {
     @DisplayName("Оформление заказа доставкой. Неавторизованный пользователь")
     @Test
     public void delivery() {
-        mobileCookiePage.reCaptchaKey();
-        mobileMainPage.clickClosePopUp();
+       // mobileMainPage.clickClosePopUp();
         mobileMainPage.clickCloseMobileAppPopUp();
         mobileCartPage.сlickAddCartButton();
         mobileCartPage.clickToCartButton();
@@ -31,14 +30,16 @@ public class MakeOrdersUnauthorizedMobileTest extends BaseSettingsMobileTests {
                 propertiesManager.getProperty("phonenumber"),
                 propertiesManager.getProperty("usermail"));
         mobileCheckOutPage.clickDeliveryMethod();
+        mobileCheckOutPage.setInputSearchAddres();
         mobileCheckOutPage.addressDelivery("Сиреневый бульвар 68", "2", "3", "34");
+        pageActions.waitPageLoad();
         mobileCheckOutPage.clickMakeOrder();
         mobileSberPage.bankCardDetails(
                 propertiesManager.getProperty("cardnumber"),
                 propertiesManager.getProperty("monthyear"),
                 propertiesManager.getProperty("cvv"));
-        mobileSberPage.clickOnSubmitButton();
-        mobileThankForTheOrderPage.checkPaymentError();
+      //  mobileSberPage.clickOnSubmitButton();
+      //  mobileThankForTheOrderPage.checkPaymentError();
     }
 
 
@@ -105,7 +106,7 @@ public class MakeOrdersUnauthorizedMobileTest extends BaseSettingsMobileTests {
         mobileCartPage.сlickAddCartButton();
         mobileCartPage.clickToCartButton();
         mobileCartPage.clickToMakeOrder();
-        mobileCheckOutPage.clickSelectApteka();
+        //mobileCheckOutPage.clickSelectApteka();
         mobileProductCardPage.checkVisibilityMap();
         mobileCheckOutPage.setInputSearchAddres("метро Фили");
         mobileCheckOutPage.clickChangeAptekaList();
