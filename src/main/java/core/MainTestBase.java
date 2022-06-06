@@ -38,7 +38,7 @@ public class MainTestBase {
         pageActions = new PageActions(driver);
         driver.get(propertiesManager.getProperty("baseurl"));
         pageActions.waitPageLoad();
-        logger.info("Открывается главная страница сайта 36.6");
+        // logger.info("Открывается главная страница сайта 36.6");
         //driver.manage().deleteAllCookies();
     }
 
@@ -50,7 +50,7 @@ public class MainTestBase {
 
     private void starting(TestInfo testInfo) {
         nameOfPackage = testInfo.getTestClass().get().getPackage().getName();
-        logger.info("Тест старт " + testInfo.getDisplayName());
+       // logger.info("Тест старт " + testInfo.getDisplayName());
     }
 
     /**

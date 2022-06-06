@@ -70,28 +70,28 @@ public class HeaderBlockWebTest extends BaseSettingsWebTests {
         logger.info("Кнопка 'Зарегистрироваться' кликабельна");
     }
 
-    @DisplayName("Проверка релевантного перехода по кнопке: 'Аптеки'")
+/*    @DisplayName("Проверка релевантного перехода по кнопке: 'Аптеки'") //нет на s1
     @Test
     public void clickPharmacyButton(){
         headerBlock.clickPharmacyButton();
         pageActions.checkUrl("https://gorzdrav.org/apteki/map/");
-    }
+    }*/
 
-    @DisplayName("Проверка релевантного перехода по кнопке: 'Карта Горздрав'")
+/*    @DisplayName("Проверка релевантного перехода по кнопке: 'Карта Горздрав'") //нет на s1
     @Test
     public void clickGorzdravMapButton(){
         headerBlock.clickGorzdravMap();
         pageActions.checkUrl("https://gorzdrav.org/club/");
-    }
+    }*/
 
-    @DisplayName("Проверка релевантного перехода по кнопке: 'Доставка'")
+/*    @DisplayName("Проверка релевантного перехода по кнопке: 'Доставка'") //нет на s1
     @Test
     public void clickDeliveryButton(){
         headerBlock.clickDeliveryButton();
         pageActions.checkUrl("https://gorzdrav.org/delivery/");
-    }
+    }*/
 
-    @DisplayName("Проверка релевантного перехода по кнопке: 'Бронирование'")
+/*    @DisplayName("Проверка релевантного перехода по кнопке: 'Бронирование'")  //нет на s1
     @Test
     public void clickBookingButton(){
         headerBlock.clickBookingButton();
@@ -111,6 +111,6 @@ public class HeaderBlockWebTest extends BaseSettingsWebTests {
     public void checkClickablePhoneNumber(){
         headerBlock.getPhoneNumber().elementIsClickable();
         logger.info("Номер телефона кликабелен");
-    }
+    }*/
 
 }
