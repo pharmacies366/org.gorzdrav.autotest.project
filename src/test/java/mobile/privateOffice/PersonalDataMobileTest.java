@@ -67,6 +67,7 @@ public class PersonalDataMobileTest extends BaseSettingsMobileTests {
         mobileMainPopUpBlock.clickToPersonalAccount();
         mobileMainPopUpBlock.clickPersonalData();
         mobilePersonalDataPage.clearPatronymic();
+        pageActions.waitPageLoad();
         mobilePersonalDataPage.ckickSaveButton();
         mobilePersonalDataPage.personalDetails(
                 propertiesManager.getProperty("patronymic"));
