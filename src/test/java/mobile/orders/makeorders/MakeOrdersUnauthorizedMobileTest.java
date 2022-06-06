@@ -108,6 +108,7 @@ public class MakeOrdersUnauthorizedMobileTest extends BaseSettingsMobileTests {
         //mobileCheckOutPage.clickSelectApteka();
         mobileProductCardPage.checkVisibilityMap();
         mobileCheckOutPage.setInputSearchAddres("метро Фили");
+        pageActions.waitPageLoad();
         mobileCheckOutPage.clickChangeAptekaList();
         mobileCheckOutPage.clickSelect();
         pageActions.waitPageLoad();
@@ -135,6 +136,7 @@ public class MakeOrdersUnauthorizedMobileTest extends BaseSettingsMobileTests {
         // mobileCheckOutPage.clickSelectApteka();
         mobileProductCardPage.checkVisibilityMap();
         mobileCheckOutPage.setInputSearchAddres("метро Фили");
+        pageActions.waitPageLoad();
         mobileCheckOutPage.clickChangeAptekaList();
         mobileCheckOutPage.clickSelect();
         pageActions.waitPageLoad();

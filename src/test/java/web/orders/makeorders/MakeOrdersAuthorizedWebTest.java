@@ -113,6 +113,7 @@ public class MakeOrdersAuthorizedWebTest extends BaseSettingsWebTests {
         cartPage.clickToMakeOrder();
        // checkOutPage.clickSelectApteka();
         checkOutPage.setInputSearchAddres("метро Фили");
+        pageActions.waitPageLoad();
         checkOutPage.checkVisibilityMap();
         checkOutPage.clickChangeAptekaList();
         checkOutPage.getAvailabilityAndChooseThisPharmacy();

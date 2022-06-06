@@ -158,9 +158,11 @@ public class PersonalDataMobileTest extends BaseSettingsMobileTests {
         mobileMainPopUpBlock.clickToPersonalAccount();
         mobileMainPopUpBlock.clickPersonalData();
         mobilePersonalDataPage.changeGender("2");
+        pageActions.waitPageLoad();
         mobilePersonalDataPage.ckickSaveButton();
        // mobilePersonalDataPage.getFemaleCheck().checkAttribute("value", "FEMALE");
         mobilePersonalDataPage.changeGender("1");
+        pageActions.waitPageLoad();
         mobilePersonalDataPage.ckickSaveButton();
        // mobilePersonalDataPage.getMaleButton().checkAttribute("value", "MALE");
     }

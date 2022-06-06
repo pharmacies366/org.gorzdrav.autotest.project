@@ -54,6 +54,7 @@ public class MakeOrdersUnauthorizedWebTest extends BaseSettingsWebTests {
         productCardPage.checkVisibilityMap();
         productCardPage.setInputSearchAddress("Москва");
         pageActions.waitPageLoad();
+        pageActions.waitPageLoad();
         productCardPage.clickBuyOneClick();
         checkOutPage.setInputOneClickPhoneNumber(propertiesManager.getProperty("phonenumber"));
        // checkOutPage.clickBookingButton();

@@ -63,6 +63,7 @@ public class MakeOrdersAuthorizedMobileTest extends BaseSettingsMobileTests {
         mobileCartPage.clickProductCard();
         mobileProductCardPage.checkVisibilityMap();
         mobileProductCardPage.setInputSearchAddress("метро Фили");
+        pageActions.waitPageLoad();
         mobileProductCardPage.buyOneClick();
         pageActions.waitPageLoad();
         mobileProductCardPage.clickChangeAptekaList();
@@ -126,6 +127,7 @@ public class MakeOrdersAuthorizedMobileTest extends BaseSettingsMobileTests {
        // mobileCheckOutPage.clickSelectApteka();
         mobileProductCardPage.checkVisibilityMap();
         mobileCheckOutPage.setInputSearchAddres("метро Фили");
+        pageActions.waitPageLoad();
         mobileCheckOutPage.clickChangeAptekaList();
         mobileCheckOutPage.clickSelect();
         //pageActions.waitPageLoad();
@@ -157,6 +159,7 @@ public class MakeOrdersAuthorizedMobileTest extends BaseSettingsMobileTests {
        // mobileCheckOutPage.clickSelectApteka();
         mobileProductCardPage.checkVisibilityMap();
         mobileCheckOutPage.setInputSearchAddres("метро Фили");
+        pageActions.waitPageLoad();
         mobileCheckOutPage.clickChangeAptekaList();
         mobileCheckOutPage.clickSelect();
         //  mobileCheckOutPage.clickMakeOrder();
