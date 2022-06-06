@@ -152,6 +152,7 @@ public class CheckShoppingCartWebTest extends BaseSettingsWebTests {
         mainPage.clickAddToCardButton();
         pageActions.waitPageLoad();
         mainPage.clickIncreaseQuantity();
+        pageActions.waitPageLoad();
         int firstQuantity = mainPage.getQuantityMaterials();
         Assertions.assertEquals(2, firstQuantity);
         logger.info("Количество товара равно 2-м");
@@ -172,6 +173,7 @@ public class CheckShoppingCartWebTest extends BaseSettingsWebTests {
         Assertions.assertEquals(2, firstQuantity);
         logger.info("Количество товара равно 2-м");
         mainPage.clickDecreaseQuantity();
+        pageActions.waitPageLoad();
         int secondQuantity = mainPage.getQuantityMaterials();
         Assertions.assertEquals(1, secondQuantity);
         logger.info("Количество товара равно 1-му");

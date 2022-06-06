@@ -12,13 +12,14 @@ import org.junit.jupiter.api.Test;
 @Story("Авторизация пользователя на сайте Gorzdrav")
 @DisplayName("Авторизация пользователя")
 @Tag("Regression")
+@Tag("Smoke")
 public class SignInPositiveWebTest extends BaseSettingsWebTests {
-    
+
     @DisplayName("Авторизация пользователя на сайте по номеру телефона и паролю")
     @Description("Пользователь вводит номер телефона и пароль и нажимет кнопку Войти")
     @Test
     public void loginUserPhone() {
-    cookiePage.reCaptchaKey();
+        cookiePage.reCaptchaKey();
         headerBlock.clickToSignInButton();
         authPopUpPage.getPhoneNumberInput().click();
         authPopUpPage.setPhoneNumber(propertiesManager.getProperty("phonenumber1"),
