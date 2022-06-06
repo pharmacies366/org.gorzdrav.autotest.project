@@ -12,11 +12,8 @@ import org.junit.jupiter.api.Test;
 @Story("Оформление заказа на сайте Gorzdrav")
 @DisplayName("Оформление заказа для неавторизованного пользователя")
 @Tag("Regression")
+@Tag("Smoke")
 public class MakeOrdersUnauthorizedMobileTest extends BaseSettingsMobileTests {
-
-    //Отключили на проде, так как формируется реальная заявка на доставку и курьеры едут за заказами
-
-
     @DisplayName("Оформление заказа доставкой. Неавторизованный пользователь")
     @Test
     public void delivery() {
@@ -30,7 +27,7 @@ public class MakeOrdersUnauthorizedMobileTest extends BaseSettingsMobileTests {
                 propertiesManager.getProperty("phonenumber"),
                 propertiesManager.getProperty("usermail"));
         mobileCheckOutPage.clickDeliveryMethod();
-        mobileCheckOutPage.setInputSearchAddres();
+        mobileCheckOutPage.clickCheckDeliveryDetails();
         mobileCheckOutPage.addressDelivery("Сиреневый бульвар 68", "2", "3", "34");
         pageActions.waitPageLoad();
         mobileCheckOutPage.clickMakeOrder();
@@ -56,7 +53,7 @@ public class MakeOrdersUnauthorizedMobileTest extends BaseSettingsMobileTests {
         pageActions.waitPageLoad();
         mobileProductCardPage.checkVisibilityMap();
         pageActions.waitPageLoad();
-        mobileProductCardPage.setInputSearchAddres("метро Фили");
+        mobileProductCardPage.setInputSearchAddress("метро Фили");
         pageActions.waitPageLoad();
         mobileProductCardPage.buyOneClick();
         pageActions.waitPageLoad();

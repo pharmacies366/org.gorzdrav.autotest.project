@@ -111,7 +111,7 @@ public class MobileProductCardPage extends MainTestBase {
 
     @Step("Пользователь нажимает на кнопку 'Купить в 1 клик'")
     public void buyOneClick() {
-        getOneClick().click();
+        getOneClick().clickJs();
         logger.info("Пользователь нажимает на кнопку 'Купить в 1 клик'");
     }
 
@@ -122,7 +122,7 @@ public class MobileProductCardPage extends MainTestBase {
     }
 
     @Step("Пользователь вводит адрес - {addres}")
-    public void setInputSearchAddres(String addres) {
+    public void setInputSearchAddress(String addres) {
         getPharmacyAddressInput().sendKeysAndEnter(addres);
     }
 

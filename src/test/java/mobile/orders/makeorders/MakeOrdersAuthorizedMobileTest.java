@@ -12,14 +12,13 @@ import org.junit.jupiter.api.Test;
 @Story("Оформление заказа на сайте Gorzdrav")
 @DisplayName("Оформление заказа для авторизованного пользователя")
 @Tag("Regression")
+@Tag("Smoke")
 public class MakeOrdersAuthorizedMobileTest extends BaseSettingsMobileTests {
 
-    //Отключили на проде, так как формируется реальная заявка на доставку и курьеры едут за заказами
-
-   @DisplayName("Оформление заказа доставкой. Авторизованный пользователь")
+    @DisplayName("Оформление заказа доставкой. Авторизованный пользователь")
     @Test
     public void delivery() {
-       // mobileMainPage.clickClosePopUp();
+        // mobileMainPage.clickClosePopUp();
         mobileMainPage.clickCloseMobileAppPopUp();
         mobileHeaderBlock.clickBurgerButton();
         mobileMainPopUpBlock.clickToLoginIcon();
@@ -27,28 +26,31 @@ public class MakeOrdersAuthorizedMobileTest extends BaseSettingsMobileTests {
         mobileAuthPopUpPage.authorizeWithPhoneAndPassword(
                 propertiesManager.getProperty("mobilephonenumber1"),
                 propertiesManager.getProperty("userpass"));
-                pageActions.waitPageLoad();
+        pageActions.waitPageLoad();
         mobileCartPage.checkAndClearCartQuantity();
         mobileMainPage.clickSiteLogo();
         mobileCartPage.сlickAddCartButton();
         mobileCartPage.clickToCartButton();
         mobileCartPage.clickToMakeOrder();
         mobileCheckOutPage.clickDeliveryMethod();
+        mobileCheckOutPage.clickCheckDeliveryDetails();
         mobileCheckOutPage.addressDelivery("Сиреневый бульвар 68", "2", "3", "34");
+        pageActions.waitPageLoad();
         mobileCheckOutPage.clickMakeOrder();
+        pageActions.waitPageLoad();
         mobileSberPage.bankCardDetails(
                 propertiesManager.getProperty("cardnumber"),
                 propertiesManager.getProperty("monthyear"),
                 propertiesManager.getProperty("cvv"));
-       // mobileSberPage.clickOnSubmitButton();
-      //  mobileThankForTheOrderPage.checkPaymentError();
+        //  mobileSberPage.clickOnSubmitButton();
+        //  mobileThankForTheOrderPage.checkPaymentError();
     }
 
 
     @DisplayName("Аавторизованный пользователь покупает товар в 1клик")
     @Test
     public void oneClick() {
-      //  mobileMainPage.clickClosePopUp();
+        //  mobileMainPage.clickClosePopUp();
         mobileMainPage.clickCloseMobileAppPopUp();
         mobileHeaderBlock.clickBurgerButton();
         mobileMainPopUpBlock.clickToLoginIcon();
@@ -60,21 +62,21 @@ public class MakeOrdersAuthorizedMobileTest extends BaseSettingsMobileTests {
         mobileHeaderBlock.setSearchInput(propertiesManager.getProperty("productcode4"));
         mobileCartPage.clickProductCard();
         mobileProductCardPage.checkVisibilityMap();
-        mobileProductCardPage.setInputSearchAddres("метро Фили");
+        mobileProductCardPage.setInputSearchAddress("метро Фили");
         mobileProductCardPage.buyOneClick();
         pageActions.waitPageLoad();
         mobileProductCardPage.clickChangeAptekaList();
         mobileProductCardPage.clickBuyOneClick();
         mobileCheckOutPage.setInputOneClickPhoneNumber(propertiesManager.getProperty("phonenumber"));
         mobileCookiePage.reCaptchaKey();
-      //  mobileCheckOutPage.clickBookingButton();
-      //  mobileThankForTheOrderPage.checkSuccessMessage();
+        //  mobileCheckOutPage.clickBookingButton();
+        //  mobileThankForTheOrderPage.checkSuccessMessage();
     }
 
     @DisplayName("Авторизованный пользователь покупает товар со страниц ОСП")
     @Test
     public void checkOsp() {
-       // mobileMainPage.clickClosePopUp();
+        // mobileMainPage.clickClosePopUp();
         mobileMainPage.clickCloseMobileAppPopUp();
         mobileHeaderBlock.clickBurgerButton();
         mobileMainPopUpBlock.clickToLoginIcon();
@@ -99,14 +101,14 @@ public class MakeOrdersAuthorizedMobileTest extends BaseSettingsMobileTests {
         mobileCheckOutPage.setInputSearchAddres("Москва");
         mobileCheckOutPage.clickChangeAptekaList();
         mobileCheckOutPage.ckickSelect();
-      //  mobileCheckOutPage.clickMakeOrder();
-      //  mobileThankForTheOrderPage.checkSuccessMessage();
+        //  mobileCheckOutPage.clickMakeOrder();
+        //  mobileThankForTheOrderPage.checkSuccessMessage();
     }
 
     @DisplayName("Авторизованный пользователь покупает товар со способом доставки - 'Самовывоз'")
     @Test
     public void pickup() {
-      //  mobileMainPage.clickClosePopUp();
+        //  mobileMainPage.clickClosePopUp();
         mobileMainPage.clickCloseMobileAppPopUp();
         mobileHeaderBlock.clickBurgerButton();
         mobileMainPopUpBlock.clickToLoginIcon();
@@ -127,14 +129,14 @@ public class MakeOrdersAuthorizedMobileTest extends BaseSettingsMobileTests {
         mobileCheckOutPage.clickChangeAptekaList();
         mobileCheckOutPage.ckickSelect();
         //pageActions.waitPageLoad();
-       // mobileCheckOutPage.clickMakeOrder();
-      //  mobileThankForTheOrderPage.checkSuccessMessage();
+        // mobileCheckOutPage.clickMakeOrder();
+        //  mobileThankForTheOrderPage.checkSuccessMessage();
     }
 
     @DisplayName("Авторизованный пользователь оформляет заказ содержащий Партнерский товар + Не партнерский")
     @Test
     public void split() {
-       // mobileMainPage.clickClosePopUp();
+        // mobileMainPage.clickClosePopUp();
         mobileMainPage.clickCloseMobileAppPopUp();
         mobileHeaderBlock.clickBurgerButton();
         mobileMainPopUpBlock.clickToLoginIcon();
@@ -157,8 +159,8 @@ public class MakeOrdersAuthorizedMobileTest extends BaseSettingsMobileTests {
         mobileCheckOutPage.setInputSearchAddres("метро Фили");
         mobileCheckOutPage.clickChangeAptekaList();
         mobileCheckOutPage.ckickSelect();
-      //  mobileCheckOutPage.clickMakeOrder();
-      //  mobileThankForTheOrderPage.checkSuccessMessage();
+        //  mobileCheckOutPage.clickMakeOrder();
+        //  mobileThankForTheOrderPage.checkSuccessMessage();
     }
 }
 

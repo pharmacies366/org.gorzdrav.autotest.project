@@ -172,7 +172,7 @@ public class MobileCheckOutPage extends MainTestBase {
         logger.info("Пользователь вводит адрес");
     }
     @Step("Пользователь нажимает - Уточнить данные доставки")
-    public void setInputSearchAddres() {
+    public void clickCheckDeliveryDetails() {
         checkDeliveryDetails().click();
         logger.info("Пользователь нажимает - Уточнить данные доставки");
     }
