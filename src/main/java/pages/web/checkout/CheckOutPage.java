@@ -22,13 +22,13 @@ public class CheckOutPage extends MainTestBase{
     private static final String Level = "-level";
     private static final String Flat = "-flat";
     private static final String CHOOSE_DELIVERY_METHOD_XPATH = "xpath;//div[@data-autotest='checkout_delivery']";
-    private static final String FINAL_BUY_BUTTON_XPATH = "xpath;//button[contains(.,'Оформить заказ')]";
+    private static final String FINAL_BUY_BUTTON_XPATH = "xpath;//button[@data-autotest='summary_btn']";
     private static final String INPUT_PHONE_NUMBER_XPATH = "xpath;//input[@name='phone']";
     private static final String BOOKING_BUTTON_XPATH = "xpath;//input[@value='Забронировать']";
     private static final String SELECT_APTEKA_XPATH = "xpath;//span[contains(.,'Выбрать аптеку')]";
     private static final String CHANGE_APTEKA_LIST_XPATH = "xpath;//label[@data-autotest='checkout_list']";
-    private static final String AVAILABILITY_XPATH= "xpath;(//a[contains(@class,'b-btn b-btn--outline js-store-choose')])[1]";
-    private static final String CHOOSE_THIS_PHARMACY_XPATH = "xpath;(//a[@class='b-btn b-btn--outline js-store-choose'])[1]";
+    private static final String AVAILABILITY_XPATH= "xpath;(//a[@data-autotest='check_availability'])[1]";
+    private static final String CHOOSE_THIS_PHARMACY_XPATH = "xpath;(//a[@data-autotest='check_availability'])[1]";
     private static final String MAKE_ORDER_BUTTON_XPATH = "xpath;//button[@data-autotest='summary_btn']";
     private static final String PHARMACY_ADDRESS_INPUT_XPATH = "xpath;//input[@name='q']";
     private static final String APTEKA_MAP_XPATH = "xpath;//*[@id='store-finder-map']";
@@ -179,7 +179,7 @@ public class CheckOutPage extends MainTestBase{
     @Step("Пользователь нажимает на кнопки 'Узнать о наличии' и 'Выбрать эту аптеку'")
     public void getAvailabilityAndChooseThisPharmacy(){
         getAvailability().click();
-        getChooseThisPharmacy().click();
+        getChooseThisPharmacy().clickJs();
         logger.info("Пользователь нажимает на кнопки 'Узнать о наличии' и 'Выбрать эту аптеку'");
     }
 

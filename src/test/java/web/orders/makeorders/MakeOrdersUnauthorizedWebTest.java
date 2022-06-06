@@ -15,16 +15,13 @@ import org.junit.jupiter.api.Test;
 @Tag("Smoke")
 public class MakeOrdersUnauthorizedWebTest extends BaseSettingsWebTests {
 
-    //Отключили на проде, так как формируется реальная заявка на доставку и курьеры едут за заказами
-
-/*    @DisplayName("Оформление заказа доставкой. Неавторизованный пользователь")
+    @DisplayName("Оформление заказа доставкой. Неавторизованный пользователь")
     @Test
     public void delivery() {
-        cookiePage.reCaptchaKey();
         mainPage.clickClosePopUp();
         headerBlock.setSearchInput(propertiesManager.getProperty("productcode4"));
         pageActions.waitPageLoad();
-        cartPage.сlickAddCartButton();
+        cartPage.clickAddCartButton();
         headerBlock.clickToCartButton();
         cartPage.clickToMakeOrder();
         checkOutPage.contactDetails(
@@ -33,14 +30,16 @@ public class MakeOrdersUnauthorizedWebTest extends BaseSettingsWebTests {
                 propertiesManager.getProperty("usermail"));
         checkOutPage.clickDeliveryMethod();
         checkOutPage.addressDelivery("Сиреневый бульвар 68", "2", "3", "34");
+        pageActions.waitPageLoad();
         checkOutPage.clickToFinalButton();
+        pageActions.waitPageLoad();
         sberPage.bankCardDetails(
                 propertiesManager.getProperty("cardnumber"),
                 propertiesManager.getProperty("monthyear"),
                 propertiesManager.getProperty("cvv"));
-        sberPage.clickOnSubmitButton();
-        thankForTheOrderPage.checkPaymentError();
-    }*/
+       // sberPage.clickOnSubmitButton();
+       // thankForTheOrderPage.checkPaymentError();
+    }
 
     @DisplayName("Неавторизованный пользователь покупает товар в 1клик")
     @Test
@@ -62,7 +61,7 @@ public class MakeOrdersUnauthorizedWebTest extends BaseSettingsWebTests {
     }
 
       // так как локатор на добавление отличается индексом ждём задачу от разрабов
-    @DisplayName("Неавторизованный пользователь покупает товар со страниц ОСП")
+/*    @DisplayName("Неавторизованный пользователь покупает товар со страниц ОСП")
     @Test
     public void checkOsp() {
         cookiePage.reCaptchaKey();
@@ -84,7 +83,8 @@ public class MakeOrdersUnauthorizedWebTest extends BaseSettingsWebTests {
                 propertiesManager.getProperty("usermail"));
       //  checkOutPage.clickMakeOrder();
       //  thankForTheOrderPage.checkSuccessMessage();
-    }
+    }*/
+
 
 
     @DisplayName("Неавторизованный пользователь покупает товар со способом доставки - 'Самовывоз'")

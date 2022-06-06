@@ -65,6 +65,7 @@ public class MakeOrdersUnauthorizedMobileTest extends BaseSettingsMobileTests {
     }
 
 
+/*
     @DisplayName("Неавторизованный пользователь покупает товар со страниц ОСП")
     @Test
     public void checkOsp() {
@@ -90,6 +91,7 @@ public class MakeOrdersUnauthorizedMobileTest extends BaseSettingsMobileTests {
       //  mobileCheckOutPage.clickMakeOrder();
       //  mobileThankForTheOrderPage.checkSuccessMessage();
     }
+*/
 
 
     @DisplayName("Неавторизованный пользователь покупает товар со способом доставки - 'Самовывоз'")
@@ -107,7 +109,7 @@ public class MakeOrdersUnauthorizedMobileTest extends BaseSettingsMobileTests {
         mobileProductCardPage.checkVisibilityMap();
         mobileCheckOutPage.setInputSearchAddres("метро Фили");
         mobileCheckOutPage.clickChangeAptekaList();
-        mobileCheckOutPage.ckickSelect();
+        mobileCheckOutPage.clickSelect();
         pageActions.waitPageLoad();
         mobileCheckOutPage.contactDetails(
                 propertiesManager.getProperty("username"),
@@ -134,7 +136,7 @@ public class MakeOrdersUnauthorizedMobileTest extends BaseSettingsMobileTests {
         mobileProductCardPage.checkVisibilityMap();
         mobileCheckOutPage.setInputSearchAddres("метро Фили");
         mobileCheckOutPage.clickChangeAptekaList();
-        mobileCheckOutPage.ckickSelect();
+        mobileCheckOutPage.clickSelect();
         pageActions.waitPageLoad();
         mobileCheckOutPage.contactDetails(
                 propertiesManager.getProperty("username"),

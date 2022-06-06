@@ -15,8 +15,6 @@ import org.junit.jupiter.api.Test;
 @Tag("Smoke")
 public class MakeOrdersAuthorizedWebTest extends BaseSettingsWebTests {
 
-    //Отключили на проде, так как формируется реальная заявка на доставку и курьеры едут за заказами
-/*
     @DisplayName("Оформление заказа доставкой. Авторизованный пользователь")
     @Test
     public void delivery() {
@@ -30,19 +28,21 @@ public class MakeOrdersAuthorizedWebTest extends BaseSettingsWebTests {
         cartPage.checkAndClearCartQuantity();
         headerBlock.setSearchInput(propertiesManager.getProperty("productcode4"));
         pageActions.waitPageLoad();
-        cartPage.сlickAddCartButton();
+        cartPage.clickAddCartButton();
         headerBlock.clickToCartButton();
         cartPage.clickToMakeOrder();
         checkOutPage.clickDeliveryMethod();
         checkOutPage.addressDelivery("Сиреневый бульвар 68", "2", "3", "34");
+        pageActions.waitPageLoad();
         checkOutPage.clickToFinalButton();
+        pageActions.waitPageLoad();
         sberPage.bankCardDetails(
                 propertiesManager.getProperty("cardnumber"),
                 propertiesManager.getProperty("monthyear"),
                 propertiesManager.getProperty("cvv"));
-     //   sberPage.clickOnSubmitButton();
-       // thankForTheOrderPage.checkPaymentError();
-    }*/
+        // sberPage.clickOnSubmitButton();
+        // thankForTheOrderPage.checkPaymentError();
+    }
 
     @DisplayName("Авторизованный пользователь покупает товар в 1клик")
     @Test
@@ -69,7 +69,7 @@ public class MakeOrdersAuthorizedWebTest extends BaseSettingsWebTests {
         // thankForTheOrderPage.checkSuccessMessage();
     }
 
-    @DisplayName("Авторизованный пользователь покупает товар со страниц ОСП") // так как локатор на добавление отличается индексом ждём задачу от разрабов
+  /*  @DisplayName("Авторизованный пользователь покупает товар со страниц ОСП") // так как локатор на добавление отличается индексом ждём задачу от разрабов
     @Test
     public void checkOsp() {
         mainPage.clickClosePopUp();
@@ -94,7 +94,7 @@ public class MakeOrdersAuthorizedWebTest extends BaseSettingsWebTests {
         checkOutPage.getAvailabilityAndChooseThisPharmacy();
         // checkOutPage.clickMakeOrder();
         // thankForTheOrderPage.checkSuccessMessage();
-    }
+    }*/
 
     @DisplayName("Авторизованный пользователь покупает товар со способом доставки - 'Самовывоз'")
     @Test

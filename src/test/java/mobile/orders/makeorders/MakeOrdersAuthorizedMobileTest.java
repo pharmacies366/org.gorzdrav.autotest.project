@@ -73,7 +73,7 @@ public class MakeOrdersAuthorizedMobileTest extends BaseSettingsMobileTests {
         //  mobileThankForTheOrderPage.checkSuccessMessage();
     }
 
-    @DisplayName("Авторизованный пользователь покупает товар со страниц ОСП")
+/*    @DisplayName("Авторизованный пользователь покупает товар со страниц ОСП")
     @Test
     public void checkOsp() {
         // mobileMainPage.clickClosePopUp();
@@ -100,10 +100,10 @@ public class MakeOrdersAuthorizedMobileTest extends BaseSettingsMobileTests {
        // mobileCheckOutPage.clickSelectApteka();
         mobileCheckOutPage.setInputSearchAddres("Москва");
         mobileCheckOutPage.clickChangeAptekaList();
-        mobileCheckOutPage.ckickSelect();
+        mobileCheckOutPage.clickSelect();
         //  mobileCheckOutPage.clickMakeOrder();
         //  mobileThankForTheOrderPage.checkSuccessMessage();
-    }
+    }*/
 
     @DisplayName("Авторизованный пользователь покупает товар со способом доставки - 'Самовывоз'")
     @Test
@@ -127,7 +127,7 @@ public class MakeOrdersAuthorizedMobileTest extends BaseSettingsMobileTests {
         mobileProductCardPage.checkVisibilityMap();
         mobileCheckOutPage.setInputSearchAddres("метро Фили");
         mobileCheckOutPage.clickChangeAptekaList();
-        mobileCheckOutPage.ckickSelect();
+        mobileCheckOutPage.clickSelect();
         //pageActions.waitPageLoad();
         // mobileCheckOutPage.clickMakeOrder();
         //  mobileThankForTheOrderPage.checkSuccessMessage();
@@ -158,7 +158,7 @@ public class MakeOrdersAuthorizedMobileTest extends BaseSettingsMobileTests {
         mobileProductCardPage.checkVisibilityMap();
         mobileCheckOutPage.setInputSearchAddres("метро Фили");
         mobileCheckOutPage.clickChangeAptekaList();
-        mobileCheckOutPage.ckickSelect();
+        mobileCheckOutPage.clickSelect();
         //  mobileCheckOutPage.clickMakeOrder();
         //  mobileThankForTheOrderPage.checkSuccessMessage();
     }

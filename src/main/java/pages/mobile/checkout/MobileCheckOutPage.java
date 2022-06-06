@@ -184,7 +184,7 @@ public class MobileCheckOutPage extends MainTestBase {
     }
 
     @Step("Пользователь нажимает на кнопку узнать о наличаи и выбрать первую аптеку из списка")
-    public void ckickSelect(){
+    public void clickSelect(){
         getAvailability().click();
         getSelect().clickJs();
         logger.info("Пользователь нажимает на кнопку узнать о наличаи и выбрать первую аптеку из списка");
