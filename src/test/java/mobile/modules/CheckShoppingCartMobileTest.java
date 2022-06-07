@@ -18,8 +18,6 @@ public class CheckShoppingCartMobileTest extends BaseSettingsMobileTests {
     @DisplayName("Пользователь увеличивает количество шт. товара на странице корзины")
     @Test
     public void increaseQuantityMaterialOnCartPage() {
-       // mobileMainPage.clickClosePopUp();
-        mobileMainPage.clickCloseMobileAppPopUp();
         mobileMainPage.clickAddToCardButton();
         pageActions.waitPageLoad();
         mobileHeaderBlock.clickToCartButton();
@@ -34,8 +32,6 @@ public class CheckShoppingCartMobileTest extends BaseSettingsMobileTests {
     @DisplayName("Пользователь уменьшает количество шт. товара на странице корзины")
     @Test
     public void decreaseQuantityMaterialOnCartPage() {
-       // mobileMainPage.clickClosePopUp();
-        mobileMainPage.clickCloseMobileAppPopUp();
         mobileMainPage.clickAddToCardButton();
         pageActions.waitPageLoad();
         mobileHeaderBlock.clickToCartButton();
@@ -61,8 +57,6 @@ public class CheckShoppingCartMobileTest extends BaseSettingsMobileTests {
     @DisplayName("Пользователь удаляет 1 из 2-х товаров в корзине")
     @Test
     public void deleteMaterialsFromCart() {
-      //  mobileMainPage.clickClosePopUp();
-        mobileMainPage.clickCloseMobileAppPopUp();
         openUrl(propertiesManager.getProperty("baseurl") + "p/29992");
         mobileProductCardPage.clickAddCartButton();
         pageActions.waitPageLoad();
@@ -79,8 +73,6 @@ public class CheckShoppingCartMobileTest extends BaseSettingsMobileTests {
     @DisplayName("Пользователь удаляет все товары в корзине")
     @Test
     public void deleteAllMaterialsFromCart() {
-       // mobileMainPage.clickClosePopUp();
-        mobileMainPage.clickCloseMobileAppPopUp();
         openUrl(propertiesManager.getProperty("baseurl") + "p/29992");
         pageActions.waitPageLoad();
         mobileProductCardPage.clickAddCartButton();
@@ -98,8 +90,6 @@ public class CheckShoppingCartMobileTest extends BaseSettingsMobileTests {
     @DisplayName("Пользователь добавляет в корзину 2 товара и проверяет общую сумму")
     @Test
     public void checkTotalAmountProducts() {
-     //   mobileMainPage.clickClosePopUp();
-        mobileMainPage.clickCloseMobileAppPopUp();
         openUrl(propertiesManager.getProperty("baseurl") + "p/44226");
         pageActions.waitPageLoad();
         int firstPrice = mobileProductCardPage.getProductPrice();
@@ -118,8 +108,6 @@ public class CheckShoppingCartMobileTest extends BaseSettingsMobileTests {
     @DisplayName("Пользователь проверяет нотификацию после удаления товара")
     @Test
     public void checkNotificationCart() {
-      //  mobileMainPage.clickClosePopUp();
-        mobileMainPage.clickCloseMobileAppPopUp();
         openUrl(propertiesManager.getProperty("baseurl") + "p/33090");
         pageActions.waitPageLoad();
         mobileProductCardPage.clickAddCartButton();
@@ -153,8 +141,6 @@ public class CheckShoppingCartMobileTest extends BaseSettingsMobileTests {
     @DisplayName("Пользователь увеличивает количество шт. товара в корзине на главной странице")
     @Test
     public void increaseQuantityMaterialOnMobileMainPage() {
-      //  mobileMainPage.clickClosePopUp();
-        mobileMainPage.clickCloseMobileAppPopUp();
         mobileMainPage.clickAddToCardButton();
         pageActions.waitPageLoad();
         mobileMainPage.clickIncreaseQuantity();
@@ -170,8 +156,6 @@ public class CheckShoppingCartMobileTest extends BaseSettingsMobileTests {
     @DisplayName("Пользователь уменьшает количество шт. товара в корзине на главной странице")
     @Test
     public void decreaseQuantityMaterialOnMobileMainPage() {
-      //  mobileMainPage.clickClosePopUp();
-        mobileMainPage.clickCloseMobileAppPopUp();
         mobileMainPage.clickAddToCardButton();
         pageActions.waitPageLoad();
         mobileMainPage.clickIncreaseQuantity();
@@ -191,8 +175,6 @@ public class CheckShoppingCartMobileTest extends BaseSettingsMobileTests {
  /*   @DisplayName("Пользователь увеличивает количество шт. товара в карточке товара")
     @Test
     public void increaseQuantityMaterialOnProductCartPage() {
-       // mobileMainPage.clickClosePopUp();
-        mobileMainPage.clickCloseMobileAppPopUp();
         openUrl(propertiesManager.getProperty("baseurl") + "p/29992");
         mobileProductCardPage.clickAddCartButton();
         pageActions.waitPageLoad();

@@ -54,8 +54,10 @@ public class BaseSettingsWebTests extends MainTestBase {
 
     @BeforeEach
     public void PagesInitialization() {
-        commonActionsOnWebPages = new CommonActionsOnWebPages(driver);
         mainPage = new MainPage(driver);
+        actionsBeforeTests();
+
+        commonActionsOnWebPages = new CommonActionsOnWebPages(driver);
         pageElementActions = new PageElementActions(driver);
         cookiePage = new CookiePage(driver);
         authPopUpPage = new AuthPopUpPage(driver);
@@ -77,6 +79,12 @@ public class BaseSettingsWebTests extends MainTestBase {
         citiesPopUpPage = new CitiesPopUpPage(driver);
         botConsultantPopUpPage = new BotConsultantPopUpPage(driver);
     }
+
+    //данный метод выполняется перед каждым тестом
+    protected void actionsBeforeTests() {
+        mainPage.clickClosePopUp();
+    }
+
 
 }
 

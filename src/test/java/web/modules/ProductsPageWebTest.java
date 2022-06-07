@@ -20,7 +20,6 @@ public class ProductsPageWebTest extends BaseSettingsWebTests {
     @DisplayName("Пользователь проверяет изменения диапазона цены вручную")
     @Test
     public void checkChangePricesRangeWithHands() {
-        mainPage.clickClosePopUp();
         headerBlock.clickCatalogButton();
         catalogPage.clickMedicationsButtons();
         commonActionsOnWebPages.changePricesRangeWithHands("100", "500");
@@ -36,7 +35,6 @@ public class ProductsPageWebTest extends BaseSettingsWebTests {
     @DisplayName("Пользователь выбирет чекбокс Доставка и проверяет корректное изменение списка товаров")
     @Test
     public void checkProductsOnlyDelivery() {
-        mainPage.clickClosePopUp();
         headerBlock.clickCatalogButton();
         catalogPage.clickMedicationsButtons();
         commonActionsOnWebPages.clickCheckboxDelivery();
@@ -47,7 +45,6 @@ public class ProductsPageWebTest extends BaseSettingsWebTests {
     @DisplayName("Пользователь снимает галочку с чекбокса Доставка и проверяет корректное изменение списка товаров")
     @Test
     public void checkCancelCheckboxDelivery() {
-        mainPage.clickClosePopUp();
         headerBlock.clickCatalogButton();
         catalogPage.clickMedicationsButtons();
         commonActionsOnWebPages.clickCheckboxDelivery();
@@ -60,7 +57,6 @@ public class ProductsPageWebTest extends BaseSettingsWebTests {
     @DisplayName("Пользователь сбрасывает все выбранные чекбоксы и проверяет корректное изменение списка товаров")
     @Test
     public void checkCancelAllCheckboxes() {
-        mainPage.clickClosePopUp();
         headerBlock.clickCatalogButton();
         catalogPage.clickMedicationsButtons();
         commonActionsOnWebPages.clickCheckboxDelivery();
@@ -73,7 +69,6 @@ public class ProductsPageWebTest extends BaseSettingsWebTests {
     @DisplayName("Пользователь проверяет коррекность работы пагинации страниц")
     @Test
     public void checkPagination() {
-        mainPage.clickClosePopUp();
         headerBlock.clickCatalogButton();
         catalogPage.clickMedicationsButtons();
         commonActionsOnWebPages.clickNextPage();
@@ -95,7 +90,6 @@ public class ProductsPageWebTest extends BaseSettingsWebTests {
     @Test
     @UseDataProvider("checkingCheckboxes")
     public void test(int INDEX_SHOW_ALL, int INDEX_OPTION) {
-        mainPage.clickClosePopUp();
         headerBlock.clickCatalogButton();
         catalogPage.clickMedicationsButtons();
         commonActionsOnWebPages.clickShowAll(INDEX_SHOW_ALL);
@@ -105,7 +99,6 @@ public class ProductsPageWebTest extends BaseSettingsWebTests {
     @DisplayName("Пользователь проверяет корректную выдачу товаров по рецепту")
     @Test
     public void checkCheckboxWithRecipe() {
-        mainPage.clickClosePopUp();
         headerBlock.clickCatalogButton();
         catalogPage.clickMedicationsButtons();
         commonActionsOnWebPages.checkCheckboxWithRecipe();
@@ -116,7 +109,6 @@ public class ProductsPageWebTest extends BaseSettingsWebTests {
     @DisplayName("Пользователь проверяет корректную выдачу товаров без рецепта")
     @Test
     public void checkCheckboxWithoutRecipe() {
-        mainPage.clickClosePopUp();
         headerBlock.clickCatalogButton();
         catalogPage.clickMedicationsButtons();
         commonActionsOnWebPages.checkCheckboxWithoutRecipe();
@@ -128,7 +120,6 @@ public class ProductsPageWebTest extends BaseSettingsWebTests {
    @DisplayName("Пользователь проверяет сортировку выдачи товаров по уменьшению цены")
     @Test
     public void checkSortingPriceReduction() {
-        mainPage.clickClosePopUp();
         headerBlock.clickCatalogButton();
         catalogPage.clickMedicationsButtons();
         commonActionsOnWebPages.clickSortingButton();
@@ -141,7 +132,6 @@ public class ProductsPageWebTest extends BaseSettingsWebTests {
     @DisplayName("Пользователь проверяет сортировку выдачи товаров по увеличению цены")
     @Test
     public void checkSortingPriceIncrease() {
-        mainPage.clickClosePopUp();
         headerBlock.clickCatalogButton();
         catalogPage.clickMedicationsButtons();
         commonActionsOnWebPages.clickSortingButton();
@@ -153,7 +143,6 @@ public class ProductsPageWebTest extends BaseSettingsWebTests {
     @DisplayName("Пользователь проверяет сортировку выдачи товаров по названию")
     @Test
     public void checkSortingName() {
-        mainPage.clickClosePopUp();
         headerBlock.clickCatalogButton();
         catalogPage.clickMedicationsButtons();
         pageActions.waitPageLoad();
