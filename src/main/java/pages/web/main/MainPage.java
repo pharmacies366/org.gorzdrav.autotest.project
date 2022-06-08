@@ -31,6 +31,12 @@ public class MainPage extends MainTestBase {
     private static final String CATALOG_BUTTON_XPATH = "xpath;//div[@class='c-header-menu__item-title c-header-menu__item-title--modify js-dropdown-menu-button js-navigation-menu__title'][contains(.,'Каталог')]";
     private static final String PRODUCT_BUTTON_XPATH = "xpath;(//div[@class='c-prod-item__title'])[1]";
     private static final String BOT_CONSULTANT_BUTTON_XPATH = "xpath;//jdiv[@id='jvlabelWrap']";
+    private static final String BACKGROUND_COLOR_PRODUCT_GALLERY_BUTTON_XPATH = "xpath;//div[@class='c-card-balance--product c-card-balance--background']";
+    private static final String COLOR_TEXT_PRODUCT_GALLERY_BUTTON_XPATH = "xpath;(//div[@class='c-card-balance__text c-card-balance__text--list'])[1]";
+    private static final String CASH_BACK_INFO_POP_UP_XPATH = "xpath;//div[@class='hint__title']";
+    private static final String LINK_MORE_ABOUT_BONUSES_XPATH = "xpath;//a[@href='/pravila_programmy/'][contains(.,'Подробнее о бонусах')]";
+
+    private static final String PLUS_ON_BONUS_BUTTON_XPATH = "xpath;(//div[@class='c-card-balance__text c-card-balance__text--list'])[1][contains(.,'+')]";
 
     //конструктор
     public MainPage(WebDriver driver) {
@@ -115,6 +121,27 @@ public class MainPage extends MainTestBase {
     public PageElementActions getBotConsultantButton() {
         return new PageElementActions(BOT_CONSULTANT_BUTTON_XPATH, driver);
     }
+
+    public PageElementActions getBackgroundColorProductGalleryButton() {
+        return new PageElementActions(BACKGROUND_COLOR_PRODUCT_GALLERY_BUTTON_XPATH, driver);
+    }
+
+    public PageElementActions getTextColorProductGalleryButton() {
+        return new PageElementActions(COLOR_TEXT_PRODUCT_GALLERY_BUTTON_XPATH, driver);
+    }
+
+    public PageElementActions getCashBackInfoPopUp() {
+        return new PageElementActions(CASH_BACK_INFO_POP_UP_XPATH, driver);
+    }
+
+    public PageElementActions getMoreAboutBonuses() {
+        return new PageElementActions(LINK_MORE_ABOUT_BONUSES_XPATH, driver);
+    }
+
+    public PageElementActions getPlusOnBonusButton() {
+        return new PageElementActions(PLUS_ON_BONUS_BUTTON_XPATH, driver);
+    }
+
 
 
     //Методы
@@ -233,6 +260,39 @@ public class MainPage extends MainTestBase {
     public void clickBotConsultantButton() {
         getBotConsultantButton().click();
         logger.info("Пользователь нажимает на иконку консультант бота");
+    }
+
+    @Step("Получение цвета кнопки")
+    public String getColorBackgroundProductGalleryButton() {
+        String backgroundColor = getBackgroundColorProductGalleryButton().getBackgroundColor();
+        logger.info("Получение цвета кнопки");
+        return backgroundColor;
+    }
+
+    @Step("Получение цвета текста кнопки с расчётом бонусов")
+    public String getColorTextProductGalleryButton() {
+        String colorButton = getTextColorProductGalleryButton().getColor();
+        logger.info("Получение цвета текста кнопки с расчётом бонусов");
+        return colorButton;
+    }
+
+    @Step("Получение текста загаловка с попапом информации про -  Cash back за покупку")
+    public String getTextAboutCashBack() {
+        String text = getCashBackInfoPopUp().getText();
+        logger.info("Получение текста загаловка с попапом информации про -  Cash back за покупку");
+        return text;
+    }
+
+    @Step("Пользователь переходит по ссылке: Подробнее о бонусах")
+    public void clickOnLinkMoreAboutBonuses() {
+        getMoreAboutBonuses().click();
+        logger.info("ользователь переходит по ссылке: Подробнее о бонусах");
+    }
+
+  @Step("Пользователь проверяет, что на шильдике с количеством бонусов присутствует значок '+'")
+    public void checkPlusOnBonusButton() {
+      getPlusOnBonusButton().isElementDisplayed();
+        logger.info("Пользователь проверяет, что на шильдике с количеством бонусов присутствует значок '+'");
     }
 
 
