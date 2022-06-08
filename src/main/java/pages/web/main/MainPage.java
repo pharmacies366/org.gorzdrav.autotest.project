@@ -3,7 +3,12 @@ package pages.web.main;
 import actions.PageElementActions;
 import core.MainTestBase;
 import io.qameta.allure.Step;
+import org.junit.jupiter.api.Assertions;
+import org.openqa.selenium.By;
+import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
+
+import java.util.Arrays;
 
 public class MainPage extends MainTestBase {
 
@@ -293,6 +298,24 @@ public class MainPage extends MainTestBase {
     public void checkPlusOnBonusButton() {
       getPlusOnBonusButton().isElementDisplayed();
         logger.info("Пользователь проверяет, что на шильдике с количеством бонусов присутствует значок '+'");
+    }
+////////////////////////////////////////////////////////
+
+    private static final String AAA = "xpath;(//img[@class=' lazyloaded'])[1]";
+    private static final String EEE = "xpath;(//div[@class='c-card-balance--product c-card-balance--background'])[1]";
+
+    public PageElementActions getaaa() {
+        return new PageElementActions(AAA, driver);
+    }
+
+    public PageElementActions geteee() {
+        return new PageElementActions(EEE, driver);
+    }
+    public void test() {
+        int a =  getaaa().testGetSize();
+        int e = geteee().testGetSize();
+        Assertions.assertTrue(a > e);
+
     }
 
 

@@ -4,10 +4,13 @@ import base.BaseSettingsWebTests;
 import io.qameta.allure.Description;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Story;
+import org.apache.logging.log4j.core.util.Assert;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 
 /**
  * @author Михаил
@@ -41,6 +44,11 @@ public class CftOnMainPageWebTest extends BaseSettingsWebTests {
     @Test
     public void checkInfoProductGalleryBonus() {
         mainPage.checkPlusOnBonusButton();
+    }
+
+    @Test
+    public void checkTest() {
+        mainPage.test();
     }
 
 }

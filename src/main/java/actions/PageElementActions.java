@@ -179,6 +179,14 @@ public class PageElementActions extends MainTestBase {
         return driver.findElements(getBySelector(element)).size();
     }
 
+    public int testGetSize() {
+        String coordinates = driver.findElement(getBySelector(element)).getSize().toString().replaceAll("[^0-9]", "").trim();
+    /*    double[] coordinates = new double[2];
+        coordinates[0] = driver.findElement(getBySelector(element)).getSize().getHeight();
+        coordinates[1] = driver.findElement(getBySelector(element)).getSize().getWidth();*/
+        return Integer.parseInt(coordinates);
+    }
+
     //Проверяет видимость текста {string} на странице
     public void contentIsDisplayed(String text) {
        /* WebDriverWait wait = new WebDriverWait(driver, 10);
