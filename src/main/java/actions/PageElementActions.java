@@ -4,6 +4,7 @@ import core.MainTestBase;
 import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.Color;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -32,6 +33,21 @@ public class PageElementActions extends MainTestBase {
         this.moveToElement();
         waitUntilElementToBeClickable(getBySelector(element), DEFAULT_ELEMENT_WAIT_TIME_S).click();
         saveAllureScreenshot();
+    }
+
+
+    //Получение цвета элемента
+    public String getColor() {
+        String colorValue = waitUntilVisibilityOfElementLocated(getBySelector(element), DEFAULT_ELEMENT_WAIT_TIME_S).getCssValue("color");
+        String hex = Color.fromString(colorValue).asHex();
+        return hex;
+    }
+
+    //Получение цвета текста элемента/заголовка
+    public String getBackgroundColor() {
+        String backgroundColorValue = waitUntilVisibilityOfElementLocated(getBySelector(element), DEFAULT_ELEMENT_WAIT_TIME_S).getCssValue("background-color");
+        String hex = Color.fromString(backgroundColorValue).asHex();
+        return hex;
     }
 
     //Клик по элементу с помощью JS
