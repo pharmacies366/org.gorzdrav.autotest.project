@@ -1,7 +1,7 @@
 package actions;
 
 import core.MainTestBase;
-import org.apache.logging.log4j.core.util.Assert;
+import io.qameta.allure.Step;
 import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -71,7 +71,7 @@ public class PageActions extends MainTestBase {
         Assertions.assertEquals(actual, expected);
     }
 
-    //Проверка видимости текста на странице
+    @Step("Проверка видимости текста на странице")
     public void contentIsDisplayed(String text) {
         driver.findElement(By.xpath("//*[text()='" + text + "']")).isDisplayed();
         saveAllureScreenshot();
