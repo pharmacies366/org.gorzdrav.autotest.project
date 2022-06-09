@@ -14,6 +14,7 @@ public class WebHeaderBlock extends MainTestBase {
     private static final String LOGOUT_BUTTON_XPATH = "xpath;(//a[@href='/logout/'])[1]";
     private static final String MY_ORDERS_XPATH = "xpath;(//a[@href='/my-account/orders'])[1]";
     private static final String PERSONAL_ACCOUNT_XPATH = "xpath;(//i[contains(@class,'b-icn--user')])[2]";
+
     private static final String BASE_INPUT_XPATH = "xpath;(//a[@href='%s'])[1]";
     private static final String SITE_LOGO_XPATH = "xpath;//img[@alt='ГЗ лого.svg']";
     private static final String CATALOG_BUTTON_XPATH = "xpath;(//div[@class='b-section--as-content']//child::div)[2]";
@@ -210,10 +211,10 @@ public class WebHeaderBlock extends MainTestBase {
         logger.info("Лого отображается");
     }
 
-    @Step("Пользователь нажимает на иконку 36.6 и переходит на главную страницу")
+    @Step("Пользователь нажимает на иконку 'Аптеки Горздрав' и переходит на главную страницу")
     public void clickSiteLogo(){
         getSiteLogo().click();
-        logger.info("Пользователь нажимает на иконку 36.6 и переходит на главную страницу");
+        logger.info("Пользователь нажимает на иконку 'Аптеки Горздрав' и переходит на главную страницу");
     }
 
     @Step("Пользователь нажимает на кнопку: 'Аптеки'")
