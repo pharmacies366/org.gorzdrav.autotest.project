@@ -1,7 +1,7 @@
-
 package web.privateOffice;
 
 import base.BaseSettingsWebTests;
+import io.qameta.allure.Description;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Story;
 import org.junit.jupiter.api.DisplayName;
@@ -19,10 +19,10 @@ import java.util.stream.Stream;
 @Tag("Regression")
 public class PersonalDataWebTest extends BaseSettingsWebTests {
 
-    @DisplayName("Пользователь переходит в личный кабинет и проверяет отображения списка с пунктами страниц в Л.К." +
-            " и релевантный переход")
-    @ParameterizedTest(name = "{index} {1}")
+    @ParameterizedTest(name = "В личном кабинете пользователь переходит по ссылке => {index} {1}")
     @MethodSource("checkDisplayedOptions")
+    @Description("Пользователь переходит в личный кабинет и проверяет отображения списка с пунктами страниц в Л.К." +
+            " и релевантный переход")
     public void testSomething(String LOCATOR, String LINKTEXT, String PAGEMESSAGE) {
         headerBlock.clickToSignInButton();
         cookiePage.reCaptchaKey();
@@ -53,7 +53,6 @@ public class PersonalDataWebTest extends BaseSettingsWebTests {
     @DisplayName("Пользователь заполняет отчество и сохраняет данные")
     @Test
     public void checkPersonalData() {
-        mainPage.clickClosePopUp();
         headerBlock.clickToSignInButton();
         cookiePage.reCaptchaKey();
         authPopUpPage.authorizeWithPhoneAndPassword(
