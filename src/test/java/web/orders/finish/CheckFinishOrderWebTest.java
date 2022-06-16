@@ -11,6 +11,7 @@ import org.junit.jupiter.api.Test;
 @Feature(value = "Web")
 @Story(value = "Проверка создания заказа на сайте Gorzdrav")
 @DisplayName("Проверка создания заказа")
+@Tag("Web")
 @Tag("Regression")
 public class CheckFinishOrderWebTest extends BaseSettingsWebTests {
 

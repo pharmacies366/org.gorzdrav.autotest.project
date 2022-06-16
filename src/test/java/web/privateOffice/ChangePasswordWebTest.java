@@ -11,6 +11,7 @@ import org.junit.jupiter.api.Test;
 @Feature(value = "Web")
 @Story(value = "Личный кабинет на сайте Gorzdrav")
 @DisplayName("Личный кабинет")
+@Tag("Web")
 @Tag("Regression")
 public class ChangePasswordWebTest extends BaseSettingsWebTests {
 

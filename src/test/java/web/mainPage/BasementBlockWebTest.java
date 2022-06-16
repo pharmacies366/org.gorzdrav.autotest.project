@@ -15,6 +15,7 @@ import java.util.stream.Stream;
 @Feature(value = "Web")
 @Story("Проверка подвала сайта Gorzdrav")
 @DisplayName("Проверка подвала сайта")
+@Tag("Web")
 @Tag("Regression")
 public class BasementBlockWebTest extends BaseSettingsWebTests {
 

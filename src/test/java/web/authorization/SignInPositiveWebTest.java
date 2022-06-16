@@ -11,6 +11,7 @@ import org.junit.jupiter.api.Test;
 @Feature("Web")
 @Story("Авторизация пользователя на сайте Gorzdrav")
 @DisplayName("Авторизация пользователя")
+@Tag("Web")
 @Tag("Regression")
 @Tag("Smoke")
 public class SignInPositiveWebTest extends BaseSettingsWebTests {

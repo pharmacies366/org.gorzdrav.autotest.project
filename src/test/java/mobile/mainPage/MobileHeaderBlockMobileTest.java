@@ -11,6 +11,7 @@ import org.junit.jupiter.api.Test;
 @Feature(value = "Мобильная версия")
 @Story("Проверка шапки сайта Gorzdrav")
 @DisplayName("Проверка шапки сайта")
+@Tag("Mobile")
 @Tag("Regression")
 public class MobileHeaderBlockMobileTest extends BaseSettingsMobileTests {
 

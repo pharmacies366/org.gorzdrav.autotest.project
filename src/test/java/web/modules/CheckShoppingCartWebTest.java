@@ -11,6 +11,7 @@ import org.junit.jupiter.api.Test;
 @Feature(value = "Web")
 @Story(value = "Изменения корзины на сайте Gorzdrav")
 @DisplayName("Изменения корзины")
+@Tag("Web")
 @Tag("Regression")
 public class CheckShoppingCartWebTest extends BaseSettingsWebTests {
 

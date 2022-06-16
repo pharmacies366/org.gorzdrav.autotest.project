@@ -11,6 +11,7 @@ import org.junit.jupiter.api.Test;
 @Feature(value = "Мобильная версия")
 @Story("Оформление заказа на сайте Gorzdrav")
 @DisplayName("Оформление заказа для неавторизованного пользователя")
+@Tag("Mobile")
 @Tag("Regression")
 @Tag("Smoke")
 public class MakeOrdersUnauthorizedMobileTest extends BaseSettingsMobileTests {

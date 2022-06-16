@@ -10,6 +10,7 @@ import org.junit.jupiter.api.Tag;
 @Feature(value = "Web")
 @Story(value = "Отмена заказа на сайте Gorzdrav")
 @DisplayName("Отмена созданного заказа")
+@Tag("Web")
 @Tag("Regression")
 public class OrderCancellationWebTest extends BaseSettingsWebTests {
 

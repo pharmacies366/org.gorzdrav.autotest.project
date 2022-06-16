@@ -11,6 +11,7 @@ import org.junit.jupiter.api.Test;
 @Feature(value = "Мобильная версия")
 @Story(value = "Консультант бот на сайте Gorzdrav")
 @DisplayName("Консультант бот")
+@Tag("Mobile")
 @Tag("Regression")
 public class BotConsultantMobileTest extends BaseSettingsMobileTests {
 
