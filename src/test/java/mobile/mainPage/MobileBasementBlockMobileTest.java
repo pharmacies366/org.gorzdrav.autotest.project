@@ -13,6 +13,7 @@ import org.junit.jupiter.api.Test;
 @Story("Проверка главной страницы сайта Gorzdrav")
 @DisplayName("Проверка подвала сайта")
 @RunWith(DataProviderRunner.class)
+@Tag("Mobile")
 @Tag("Regression")
 public class MobileBasementBlockMobileTest extends BaseSettingsMobileTests {
 

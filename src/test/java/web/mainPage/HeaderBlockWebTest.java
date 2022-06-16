@@ -11,6 +11,7 @@ import org.junit.jupiter.api.Test;
 @Feature(value = "Web")
 @Story("Проверка шапки сайта gorzdrav")
 @DisplayName("Проверка шапки сайта")
+@Tag("Web")
 @Tag("Regression")
 public class HeaderBlockWebTest extends BaseSettingsWebTests {
 

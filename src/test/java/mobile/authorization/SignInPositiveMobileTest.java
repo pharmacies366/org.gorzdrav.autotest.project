@@ -11,6 +11,7 @@ import org.junit.jupiter.api.Test;
 @Feature(value = "Мобильная версия")
 @Story("Авторизация пользователя на сайте Gorzdrav")
 @DisplayName("Авторизация пользователя")
+@Tag("Mobile")
 @Tag("Regression")
 @Tag("Smoke")
 public class SignInPositiveMobileTest extends BaseSettingsMobileTests {

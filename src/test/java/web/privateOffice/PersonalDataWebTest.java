@@ -16,6 +16,7 @@ import java.util.stream.Stream;
 @Feature(value = "Web")
 @Story(value = "Личный кабинет на сайте Gorzdrav")
 @DisplayName("Личный кабинет")
+@Tag("Web")
 @Tag("Regression")
 public class PersonalDataWebTest extends BaseSettingsWebTests {
 

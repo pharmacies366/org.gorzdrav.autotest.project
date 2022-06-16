@@ -10,6 +10,7 @@ import org.junit.jupiter.api.Test;
 @Feature(value = "Мобильная версия")
 @Story(value = "Личный кабинет на сайте Gorzdrav")
 @DisplayName("Личный кабинет")
+@Tag("Mobile")
 @Tag("Regression")
 //@RunWith(DataProviderRunner.class)
 public class PersonalDataMobileTest extends BaseSettingsMobileTests {

@@ -10,6 +10,7 @@ import org.junit.jupiter.api.Tag;
 @Feature(value = "Мобильная версия")
 @Story(value = "Изменение региональности на сайте Gorzdrav")
 @DisplayName("Изменение региональности")
+@Tag("Mobile")
 @Tag("Regression")
 public class CheckRegionalMobileTest extends BaseSettingsMobileTests {
 

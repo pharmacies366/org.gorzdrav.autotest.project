@@ -11,6 +11,7 @@ import org.junit.jupiter.api.Test;
 @Feature(value = "Web")
 @Story(value = "Изменение региональности на сайте Gorzdrav")
 @DisplayName("Изменение региональности")
+@Tag("Web")
 @Tag("Regression")
 public class CheckRegionalWebTest extends BaseSettingsWebTests {
 

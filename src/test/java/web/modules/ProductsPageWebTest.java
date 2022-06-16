@@ -13,6 +13,7 @@ import org.junit.jupiter.api.Test;
 @Story(value = "Страница товаров на сайте Gorzdrav")
 @DisplayName("Страница товаров")
 //@RunWith(DataProviderRunner.class)
+@Tag("Web")
 @Tag("Regression")
 public class ProductsPageWebTest extends BaseSettingsWebTests {
 

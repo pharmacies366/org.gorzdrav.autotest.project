@@ -19,6 +19,7 @@ import org.openqa.selenium.WebElement;
 @Feature(value = "Web")
 @Story("ЦФТ на сайте Горздрав")
 @DisplayName("Проверка работы ЦФТ на главной странице сайта Горздрав")
+@Tag("Web")
 @Tag("Regression")
 @Tag("CFT")
 public class CftOnMainPageWebTest extends BaseSettingsWebTests {

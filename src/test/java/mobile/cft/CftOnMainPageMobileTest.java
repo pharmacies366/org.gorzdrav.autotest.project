@@ -17,6 +17,7 @@ import org.junit.jupiter.api.Test;
 @Feature(value = "Мобильная версия")
 @Story("ЦФТ на сайте Горздрав")
 @DisplayName("Проверка работы ЦФТ на главной странице сайта Горздрав")
+@Tag("Mobile")
 @Tag("Regression")
 @Tag("CFT")
 public class CftOnMainPageMobileTest extends BaseSettingsMobileTests {
