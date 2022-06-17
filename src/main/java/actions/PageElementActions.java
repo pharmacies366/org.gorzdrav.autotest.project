@@ -124,6 +124,24 @@ public class PageElementActions extends MainTestBase {
         saveAllureScreenshot();
     }
 
+    //Ожидание изчезновения элемента на странице
+    public void waitingForElementNullOnThePage() {
+        elementIsNotVisible(getBySelector(element), DEFAULT_ELEMENT_WAIT_TIME_S);
+    }
+
+    //Ожидание изчезновения элемента на странице
+    public void elementIsNotVisible(By by, int _secondsToWait) {
+        //WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(_secondsToWait));
+        WebDriverWait wait = new WebDriverWait(driver, _secondsToWait);
+        WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated(by));
+        boolean isNotVisible = true;
+        try {
+            isNotVisible = wait.until(ExpectedConditions.invisibilityOf(element));
+
+        } catch (NoSuchElementException ignored) {
+        }
+    }
+
     //Получение значение атрибута элемента
     public String getAttribute(String attributeName) {
         String attribute = waitUntilVisibilityOfElementLocated(getBySelector(element), DEFAULT_ELEMENT_WAIT_TIME_S).getAttribute(attributeName);
