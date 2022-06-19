@@ -11,7 +11,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class PageElementActions extends MainTestBase {
 
-    protected static final int DEFAULT_ELEMENT_WAIT_TIME_S = 20;
+    protected static final int DEFAULT_ELEMENT_WAIT_TIME_S = 25;
     private String element;
 
     //конструктор
@@ -29,11 +29,28 @@ public class PageElementActions extends MainTestBase {
     //Методы
 
     //Клик по элементу
-    public void click() {
+    public void clickF() {
         this.moveToElement();
         waitUntilElementToBeClickable(getBySelector(element), DEFAULT_ELEMENT_WAIT_TIME_S).click();
         saveAllureScreenshot();
     }
+
+    public boolean click() {
+        boolean result = false;
+        int attempts = 0;
+        while(attempts < 2) {
+            try {
+                clickF();
+                result = true;
+                break;
+            } catch(StaleElementReferenceException ignored) {
+            }
+            attempts++;
+
+        }
+        return result;
+    }
+
 
 
     //Получение цвета элемента
@@ -51,12 +68,27 @@ public class PageElementActions extends MainTestBase {
     }
 
     //Клик по элементу с помощью JS
-    public void clickJs() {
+    public void clickJsF() {
         moveToElementJs();
         WebElement ele = waitUntilElementToBeClickable(getBySelector(element), DEFAULT_ELEMENT_WAIT_TIME_S);
-        JavascriptExecutor jse = (JavascriptExecutor)driver;
+        JavascriptExecutor jse = (JavascriptExecutor) driver;
         jse.executeScript("arguments[0].click()", ele);
         saveAllureScreenshot();
+    }
+
+    public boolean clickJs() {
+        boolean result = false;
+        int attempts = 0;
+        while(attempts < 2) {
+            try {
+                clickJsF();
+                result = true;
+                break;
+            } catch(StaleElementReferenceException e) {
+            }
+            attempts++;
+        }
+        return result;
     }
 
 /*
