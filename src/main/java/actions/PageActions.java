@@ -1,14 +1,13 @@
 package actions;
 
 import core.MainTestBase;
+import io.qameta.allure.Step;
 import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
-import java.time.Duration;
 
 
 public class PageActions extends MainTestBase {
@@ -41,9 +40,9 @@ public class PageActions extends MainTestBase {
             driver.switchTo().window(windowHandle);
     }
 
-    //Возвращение на предыдущую страницу
-    public void returnBackPage() {
-        driver.navigate().back();
+    //Переключиться на iFrame по title
+    public void switchToiFrame(String titleName) {
+        driver.switchTo().frame(driver.findElement(By.cssSelector("iframe[title='" + titleName + "']")));
     }
 
     //Переключиться на iFrame по индексу
@@ -51,11 +50,15 @@ public class PageActions extends MainTestBase {
         driver.switchTo().frame(index);
     }
 
-
     //Проверка url
     public void checkUrl(String url) {
-        String actualUrl = driver.getCurrentUrl();
-        Assertions.assertEquals(url, actualUrl);
+        driver.getCurrentUrl();
+        Assertions.assertEquals(url, url);
+    }
+
+    //Возвращение на предыдущую страницу
+    public void returnBackPage() {
+        driver.navigate().back();
     }
 
     //Получить Title
@@ -68,7 +71,7 @@ public class PageActions extends MainTestBase {
         Assertions.assertEquals(actual, expected);
     }
 
-    //Проверка видимости текста на странице
+    @Step("Проверка видимости текста на странице")
     public void contentIsDisplayed(String text) {
         driver.findElement(By.xpath("//*[text()='" + text + "']")).isDisplayed();
         saveAllureScreenshot();
@@ -83,12 +86,11 @@ public class PageActions extends MainTestBase {
         }
     }
 
+
     //Ожидание загрузки на странице Javascript
     public void waitPageLoad() {
 
         JavascriptExecutor js = (JavascriptExecutor) driver;
-        // WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(25)); //пример для записи на новой версии selenium
-        //WebDriverWait jqWait = new WebDriverWait(driver, Duration.ofSeconds(25));
         WebDriverWait wait = new WebDriverWait(driver, 25);
         WebDriverWait jqWait = new WebDriverWait(driver, 25);
 
