@@ -19,12 +19,12 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
+import static core.MainTestBase.nameOfClass;
 import static core.MainTestBase.nameOfPackage;
-
 
 public class WebDriverFactory {
 
-    private Logger logger = LogManager.getLogger(WebDriverFactory.class);
+    private final Logger logger = LogManager.getLogger(WebDriverFactory.class);
     private RemoteWebDriver driver;
 
     @Step("Получение типа драйвера")
@@ -42,14 +42,31 @@ public class WebDriverFactory {
     }
 
     @Step("Настройка удаленного драйвера")
-    private void setupRemoteDriver() {
-        logger.info("setup remote driver");
+    public void setupRemoteDriver() {
+        logger.info("setup local driver");
         ChromeOptions chromeOptions = new ChromeOptions();
         DesiredCapabilities capabilities = new DesiredCapabilities();
+        //DesiredCapabilities capabilities = DesiredCapabilities.chrome(); //в чем разница?
+
+
         chromeOptions.addArguments("--incognito");
+        chromeOptions.setExperimentalOption("excludeSwitches", Collections.singletonList("enable-automation"));//оставить
+        // или chromeOptions.addArguments("enable-automation");
         chromeOptions.addArguments("--disable-notifications");
         chromeOptions.addArguments("--disable-extensions");
         chromeOptions.addArguments("--dns-prefetch-disable");
+        chromeOptions.addArguments("--disable-gpu");
+        chromeOptions.addArguments("--no-sandbox");
+        chromeOptions.addArguments("--dns-prefetch-disable");
+        chromeOptions.addArguments("--ignore-certificate-errors");
+        chromeOptions.addArguments("--disabled-popup-blocking");
+        //chromeOptions.addArguments("--headless");
+        chromeOptions.setPageLoadStrategy(PageLoadStrategy.NORMAL);
+
+        capabilities.setCapability("enableVNC", true);
+        capabilities.setCapability("enableVideo", false);
+
+        //  chromeOptions.setPageLoadStrategy(PageLoadStrategy.eager);
         Map<String, Object> prefs = new HashMap<String, Object>();
         Map<String, Object> profile = new HashMap<String, Object>();
         prefs.put("googlegeolocationaccess.enabled", true);
@@ -57,23 +74,20 @@ public class WebDriverFactory {
         prefs.put("profile.default_content_setting_values.notifications", 1);
         prefs.put("profile.managed_default_content_settings", 1);
         chromeOptions.setExperimentalOption("prefs", prefs);
-        chromeOptions.setPageLoadStrategy(PageLoadStrategy.NORMAL);
-        capabilities.setCapability("enableVNC", true);
-        capabilities.setCapability("enableVideo", false);
 
-
+        // System.out.println(nameOfPackage + " " + nameOfClass);
         if (nameOfPackage.contains("mobile")) {
+            WebDriverManager.chromedriver().setup();
             Map<String, String> mobileEmulation = new HashMap<>();
             mobileEmulation.put("deviceName", "iPhone X");
+            // mobileEmulation.put("deviceName", "Galaxy S5");
             chromeOptions.setExperimentalOption("mobileEmulation", mobileEmulation);
-            capabilities.setCapability(ChromeOptions.CAPABILITY, chromeOptions);
         }
-
 
         capabilities.setCapability(ChromeOptions.CAPABILITY, chromeOptions);
         String driverURL = System.getProperty("driverurl");
         capabilities.setBrowserName("chrome");
-        capabilities.setVersion("91.0");
+        capabilities.setVersion("102.0");
 
         try {
             driver = new RemoteWebDriver(
@@ -119,11 +133,12 @@ public class WebDriverFactory {
         prefs.put("profile.managed_default_content_settings", 1);
         chromeOptions.setExperimentalOption("prefs", prefs);
 
-
+        // System.out.println(nameOfPackage + " " + nameOfClass);
         if (nameOfPackage.contains("mobile")) {
             WebDriverManager.chromedriver().setup();
             Map<String, String> mobileEmulation = new HashMap<>();
             mobileEmulation.put("deviceName", "iPhone X");
+            // mobileEmulation.put("deviceName", "Galaxy S5");
             chromeOptions.setExperimentalOption("mobileEmulation", mobileEmulation);
         }
 
@@ -135,13 +150,12 @@ public class WebDriverFactory {
         logger.info("ЗАПУЩЕН ЛОКАЛЬНЫЙ ДРАЙВЕР");
     }
 
-
     @Step("Конфигурация драйвера")
     private void configureDriver() {
         driver.manage().deleteAllCookies();
         driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
-        driver.manage().timeouts().pageLoadTimeout(20, TimeUnit.SECONDS);
+        //driver.manage().timeouts().implicitlyWait(25, TimeUnit.SECONDS);
+        driver.manage().timeouts().pageLoadTimeout(25, TimeUnit.SECONDS);
     }
 
 
