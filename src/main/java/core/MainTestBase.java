@@ -5,7 +5,9 @@ import io.qameta.allure.Attachment;
 import io.qameta.allure.Step;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.junit.jupiter.api.*;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.TestInfo;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
@@ -18,13 +20,31 @@ public class MainTestBase {
     protected PropertiesManager propertiesManager = new PropertiesManager();
     protected PageActions pageActions;
     public static String nameOfPackage;
+    public static String nameOfClass;
     protected Logger logger = LogManager.getLogger(MainTestBase.class);
 
 
-    @Step("Пользователь переходит в карточку товара")
+    @Step("Пользователь открывает страницу по URL")
     protected void openUrl(String url) {
-        driver.get(url);
-        saveAllureScreenshot();
+        try {
+            driver.get(url);
+            saveAllureScreenshot();
+        } catch (org.openqa.selenium.TimeoutException ex) {
+            driver.navigate().refresh();
+            saveAllureScreenshot();
+        }
+    }
+
+    private void openStartPage() {
+        try {
+            driver.get(propertiesManager.getProperty("baseurl"));
+            pageActions.waitPageLoad();
+            saveAllureScreenshot();
+        } catch (org.openqa.selenium.TimeoutException ex) {
+            driver.navigate().refresh();
+            pageActions.waitPageLoad();
+            saveAllureScreenshot();
+        }
     }
 
     @BeforeEach
@@ -35,8 +55,7 @@ public class MainTestBase {
         driver = driverFactory.getDriver();
         pageActions = new PageActions(driver);
         openStartPage();
-        logger.info("Открывается главная страница сайта 36.6");
-        //driver.manage().deleteAllCookies();
+        logger.info("Открывается главная страница сайта Горздрав");
     }
 
     @AfterEach
@@ -48,18 +67,12 @@ public class MainTestBase {
 
     private void starting(TestInfo testInfo) {
         nameOfPackage = testInfo.getTestClass().get().getPackage().getName();
+        //`  nameOfClass = testInfo.getTestClass().get().getName();
         logger.info("Тест старт " + testInfo.getDisplayName());
     }
 
-    private void openStartPage() {
-        try {
-            driver.get(propertiesManager.getProperty("baseurl"));
-            saveAllureScreenshot();
-        } catch (org.openqa.selenium.TimeoutException ex) {
-            driver.navigate().refresh();
-            saveAllureScreenshot();
-        }
-    }
+
+
 
     /**
      * @return - скриншот
