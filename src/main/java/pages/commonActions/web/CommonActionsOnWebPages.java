@@ -41,7 +41,6 @@ public class CommonActionsOnWebPages extends MainTestBase {
     private static final String PRICE_INCREASE = "4";
     private static final String SORTING_NAME = "3";
     private static final String PRODUCT_GALLERY_BONUSES_BUTTON_XPATH = "xpath;(//div[@class='c-card-balance__text c-card-balance__text--list'])[1]";
-
     private static final String BACKGROUND_COLOR_PRODUCT_GALLERY_BUTTON_XPATH = "xpath;//div[@class='c-card-balance--product c-card-balance--background']";
     private static final String PRICE_TEXT_XPATH = "xpath;//span[contains(.,'Цена')]";
 
