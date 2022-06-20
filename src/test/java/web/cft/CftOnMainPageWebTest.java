@@ -47,9 +47,5 @@ public class CftOnMainPageWebTest extends BaseSettingsWebTests {
         mainPage.checkPlusOnBonusButton();
     }
 
-    @Test
-    public void checkTest() {
-        mainPage.test();
-    }
 
 }

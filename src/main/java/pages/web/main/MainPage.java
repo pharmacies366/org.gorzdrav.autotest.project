@@ -281,41 +281,10 @@ public class MainPage extends MainTestBase {
         return colorButton;
     }
 
-    @Step("Получение текста загаловка с попапом информации про -  Cash back за покупку")
-    public String getTextAboutCashBack() {
-        String text = getCashBackInfoPopUp().getText();
-        logger.info("Получение текста загаловка с попапом информации про -  Cash back за покупку");
-        return text;
-    }
-
-    @Step("Пользователь переходит по ссылке: Подробнее о бонусах")
-    public void clickOnLinkMoreAboutBonuses() {
-        getMoreAboutBonuses().click();
-        logger.info("ользователь переходит по ссылке: Подробнее о бонусах");
-    }
-
   @Step("Пользователь проверяет, что на шильдике с количеством бонусов присутствует значок '+'")
     public void checkPlusOnBonusButton() {
       getPlusOnBonusButton().isElementDisplayed();
         logger.info("Пользователь проверяет, что на шильдике с количеством бонусов присутствует значок '+'");
-    }
-////////////////////////////////////////////////////////
-
-    private static final String AAA = "xpath;(//img[@class=' lazyloaded'])[1]";
-    private static final String EEE = "xpath;(//div[@class='c-card-balance--product c-card-balance--background'])[1]";
-
-    public PageElementActions getaaa() {
-        return new PageElementActions(AAA, driver);
-    }
-
-    public PageElementActions geteee() {
-        return new PageElementActions(EEE, driver);
-    }
-    public void test() {
-        int a =  getaaa().testGetSize();
-        int e = geteee().testGetSize();
-        Assertions.assertTrue(a > e);
-
     }
 
 
