@@ -26,8 +26,9 @@ public class CommonActionsOnMobilePages extends MainTestBase {
     private static final String SLIDER_TO_XPATH = "xpath;//span[@class='irs-slider to']";
     private static final String PRICE_RANGE_FROM_XPATH = "xpath;(//input[@class='b-range__input js-range-from'])[2]";
     private static final String PRICE_RANGE_TO_XPATH = "xpath;(//input[@class='b-range__input js-range-to'])[2]";
-    private static final String PRODUCT_PRICES_RANGE_LIST_XPATH = "xpath;//div[@class='c-prod-item c-prod-item--grid js-product-item']";
-    private static final String BASE_INPUT_CHECK_PRODUCT_PRICE_XPATH = "xpath;(//div[@class='listing_product__price']//child::span)[%s]";
+    private static final String PRODUCT_PRICES_RANGE_LIST_XPATH = "xpath;//div[@class='c-prod-item js-product-item b-section c-prod-item--list ']";
+    private static final String BASE_INPUT_CHECK_PRODUCT_PRICE_XPATH = "xpath;(//span[@class='b-price '])[%s]";
+    private static final String BASE_INPUT_CHECK_PRODUCT_BONUSES_CHECK_XPATH = "xpath;(//div[@class='c-card-balance__text c-card-balance__text--list'])[%s]";
     private static final String BASE_INPUT_CHECK_PRODUCT_DELIVERY_METHOD_XPATH = "xpath;(//span[@class='b-prod-label b-prod-label_delivery'])[%s]";
     private static final String CHECKBOX_DELIVERY_XPATH = "xpath;(//span[@class='b-trim-str'][contains(.,'Доставка')])[2]";
     private static final String GET_SELECTED_CHECKBOX_XPATH = "xpath;//div[@class='filters_selected'][contains(.,'%s')]";
@@ -53,6 +54,18 @@ public class CommonActionsOnMobilePages extends MainTestBase {
     private static final String PRICE_REDUCTION = "5";
     private static final String PRICE_INCREASE = "4";
     private static final String SORTING_NAME = "3";
+
+    private static final String BACKGROUND_COLOR_PRODUCT_GALLERY_BUTTON_XPATH = "xpath;//div[@class='c-card-balance--product c-card-balance--background']";
+
+    private static final String PRODUCT_GALLERY_BONUSES_BUTTON_XPATH = "xpath;(//div[@class='c-card-balance__text c-card-balance__text--list'])[1]";
+
+    private static final String PLUS_ON_BONUS_BUTTON_XPATH = "xpath;(//div[@class='c-card-balance__text c-card-balance__text--list'])[1][contains(.,'+')]";
+
+    private static final String PRICE_TEXT_XPATH = "xpath;//span[contains(.,'Цена')]";
+
+    private static final String SHOW_ALL_PRODUCTS_XPATH = "xpath;//div[@class='b-btn__show-all-products js-show-all-product']";
+
+
 
 
     //конструктор
@@ -216,6 +229,31 @@ public class CommonActionsOnMobilePages extends MainTestBase {
         return new PageElementActions(xpath, driver);
     }
 
+    public PageElementActions getBackgroundColorProductGalleryButton() {
+        return new PageElementActions(BACKGROUND_COLOR_PRODUCT_GALLERY_BUTTON_XPATH, driver);
+    }
+
+    public PageElementActions getProductGalleryBonusesButton() {
+        return new PageElementActions(PRODUCT_GALLERY_BONUSES_BUTTON_XPATH, driver);
+    }
+
+    public PageElementActions getProductGalleryBonusesCheck(String xpath) {
+        return new PageElementActions(xpath, driver);
+    }
+
+    public PageElementActions getPlusOnBonusButton() {
+        return new PageElementActions(PLUS_ON_BONUS_BUTTON_XPATH, driver);
+    }
+
+    public PageElementActions getPriceText() {
+        return new PageElementActions(PRICE_TEXT_XPATH, driver);
+    }
+
+    public PageElementActions getShowAllProductsButton() {
+        return new PageElementActions(SHOW_ALL_PRODUCTS_XPATH, driver);
+    }
+
+
 
     //Методы
     @Step("Пользователь проверяет и переходит по банеру")
@@ -301,10 +339,13 @@ public class CommonActionsOnMobilePages extends MainTestBase {
         return Integer.parseInt(priseRangeTo);
     }
 
+
     @Step("Пользователь прописывает нижный и верхний диапозон цены")
     public void changePricesRangeWithHands(String fromPrice, String toPrice) {
         getPriceRangeFrom().clean();
-        getPriceRangeFrom().sendKeys(fromPrice);
+        getPriceRangeFrom().sendKeysAndEnter(fromPrice);
+        getFiltersButton().click();
+        getCostButton().click();
         getPriceRangeTo().clean();
         getPriceRangeTo().sendKeysAndEnter(toPrice);
         logger.info("Пользователь прописывает нижный и верхний диапозон цены");
@@ -319,6 +360,15 @@ public class CommonActionsOnMobilePages extends MainTestBase {
         }
         logger.info("Пользователь проверяет цены на текущей странице выдачи");
         return price;
+    }
+
+    @Step("Пользователь проверяет наличие бонусных баллов у товаров")
+    public void checkBonusesOnProducts() {
+        int par = getProductList().getSize();
+        for (int i = 1; i <= par; i++) {
+          getProductGalleryBonusesCheck(String.format(BASE_INPUT_CHECK_PRODUCT_BONUSES_CHECK_XPATH, i)).formatElementToValue();
+        }
+        logger.info("Пользователь проверяет наличие бонусных баллов у товаров");
     }
 
     @Step("Пользователь выбирает чекбокс с доставкой")
@@ -489,6 +539,32 @@ public class CommonActionsOnMobilePages extends MainTestBase {
         }
         logger.info("Пользователь листает назад страницы и проверяет релевантный переход");
 
+    }
+
+    @Step("Получение цвета кнопки")
+    public String getColorBackgroundProductGalleryButton() {
+        String colorButton = getBackgroundColorProductGalleryButton().getBackgroundColor();
+        logger.info("Получение цвета кнопки");
+        return colorButton;
+    }
+
+    @Step("Получение цвета текста кнопки с расчётом бонусов")
+    public String getColorTextProductGalleryButton() {
+        String colorButton = getProductGalleryBonusesButton().getColor();
+        logger.info("Получение цвета текста кнопки с расчётом бонусов");
+        return colorButton;
+    }
+
+    @Step("Пользователь проверяет, что на шильдике с количеством бонусов присутствует значок '+'")
+    public void checkPlusOnBonusButton() {
+        getPlusOnBonusButton().isElementDisplayed();
+        logger.info("Пользователь проверяет, что на шильдике с количеством бонусов присутствует значок '+'");
+    }
+
+    @Step("Пользователь нажимает кнопку показать все товары")
+    public void clickShowAllProducts() {
+        getShowAllProductsButton().click();
+        logger.info("Пользователь нажимает кнопку показать все товары");
     }
 
 
