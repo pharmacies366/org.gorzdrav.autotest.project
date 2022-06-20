@@ -8,6 +8,7 @@ import org.apache.logging.log4j.Logger;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.TestInfo;
+import org.junit.jupiter.api.extension.RegisterExtension;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
@@ -23,15 +24,14 @@ public class MainTestBase {
     public static String nameOfClass;
     protected Logger logger = LogManager.getLogger(MainTestBase.class);
 
-
     @Step("Пользователь открывает страницу по URL")
     protected void openUrl(String url) {
         try {
             driver.get(url);
-            saveAllureScreenshot();
+            // saveAllureScreenshot();
         } catch (org.openqa.selenium.TimeoutException ex) {
             driver.navigate().refresh();
-            saveAllureScreenshot();
+            // saveAllureScreenshot();
         }
     }
 
@@ -39,11 +39,11 @@ public class MainTestBase {
         try {
             driver.get(propertiesManager.getProperty("baseurl"));
             pageActions.waitPageLoad();
-            saveAllureScreenshot();
+            // saveAllureScreenshot();
         } catch (org.openqa.selenium.TimeoutException ex) {
             driver.navigate().refresh();
             pageActions.waitPageLoad();
-            saveAllureScreenshot();
+            // saveAllureScreenshot();
         }
     }
 
@@ -60,6 +60,7 @@ public class MainTestBase {
 
     @AfterEach
     public void finish() {
+        getWatcher();
         driver.close();
         driver.quit();
     }
@@ -72,29 +73,11 @@ public class MainTestBase {
     }
 
 
-
-
-    /**
-     * @return - скриншот
-     */
+    @RegisterExtension
+    ScreenshotWatcher5 watcher = new ScreenshotWatcher5(driver, "target/surefire-reports");
     @Attachment(value = "Скриншот", type = "image/png")
-    public byte[] saveAllureScreenshot() {
+    public byte[] getWatcher() {
         return ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
     }
 
-    /**
-     * Прикрепить строку к отчету
-     *
-     * @param string - Входящая строка
-     * @return - строка к отчету
-     */
-    @Attachment(value = "строка")
-    public String returnString(String string) {
-        return string;
-    }
-
-    @Attachment(value = "Result")
-    public String returnAttachment() {
-        return "Все хорошо";
-    }
 }
