@@ -25,6 +25,11 @@ public class MobileProductCardPage extends MainTestBase {
     private static final String REGION_TEXT_XPATH = "xpath;//h2[contains(.,'%s')]";
     private static final String RECIPE_INFO_XPATH = "xpath;(//span[@class='c-product__description'])[7]";
     private static final String PRODUCT_DETAILS_XPATH = "xpath;//div[@class='c-product-discount hidden-sm hidden-md hidden-lg hidden-xl js-product-accordion-block']";
+    private static final String BACKGROUND_COLOR_PRODUCT_GALLERY_BUTTON_XPATH = "xpath;//div[@class='c-card-balance--product c-card-balance--background']";
+    private static final String PRODUCT_GALLERY_BONUSES_BUTTON_XPATH = "xpath;(//div[@class='c-card-balance__text c-card-balance__text--list'])[1]";
+    private static final String PLUS_ON_BONUS_BUTTON_XPATH = "xpath;(//div[@class='c-card-balance__text c-card-balance__text--list'])[1][contains(.,'+')]";
+    private static final String PLUS_ON_MAIN_PRODUCT_ABOUT_BONUSES_XPATH = "xpath;//span[contains(@class,'c-card-balance__text js-card-balance-text')][contains(.,'+')]";
+
 
 
     //конструктор
@@ -93,6 +98,22 @@ public class MobileProductCardPage extends MainTestBase {
     public PageElementActions getClickProductDetails() {
         return new PageElementActions(PRODUCT_DETAILS_XPATH, driver);
     }
+
+    public PageElementActions getBackgroundColorProductGalleryButton() {
+        return new PageElementActions(BACKGROUND_COLOR_PRODUCT_GALLERY_BUTTON_XPATH, driver);
+    }
+    public PageElementActions getProductGalleryBonusesButton() {
+        return new PageElementActions(PRODUCT_GALLERY_BONUSES_BUTTON_XPATH, driver);
+    }
+
+    public PageElementActions getPlusOnBonusButton() {
+        return new PageElementActions(PLUS_ON_BONUS_BUTTON_XPATH, driver);
+    }
+
+    public PageElementActions getPlusOnMainProductAboutBonuses() {
+        return new PageElementActions(PLUS_ON_MAIN_PRODUCT_ABOUT_BONUSES_XPATH, driver);
+    }
+
 
 
     //Методы
@@ -192,6 +213,32 @@ public class MobileProductCardPage extends MainTestBase {
     public void clickProductDetails() {
         getClickProductDetails().click();
         logger.info("");
+    }
+
+    @Step("Получение цвета кнопки")
+    public String getColorBackgroundProductGalleryButton() {
+        String colorButton = getBackgroundColorProductGalleryButton().getBackgroundColor();
+        logger.info("Получение цвета кнопки");
+        return colorButton;
+    }
+
+    @Step("Получение цвета текста кнопки с расчётом бонусов")
+    public String getColorTextProductGalleryButton() {
+        String colorButton = getProductGalleryBonusesButton().getColor();
+        logger.info("Получение цвета текста кнопки с расчётом бонусов");
+        return colorButton;
+    }
+
+    @Step("Пользователь проверяет, что на шильдике с количеством бонусов присутствует значок '+'")
+    public void checkPlusOnBonusButton() {
+        getPlusOnBonusButton().isElementDisplayed();
+        logger.info("Пользователь проверяет, что на шильдике с количеством бонусов присутствует значок '+'");
+    }
+
+    @Step("Пользователь проверяет, что в тексте об информации о начисляемых бонусах присутствует значок '+'")
+    public void checkPlusOnMainProductAboutBonuses() {
+        getPlusOnMainProductAboutBonuses().isElementDisplayed();
+        logger.info("Пользователь проверяет, что в тексте об информации о начисляемых бонусах присутствует значок '+'");
     }
 
 }
