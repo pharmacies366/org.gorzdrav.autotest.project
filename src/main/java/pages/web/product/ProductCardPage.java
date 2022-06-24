@@ -121,7 +121,7 @@ public class ProductCardPage extends MainTestBase {
 
     @Step("Пользователь нажимает на кнопку 'в корзину'")
     public void clickAddCartButton() {
-        getAddToCartButton().clickJs();
+        getAddToCartButton().click();
         logger.info("Пользователь нажимает на кнопку 'в корзину'");
     }
 
