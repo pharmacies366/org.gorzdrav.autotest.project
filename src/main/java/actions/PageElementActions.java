@@ -1,7 +1,6 @@
 package actions;
 
 import core.MainTestBase;
-import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.Color;
@@ -29,66 +28,19 @@ public class PageElementActions extends MainTestBase {
     //Методы
 
     //Клик по элементу
-    public void clickF() {
+    public void click() {
         this.moveToElement();
         waitUntilElementToBeClickable(getBySelector(element), DEFAULT_ELEMENT_WAIT_TIME_S).click();
         saveAllureScreenshot();
     }
 
-    public boolean click() {
-        boolean result = false;
-        int attempts = 0;
-        while(attempts < 2) {
-            try {
-                clickF();
-                result = true;
-                break;
-            } catch(StaleElementReferenceException ignored) {
-            }
-            attempts++;
-
-        }
-        return result;
-    }
-
-
-
-    //Получение цвета элемента
-    public String getColor() {
-        String colorValue = waitUntilVisibilityOfElementLocated(getBySelector(element), DEFAULT_ELEMENT_WAIT_TIME_S).getCssValue("color");
-        String hex = Color.fromString(colorValue).asHex();
-        return hex;
-    }
-
-    //Получение цвета текста элемента/заголовка
-    public String getBackgroundColor() {
-        String backgroundColorValue = waitUntilVisibilityOfElementLocated(getBySelector(element), DEFAULT_ELEMENT_WAIT_TIME_S).getCssValue("background-color");
-        String hex = Color.fromString(backgroundColorValue).asHex();
-        return hex;
-    }
-
     //Клик по элементу с помощью JS
-    public void clickJsF() {
+    public void clickJs() {
         moveToElementJs();
         WebElement ele = waitUntilElementToBeClickable(getBySelector(element), DEFAULT_ELEMENT_WAIT_TIME_S);
         JavascriptExecutor jse = (JavascriptExecutor) driver;
         jse.executeScript("arguments[0].click()", ele);
         saveAllureScreenshot();
-    }
-
-    public boolean clickJs() {
-        boolean result = false;
-        int attempts = 0;
-        while(attempts < 2) {
-            try {
-                clickJsF();
-                result = true;
-                break;
-            } catch(StaleElementReferenceException e) {
-            }
-            attempts++;
-        }
-        return result;
     }
 
 /*
@@ -149,10 +101,46 @@ public class PageElementActions extends MainTestBase {
 
     //Очистить содержимое элемента
     public void clean() {
-        //waitUntilVisibilityOfElementLocated(getBySelector(element), DEFAULT_ELEMENT_WAIT_TIME_S).clear();
+        waitUntilVisibilityOfElementLocated(getBySelector(element), DEFAULT_ELEMENT_WAIT_TIME_S).clear();
         waitUntilVisibilityOfElementLocated(getBySelector(element), DEFAULT_ELEMENT_WAIT_TIME_S).sendKeys(Keys.chord(Keys.LEFT_CONTROL, "A"));
         waitUntilVisibilityOfElementLocated(getBySelector(element), DEFAULT_ELEMENT_WAIT_TIME_S).sendKeys(Keys.BACK_SPACE);
         saveAllureScreenshot();
+    }
+
+    //Получение значение атрибута элемента
+    public String getAttribute(String attributeName) {
+        String attribute = waitUntilVisibilityOfElementLocated(getBySelector(element), DEFAULT_ELEMENT_WAIT_TIME_S).getAttribute(attributeName);
+        return attribute;
+    }
+
+
+    //Получение значение атрибута элемента и сравнивает с ожидаемым результатом
+    public void checkAttribute(String attributeName, String expectedText) {
+        String result = getAttribute(attributeName);
+        // Assert.assertEquals(expectedText, result);
+    }
+
+    //Ожидание загрузки видимости элемента
+    public void elementIsVisibility() {
+        waitUntilVisibilityOfElementLocated(getBySelector(element), DEFAULT_ELEMENT_WAIT_TIME_S);
+    }
+
+    //Ожидание загрузки видимости элемента
+    public WebElement waitUntilVisibilityOfElementLocated(By by, int _secondsToWait) {
+        WebDriverWait wait = new WebDriverWait(driver, _secondsToWait);
+        WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated(by));
+        return element;
+    }
+
+/*    public void elementDisplayed(By elementBy) {
+        waitUntilVisibilityOfElementLocated(getBySelector(element), DEFAULT_ELEMENT_WAIT_TIME_S);
+        Assert.assertTrue(driver.findElement(elementBy).isDisplayed());
+        saveAllureScreenshot();
+    }*/
+
+    //Проверяет видимость элемента на странице, возвращает статус true либо Exception
+    public boolean isElementDisplayed() {
+        return driver.findElement(getBySelector(element)).isDisplayed();
     }
 
     //Ожидание изчезновения элемента на странице
@@ -173,40 +161,13 @@ public class PageElementActions extends MainTestBase {
         }
     }
 
-    //Получение значение атрибута элемента
-    public String getAttribute(String attributeName) {
-        String attribute = waitUntilVisibilityOfElementLocated(getBySelector(element), DEFAULT_ELEMENT_WAIT_TIME_S).getAttribute(attributeName);
-        return attribute;
-    }
-
-
-    //Получение значение атрибута элемента и сравнивает с ожидаемым результатом
-    public void checkAttribute(String attributeName, String expectedText) {
-        String result = getAttribute(attributeName);
-        Assertions.assertEquals(expectedText, result);
-    }
-
-    //Ожидание загрузки видимости элемента
-    public void elementIsVisibility() {
-        waitUntilVisibilityOfElementLocated(getBySelector(element), DEFAULT_ELEMENT_WAIT_TIME_S);
-    }
-
-    //Ожидание загрузки видимости элемента
-    public WebElement waitUntilVisibilityOfElementLocated(By by, int _secondsToWait) {
-        WebDriverWait wait = new WebDriverWait(driver, _secondsToWait);
-        WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated(by));
-        return element;
-    }
-
-    public void elementDisplayed(By elementBy) {
-        waitUntilVisibilityOfElementLocated(getBySelector(element), DEFAULT_ELEMENT_WAIT_TIME_S);
-        Assertions.assertTrue(driver.findElement(elementBy).isDisplayed());
-        saveAllureScreenshot();
-    }
-
-    //Проверяет видимость элемента на странице, возвращает статус true либо Exception
-    public boolean isElementDisplayed() {
-        return driver.findElement(getBySelector(element)).isDisplayed();
+    public boolean isElementNotVisible() {
+        boolean isVisible = false;
+        try {
+            isVisible = driver.findElement(getBySelector(element)).isDisplayed();
+        } catch (NoSuchElementException ignored) {
+        }
+        return isVisible;
     }
 
     //Проверяет видимость элемента на странице по индексу
@@ -224,32 +185,28 @@ public class PageElementActions extends MainTestBase {
         return isVisible;
     }
 
-    public boolean isElementNotVisible() {
-        boolean isVisible = false;
-        try {
-            isVisible = driver.findElement(getBySelector(element)).isDisplayed();
-        } catch (NoSuchElementException ignored) {
-        }
-        return isVisible;
-    }
-
     //
     public int getSize() {
         return driver.findElements(getBySelector(element)).size();
     }
 
-    public int testGetSize() {
-        String coordinates = driver.findElement(getBySelector(element)).getSize().toString().replaceAll("[^0-9]", "").trim();
-    /*    double[] coordinates = new double[2];
-        coordinates[0] = driver.findElement(getBySelector(element)).getSize().getHeight();
-        coordinates[1] = driver.findElement(getBySelector(element)).getSize().getWidth();*/
-        return Integer.parseInt(coordinates);
+    //Получение цвета элемента
+    public String getColor() {
+        String colorValue = waitUntilVisibilityOfElementLocated(getBySelector(element), DEFAULT_ELEMENT_WAIT_TIME_S).getCssValue("color");
+        String hex = Color.fromString(colorValue).asHex();
+        //System.out.println(hex);
+        return hex;
+    }
+
+    //Получение цвета текста элемента/заголовка
+    public String getBackgroundColor() {
+        String backgroundColorValue = waitUntilVisibilityOfElementLocated(getBySelector(element), DEFAULT_ELEMENT_WAIT_TIME_S).getCssValue("background-color");
+        String hex = Color.fromString(backgroundColorValue).asHex();
+        return hex;
     }
 
     //Проверяет видимость текста {string} на странице
     public void contentIsDisplayed(String text) {
-       /* WebDriverWait wait = new WebDriverWait(driver, 10);
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[text()='" + text + "']"))).isDisplayed();*/
         driver.findElement(By.xpath("//*[text()='" + text + "']")).isDisplayed();
     }
 
@@ -309,7 +266,7 @@ public class PageElementActions extends MainTestBase {
     }
 
     public String getText() {
-       // this.moveToElement();
+        // this.moveToElement();
         String result = waitUntilVisibilityOfElementLocated(getBySelector(element), DEFAULT_ELEMENT_WAIT_TIME_S).getText();
         return result;
     }
