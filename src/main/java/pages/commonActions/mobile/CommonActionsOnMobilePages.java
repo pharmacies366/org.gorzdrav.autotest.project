@@ -498,7 +498,7 @@ public class CommonActionsOnMobilePages extends MainTestBase {
 
     @Step("Пользователь выбирает опцию: по рецепту")
     public void checkCheckboxWithRecipe() {
-        getOnRecipeButton().click();
+        getOnRecipeButton().clickJs();
         getOnRecipeCheckbox().click();
         logger.info("Пользователь выбирает опцию: по рецепту");
     }
@@ -511,7 +511,7 @@ public class CommonActionsOnMobilePages extends MainTestBase {
 
     @Step("Пользователь выбирает опцию: без рецепта")
     public void checkCheckboxWithoutRecipe() {
-        getOnRecipeButton().click();
+        getOnRecipeButton().clickJs();
         getWithoutRecipeCheckbox().click();
         logger.info("Пользователь выбирает опцию: без рецепта");
     }
