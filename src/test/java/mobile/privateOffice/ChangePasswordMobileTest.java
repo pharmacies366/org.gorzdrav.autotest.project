@@ -25,7 +25,6 @@ public class ChangePasswordMobileTest extends BaseSettingsMobileTests {
         mobileAuthPopUpPage.authorizeWithPhoneAndPassword(
                 propertiesManager.getProperty("mobilephonenumber8"),
                 propertiesManager.getProperty("userpass"));
-        pageActions.waitPageLoad();
         mobileCartPage.checkAndClearCartQuantity();
         mobileHeaderBlock.clickBurgerButton();
         mobileMainPopUpBlock.clickToPersonalAccount();
