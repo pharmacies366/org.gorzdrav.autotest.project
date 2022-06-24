@@ -24,7 +24,7 @@ public class CheckShoppingCartMobileTest extends BaseSettingsMobileTests {
         mobileHeaderBlock.clickToCartButton();
         pageActions.waitPageLoad();
         mobileCartPage.clickIncreaseQuantity();
-        pageActions.staticWait(1000);
+        mobileCartPage.getIncreaseQuantity().waitingForElementNullOnThePage();
         int quantity = mobileCartPage.getQuantityMaterials();
         Assertions.assertEquals(2, quantity);
         logger.info("Количество товара равно 2-м");
@@ -38,13 +38,13 @@ public class CheckShoppingCartMobileTest extends BaseSettingsMobileTests {
         mobileHeaderBlock.clickToCartButton();
         pageActions.waitPageLoad();
         mobileCartPage.clickIncreaseQuantity();
-        pageActions.staticWait(1000);
+        mobileCartPage.getIncreaseQuantity().waitingForElementNullOnThePage();
         int firstQuantity = mobileCartPage.getQuantityMaterials();
         pageActions.waitPageLoad();
         Assertions.assertEquals(2, firstQuantity);
         logger.info("Количество товара равно 2-м");
         mobileCartPage.clickDecreaseQuantity();
-        pageActions.staticWait(1000);
+        mobileCartPage.getDecreaseQuantity().waitingForElementNullOnThePage();
         int secondQuantity = mobileCartPage.getQuantityMaterials();
         Assertions.assertEquals(1, secondQuantity);
         logger.info("Количество товара равно 1-му");
@@ -134,7 +134,7 @@ public class CheckShoppingCartMobileTest extends BaseSettingsMobileTests {
     public void checkDoNotAddToCartBlock() {
         openUrl(propertiesManager.getProperty("baseurl") + "cart");
         String text = mobileCartPage.checkTextDoNotAddToCart();
-        Assertions.assertEquals(text,"Не забудьте положить в корзину");
+        Assertions.assertEquals(text, "Не забудьте положить в корзину");
         int count = mobileCartPage.checkDoNotAddToCartProductsList();
         Assertions.assertTrue(count > 0);
     }
@@ -173,22 +173,23 @@ public class CheckShoppingCartMobileTest extends BaseSettingsMobileTests {
         logger.info("Количество товара равно 1-му");
     }
 
- /*   @DisplayName("Пользователь увеличивает количество шт. товара в карточке товара")
+    @DisplayName("Пользователь увеличивает количество шт. товара в карточке товара")
     @Test
     public void increaseQuantityMaterialOnProductCartPage() {
-        openUrl(propertiesManager.getProperty("baseurl") + "p/29992");
+        openUrl(propertiesManager.getProperty("baseurl") + "p/44226");
+        pageActions.waitPageLoad();
         mobileProductCardPage.clickAddCartButton();
         pageActions.waitPageLoad();
         mobileProductCardPage.clickIncreaseQuantity();
-        pageActions.waitPageLoad();
         int quantity = mobileProductCardPage.getQuantityProduct();
+        pageActions.waitPageLoad();
         Assertions.assertEquals(2, quantity);
         logger.info("Количество товара равно 2-м");
+        pageActions.staticWait(2000);//из за проблем скорости работы сайта
         mobileProductCardPage.clickToCartButton();
-        pageActions.waitPageLoad();
-        int finalQuantity = mobileProductCardPage.getQuantityMaterials();
+        int finalQuantity = mobileCartPage.getQuantityMaterials();
         Assertions.assertEquals(2, finalQuantity);
         logger.info("Количество товара равно 2-м");
-    }*/
+    }
 
 }

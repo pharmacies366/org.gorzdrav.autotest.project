@@ -18,7 +18,7 @@ public class MobileProductCardPage extends MainTestBase {
     private static final String CHANGE_APTEKA_LIST_XPATH = "xpath;//span[contains(.,'Списком')]";
     private static final String ONE_CKICK_APTEKA_BUTTONS_XPATH = "xpath;(//button[@class='b-btn b-btn--third js-order-quick__button'])[1]";
     private static final String INCREASE_QUANTITY_XPATH = "xpath;//button[@data-autotest='selector_plus']";
-    private static final String QUANTITY_PRODUCT_XPATH = "xpath;//span[@class='b-counter__input-wrapper']";
+    private static final String QUANTITY_PRODUCT_XPATH = "xpath;//span[@class='b-counter__input-wrapper']//child::input";
     private static final String CARD_BUTTON_XPATH = "xpath;//div[@id='js-mini-cart-link']";
     private static final String MAIN_BUTTON_XPATH = "xpath;//div[@class='breadcrumbs__item']";
     private static final String BANNER_XPATH = "xpath;//div[@class='b-preload-banner__inner']";
@@ -167,9 +167,9 @@ public class MobileProductCardPage extends MainTestBase {
 
     @Step("Сохранение количества товара")
     public int getQuantityProduct() {
-        int quantity = getProductQuantity().formatElementToValue();
+        String stringQuantity = getProductQuantity().getAttribute("value");
         logger.info("Запоминаем количество товара");
-        return quantity;
+        return Integer.parseInt(stringQuantity);
     }
 
     @Step("Пользователь нажимает на иконку корзины")

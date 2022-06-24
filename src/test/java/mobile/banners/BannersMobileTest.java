@@ -41,7 +41,6 @@ public class BannersMobileTest extends BaseSettingsMobileTests {
     @DisplayName("Пользователь проверяет переход по банерау на странице OSP")
     @Test
     public void checkBannersClickableOnOspPage() {
-        pageActions.waitPageLoad();
         mobileMainPage.clickSiteLogo();
         pageActions.waitPageLoad();
         mobileMainPage.clickLetterN();
