@@ -34,8 +34,8 @@ public class MakeOrdersUnauthorizedMobileTest extends BaseSettingsMobileTests {
                 propertiesManager.getProperty("cardnumber"),
                 propertiesManager.getProperty("monthyear"),
                 propertiesManager.getProperty("cvv"));
-      //  mobileSberPage.clickOnSubmitButton();
-      //  mobileThankForTheOrderPage.checkPaymentError();
+        //  mobileSberPage.clickOnSubmitButton();
+        //  mobileThankForTheOrderPage.checkPaymentError();
     }
 
 
@@ -56,8 +56,8 @@ public class MakeOrdersUnauthorizedMobileTest extends BaseSettingsMobileTests {
         mobileProductCardPage.clickChangeAptekaList();
         mobileProductCardPage.clickBuyOneClick();
         mobileCheckOutPage.setInputOneClickPhoneNumber(propertiesManager.getProperty("phonenumber"));
-       // mobileCheckOutPage.clickBookingButton();
-       // mobileThankForTheOrderPage.checkSuccessMessage();
+        // mobileCheckOutPage.clickBookingButton();
+        // mobileThankForTheOrderPage.checkSuccessMessage();
     }
 
 
@@ -106,8 +106,8 @@ public class MakeOrdersUnauthorizedMobileTest extends BaseSettingsMobileTests {
                 propertiesManager.getProperty("username"),
                 propertiesManager.getProperty("phonenumber"),
                 propertiesManager.getProperty("usermail"));
-     //   mobileCheckOutPage.clickMakeOrder();
-      //  mobileThankForTheOrderPage.checkSuccessMessage();
+        //   mobileCheckOutPage.clickMakeOrder();
+        //  mobileThankForTheOrderPage.checkSuccessMessage();
     }
 
     @DisplayName("Неавторизованный пользователь оформляет заказ содержащий Партнерский товар + Не партнерский")
@@ -131,7 +131,7 @@ public class MakeOrdersUnauthorizedMobileTest extends BaseSettingsMobileTests {
                 propertiesManager.getProperty("username"),
                 propertiesManager.getProperty("phonenumber"),
                 propertiesManager.getProperty("usermail"));
-     //   mobileCheckOutPage.clickMakeOrder();
-      //  mobileThankForTheOrderPage.checkSuccessMessage();
+        //   mobileCheckOutPage.clickMakeOrder();
+        //  mobileThankForTheOrderPage.checkSuccessMessage();
     }
 }
