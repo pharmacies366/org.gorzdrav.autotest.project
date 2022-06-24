@@ -163,9 +163,9 @@ public class ProductCardPage extends MainTestBase {
 
     @Step("Сохранение количества товара")
     public int getQuantityProduct() {
-        int quantity = getProductQuantity().formatElementToValue();
+        String stringQuantity = getProductQuantity().getAttribute("value");
         logger.info("Запоминаем количество товара");
-        return quantity;
+        return Integer.parseInt(stringQuantity);
     }
 
     @Step("Пользователь нажимает на иконку корзины")

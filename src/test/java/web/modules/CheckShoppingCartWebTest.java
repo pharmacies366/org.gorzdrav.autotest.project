@@ -23,7 +23,7 @@ public class CheckShoppingCartWebTest extends BaseSettingsWebTests {
         headerBlock.clickToCartButton();
         pageActions.waitPageLoad();
         cartPage.clickIncreaseQuantity();
-        pageActions.staticWait(3000);
+        cartPage.getProductQuantity().waitingForElementNullOnThePage();
         int quantity = cartPage.getQuantityMaterials();
         Assertions.assertEquals(2, quantity);
         logger.info("Количество товара равно 2-м");
@@ -37,7 +37,7 @@ public class CheckShoppingCartWebTest extends BaseSettingsWebTests {
         headerBlock.clickToCartButton();
         pageActions.waitPageLoad();
         cartPage.clickIncreaseQuantity();
-        pageActions.waitPageLoad();
+        cartPage.getProductQuantity().waitingForElementNullOnThePage();
         cartPage.getProductQuantity().contentIsDisplayed("2");
         int firstQuantity = cartPage.getQuantityMaterials();
         pageActions.waitPageLoad();
@@ -177,24 +177,24 @@ public class CheckShoppingCartWebTest extends BaseSettingsWebTests {
         logger.info("Количество товара равно 1-му");
     }
 
-/*    @DisplayName("Пользователь увеличивает количество шт. товара в карточке товара")
+    @DisplayName("Пользователь увеличивает количество шт. товара в карточке товара")
     @Test
     public void increaseQuantityMaterialOnProductCartPage() {
-        openUrl(propertiesManager.getProperty("baseurl") + "p/29992");
+        openUrl(propertiesManager.getProperty("baseurl") + "p/44226");
         pageActions.waitPageLoad();
         productCardPage.clickAddCartButton();
         pageActions.waitPageLoad();
         productCardPage.clickIncreaseQuantity();
         pageActions.waitPageLoad();
-        pageActions.staticWait(3000);
         int quantity = productCardPage.getQuantityProduct();
+        pageActions.waitPageLoad();
         Assertions.assertEquals(2, quantity);
         logger.info("Количество товара равно 2-м");
+        pageActions.staticWait(2000);//из за проблем скорости работы сайта
         productCardPage.clickToCartButton();
-        pageActions.waitPageLoad();
         int finalQuantity = cartPage.getQuantityMaterials();
         Assertions.assertEquals(2, finalQuantity);
         logger.info("Количество товара равно 2-м");
-    }*/
+    }
     
 }
