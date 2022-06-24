@@ -21,7 +21,7 @@ import static org.hamcrest.Matchers.containsString;
  * @author Михаил
  */
 
-@Feature(value = "Mobile")
+@Feature(value = "Мобильная версия")
 @DisplayName("ЦФТ на сайте Горздрав")
 @Story("Проверка работы ЦФТ в карточке товаров сайта Горздрав")
 @Tag("Mobile")
