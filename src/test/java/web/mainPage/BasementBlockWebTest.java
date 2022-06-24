@@ -9,7 +9,6 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 
-import java.io.IOException;
 import java.util.stream.Stream;
 
 @Feature(value = "Web")
@@ -21,11 +20,10 @@ public class BasementBlockWebTest extends BaseSettingsWebTests {
 
     @ParameterizedTest(name = "{index} {1}")
     @MethodSource("checkBasementLinks")
-    public void testSomething(String LOCATOR, String LINK_TEXT, String PAGE_MESSAGE) throws IOException {
+    public void testSomething(String LOCATOR, String LINK_TEXT, String PAGE_MESSAGE) {
         basementBlock.checkLinksValidation(LOCATOR, LINK_TEXT);
         basementBlock.selectBasementButtons(LOCATOR);
         pageActions.contentIsDisplayed(PAGE_MESSAGE);
-        throw new IOException("Exception in I/O operation");
     }
 
     private static Stream<Arguments> checkBasementLinks() {
