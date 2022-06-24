@@ -3,6 +3,7 @@ package mobile.modules;
 import base.BaseSettingsMobileTests;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Story;
+import org.apache.logging.log4j.core.util.Assert;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
@@ -25,11 +26,11 @@ public class ProductsPageMobileTest extends BaseSettingsMobileTests {
         commonActionsOnMobilePages.clickCostButton();
         commonActionsOnMobilePages.changePricesRangeWithHands("100", "500");
         commonActionsOnMobilePages.clickFiltersButton();
-        int ToPriceRange = commonActionsOnMobilePages.getToPriceRange();
         int FromPriceRange = commonActionsOnMobilePages.getFromPriceRange();
+        int ToPriceRange = commonActionsOnMobilePages.getToPriceRange();
         int price = commonActionsOnMobilePages.checkProductsPrices();
-        Assert.assertTrue(price >= FromPriceRange);
-        Assert.assertTrue(price <= ToPriceRange);
+        Assertions.assertTrue(price >= FromPriceRange);
+        Assertions.assertTrue(price <= ToPriceRange);
     }*/
 
     @DisplayName("Пользователь выбирет чекбокс Доставка и проверяет корректное изменение списка товаров")
