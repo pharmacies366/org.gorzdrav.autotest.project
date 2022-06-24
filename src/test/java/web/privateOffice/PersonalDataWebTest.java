@@ -30,7 +30,6 @@ public class PersonalDataWebTest extends BaseSettingsWebTests {
         authPopUpPage.authorizeWithPhoneAndPassword(
                 propertiesManager.getProperty("phonenumber7"),
                 propertiesManager.getProperty("userpass"));
-        pageActions.waitPageLoad();
         headerBlock.clickToPersonalAccount();
         personalDataPage.checkLinksValidation(LOCATOR, LINKTEXT);
         logger.info("Ссылка видна на странице и написана корректно");
@@ -59,7 +58,6 @@ public class PersonalDataWebTest extends BaseSettingsWebTests {
         authPopUpPage.authorizeWithPhoneAndPassword(
                 propertiesManager.getProperty("phonenumber7"),
                 propertiesManager.getProperty("userpass"));
-        pageActions.waitPageLoad();
         headerBlock.clickToPersonalAccount();
         headerBlock.clickPersonalData();
         personalDataPage.clearPatronymic();
@@ -80,7 +78,6 @@ public class PersonalDataWebTest extends BaseSettingsWebTests {
         authPopUpPage.authorizeWithPhoneAndPassword(
                 propertiesManager.getProperty("phonenumber7"),
                 propertiesManager.getProperty("userpass"));
-        pageActions.waitPageLoad();
         headerBlock.clickToPersonalAccount();
         headerBlock.clickPersonalData();
         personalDataPage.clearName();
@@ -96,7 +93,6 @@ public class PersonalDataWebTest extends BaseSettingsWebTests {
         authPopUpPage.authorizeWithPhoneAndPassword(
                 propertiesManager.getProperty("phonenumber7"),
                 propertiesManager.getProperty("userpass"));
-        pageActions.waitPageLoad();
         headerBlock.clickToPersonalAccount();
         headerBlock.clickPersonalData();
         personalDataPage.clearName();
@@ -117,7 +113,6 @@ public class PersonalDataWebTest extends BaseSettingsWebTests {
         authPopUpPage.authorizeWithPhoneAndPassword(
                 propertiesManager.getProperty("phonenumber7"),
                 propertiesManager.getProperty("userpass"));
-        pageActions.waitPageLoad();
         headerBlock.clickToPersonalAccount();
         headerBlock.clickPersonalData();
         personalDataPage.changeBirthday("12", "Апрель", "1994");
@@ -134,7 +129,6 @@ public class PersonalDataWebTest extends BaseSettingsWebTests {
         authPopUpPage.authorizeWithPhoneAndPassword(
                 propertiesManager.getProperty("phonenumber7"),
                 propertiesManager.getProperty("userpass"));
-        pageActions.waitPageLoad();
         headerBlock.clickToPersonalAccount();
         headerBlock.clickPersonalData();
         personalDataPage.changeGender("FEMALE");
@@ -153,7 +147,6 @@ public class PersonalDataWebTest extends BaseSettingsWebTests {
         authPopUpPage.authorizeWithPhoneAndPassword(
                 propertiesManager.getProperty("phonenumber7"),
                 propertiesManager.getProperty("userpass"));
-        pageActions.waitPageLoad();
         headerBlock.clickToPersonalAccount();
         headerBlock.clickPersonalData();
         personalDataPage.clearEmail();
@@ -169,7 +162,6 @@ public class PersonalDataWebTest extends BaseSettingsWebTests {
         authPopUpPage.authorizeWithPhoneAndPassword(
                 propertiesManager.getProperty("phonenumber7"),
                 propertiesManager.getProperty("userpass"));
-        pageActions.waitPageLoad();
         headerBlock.clickToPersonalAccount();
         headerBlock.clickPersonalData();
         personalDataPage.checkPhone();
@@ -183,7 +175,6 @@ public class PersonalDataWebTest extends BaseSettingsWebTests {
         authPopUpPage.authorizeWithPhoneAndPassword(
                 propertiesManager.getProperty("phonenumber7"),
                 propertiesManager.getProperty("userpass"));
-        pageActions.waitPageLoad();
         headerBlock.clickToPersonalAccount();
         headerBlock.clickPersonalData();
         personalDataPage.clickReceiveNews();

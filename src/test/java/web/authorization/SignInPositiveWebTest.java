@@ -26,7 +26,6 @@ public class SignInPositiveWebTest extends BaseSettingsWebTests {
         authPopUpPage.setPhoneNumber(propertiesManager.getProperty("phonenumber1"),
                 propertiesManager.getProperty("userpass"));
         authPopUpPage.clickToLoginButton();
-        pageActions.waitPageLoad();
         headerBlock.checkElementIsCorrect();
     }
 }

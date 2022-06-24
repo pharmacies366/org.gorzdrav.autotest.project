@@ -26,7 +26,6 @@ public class SignInPositiveMobileTest extends BaseSettingsMobileTests {
                 propertiesManager.getProperty("phonenumber"),
                 propertiesManager.getProperty("userpass"));
         mobileAuthPopUpPage.clickToLoginButton();
-        pageActions.waitPageLoad();
         mobileMainPage.checkElementIsCorrect();
     }
 }

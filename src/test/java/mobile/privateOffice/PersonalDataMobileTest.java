@@ -6,32 +6,34 @@ import io.qameta.allure.Story;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.MethodSource;
+
+import java.util.stream.Stream;
 
 @Feature(value = "Мобильная версия")
 @Story(value = "Личный кабинет на сайте Gorzdrav")
 @DisplayName("Личный кабинет")
 @Tag("Mobile")
 @Tag("Regression")
-//@RunWith(DataProviderRunner.class)
+
 public class PersonalDataMobileTest extends BaseSettingsMobileTests {
 
-/*    @DataProvider
-    public static Object[][] checkDisplayedOptions() {
-        return new Object[][]{
-                {"/my-account/my-profile", "Мой профиль", "Мой профиль"},
-                {"/my-account/update-password", "Изменить пароль", "Изменить пароль"},
-                {"/my-account/orders", "Мои покупки", "Мои покупки"},
-                {"/my-account/my-promotions", "Мои акции", "Мои акции"},
-                {"/my-account/my-advice", "Здрав Совет", "Здрав Совет"},
-                {"/logout/", "Выйти", "Как сделать заказ"}
-        };
+
+    private static Stream<Arguments> checkDisplayedOptions() {
+        return Stream.of(
+                Arguments.of("/my-account/my-profile", "Мой профиль", "Мой профиль"),
+                Arguments.of("/my-account/update-password", "Изменить пароль", "Изменить пароль"),
+                Arguments.of("/my-account/orders", "Мои покупки", "Мои покупки"),
+                Arguments.of("/my-account/my-promotions", "Мои акции", "Мои акции"),
+                Arguments.of("/my-account/my-advice", "Здрав Совет", "Здрав Совет"),
+                Arguments.of("/logout/", "Выйти", "Как сделать заказ")
+        );
     }
 
-    @DisplayName("Пользователь переходит в личный кабинет и проверяет отображения списка с пунктами страниц в Л.К." +
-            " и релевантный переход")
-    @Step("В личном кабинете переходит по ссылке => {LINKTEXT}")
-    @Test
-    @UseDataProvider("checkDisplayedOptions")
+    @ParameterizedTest(name = "{index} {1}")
+    @MethodSource("checkDisplayedOptions")
     public void checkDisplayedOptions(String LOCATOR, String LINKTEXT, String PAGEMESSAGE) {
         mobileHeaderBlock.clickBurgerButton();
         mobileMainPopUpBlock.clickToLoginIcon();
@@ -39,7 +41,6 @@ public class PersonalDataMobileTest extends BaseSettingsMobileTests {
         mobileAuthPopUpPage.authorizeWithPhoneAndPassword(
                 propertiesManager.getProperty("mobilephonenumber7"),
                 propertiesManager.getProperty("userpass"));
-        pageActions.waitPageLoad();
         mobileCartPage.checkAndClearCartQuantity();
         mobileHeaderBlock.clickBurgerButton();
         mobileMainPopUpBlock.clickToPersonalAccount();
@@ -48,7 +49,7 @@ public class PersonalDataMobileTest extends BaseSettingsMobileTests {
         mobilePersonalDataPage.selectPersonalDataButtons(LOCATOR);
         pageActions.contentIsDisplayed(PAGEMESSAGE);
         logger.info("Ссылка кликабельна и ведёт на нужную страницу");
-    }*/
+    }
 
     @DisplayName("Пользователь заполняет отчество и сохраняет данные")
     @Test
@@ -59,7 +60,6 @@ public class PersonalDataMobileTest extends BaseSettingsMobileTests {
         mobileAuthPopUpPage.authorizeWithPhoneAndPassword(
                 propertiesManager.getProperty("mobilephonenumber7"),
                 propertiesManager.getProperty("userpass"));
-        pageActions.waitPageLoad();
         mobileHeaderBlock.clickBurgerButton();
         mobileMainPopUpBlock.clickToPersonalAccount();
         mobileMainPopUpBlock.clickPersonalData();
@@ -81,7 +81,6 @@ public class PersonalDataMobileTest extends BaseSettingsMobileTests {
         mobileAuthPopUpPage.authorizeWithPhoneAndPassword(
                 propertiesManager.getProperty("mobilephonenumber7"),
                 propertiesManager.getProperty("userpass"));
-        pageActions.waitPageLoad();
         mobileHeaderBlock.clickBurgerButton();
         mobileMainPopUpBlock.clickToPersonalAccount();
         mobileMainPopUpBlock.clickPersonalData();
@@ -99,7 +98,6 @@ public class PersonalDataMobileTest extends BaseSettingsMobileTests {
         mobileAuthPopUpPage.authorizeWithPhoneAndPassword(
                 propertiesManager.getProperty("mobilephonenumber7"),
                 propertiesManager.getProperty("userpass"));
-        pageActions.waitPageLoad();
         mobileHeaderBlock.clickBurgerButton();
         mobileMainPopUpBlock.clickToPersonalAccount();
         mobileMainPopUpBlock.clickPersonalData();
@@ -122,13 +120,12 @@ public class PersonalDataMobileTest extends BaseSettingsMobileTests {
         mobileAuthPopUpPage.authorizeWithPhoneAndPassword(
                 propertiesManager.getProperty("mobilephonenumber7"),
                 propertiesManager.getProperty("userpass"));
-        pageActions.waitPageLoad();
         mobileHeaderBlock.clickBurgerButton();
         mobileMainPopUpBlock.clickToPersonalAccount();
         mobileMainPopUpBlock.clickPersonalData();
-        mobilePersonalDataPage.changeBirthday("12","Апрель","1994");
+        mobilePersonalDataPage.changeBirthday("12", "Апрель", "1994");
         mobilePersonalDataPage.ckickSaveButton();
-        mobilePersonalDataPage.changeBirthday("1","Февраль","1993");//Возврашаем в исходную дату
+        mobilePersonalDataPage.changeBirthday("1", "Февраль", "1993");//Возврашаем в исходную дату
         mobilePersonalDataPage.ckickSaveButton();
     }
 
@@ -142,18 +139,17 @@ public class PersonalDataMobileTest extends BaseSettingsMobileTests {
         mobileAuthPopUpPage.authorizeWithPhoneAndPassword(
                 propertiesManager.getProperty("mobilephonenumber7"),
                 propertiesManager.getProperty("userpass"));
-        pageActions.waitPageLoad();
         mobileHeaderBlock.clickBurgerButton();
         mobileMainPopUpBlock.clickToPersonalAccount();
         mobileMainPopUpBlock.clickPersonalData();
         mobilePersonalDataPage.changeGender("2");
         pageActions.waitPageLoad();
         mobilePersonalDataPage.ckickSaveButton();
-       // mobilePersonalDataPage.getFemaleCheck().checkAttribute("value", "FEMALE");
+        // mobilePersonalDataPage.getFemaleCheck().checkAttribute("value", "FEMALE");
         mobilePersonalDataPage.changeGender("1");
         pageActions.waitPageLoad();
         mobilePersonalDataPage.ckickSaveButton();
-       // mobilePersonalDataPage.getMaleButton().checkAttribute("value", "MALE");
+        // mobilePersonalDataPage.getMaleButton().checkAttribute("value", "MALE");
     }
 
     @DisplayName("Пользователь очищает поля email, нажимает сохранить и получает ошибку")
@@ -165,7 +161,6 @@ public class PersonalDataMobileTest extends BaseSettingsMobileTests {
         mobileAuthPopUpPage.authorizeWithPhoneAndPassword(
                 propertiesManager.getProperty("mobilephonenumber7"),
                 propertiesManager.getProperty("userpass"));
-        pageActions.waitPageLoad();
         mobileHeaderBlock.clickBurgerButton();
         mobileMainPopUpBlock.clickToPersonalAccount();
         mobileMainPopUpBlock.clickPersonalData();
@@ -183,7 +178,6 @@ public class PersonalDataMobileTest extends BaseSettingsMobileTests {
         mobileAuthPopUpPage.authorizeWithPhoneAndPassword(
                 propertiesManager.getProperty("mobilephonenumber7"),
                 propertiesManager.getProperty("userpass"));
-        pageActions.waitPageLoad();
         mobileHeaderBlock.clickBurgerButton();
         mobileMainPopUpBlock.clickToPersonalAccount();
         mobileMainPopUpBlock.clickPersonalData();
@@ -199,7 +193,6 @@ public class PersonalDataMobileTest extends BaseSettingsMobileTests {
         mobileAuthPopUpPage.authorizeWithPhoneAndPassword(
                 propertiesManager.getProperty("mobilephonenumber7"),
                 propertiesManager.getProperty("userpass"));
-        pageActions.waitPageLoad();
         mobileHeaderBlock.clickBurgerButton();
         mobileMainPopUpBlock.clickToPersonalAccount();
         mobileMainPopUpBlock.clickPersonalData();

@@ -25,7 +25,6 @@ public class MakeOrdersAuthorizedMobileTest extends BaseSettingsMobileTests {
         mobileAuthPopUpPage.authorizeWithPhoneAndPassword(
                 propertiesManager.getProperty("mobilephonenumber1"),
                 propertiesManager.getProperty("userpass"));
-        pageActions.waitPageLoad();
         mobileCartPage.checkAndClearCartQuantity();
         mobileMainPage.clickSiteLogo();
         mobileCartPage.сlickAddCartButton();
@@ -55,7 +54,6 @@ public class MakeOrdersAuthorizedMobileTest extends BaseSettingsMobileTests {
         mobileAuthPopUpPage.authorizeWithPhoneAndPassword(
                 propertiesManager.getProperty("mobilephonenumber2"),
                 propertiesManager.getProperty("userpass"));
-        pageActions.waitPageLoad();
         mobileHeaderBlock.setSearchInput(propertiesManager.getProperty("productcode4"));
         mobileCartPage.clickProductCard();
         mobileProductCardPage.checkVisibilityMap();
@@ -80,7 +78,6 @@ public class MakeOrdersAuthorizedMobileTest extends BaseSettingsMobileTests {
         mobileAuthPopUpPage.authorizeWithPhoneAndPassword(
                 propertiesManager.getProperty("mobilephonenumber3"),
                 propertiesManager.getProperty("userpass"));
-        pageActions.waitPageLoad();
         mobileCartPage.checkAndClearCartQuantity();
         pageActions.waitPageLoad();
         mobileMainPage.clickSiteLogo();
@@ -110,7 +107,6 @@ public class MakeOrdersAuthorizedMobileTest extends BaseSettingsMobileTests {
         mobileAuthPopUpPage.authorizeWithPhoneAndPassword(
                 propertiesManager.getProperty("mobilephonenumber4"),
                 propertiesManager.getProperty("userpass"));
-        pageActions.waitPageLoad();
         mobileCartPage.checkAndClearCartQuantity();
         pageActions.reloadPage();
         mobileHeaderBlock.setSearchInput(propertiesManager.getProperty("productcode1"));
@@ -137,7 +133,6 @@ public class MakeOrdersAuthorizedMobileTest extends BaseSettingsMobileTests {
         mobileAuthPopUpPage.authorizeWithPhoneAndPassword(
                 propertiesManager.getProperty("mobilephonenumber5"),
                 propertiesManager.getProperty("userpass"));
-        pageActions.waitPageLoad();
         mobileCartPage.checkAndClearCartQuantity();
         pageActions.waitPageLoad();
         mobileHeaderBlock.setSearchInput(propertiesManager.getProperty("productcode4"));
