@@ -74,8 +74,20 @@ public class PageElementActions extends MainTestBase {
         this.moveToElement();
         waitUntilElementToBeClickable(getBySelector(element), DEFAULT_ELEMENT_WAIT_TIME_S);
         String text = driver.findElement(getBySelector(element)).getText().replaceAll("[^0-9]", "").trim();
-        return Integer.parseInt(text);
+        try {
+            return Integer.parseInt(text);
+        } catch (Exception ex) {
+            return 0;
+        }
     }
+
+/*    //Перевести строку в числовое значение
+    public int formatElementToValue() {
+        this.moveToElement();
+        waitUntilElementToBeClickable(getBySelector(element), DEFAULT_ELEMENT_WAIT_TIME_S);
+        String text = driver.findElement(getBySelector(element)).getText().replaceAll("[^0-9]", "").trim();
+        return Integer.parseInt(text);
+    }*/
 
     //Перейти к элементу и ввести текст
     public void sendKeys(String keysToSend) {
