@@ -128,7 +128,7 @@ public class MakeOrdersAuthorizedWebTest extends BaseSettingsWebTests {
         cartPage.clickAddCartButton();
         pageActions.waitPageLoad();
         pageActions.reloadPage();
-        headerBlock.clickSiteLogo();
+        // headerBlock.clickSiteLogo();
         headerBlock.setSearchInput(propertiesManager.getProperty("productcode2"));
         pageActions.waitPageLoad();
         cartPage.clickAddCartButton();

@@ -284,6 +284,7 @@ public class WebHeaderBlock extends MainTestBase {
 
     @Step("Пользователь вводит артикул товара в поисковую строку - {vendorCode}")
     public void setSearchInput(String vendorCode) {
+        getSearchInput().clean();
         getSearchInput().sendKeysAndEnter(vendorCode);
         logger.info("Пользователь вводит артикул товара в поисковую строку");
     }
