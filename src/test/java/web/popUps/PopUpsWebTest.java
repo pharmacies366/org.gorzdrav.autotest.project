@@ -13,8 +13,7 @@ import org.junit.jupiter.api.Test;
 @Tag("Web")
 @Tag("Regression")
 public class PopUpsWebTest extends BaseSettingsWebTests {
-
-    @DisplayName("Проверка кликабельности и корректности перехода по кнопке для выбора городов")
+    @DisplayName("Проверка наличия и закрытия попапа с куки файлами")
     @Test
     public void checkButtonSelectCities(){
         mainPage.clickClosePopUp();
