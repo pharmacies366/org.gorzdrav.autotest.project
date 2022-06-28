@@ -123,9 +123,11 @@ public class MakeOrdersUnauthorizedMobileTest extends BaseSettingsMobileTests {
         pageActions.waitPageLoad();
         // mobileCheckOutPage.clickSelectApteka();
         mobileProductCardPage.checkVisibilityMap();
-        mobileCheckOutPage.setInputSearchAddres("метро Фили");
+        pageActions.waitPageLoad();
+        mobileCheckOutPage.setInputSearchAddres("Москва");
         pageActions.waitPageLoad();
         mobileCheckOutPage.clickChangeAptekaList();
+        pageActions.waitPageLoad();
         mobileCheckOutPage.clickSelect();
         pageActions.waitPageLoad();
         mobileCheckOutPage.contactDetails(
