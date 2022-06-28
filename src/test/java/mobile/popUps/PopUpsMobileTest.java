@@ -15,7 +15,13 @@ import org.junit.jupiter.api.Test;
 public class PopUpsMobileTest extends BaseSettingsMobileTests {
     @DisplayName("Проверка наличия и закрытия попапа с куки файлами")
     @Test
-    public void checkButtonSelectCities(){
+    public void checkCookiesPopUp() {
+        mobileMainPage.clickCloseMobileAppPopUp();
+    }
+
+    @DisplayName("Проверка наличия и закрытия попапа для скачивания мобильного приложения")
+    @Test
+    public void checkMobileAppPopUp() {
         mobileMainPage.clickCloseMobileAppPopUp();
     }
 }
