@@ -57,10 +57,11 @@ public class BaseSettingsMobileTests extends MainTestBase {
     protected MobileBotConsultantPopUpPage mobileBotConsultantPopUpPage;
 
 
-
     @BeforeEach
     public void PagesInitialization() {
         mobileMainPage = new MobileMainPage(driver);
+        closePopUps();
+
         commonActionsOnMobilePages = new CommonActionsOnMobilePages(driver);
         pageElementActions = new PageElementActions(driver);
         mobileCheckOutPage = new MobileCheckOutPage(driver);
@@ -85,6 +86,10 @@ public class BaseSettingsMobileTests extends MainTestBase {
         mobileMedicationsCategorysPopUpPage = new MobileMedicationsCategorysPopUpPage(driver);
         mobileCitiesPopUpPage = new MobileCitiesPopUpPage(driver);
         mobileBotConsultantPopUpPage = new MobileBotConsultantPopUpPage(driver);
+    }
+
+    public void closePopUps() {
+        mobileMainPage.clickCloseMobileAppPopUp();
     }
 
 }
