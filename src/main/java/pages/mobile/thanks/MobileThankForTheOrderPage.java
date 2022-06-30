@@ -10,7 +10,7 @@ public class MobileThankForTheOrderPage extends MainTestBase {
 
     //элементы
     private static final String ERROR_PAYMENT_XPATH = "xpath;//a[contains(.,'Вернуться в магазин')]";
-    private static final String THANKS_ORDER_SELF_XPATH = "xpath;//h1[contains(.,'Спасибо за ваш заказ!')]";
+    private static final String THANKS_ORDER_SELF_XPATH = "xpath;//h2[@class='b-page-title']";
 
 
 

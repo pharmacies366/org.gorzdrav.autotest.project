@@ -1,4 +1,3 @@
-/*
 package mobile.orders.cancellation;
 
 import base.BaseSettingsMobileTests;
@@ -6,6 +5,7 @@ import io.qameta.allure.Feature;
 import io.qameta.allure.Story;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 @Feature(value = "Мобильная версия")
@@ -30,16 +30,20 @@ public class OrderCancellationMobileTest extends BaseSettingsMobileTests {
         mobileCartPage.сlickAddCartButton();
         mobileCartPage.clickToCartButton();
         mobileCartPage.clickToMakeOrder();
-        mobileCheckOutPage.clickSelectApteka();
-        mobileCheckOutPage.checkVisibilityMap();
-        mobileCheckOutPage.setInputSearchAddres("москва");
+        pageActions.waitPageLoad();
+        mobileProductCardPage.checkVisibilityMap();
+        mobileCheckOutPage.setInputSearchAddres("метро Фили");
+        pageActions.waitPageLoad();
         mobileCheckOutPage.clickChangeAptekaList();
-        mobileCheckOutPage.ckickSelect();
+        mobileCheckOutPage.clickSelect();
+        pageActions.waitPageLoad();
         mobileCheckOutPage.clickMakeOrder();
+        pageActions.waitPageLoad();
+        mobileCheckOutPage.closePopUpQuestion();
         mobileThankForTheOrderPage.checkSuccessMessage();
         mobileHeaderBlock.clickBurgerButton();
         mobileMainPopUpBlock.clickToPersonalAccount();
-        pageActions.staticWait(5000);
+        pageActions.staticWait(3000);
         mobileMainPopUpBlock.clickMyOrders();
         mobileMyOrdersPage.clickOrderNumber();
         mobileMyOrdersPage.clickCancelNumber();
@@ -47,4 +51,3 @@ public class OrderCancellationMobileTest extends BaseSettingsMobileTests {
     }
 }
 
-*/
