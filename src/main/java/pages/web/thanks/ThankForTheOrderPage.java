@@ -12,7 +12,7 @@ public class ThankForTheOrderPage extends MainTestBase {
      */
 
     //элементы
-    private static final String THANKS_ORDER_SELF_XPATH = "xpath;//h1[contains(.,'Спасибо за ваш заказ!')]";
+    private static final String THANKS_ORDER_SELF_XPATH = "xpath;//h2[@class='b-page-title']";
     private static final String SAVING_ORDER_NUMBER_XPATH = "xpath;//div[@class='order-number-code']";
     private static final String SAVING_ADDRESS_XPATH = "xpath;//span[@class='js-gtm-store-name']";
 

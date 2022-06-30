@@ -14,7 +14,7 @@ public class MyOrdersPage extends MainTestBase {
     //элементы
     private static final String ORDER_XPATH = "xpath;(//a[@class='c-order-item__link'])[1]";
     private static final String CANCEL_ORDER_XPATH = "xpath;//div[@class='b-btn hidden-xs b-btn--third js-cancel-order']";
-    private static final String APPROVE_CANCEL_ORDER_XPATH = "xpath;//a[contains(@class,'approve')]";
+    private static final String APPROVE_CANCEL_ORDER_XPATH = "xpath;//a[@class='b-btn b-btn--third b-btn--full js-cancel-order__approve']";
     private static final String STATUS_ORDER_XPATH = "xpath;//div[@class='b-order-status']";
 
 

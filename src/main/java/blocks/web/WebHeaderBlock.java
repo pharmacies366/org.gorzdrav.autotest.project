@@ -12,7 +12,7 @@ public class WebHeaderBlock extends MainTestBase {
     private static final String SIGN_IN_BUTTON_XPATH = "xpath;//div[@class='c-header__lk-tel-group']";
     private static final String SIGN_UP_BUTTON_XPATH = "xpath;//a[@class='b-link b-link--auth js-register-ext__button']";
     private static final String LOGOUT_BUTTON_XPATH = "xpath;(//a[@href='/logout/'])[1]";
-    private static final String MY_ORDERS_XPATH = "xpath;(//a[@href='/my-account/orders'])[1]";
+    private static final String MY_ORDERS_XPATH = "xpath;(//a[@href='/my-account/orders'])[2]";
     private static final String PERSONAL_ACCOUNT_XPATH = "xpath;(//i[contains(@class,'b-icn--user')])[2]";
 
     private static final String BASE_INPUT_XPATH = "xpath;(//a[@href='%s'])[1]";
