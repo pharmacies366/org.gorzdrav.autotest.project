@@ -1,3 +1,4 @@
+/*
 package web.orders.cancellation;
 
 import base.BaseSettingsWebTests;
@@ -48,3 +49,4 @@ public class OrderCancellationWebTest extends BaseSettingsWebTests {
     }
 
 }
+*/
