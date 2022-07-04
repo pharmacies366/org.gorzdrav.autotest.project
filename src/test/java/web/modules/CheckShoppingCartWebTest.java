@@ -3,7 +3,10 @@ package web.modules;
 import base.BaseSettingsWebTests;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Story;
-import org.junit.jupiter.api.*;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 
 @Feature(value = "Web")
 @Story(value = "Изменения корзины на сайте Gorzdrav")
@@ -87,8 +90,7 @@ public class CheckShoppingCartWebTest extends BaseSettingsWebTests {
         Assertions.assertEquals(0, cartPage.checkCartQuantity());
     }
 
-//разобраться как посчитать итог со скидкой, не правильно форматируется стринга
-/*    @DisplayName("Пользователь добавляет в корзину 2 товара и проверяет общую сумму")
+    @DisplayName("Пользователь добавляет в корзину 2 товара и проверяет общую сумму")
     @Test
     public void checkTotalAmountProducts() {
         openUrl(propertiesManager.getProperty("baseurl") + "p/207185");
@@ -105,10 +107,9 @@ public class CheckShoppingCartWebTest extends BaseSettingsWebTests {
         double secondPrice = Double.parseDouble(cartPage.getProductPrice("2"));
         int totalPrice = cartPage.getPriceTotal();
         Assertions.assertEquals(firstPrice + secondPrice, totalPrice);
-    }*/
+    }
 
-    //разобраться как посчитать итог со скидкой, не правильно форматируется стринга
- /*   @DisplayName("Пользователь проверяет нотификацию после удаления товара")
+    @DisplayName("Пользователь проверяет нотификацию после удаления товара")
     @Test
     public void checkNotificationCart() {
         openUrl(propertiesManager.getProperty("baseurl") + "p/44226");
@@ -129,7 +130,7 @@ public class CheckShoppingCartWebTest extends BaseSettingsWebTests {
         Assertions.assertEquals(1, cartPage.checkCartQuantity());
         int finalPrice = cartPage.getPriceTotal();
         Assertions.assertEquals(firstPrice, finalPrice);
-    }*/
+    }
 
     @DisplayName("Пользователь проверяет, что в блоке - не забудьте положить в корзину, отображаются: - Мини-карточки товаров в виде макета")
     @Test
