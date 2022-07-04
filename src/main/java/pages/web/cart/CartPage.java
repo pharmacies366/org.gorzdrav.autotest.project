@@ -28,6 +28,7 @@ public class CartPage extends MainTestBase {
     private static final String BANNER_XPATH = "xpath;(//img[@class='b-bnr--responsive__img '])[1]";
     private static final String TEXT_DO_NOT_ADD_TO_CART_XPATH = "xpath;//div[contains(@class,'c-gallery__title')]";
     private static final String DO_NOT_ADD_TO_CART_PRODUCTS_LIST_XPATH = "xpath;//div[@class='owl-wrapper c-gallery__content-wrapper active']";
+    private static final String PRICE_LABEL_XPATH = "xpath;(//div[@class='p-cart__table-product-total-price '])[%s]";
 
     //конструктор
     public CartPage(WebDriver driver) {
@@ -98,6 +99,10 @@ public class CartPage extends MainTestBase {
     public PageElementActions getDoNotAddToCartProductsList() {
         return new PageElementActions(DO_NOT_ADD_TO_CART_PRODUCTS_LIST_XPATH, driver);
     }
+    public PageElementActions getPriceLabel(String xpath) {
+        return new PageElementActions(xpath, driver);
+    }
+
 
 
 
@@ -219,5 +224,12 @@ public class CartPage extends MainTestBase {
     public int checkDoNotAddToCartProductsList() {
         logger.info("Пользователь получает количество товаров в блоке: Не забудьте положить в корзину");
         return getDoNotAddToCartProductsList().getSize();
+    }
+
+    @Step("Запоминаем цену товара")
+    public String getProductPrice(String index) {
+        String price = String.valueOf(getPriceLabel(String.format(PRICE_LABEL_XPATH, index)).formatElementToValueDouble());
+        logger.info("Запоминаем цену товара");
+        return price;
     }
 }

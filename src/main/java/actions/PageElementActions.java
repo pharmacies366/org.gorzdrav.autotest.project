@@ -78,6 +78,21 @@ public class PageElementActions extends MainTestBase {
         }
     }
 
+    //Перевести строку в числовое значение Double
+    public Double formatElementToValueDouble() {
+        this.moveToElement();
+        waitUntilElementToBeClickable(getBySelector(element), DEFAULT_ELEMENT_WAIT_TIME_S);
+
+        String s = driver.findElement(getBySelector(element)).getText();
+        int k = s.indexOf(" ", s.indexOf(" ") + 1);
+        String text = s.substring(0,k); // удаление 2-го пробела
+
+        String text2 = text.replace(" ", "");// удаление 1-го пробела
+        String text3 = text2.replace(",", ".");// меняет , на .
+
+        return Double.parseDouble(text3);
+    }
+
 /*    //Перевести строку в числовое значение
     public int formatElementToValue() {
         this.moveToElement();
