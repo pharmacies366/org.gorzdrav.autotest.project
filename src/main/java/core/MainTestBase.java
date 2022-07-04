@@ -1,7 +1,6 @@
 package core;
 
 import actions.PageActions;
-import io.qameta.allure.Attachment;
 import io.qameta.allure.Step;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -9,8 +8,6 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.TestInfo;
 import org.junit.jupiter.api.extension.RegisterExtension;
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import utils.PropertiesManager;
 import utils.WebDriverFactory;
@@ -28,10 +25,8 @@ public class MainTestBase {
     protected void openUrl(String url) {
         try {
             driver.get(url);
-            // saveAllureScreenshot();
         } catch (org.openqa.selenium.TimeoutException ex) {
             driver.navigate().refresh();
-            // saveAllureScreenshot();
         }
     }
 
@@ -39,13 +34,14 @@ public class MainTestBase {
         try {
             driver.get(propertiesManager.getProperty("baseurl"));
             pageActions.waitPageLoad();
-            // saveAllureScreenshot();
         } catch (org.openqa.selenium.TimeoutException ex) {
             driver.navigate().refresh();
             pageActions.waitPageLoad();
-            // saveAllureScreenshot();
         }
     }
+
+    @RegisterExtension
+    ScreenshotWatcher5 watcher = new ScreenshotWatcher5(driver, "target/surefire-reports");
 
     @BeforeEach
     @Step("Открывается Главная страница сайта")
@@ -60,7 +56,6 @@ public class MainTestBase {
 
     @AfterEach
     public void finish() {
-        getWatcher();
         driver.close();
         driver.quit();
     }
@@ -72,12 +67,5 @@ public class MainTestBase {
         logger.info("Тест старт " + testInfo.getDisplayName());
     }
 
-
-    @RegisterExtension
-    ScreenshotWatcher5 watcher = new ScreenshotWatcher5(driver, "target/surefire-reports");
-    @Attachment(value = "Скриншот", type = "image/png")
-    public byte[] getWatcher() {
-        return ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
-    }
 
 }

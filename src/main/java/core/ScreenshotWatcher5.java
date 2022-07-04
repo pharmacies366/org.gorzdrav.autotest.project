@@ -23,25 +23,11 @@ public class ScreenshotWatcher5 implements TestWatcher {
     }
 
     @Override
-    public void testAborted(ExtensionContext context, Throwable throwable) {
-        // do something
-    }
-
-    @Override
-    public void testDisabled(ExtensionContext context, Optional<String> optional) {
-        // do something
-    }
-
-    @Override
     public void testFailed(ExtensionContext context, Throwable throwable) {
         // do something
         captureScreenshot(driver, context.getDisplayName());
     }
 
-    @Override
-    public void testSuccessful(ExtensionContext extensionContext) {
-        // do something
-    }
 
     public void captureScreenshot(WebDriver driver, String fileName) {
         try {
