@@ -31,7 +31,6 @@ public class PageElementActions extends MainTestBase {
     public void click() {
         this.moveToElement();
         waitUntilElementToBeClickable(getBySelector(element), DEFAULT_ELEMENT_WAIT_TIME_S).click();
-        saveAllureScreenshot();
     }
 
     //Клик по элементу с помощью JS
@@ -40,7 +39,6 @@ public class PageElementActions extends MainTestBase {
         WebElement ele = waitUntilElementToBeClickable(getBySelector(element), DEFAULT_ELEMENT_WAIT_TIME_S);
         JavascriptExecutor jse = (JavascriptExecutor) driver;
         jse.executeScript("arguments[0].click()", ele);
-        saveAllureScreenshot();
     }
 
 /*
@@ -66,7 +64,6 @@ public class PageElementActions extends MainTestBase {
         this.moveToElement();
         waitUntilElementToBeClickable(getBySelector(element), DEFAULT_ELEMENT_WAIT_TIME_S);
         driver.findElements(getBySelector(element)).get(number).click();
-        saveAllureScreenshot();
     }
 
     //Перевести строку в числовое значение
@@ -93,7 +90,6 @@ public class PageElementActions extends MainTestBase {
     public void sendKeys(String keysToSend) {
         this.moveToElement();
         waitUntilVisibilityOfElementLocated(getBySelector(element), DEFAULT_ELEMENT_WAIT_TIME_S).sendKeys(keysToSend);
-        saveAllureScreenshot();
     }
 
     //Перейти к элементу, кликнуть и ввести текст
@@ -101,14 +97,12 @@ public class PageElementActions extends MainTestBase {
         this.moveToElement();
         waitUntilElementToBeClickable(getBySelector(element), DEFAULT_ELEMENT_WAIT_TIME_S).click();
         waitUntilVisibilityOfElementLocated(getBySelector(element), DEFAULT_ELEMENT_WAIT_TIME_S).sendKeys(keysToSend);
-        saveAllureScreenshot();
     }
 
     //Перейти к элементу, ввести текст и нажать Enter
     public void sendKeysAndEnter(String keysToSend) {
         this.moveToElement();
         waitUntilVisibilityOfElementLocated(getBySelector(element), DEFAULT_ELEMENT_WAIT_TIME_S).sendKeys(keysToSend, Keys.ENTER);
-        saveAllureScreenshot();
     }
 
     //Очистить содержимое элемента
@@ -116,7 +110,6 @@ public class PageElementActions extends MainTestBase {
         waitUntilVisibilityOfElementLocated(getBySelector(element), DEFAULT_ELEMENT_WAIT_TIME_S).clear();
         waitUntilVisibilityOfElementLocated(getBySelector(element), DEFAULT_ELEMENT_WAIT_TIME_S).sendKeys(Keys.chord(Keys.LEFT_CONTROL, "A"));
         waitUntilVisibilityOfElementLocated(getBySelector(element), DEFAULT_ELEMENT_WAIT_TIME_S).sendKeys(Keys.BACK_SPACE);
-        saveAllureScreenshot();
     }
 
     //Получение значение атрибута элемента
@@ -147,7 +140,6 @@ public class PageElementActions extends MainTestBase {
 /*    public void elementDisplayed(By elementBy) {
         waitUntilVisibilityOfElementLocated(getBySelector(element), DEFAULT_ELEMENT_WAIT_TIME_S);
         Assert.assertTrue(driver.findElement(elementBy).isDisplayed());
-        saveAllureScreenshot();
     }*/
 
     //Проверяет видимость элемента на странице, возвращает статус true либо Exception
