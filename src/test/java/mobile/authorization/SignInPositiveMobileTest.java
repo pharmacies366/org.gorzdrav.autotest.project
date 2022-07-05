@@ -1,23 +1,19 @@
 package mobile.authorization;
 
 import base.BaseSettingsMobileTests;
+import io.qameta.allure.Description;
 import io.qameta.allure.Feature;
+import io.qameta.allure.Step;
 import io.qameta.allure.Story;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Tag;
-import org.junit.jupiter.api.Test;
+import org.testng.annotations.Test;
 
 
 @Feature(value = "Мобильная версия")
 @Story("Авторизация пользователя на сайте Gorzdrav")
-@DisplayName("Авторизация пользователя")
-@Tag("Mobile")
-@Tag("Regression")
-@Tag("Smoke")
 public class SignInPositiveMobileTest extends BaseSettingsMobileTests {
-
-    @DisplayName("Авторизация пользователя на сайте по номеру телефона и паролю")
-    @Test
+    @Description("Проверка авторизации пользователя на сайте")
+    @Test(groups = { "Mobile", "Smoke", "Regression" })
+    @Step("Авторизация по номеру телефона и паролю")
     public void loginUserPhoneNumberAndPassword() {
         mobileCookiePage.reCaptchaKey();
         mobileHeaderBlock.clickBurgerButton();
