@@ -154,7 +154,7 @@ public class CartPage extends MainTestBase {
 
     @Step("Пользователь нажимае на кнопку 'Оформить заказ'")
     public void clickToMakeOrder() {
-        getMakeOrder().click()
+        getMakeOrder().click();
         logger.info("Пользователь нажимае на кнопку 'Оформить заказ'");
     }
 

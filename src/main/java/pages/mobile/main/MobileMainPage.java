@@ -289,7 +289,7 @@ public class MobileMainPage extends MainTestBase {
 
     @Step("Пользователь нажимает на шильдик с бонусными баллами")
     public void clickOnButtonBonuses() {
-        getButtonBonuses().click();
+        getButtonBonuses().clickJs();
         logger.info("Пользователь нажимает на шильдик с бонусными баллами");
     }
 

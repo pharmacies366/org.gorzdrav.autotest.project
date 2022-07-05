@@ -3,8 +3,8 @@ package pages.commonActions.web;
 import actions.PageElementActions;
 import core.MainTestBase;
 import io.qameta.allure.Step;
-import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.WebDriver;
+import org.testng.Assert;
 
 import java.util.Random;
 
@@ -251,7 +251,7 @@ public class CommonActionsOnWebPages extends MainTestBase {
         int par = getProductList().getSize();
         for (int i = 1; i <= par; i++) {
             int price = getBaseInputCheckProductPrice(String.format(BASE_INPUT_CHECK_PRODUCT_PRICE_XPATH, i)).formatElementToValue();
-            Assertions.assertTrue(price <= price + i);
+            Assert.assertTrue(price <= price + i);
         }
         logger.info("Пользователь проверяет сортировку товаров по увеличению цены");
     }
@@ -267,7 +267,7 @@ public class CommonActionsOnWebPages extends MainTestBase {
         int par = getProductList().getSize();
         for (int i = 1; i <= par; i++) {
             int price = getBaseInputCheckProductPrice(String.format(BASE_INPUT_CHECK_PRODUCT_PRICE_XPATH, i)).formatElementToValue();
-            Assertions.assertTrue(price <= price + i);
+            Assert.assertTrue(price <= price + i);
         }
         logger.info("Пользователь проверяет сортировку товаров по уменьшению цены");
     }
@@ -281,7 +281,7 @@ public class CommonActionsOnWebPages extends MainTestBase {
     @Step("Пользователь проверяет результат сортировки")
     public void checkSortingOption(String sortingOptionName) {
         String sortingOption = getSortingName().getText();
-        Assertions.assertEquals(sortingOptionName, sortingOption);
+        Assert.assertEquals(sortingOptionName, sortingOption);
         logger.info("Пользователь проверяет результат сортировки");
     }
 
@@ -290,7 +290,7 @@ public class CommonActionsOnWebPages extends MainTestBase {
     public void checkSelectedProductsWithAllMethods() {
         int par = getProductList().getSize();
         int countDelivery = getProductsWithoutDeliveryMethod().getSize();
-        Assertions.assertTrue(par > countDelivery);
+        Assert.assertTrue(par > countDelivery);
         logger.info("Пользователь проверяет что после снятия чекбокса Доставка, товары показываются со всеми методами получения");
     }
 
@@ -367,7 +367,7 @@ public class CommonActionsOnWebPages extends MainTestBase {
     public void checkOpenPageNumber(int pageExpectedNumber) {
         String stringPageOpenNumber = getPageNumberOpen().getAttribute("innerHTML");
         int pageOpenNumber = Integer.parseInt(stringPageOpenNumber);
-        Assertions.assertEquals(pageOpenNumber, pageExpectedNumber);
+        Assert.assertEquals(pageOpenNumber, pageExpectedNumber);
         logger.info("Пользователь проверяет номер текущей станицы");
     }
 
@@ -378,7 +378,7 @@ public class CommonActionsOnWebPages extends MainTestBase {
             String stringPageOpenNumber = getPageNumberOpen().getAttribute("innerHTML");
             int pageOpenNumber = Integer.parseInt(stringPageOpenNumber);
             int pageOpenTitle = getPageNumberOpenTitle().formatElementToValue();
-            Assertions.assertEquals(pageOpenTitle, pageOpenNumber);
+            Assert.assertEquals(pageOpenTitle, pageOpenNumber);
         }
         logger.info("Пользователь листает вперёд страницы и проверяет релевантный переход");
     }
@@ -390,7 +390,7 @@ public class CommonActionsOnWebPages extends MainTestBase {
             String stringPageOpenNumber = getPageNumberOpen().getAttribute("innerHTML");
             int pageOpenNumber = Integer.parseInt(stringPageOpenNumber);
             int pageOpenTitle = getPageNumberOpenTitle().formatElementToValue();
-            Assertions.assertEquals(pageOpenTitle, pageOpenNumber);
+            Assert.assertEquals(pageOpenTitle, pageOpenNumber);
         }
         logger.info("Пользователь листает назад страницы и проверяет релевантный переход");
     }

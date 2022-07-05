@@ -71,7 +71,7 @@ public class MobileMainPopUpBlock extends MainTestBase {
     //Методы
     @Step("Пользователь нажимает на иконку авторизации")
     public void clickToLoginIcon(){
-        getLoginIcon().click();
+        getLoginIcon().clickJs();
         logger.info("Пользователь нажимает на иконку авторизации");
     }
 
@@ -96,7 +96,7 @@ public class MobileMainPopUpBlock extends MainTestBase {
 
     @Step("Пользователь нажимает на иконку личного кабинета")
     public void clickToPersonalAccount() {
-             getPersonalAccount().click();
+             getPersonalAccount().clickJs();
          logger.info("Пользователь нажимает на иконку личного кабинета");
     }
 

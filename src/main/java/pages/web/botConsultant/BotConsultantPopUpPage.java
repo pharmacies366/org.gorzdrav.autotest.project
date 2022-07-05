@@ -3,11 +3,10 @@ package pages.web.botConsultant;
 import actions.PageElementActions;
 import core.MainTestBase;
 import io.qameta.allure.Step;
-import org.apache.logging.log4j.core.util.Assert;
 import org.hamcrest.CoreMatchers;
 import org.hamcrest.MatcherAssert;
-import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.WebDriver;
+import org.testng.Assert;
 
 public class BotConsultantPopUpPage extends MainTestBase {
 
@@ -118,7 +117,7 @@ public class BotConsultantPopUpPage extends MainTestBase {
     @Step("Пользователь проверяет сообщение с текстом 'Спасибо'")
     public void checkThanksMessage() {
         String message = getThanksMessage().getText();
-        Assertions.assertEquals(message, "\uD83C\uDF89 Спасибо!");
+        Assert.assertEquals(message, "\uD83C\uDF89 Спасибо!");
         logger.info("Пользователь проверяет сообщение с текстом 'Спасибо'");
     }
 

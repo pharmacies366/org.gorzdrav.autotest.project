@@ -3,8 +3,8 @@ package pages.commonActions.mobile;
 import actions.PageElementActions;
 import core.MainTestBase;
 import io.qameta.allure.Step;
-import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.WebDriver;
+import org.testng.Assert;
 
 import java.util.Random;
 
@@ -284,7 +284,7 @@ public class CommonActionsOnMobilePages extends MainTestBase {
 
     @Step("Пользователь нажимает на кнопку Бренд")
     public void clickBrand() {
-        getBrand().click()
+        getBrand().clickJs();
         logger.info("Пользователь нажимает на кнопку Бренд");
     }
 
@@ -416,7 +416,7 @@ public class CommonActionsOnMobilePages extends MainTestBase {
         int par = getProductList().getSize();
         for (int i = 1; i <= par; i++) {
             int price = getBaseInputCheckProductPrice(String.format(BASE_INPUT_CHECK_PRODUCT_PRICE_XPATH, i)).formatElementToValue();
-            Assertions.assertTrue(price <= price + i);
+            Assert.assertTrue(price <= price + i);
         }
         logger.info("Пользователь проверяет сортировку товаров по увеличению цены");
     }
@@ -432,7 +432,7 @@ public class CommonActionsOnMobilePages extends MainTestBase {
         int par = getProductList().getSize();
         for (int i = 1; i <= par; i++) {
             int price = getBaseInputCheckProductPrice(String.format(BASE_INPUT_CHECK_PRODUCT_PRICE_XPATH, i)).formatElementToValue();
-            Assertions.assertTrue(price <= price + i);
+            Assert.assertTrue(price <= price + i);
         }
         logger.info("Пользователь проверяет сортировку товаров по уменьшению цены");
     }
@@ -446,7 +446,7 @@ public class CommonActionsOnMobilePages extends MainTestBase {
     @Step("Пользователь проверяет результат сортировки")
     public void checkSortingOption(String sortingOptionName) {
         String sortingOption = getSortingName().getText();
-        Assertions.assertEquals(sortingOptionName, sortingOption);
+        Assert.assertEquals(sortingOptionName, sortingOption);
         logger.info("Пользователь проверяет результат сортировки");
     }
 
@@ -455,7 +455,7 @@ public class CommonActionsOnMobilePages extends MainTestBase {
     public void checkSelectedProductsWithAllMethods() {
         int par = getProductList().getSize();
         int countDelivery = getProductsWithoutDeliveryMethod().getSize();
-        Assertions.assertTrue(par > countDelivery);
+        Assert.assertTrue(par > countDelivery);
         logger.info("Пользователь проверяет что после снятия чекбокса Доставка, товары показываются со всеми методами получения");
     }
 
@@ -479,7 +479,7 @@ public class CommonActionsOnMobilePages extends MainTestBase {
         logger.info("Пользователь рандомом выбирает опцию из чекбоксов чекбокс: форма выпуска, бредн, теги, для кого, производители");
         getCheckboxOption(String.format(BASE_INPUT_CHECKBOX_OPTION_XPATH, randomNumber + index)).moveToElementJs();
         String optionName = getCheckboxOption(String.format(BASE_INPUT_CHECKBOX_OPTION_XPATH, randomNumber + index)).getText();
-        getCheckboxOption(String.format(BASE_INPUT_CHECKBOX_OPTION_XPATH, randomNumber + index)).click()
+        getCheckboxOption(String.format(BASE_INPUT_CHECKBOX_OPTION_XPATH, randomNumber + index)).click();
         logger.info("Пользователь нажимает на выбранную опцию");
 
         int par = getProductList().getSize();
@@ -498,7 +498,7 @@ public class CommonActionsOnMobilePages extends MainTestBase {
 
     @Step("Пользователь выбирает опцию: по рецепту")
     public void checkCheckboxWithRecipe() {
-        getOnRecipeButton().click()
+        getOnRecipeButton().clickJs();
         getOnRecipeCheckbox().click();
         logger.info("Пользователь выбирает опцию: по рецепту");
     }
@@ -511,7 +511,7 @@ public class CommonActionsOnMobilePages extends MainTestBase {
 
     @Step("Пользователь выбирает опцию: без рецепта")
     public void checkCheckboxWithoutRecipe() {
-        getOnRecipeButton().click()
+        getOnRecipeButton().clickJs();
         getWithoutRecipeCheckbox().click();
         logger.info("Пользователь выбирает опцию: без рецепта");
     }
@@ -519,11 +519,11 @@ public class CommonActionsOnMobilePages extends MainTestBase {
     @Step("Пользователь листает вперёд страницы и проверяет релевантный переход")
     public void clickNextPage() {
         for (int i = 1; i < 4; i++) {
-            getNexPaginationButton().click()
+            getNexPaginationButton().clickJs();
             String stringPageOpenNumber = getPageNumberOpen().getAttribute("innerHTML");
             int pageOpenNumber = Integer.parseInt(stringPageOpenNumber);
             int pageOpenTitle = getPageNumberOpenTitle().formatElementToValue();
-            Assertions.assertEquals(pageOpenTitle, pageOpenNumber);
+            Assert.assertEquals(pageOpenTitle, pageOpenNumber);
         }
         logger.info("Пользователь листает вперёд страницы и проверяет релевантный переход");
     }
@@ -531,11 +531,11 @@ public class CommonActionsOnMobilePages extends MainTestBase {
     @Step("Пользователь листает назад страницы и проверяет релевантный переход")
     public void clickPrevPage() {
         for (int i = 4; i > 2; i--) {
-            getPrevPaginationButton().click()
+            getPrevPaginationButton().clickJs();
             String stringPageOpenNumber = getPageNumberOpen().getAttribute("innerHTML");
             int pageOpenNumber = Integer.parseInt(stringPageOpenNumber);
             int pageOpenTitle = getPageNumberOpenTitle().formatElementToValue();
-            Assertions.assertEquals(pageOpenTitle, pageOpenNumber);
+            Assert.assertEquals(pageOpenTitle, pageOpenNumber);
         }
         logger.info("Пользователь листает назад страницы и проверяет релевантный переход");
 

@@ -27,14 +27,14 @@ public class PageElementActions extends MainTestBase {
 
     //Методы
 
-/*    //Клик по элементу
+    //Клик по элементу
     public void click() {
         this.moveToElement();
         waitUntilElementToBeClickable(getBySelector(element), DEFAULT_ELEMENT_WAIT_TIME_S).click();
-    }*/
+    }
 
     //Клик по элементу с помощью JS
-    public void click() {
+    public void clickJs() {
         moveToElementJs();
         WebElement ele = waitUntilElementToBeClickable(getBySelector(element), DEFAULT_ELEMENT_WAIT_TIME_S);
         JavascriptExecutor jse = (JavascriptExecutor) driver;

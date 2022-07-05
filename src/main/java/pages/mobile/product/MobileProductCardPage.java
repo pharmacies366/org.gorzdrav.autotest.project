@@ -119,7 +119,7 @@ public class MobileProductCardPage extends MainTestBase {
     //Методы
     @Step("Пользователь нажимает на кнопку 'в корзину'")
     public void clickAddCartButton() {
-        getAddToCartButton().click()
+        getAddToCartButton().clickJs();
         logger.info("Пользователь нажимает на кнопку 'в корзину'");
     }
 
@@ -132,7 +132,7 @@ public class MobileProductCardPage extends MainTestBase {
 
     @Step("Пользователь нажимает на кнопку 'Купить в 1 клик'")
     public void buyOneClick() {
-        getOneClick().click()
+        getOneClick().clickJs();
         logger.info("Пользователь нажимает на кнопку 'Купить в 1 клик'");
     }
 
@@ -149,7 +149,7 @@ public class MobileProductCardPage extends MainTestBase {
 
     @Step("Пользователь нажимает на список доступных Аптек")
     public void clickChangeAptekaList() {
-        getChangeAptekaList().click()
+        getChangeAptekaList().clickJs();
         logger.info("Пользователь нажимает на список доступных Аптек");
     }
 
