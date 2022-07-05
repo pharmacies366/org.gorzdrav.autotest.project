@@ -1,25 +1,17 @@
-/*
 package mobile.mainPage;
 
 import base.BaseSettingsMobileTests;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Story;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Tag;
-import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.Arguments;
-import org.junit.jupiter.params.provider.MethodSource;
-
-import java.util.stream.Stream;
+import org.testng.annotations.DataProvider;
+import org.testng.annotations.Test;
 
 
 @Feature(value = "Мобильная версия")
 @Story("Проверка главной страницы сайта Gorzdrav")
-@DisplayName("Проверка подвала сайта")
-@Tag("Mobile")
-@Tag("Regression")
 public class MobileBasementBlockMobileTest extends BaseSettingsMobileTests {
 
+/*
     @ParameterizedTest(name = "{index} {1}")
     @MethodSource("helpTest")
     public void helpTest(String LOCATOR, String LINK_TEXT, String PAGE_MESSAGE) {
@@ -44,7 +36,43 @@ public class MobileBasementBlockMobileTest extends BaseSettingsMobileTests {
                 Arguments.of("/warranty/", "Гарантии", "Гарантии")
         );
     }
+*/
 
+
+    @Test(dataProvider = "helpTest",groups = {"Mobile", "Regression"})
+    public void helpTest(String LOCATOR, String LINK_TEXT, String PAGE_MESSAGE) {
+        mobileBasementBlock.clickHelpButton();
+        mobileBasementBlock.checkLinksValidation(LOCATOR, LINK_TEXT);
+        logger.info("Ссылка видна на странице и написана корректно");
+        mobileBasementBlock.selectBasementButtons(LOCATOR);
+        pageActions.contentIsDisplayed(PAGE_MESSAGE);
+        logger.info("Ссылка кликабельна и ведёт на нужную страницу");
+    }
+
+
+    @DataProvider(name = "helpTest")
+    public Object[][] createData() {
+        return new Object[][]{
+                {"/howtoorder/", "Как сделать заказ", "Как оформить заказ на сайте?"},
+                {"/apteki/map/", "Где получить заказ", "Работает сейчас"},
+                {"/faq/", "Вопрос-ответ", "Вопрос-ответ"},
+                {"/feedback/", "Задать вопрос", "Обратная связь"},
+                {"/delivery/", "Доставка", "Доставка"},
+                {"/oplata/", "Оплата", "Оплата"},
+                {"/refund/", "Обмен и возврат", "Правила обмена и возврата товара"},
+                {"/warranty/", "Гарантии", "Гарантии"}
+
+
+        };
+
+
+
+
+
+
+
+
+/*
     @ParameterizedTest(name = "{index} {1}")
     @MethodSource("serviceTest")
     public void serviceTest(String LOCATOR, String LINK_TEXT, String PAGE_MESSAGE) {
@@ -93,7 +121,7 @@ public class MobileBasementBlockMobileTest extends BaseSettingsMobileTests {
                 Arguments.of("/advertisingplacement/", "Размещение рекламы", "Размещение рекламы"),
                 Arguments.of("/licenses/", "Лицензии", "Лицензии")
         );
-    }
+    }*/
 
+    }
 }
-*/
