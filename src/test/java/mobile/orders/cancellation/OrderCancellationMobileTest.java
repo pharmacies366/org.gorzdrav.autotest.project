@@ -1,23 +1,20 @@
-/*
+
 package mobile.orders.cancellation;
 
 import base.BaseSettingsMobileTests;
+import io.qameta.allure.Description;
 import io.qameta.allure.Feature;
+import io.qameta.allure.Step;
 import io.qameta.allure.Story;
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Tag;
-import org.junit.jupiter.api.Test;
-
+import org.testng.Assert;
+import org.testng.annotations.Test;
 @Feature(value = "Мобильная версия")
 @Story(value = "Отмена заказа на сайте Gorzdrav")
-@DisplayName("Отмена созданного заказа")
-@Tag("Mobile")
-@Tag("Regression")
 public class OrderCancellationMobileTest extends BaseSettingsMobileTests {
 
-    @DisplayName("Пользователь отменяет созданный заказ")
-    @Test
+/*    @Description("Пользователь отмены созданного заказа")
+    @Test(groups = {"Mobile", "Regression"})
+    @Step("Пользователь отменяет созданный заказ")
     public void orderCancellation() {
         mobileHeaderBlock.clickBurgerButton();
         mobileMainPopUpBlock.clickToLoginIcon();
@@ -48,8 +45,7 @@ public class OrderCancellationMobileTest extends BaseSettingsMobileTests {
         mobileMainPopUpBlock.clickMyOrders();
         mobileMyOrdersPage.clickOrderNumber();
         mobileMyOrdersPage.clickCancelNumber();
-        Assertions.assertEquals("Отменен", mobileMyOrdersPage.getOrderStatus());
-    }
+        Assert.assertEquals("Отменен", mobileMyOrdersPage.getOrderStatus());
+    }*/
 }
 
-*/
