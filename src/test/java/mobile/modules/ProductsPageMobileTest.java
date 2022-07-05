@@ -1,26 +1,22 @@
 package mobile.modules;
 
 import base.BaseSettingsMobileTests;
+import io.qameta.allure.Description;
 import io.qameta.allure.Feature;
+import io.qameta.allure.Step;
 import io.qameta.allure.Story;
-import org.apache.logging.log4j.core.util.Assert;
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Tag;
-import org.junit.jupiter.api.Test;
-
+import org.testng.Assert;
+import org.testng.annotations.Test;
 
 @Feature(value = "Мобильная версия")
 @Story(value = "Страница товаров на сайте Gorzdrav")
-@DisplayName("Страница товаров")
-@Tag("Mobile")
-@Tag("Regression")
 public class ProductsPageMobileTest extends BaseSettingsMobileTests {
 
     //баг при установки цены
-/*    @DisplayName("Пользователь проверяет изменения диапазона цены вручную")
-    @Test
-    public void checkChangePricesRangeWithHands() {
+/*      @Description("Проверка на корректное изменения ценавого диапазона вручную")
+        @Test(groups = {"Mobile", "Regression"})
+        @Step("Пользователь проверяет изменения диапазона цены вручную")
+        public void checkChangePricesRangeWithHands() {
         openUrl(propertiesManager.getProperty("baseurl") + "c/lekarstva/");
         commonActionsOnMobilePages.clickFiltersButton();
         commonActionsOnMobilePages.clickCostButton();
@@ -29,12 +25,13 @@ public class ProductsPageMobileTest extends BaseSettingsMobileTests {
         int FromPriceRange = commonActionsOnMobilePages.getFromPriceRange();
         int ToPriceRange = commonActionsOnMobilePages.getToPriceRange();
         int price = commonActionsOnMobilePages.checkProductsPrices();
-        Assertions.assertTrue(price >= FromPriceRange);
-        Assertions.assertTrue(price <= ToPriceRange);
+        Assert.assertTrue(price >= FromPriceRange);
+        Assert.assertTrue(price <= ToPriceRange);
     }*/
 
-    @DisplayName("Пользователь выбирет чекбокс Доставка и проверяет корректное изменение списка товаров")
-    @Test
+    @Description("Проверка на корректное применение чекбокса - Доставка")
+    @Test(groups = {"Mobile", "Regression"})
+    @Step("Пользователь выбирет чекбокс Доставка и проверяет корректное изменение списка товаров")
     public void checkProductsOnlyDelivery() {
         openUrl(propertiesManager.getProperty("baseurl") + "c/lekarstva/");
         commonActionsOnMobilePages.clickFiltersButton();
@@ -44,9 +41,11 @@ public class ProductsPageMobileTest extends BaseSettingsMobileTests {
         commonActionsOnMobilePages.checkSelectedProductsWithDeliveryMethod();
     }
 
-// баг? после установки чекбокса, нельзя его снять
-/*    @DisplayName("Пользователь снимает галочку с чекбокса Доставка и проверяет корректное изменение списка товаров")
-    @Test
+    // баг? после установки чекбокса, нельзя его снять
+/*
+    @Description("Проверка на корректную отмену чекбокса - Доставка")
+    @Test(groups = {"Mobile", "Regression"})
+    @Step("Пользователь снимает галочку с чекбокса Доставка и проверяет корректное изменение списка товаров")
     public void checkCancelCheckboxDelivery() {
         openUrl(propertiesManager.getProperty("baseurl") + "c/lekarstva/");
         commonActionsOnMobilePages.clickFiltersButton();
@@ -58,10 +57,13 @@ public class ProductsPageMobileTest extends BaseSettingsMobileTests {
         commonActionsOnMobilePages.deliveryAllowedButton();
         commonActionsOnMobilePages.clickCloseCheckboxDelivery();
         commonActionsOnMobilePages.checkSelectedProductsWithAllMethods();
-    }*/
+    }
+*/
 
-/*    @DisplayName("Пользователь сбрасывает все выбранные чекбоксы и проверяет корректное изменение списка товаров")
-    @Test
+/*
+    @Description("Проверка на корректную отмену всех чекбоксов")
+    @Test(groups = {"Mobile", "Regression"})
+    @Step("Пользователь сбрасывает все выбранные чекбоксы и проверяет корректное изменение списка товаров")
     public void checkCancelAllCheckboxes() {
         openUrl(propertiesManager.getProperty("baseurl") + "c/lekarstva/");
         commonActionsOnMobilePages.clickFiltersButton();
@@ -71,11 +73,13 @@ public class ProductsPageMobileTest extends BaseSettingsMobileTests {
         commonActionsOnMobilePages.clickFiltersButton();
         commonActionsOnMobilePages.clickResetCheckboxes();
         commonActionsOnMobilePages.checkSelectedProductsWithAllMethods();
-    }*/
+    }
+*/
 
 
-    @DisplayName("Пользователь проверяет коррекность работы пагинации страниц")
-    @Test
+    @Description("Проверка пагинации страниц")
+    @Test(groups = {"Mobile", "Regression"})
+    @Step("Пользователь проверяет коррекность работы пагинации страниц")
     public void checkPagination() {
         openUrl(propertiesManager.getProperty("baseurl") + "c/lekarstva/");
         commonActionsOnMobilePages.clickNextPage();
@@ -83,42 +87,46 @@ public class ProductsPageMobileTest extends BaseSettingsMobileTests {
     }
 
 
-    @DisplayName("Пользователь проверяет соотвествие между выдачей товаров и выбранной формы выпуска")
-    @Test
+    @Description("Проверка на корректную установку чекбокса - Форма выпуска")
+    @Test(groups = {"Mobile", "Regression"})
+    @Step("Пользователь проверяет соотвествие между выдачей товаров и выбранной формы выпуска")
     public void checkReleaseForm() {
         openUrl(propertiesManager.getProperty("baseurl") + "c/lekarstva/");
         commonActionsOnMobilePages.clickFiltersButton();
         commonActionsOnMobilePages.clickReleaseForm();
         commonActionsOnMobilePages.clickCheckbox("Ампулы");
         String titlePage = commonActionsOnMobilePages.checkPageTitle();
-        Assertions.assertEquals(titlePage, "Лекарства форма выпуска ампулы");
+        Assert.assertEquals(titlePage, "Лекарства форма выпуска ампулы");
 
     }
 
-    @DisplayName("Пользователь проверяет соотвествие между выдачей товаров и брендом")
-    @Test
+    @Description("Проверка на корректную установку чекбокса - Бренд")
+    @Test(groups = {"Mobile", "Regression"})
+    @Step("Пользователь проверяет соотвествие между выдачей товаров и брендом")
     public void checkBrand() {
         openUrl(propertiesManager.getProperty("baseurl") + "c/lekarstva/");
         commonActionsOnMobilePages.clickFiltersButton();
         commonActionsOnMobilePages.clickBrand();
         commonActionsOnMobilePages.clickCheckbox("Доктор Мом");
         String titlePage = commonActionsOnMobilePages.checkPageTitle();
-        Assertions.assertEquals(titlePage, "Лекарства Доктор Мом");
+        Assert.assertEquals(titlePage, "Лекарства Доктор Мом");
     }
 
-    @DisplayName("Пользователь проверяет соотвествие между выдачей товаров и производителями")
-    @Test
+    @Description("Проверка на корректную установку чекбокса - Производители")
+    @Test(groups = {"Mobile", "Regression"})
+    @Step("Пользователь проверяет соотвествие между выдачей товаров и производителями")
     public void checkManufacturers() {
         openUrl(propertiesManager.getProperty("baseurl") + "c/lekarstva/");
         commonActionsOnMobilePages.clickFiltersButton();
         commonActionsOnMobilePages.clickManufacturers();
         commonActionsOnMobilePages.clickCheckbox("Озон");
         String titlePage = commonActionsOnMobilePages.checkPageTitle();
-        Assertions.assertEquals(titlePage, "Лекарства от Озон");
+        Assert.assertEquals(titlePage, "Лекарства от Озон");
     }
 
-    @DisplayName("Пользователь проверяет корректную выдачу товаров по рецепту")
-    @Test
+    @Description("Проверка на корректную установку чекбокса - По рецепту")
+    @Test(groups = {"Mobile", "Regression"})
+    @Step("Пользователь проверяет корректную выдачу товаров по рецепту")
     public void checkCheckboxWithRecipe() {
         openUrl(propertiesManager.getProperty("baseurl") + "c/lekarstva/");
         commonActionsOnMobilePages.clickFiltersButton();
@@ -126,13 +134,14 @@ public class ProductsPageMobileTest extends BaseSettingsMobileTests {
         commonActionsOnMobilePages.clickSomeProducts();
         mobileProductCardPage.clickProductDetails();
         String recipeInfo = mobileProductCardPage.getRecipeInfo().getText();
-        Assertions.assertEquals(recipeInfo, "По рецепту");
+        Assert.assertEquals(recipeInfo, "По рецепту");
     }
 
 
     //пока не поправят баги
-/*    @DisplayName("Пользователь проверяет сортировку выдачи товаров по уменьшению цены")
-    @Test
+/*    @Description("Проверка корректной сортировки по уменьшению цены")
+    @Test(groups = {"Mobile", "Regression"})
+    @Step("Пользователь проверяет сортировку выдачи товаров по уменьшению цены")
     public void checkSortingPriceReduction() {
         openUrl(propertiesManager.getProperty("baseurl") + "c/lekarstva/");
         commonActionsOnMobilePages.clickSortingButton();
@@ -142,8 +151,9 @@ public class ProductsPageMobileTest extends BaseSettingsMobileTests {
     }
 
 
-    @DisplayName("Пользователь проверяет сортировку выдачи товаров по увеличению цены")
-    @Test
+    @Description("Проверка корректной сортировки по увеличению цены")
+    @Test(groups = {"Mobile", "Regression"})
+    @Step("Пользователь проверяет сортировку выдачи товаров по увеличению цены")
     public void checkSortingPriceIncrease() {
         openUrl(propertiesManager.getProperty("baseurl") + "c/lekarstva/");
         commonActionsOnMobilePages.clickSortingButton();
@@ -152,8 +162,9 @@ public class ProductsPageMobileTest extends BaseSettingsMobileTests {
         commonActionsOnMobilePages.checkSortingPriceIncrease();
     }
 
-    @DisplayName("Пользователь проверяет сортировку выдачи товаров по названию")
-    @Test
+    @Description("Проверка корректной сортировки по названию")
+    @Test(groups = {"Mobile", "Regression"})
+    @Step("Пользователь проверяет сортировку выдачи товаров по названию")
     public void checkSortingName() {
         openUrl(propertiesManager.getProperty("baseurl") + "c/lekarstva/");
         commonActionsOnMobilePages.clickSortingButton();
