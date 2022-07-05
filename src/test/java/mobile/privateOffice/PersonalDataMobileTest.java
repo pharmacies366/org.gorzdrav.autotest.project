@@ -1,27 +1,18 @@
 package mobile.privateOffice;
 
 import base.BaseSettingsMobileTests;
+import io.qameta.allure.Description;
 import io.qameta.allure.Feature;
+import io.qameta.allure.Step;
 import io.qameta.allure.Story;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Tag;
-import org.junit.jupiter.api.Test;
-import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.Arguments;
-import org.junit.jupiter.params.provider.MethodSource;
-
-import java.util.stream.Stream;
+import org.testng.annotations.Test;
 
 @Feature(value = "Мобильная версия")
 @Story(value = "Личный кабинет на сайте Gorzdrav")
-@DisplayName("Личный кабинет")
-@Tag("Mobile")
-@Tag("Regression")
-
 public class PersonalDataMobileTest extends BaseSettingsMobileTests {
 
 
-    private static Stream<Arguments> checkDisplayedOptions() {
+/*    private static Stream<Arguments> checkDisplayedOptions() {
         return Stream.of(
                 Arguments.of("/my-account/my-profile", "Мой профиль", "Мой профиль"),
                 Arguments.of("/my-account/update-password", "Изменить пароль", "Изменить пароль"),
@@ -49,10 +40,11 @@ public class PersonalDataMobileTest extends BaseSettingsMobileTests {
         mobilePersonalDataPage.selectPersonalDataButtons(LOCATOR);
         pageActions.contentIsDisplayed(PAGEMESSAGE);
         logger.info("Ссылка кликабельна и ведёт на нужную страницу");
-    }
+    }*/
 
-    @DisplayName("Пользователь заполняет отчество и сохраняет данные")
-    @Test
+    @Description("Проверка на заполнение и сохранения изменений для поля Отчество")
+    @Test(groups = {"Mobile", "Regression"})
+    @Step("Пользователь заполняет отчество и сохраняет данные")
     public void checkPersonalData() {
         mobileHeaderBlock.clickBurgerButton();
         mobileMainPopUpBlock.clickToLoginIcon();
@@ -72,8 +64,9 @@ public class PersonalDataMobileTest extends BaseSettingsMobileTests {
         mobilePersonalDataPage.checkSavePersonalData();
     }
 
-    @DisplayName("Пользователь очищает поля имя и получает ошибку")
-    @Test
+    @Description("Проверка на получение ошибки при сохраниние данных без имени")
+    @Test(groups = {"Mobile", "Regression"})
+    @Step("Пользователь очищает поля имя и получает ошибку")
     public void clearNameAndGettingError() {
         mobileHeaderBlock.clickBurgerButton();
         mobileMainPopUpBlock.clickToLoginIcon();
@@ -89,8 +82,9 @@ public class PersonalDataMobileTest extends BaseSettingsMobileTests {
         mobilePersonalDataPage.gettingErrorWithName();
     }
 
-    @DisplayName("Пользователь изменяет и сохраняет имя")
-    @Test
+    @Description("Проверка на заполнение и сохранения изменений для поля Имя")
+    @Test(groups = {"Mobile", "Regression"})
+    @Step("Пользователь изменяет и сохраняет имя")
     public void changeName() {
         mobileHeaderBlock.clickBurgerButton();
         mobileMainPopUpBlock.clickToLoginIcon();
@@ -111,8 +105,9 @@ public class PersonalDataMobileTest extends BaseSettingsMobileTests {
         mobilePersonalDataPage.checkNewName("Ivan");
     }
 
-    @DisplayName("Пользователь изменяет дату рождения")
-    @Test
+    @Description("Проверка на заполнение и сохранения изменений для полей с датой рождения")
+    @Test(groups = {"Mobile", "Regression"})
+    @Step("Пользователь изменяет дату рождения")
     public void changeBirthday() {
         mobileHeaderBlock.clickBurgerButton();
         mobileMainPopUpBlock.clickToLoginIcon();
@@ -130,8 +125,9 @@ public class PersonalDataMobileTest extends BaseSettingsMobileTests {
     }
 
     //Сделать корректную проверку на изменения пола
-    @DisplayName("Пользователь изменяет пол")
-    @Test
+    @Description("Проверка на заполнение и сохранения изменений для выбора пола")
+    @Test(groups = {"Mobile", "Regression"})
+    @Step("Пользователь изменяет пол")
     public void changeGender() {
         mobileHeaderBlock.clickBurgerButton();
         mobileMainPopUpBlock.clickToLoginIcon();
@@ -152,8 +148,9 @@ public class PersonalDataMobileTest extends BaseSettingsMobileTests {
         // mobilePersonalDataPage.getMaleButton().checkAttribute("value", "MALE");
     }
 
-    @DisplayName("Пользователь очищает поля email, нажимает сохранить и получает ошибку")
-    @Test
+    @Description("Проверка на получение ошибки при сохраниние данных без email")
+    @Test(groups = {"Mobile", "Regression"})
+    @Step("Пользователь очищает поля email, нажимает сохранить и получает ошибку")
     public void clearEmail() {
         mobileHeaderBlock.clickBurgerButton();
         mobileMainPopUpBlock.clickToLoginIcon();
@@ -169,8 +166,9 @@ public class PersonalDataMobileTest extends BaseSettingsMobileTests {
         mobilePersonalDataPage.gettingErrorWithEmail();
     }
 
-    @DisplayName("Пользователь проверяет, что поле с номером телефона нельзя редактировать")
-    @Test
+    @Description("Проверка на недоступность для редактирования поля телефон")
+    @Test(groups = {"Mobile", "Regression"})
+    @Step("Пользователь проверяет, что поле с номером телефона нельзя редактировать")
     public void checkPhone() {
         mobileHeaderBlock.clickBurgerButton();
         mobileMainPopUpBlock.clickToLoginIcon();
@@ -184,8 +182,9 @@ public class PersonalDataMobileTest extends BaseSettingsMobileTests {
         mobilePersonalDataPage.checkPhone();
     }
 
-    @DisplayName("Проверка чекбокса с новостной рассылкой")
-    @Test
+    @Description("Проверка на установку чекбокса с новостной рассылкой")
+    @Test(groups = {"Mobile", "Regression"})
+    @Step("Пользователь поочерёдно устонавливает и снимает чекбокс с новостной рассылкой")
     public void checkReceiveNews() {
         mobileHeaderBlock.clickBurgerButton();
         mobileMainPopUpBlock.clickToLoginIcon();
