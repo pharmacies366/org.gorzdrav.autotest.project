@@ -179,7 +179,7 @@ public class CheckOutPage extends MainTestBase{
     @Step("Пользователь нажимает на кнопки 'Узнать о наличии' и 'Выбрать эту аптеку'")
     public void getAvailabilityAndChooseThisPharmacy(){
         getAvailability().click();
-        getChooseThisPharmacy().clickJs();
+        getChooseThisPharmacy().click()
         logger.info("Пользователь нажимает на кнопки 'Узнать о наличии' и 'Выбрать эту аптеку'");
     }
 

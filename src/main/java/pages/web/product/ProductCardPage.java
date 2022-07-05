@@ -157,7 +157,7 @@ public class ProductCardPage extends MainTestBase {
 
     @Step("Пользователь нажимает '+' увеличивая количество шт. товара")
     public void clickIncreaseQuantity() {
-        getIncreaseQuantity().clickJs();
+        getIncreaseQuantity().click()
         logger.info("Пользователь нажимает '+' увеличивая количество шт. товара");
     }
 

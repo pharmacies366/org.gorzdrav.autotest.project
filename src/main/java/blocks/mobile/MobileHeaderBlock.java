@@ -3,9 +3,8 @@ package blocks.mobile;
 import actions.PageElementActions;
 import core.MainTestBase;
 import io.qameta.allure.Step;
-import org.apache.logging.log4j.core.util.Assert;
-import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.WebDriver;
+import org.testng.Assert;
 
 public class MobileHeaderBlock extends MainTestBase {
     //элементы
@@ -70,7 +69,7 @@ public class MobileHeaderBlock extends MainTestBase {
     //Методы
     @Step("Пользователь нажимает на иконку выпадающего списка")
     public void clickBurgerButton(){
-        getBurgerButton().clickJs();
+        getBurgerButton().click();
         logger.info("Пользователь нажимает на иконку выпадающего списка");
     }
 
@@ -128,7 +127,7 @@ public class MobileHeaderBlock extends MainTestBase {
     @Step("Пользователь проверяет выбранный регион")
     public void checkSelectedRegion(String regionName) {
         String region = getSelectedRegion().getText();
-        Assertions.assertEquals(region, regionName);
+        Assert.assertEquals(region, regionName);
         logger.info("Пользователь проверяет выбранный регион");
     }
 

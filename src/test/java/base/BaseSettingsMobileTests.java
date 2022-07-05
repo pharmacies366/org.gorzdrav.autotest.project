@@ -5,7 +5,7 @@ import blocks.mobile.MobileBasementBlock;
 import blocks.mobile.MobileHeaderBlock;
 import blocks.mobile.MobileMainPopUpBlock;
 import core.MainTestBase;
-import org.junit.jupiter.api.BeforeEach;
+import org.testng.annotations.BeforeMethod;
 import pages.commonActions.mobile.CommonActionsOnMobilePages;
 import pages.mobile.authorization.MobileAuthPopUpPage;
 import pages.mobile.botConsultant.MobileBotConsultantPopUpPage;
@@ -57,7 +57,7 @@ public class BaseSettingsMobileTests extends MainTestBase {
     protected MobileBotConsultantPopUpPage mobileBotConsultantPopUpPage;
 
 
-    @BeforeEach
+    @BeforeMethod
     public void PagesInitialization() {
         mobileMainPage = new MobileMainPage(driver);
         closePopUps();

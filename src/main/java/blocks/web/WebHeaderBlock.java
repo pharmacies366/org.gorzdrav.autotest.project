@@ -3,8 +3,8 @@ package blocks.web;
 import actions.PageElementActions;
 import core.MainTestBase;
 import io.qameta.allure.Step;
-import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.WebDriver;
+import org.testng.Assert;
 
 public class WebHeaderBlock extends MainTestBase {
 
@@ -220,7 +220,7 @@ public class WebHeaderBlock extends MainTestBase {
     @Step("Пользователь нажимает на кнопку: 'Аптеки'")
     public void clickPharmacyButton(){
         String text = getPharmacyButton().getText();
-        Assertions.assertEquals("Аптеки",text);
+        Assert.assertEquals("Аптеки",text);
         getPharmacyButton().click();
         logger.info("Пользователь нажимает на кнопку: 'Аптеки'");
     }
@@ -228,7 +228,7 @@ public class WebHeaderBlock extends MainTestBase {
     @Step("Пользователь нажимает на кнопку: 'Карта Горздрав'")
     public void clickGorzdravMap(){
         String text = getGorzdravMap().getText();
-        Assertions.assertEquals("Карта ГОРЗДРАВ",text);
+        Assert.assertEquals("Карта ГОРЗДРАВ",text);
         getGorzdravMap().click();
         logger.info("Пользователь нажимает на кнопку: 'Карта Горздрав'");
     }
@@ -236,7 +236,7 @@ public class WebHeaderBlock extends MainTestBase {
     @Step("Пользователь нажимает на кнопку: 'Доставка'")
     public void clickDeliveryButton(){
         String text = getDeliveryButton().getText();
-        Assertions.assertEquals("Доставка",text);
+        Assert.assertEquals("Доставка",text);
         getDeliveryButton().click();
         logger.info("Пользователь нажимает на кнопку: 'Доставка'");
     }
@@ -244,7 +244,7 @@ public class WebHeaderBlock extends MainTestBase {
     @Step("Пользователь нажимает на кнопку: 'Бронирование'")
     public void clickBookingButton(){
         String text = getBookingButton().getText();
-        Assertions.assertEquals("Бронирование",text);
+        Assert.assertEquals("Бронирование",text);
         getBookingButton().click();
         logger.info("Пользователь нажимает на кнопку: 'Бронирование'");
     }
@@ -252,7 +252,7 @@ public class WebHeaderBlock extends MainTestBase {
     @Step("Пользователь нажимает на кнопку: 'Вакансии'")
     public void clickVacanciesButton(){
         String text = getVacanciesButton().getText();
-        Assertions.assertEquals("Вакансии",text);
+        Assert.assertEquals("Вакансии",text);
         getVacanciesButton().click();
         logger.info("Пользователь нажимает на кнопку: 'Вакансии'");
     }
@@ -306,7 +306,7 @@ public class WebHeaderBlock extends MainTestBase {
     @Step("Пользователь проверяет выбранный регион")
     public void checkSelectedRegion(String regionName) {
         String region = getSelectedRegion().getText();
-        Assertions.assertEquals(region, regionName);
+        Assert.assertEquals(region, regionName);
         logger.info("Пользователь проверяет выбранный регион");
     }
 

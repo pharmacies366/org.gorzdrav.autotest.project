@@ -116,7 +116,6 @@ public class CartPage extends MainTestBase {
             driver.get(propertiesManager.getProperty("baseurl") + "/cart");
             deleteAllMaterials();
             logger.info("ТОВАРЫ В КОРЗИНЕ УДАЛЕНЫ");
-            saveAllureScreenshot();
         }
     }
 
@@ -155,7 +154,7 @@ public class CartPage extends MainTestBase {
 
     @Step("Пользователь нажимае на кнопку 'Оформить заказ'")
     public void clickToMakeOrder() {
-        getMakeOrder().clickJs();
+        getMakeOrder().click()
         logger.info("Пользователь нажимае на кнопку 'Оформить заказ'");
     }
 

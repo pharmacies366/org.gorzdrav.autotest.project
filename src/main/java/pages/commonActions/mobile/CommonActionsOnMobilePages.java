@@ -284,7 +284,7 @@ public class CommonActionsOnMobilePages extends MainTestBase {
 
     @Step("Пользователь нажимает на кнопку Бренд")
     public void clickBrand() {
-        getBrand().clickJs();
+        getBrand().click()
         logger.info("Пользователь нажимает на кнопку Бренд");
     }
 
@@ -479,7 +479,7 @@ public class CommonActionsOnMobilePages extends MainTestBase {
         logger.info("Пользователь рандомом выбирает опцию из чекбоксов чекбокс: форма выпуска, бредн, теги, для кого, производители");
         getCheckboxOption(String.format(BASE_INPUT_CHECKBOX_OPTION_XPATH, randomNumber + index)).moveToElementJs();
         String optionName = getCheckboxOption(String.format(BASE_INPUT_CHECKBOX_OPTION_XPATH, randomNumber + index)).getText();
-        getCheckboxOption(String.format(BASE_INPUT_CHECKBOX_OPTION_XPATH, randomNumber + index)).clickJs();
+        getCheckboxOption(String.format(BASE_INPUT_CHECKBOX_OPTION_XPATH, randomNumber + index)).click()
         logger.info("Пользователь нажимает на выбранную опцию");
 
         int par = getProductList().getSize();
@@ -498,7 +498,7 @@ public class CommonActionsOnMobilePages extends MainTestBase {
 
     @Step("Пользователь выбирает опцию: по рецепту")
     public void checkCheckboxWithRecipe() {
-        getOnRecipeButton().clickJs();
+        getOnRecipeButton().click()
         getOnRecipeCheckbox().click();
         logger.info("Пользователь выбирает опцию: по рецепту");
     }
@@ -511,7 +511,7 @@ public class CommonActionsOnMobilePages extends MainTestBase {
 
     @Step("Пользователь выбирает опцию: без рецепта")
     public void checkCheckboxWithoutRecipe() {
-        getOnRecipeButton().clickJs();
+        getOnRecipeButton().click()
         getWithoutRecipeCheckbox().click();
         logger.info("Пользователь выбирает опцию: без рецепта");
     }
@@ -519,7 +519,7 @@ public class CommonActionsOnMobilePages extends MainTestBase {
     @Step("Пользователь листает вперёд страницы и проверяет релевантный переход")
     public void clickNextPage() {
         for (int i = 1; i < 4; i++) {
-            getNexPaginationButton().clickJs();
+            getNexPaginationButton().click()
             String stringPageOpenNumber = getPageNumberOpen().getAttribute("innerHTML");
             int pageOpenNumber = Integer.parseInt(stringPageOpenNumber);
             int pageOpenTitle = getPageNumberOpenTitle().formatElementToValue();
@@ -531,7 +531,7 @@ public class CommonActionsOnMobilePages extends MainTestBase {
     @Step("Пользователь листает назад страницы и проверяет релевантный переход")
     public void clickPrevPage() {
         for (int i = 4; i > 2; i--) {
-            getPrevPaginationButton().clickJs();
+            getPrevPaginationButton().click()
             String stringPageOpenNumber = getPageNumberOpen().getAttribute("innerHTML");
             int pageOpenNumber = Integer.parseInt(stringPageOpenNumber);
             int pageOpenTitle = getPageNumberOpenTitle().formatElementToValue();

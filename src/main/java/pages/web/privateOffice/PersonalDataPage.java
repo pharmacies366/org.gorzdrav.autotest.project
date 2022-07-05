@@ -3,9 +3,8 @@ package pages.web.privateOffice;
 import actions.PageElementActions;
 import core.MainTestBase;
 import io.qameta.allure.Step;
-import org.apache.logging.log4j.core.util.Assert;
-import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.WebDriver;
+import org.testng.Assert;
 
 public class PersonalDataPage extends MainTestBase {
 
@@ -195,7 +194,7 @@ public class PersonalDataPage extends MainTestBase {
         getBaseInputePrsonalDetails(String.format(BASE_INPUT_PERSONAL_DATA_XPATH, FirstName))
                 .checkAttribute("class", "form-control js-validate--simple b-text--error");
         String message = getErrorNameMessage().getText();
-        Assertions.assertEquals(ErrorNameMessage, message);
+        Assert.assertEquals(ErrorNameMessage, message);
         logger.info("Пользователь получает ошибку");
     }
 
@@ -227,7 +226,7 @@ public class PersonalDataPage extends MainTestBase {
         getBaseInputePrsonalDetails(String.format(BASE_INPUT_PERSONAL_DATA_XPATH, Email))
                 .checkAttribute("class", "form-control js-validate__email--simple b-text--error ");
         String message = getErrorEmailMessage().getText();
-        Assertions.assertEquals(ErrorEmailMessage, message);
+        Assert.assertEquals(ErrorEmailMessage, message);
         logger.info("Пользователь получает ошибку");
     }
 

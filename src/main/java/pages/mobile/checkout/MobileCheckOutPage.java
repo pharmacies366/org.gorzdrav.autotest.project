@@ -123,7 +123,7 @@ public class MobileCheckOutPage extends MainTestBase {
 
     @Step("Пользователь нажимает на кнопку 'Сделать заказ'")
     public void clickMakeOrder() {
-        getMakeOrderButton().clickJs();
+        getMakeOrderButton().click()
         logger.info("Пользователь нажимает на кнопку 'Сделать заказ'");
     }
 
@@ -183,14 +183,14 @@ public class MobileCheckOutPage extends MainTestBase {
 
     @Step("Пользователь нажимает на список доступных Аптек")
     public void clickChangeAptekaList() {
-        getChangeAptekaList().clickJs();
+        getChangeAptekaList().click()
         logger.info("Пользователь нажимает на список доступных Аптек");
     }
 
     @Step("Пользователь нажимает на кнопку узнать о наличаи и выбрать первую аптеку из списка")
     public void clickSelect() {
         getAvailability().click();
-        getSelect().clickJs();
+        getSelect().click()
         logger.info("Пользователь нажимает на кнопку узнать о наличаи и выбрать первую аптеку из списка");
     }
 
@@ -202,7 +202,7 @@ public class MobileCheckOutPage extends MainTestBase {
 
     @Step("Пользователь закрывает попап с вопросом о процессе оформления")
     public void closePopUpQuestion() {
-        getPopUpQuestion().clickJs();
+        getPopUpQuestion().click()
         logger.info("Пользователь закрывает попап с вопросом о процессе оформления");
     }
 

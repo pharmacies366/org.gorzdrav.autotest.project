@@ -8,6 +8,8 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.fail;
+
 @Feature("Web")
 @Story("Авторизация пользователя на сайте Gorzdrav")
 @DisplayName("Авторизация пользователя")
@@ -23,6 +25,7 @@ public class SignInPositiveWebTest extends BaseSettingsWebTests {
         cookiePage.reCaptchaKey();
         headerBlock.clickToSignInButton();
         authPopUpPage.getPhoneNumberInput().click();
+        fail();
         authPopUpPage.setPhoneNumber(propertiesManager.getProperty("phonenumber1"),
                 propertiesManager.getProperty("userpass"));
         authPopUpPage.clickToLoginButton();

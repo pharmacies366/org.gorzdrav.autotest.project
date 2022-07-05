@@ -1,12 +1,12 @@
 package actions;
 
 import core.MainTestBase;
-import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 
 import java.time.Duration;
 
@@ -60,7 +60,7 @@ public class PageActions extends MainTestBase {
     //Проверка url
     public void checkUrl(String url) {
         String actualUrl = driver.getCurrentUrl();
-        Assertions.assertEquals(url, actualUrl);
+        Assert.assertEquals(url, actualUrl);
     }
 
     //Получить Title
@@ -70,7 +70,7 @@ public class PageActions extends MainTestBase {
 
     //Сравнить два текста
     public void assertEqualsTwoObject(String actual, String expected) {
-        Assertions.assertEquals(actual, expected);
+        Assert.assertEquals(actual, expected);
     }
 
     //Проверка видимости текста на странице

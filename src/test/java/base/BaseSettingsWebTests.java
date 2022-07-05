@@ -4,7 +4,7 @@ import actions.PageElementActions;
 import blocks.web.WebBasementBlock;
 import blocks.web.WebHeaderBlock;
 import core.MainTestBase;
-import org.junit.jupiter.api.BeforeEach;
+import org.testng.annotations.BeforeMethod;
 import pages.commonActions.web.CommonActionsOnWebPages;
 import pages.web.authorization.AuthPopUpPage;
 import pages.web.bonusCard.BonusCardPopUpPage;
@@ -51,8 +51,7 @@ public class BaseSettingsWebTests extends MainTestBase {
     protected BotConsultantPopUpPage botConsultantPopUpPage;
 
 
-
-    @BeforeEach
+    @BeforeMethod
     public void PagesInitialization() {
         mainPage = new MainPage(driver);
         closePopUp();
@@ -80,7 +79,7 @@ public class BaseSettingsWebTests extends MainTestBase {
         botConsultantPopUpPage = new BotConsultantPopUpPage(driver);
     }
 
-    public void closePopUp(){
+    public void closePopUp() {
         mainPage.clickClosePopUp();
     }
 }

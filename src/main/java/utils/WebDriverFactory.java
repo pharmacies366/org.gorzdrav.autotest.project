@@ -18,7 +18,6 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
-import static core.MainTestBase.nameOfClass;
 import static core.MainTestBase.nameOfPackage;
 
 public class WebDriverFactory {
