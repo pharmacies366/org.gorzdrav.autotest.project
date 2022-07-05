@@ -6,8 +6,6 @@ import io.qameta.allure.Feature;
 import io.qameta.allure.Step;
 import io.qameta.allure.Story;
 import org.testng.annotations.Test;
-
-
 @Feature(value = "Мобильная версия")
 @Story("Авторизация пользователя на сайте Gorzdrav")
 public class SignInPositiveMobileTest extends BaseSettingsMobileTests {

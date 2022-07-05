@@ -1,17 +1,14 @@
 package mobile.banners;
 
 import base.BaseSettingsMobileTests;
+import io.qameta.allure.Description;
 import io.qameta.allure.Feature;
+import io.qameta.allure.Step;
 import io.qameta.allure.Story;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Tag;
-import org.junit.jupiter.api.Test;
+import org.testng.annotations.Test;
 
 @Feature(value = "Мобильная версия")
 @Story("Проверка работы банеров на сайте Gorzdrav")
-@DisplayName("Проверка работы банеров на сайте")
-@Tag("Mobile")
-@Tag("Regression")
 public class BannersMobileTest extends BaseSettingsMobileTests {
 
 // Нужно подумать над реализацией
@@ -37,8 +34,9 @@ public class BannersMobileTest extends BaseSettingsMobileTests {
         mobileMainPage.checkBannersClickable();
     }*/
 
-    @DisplayName("Пользователь проверяет переход по банерау на странице OSP")
-    @Test
+    @Description("Проверка перехода по банерау на странице OSP")
+    @Test(groups = { "Mobile", "Regression" })
+    @Step("переход по банерау на странице OSP")
     public void checkBannersClickableOnOspPage() {
         mobileMainPage.clickSiteLogo();
         pageActions.waitPageLoad();
@@ -50,8 +48,9 @@ public class BannersMobileTest extends BaseSettingsMobileTests {
         mobileMainPage.clickSiteLogo();
     }
 
-    @DisplayName("Пользователь проверяет переход по банерау на странице товара")
-    @Test
+    @Description("Проверка перехода по банерау на странице товара")
+    @Test(groups = { "Mobile", "Regression" })
+    @Step("переход по банерау на странице товара")
     public void checkBannersClickableOnProductPage() {
         mobileHeaderBlock.setSearchInput(propertiesManager.getProperty("productcode4"));
         mobileProductCardPage.clickBanner();
@@ -59,8 +58,9 @@ public class BannersMobileTest extends BaseSettingsMobileTests {
         mobileMainPage.clickSiteLogo();
     }
 
-    @DisplayName("Пользователь проверяет переход по банерау на странице категории")
-    @Test
+    @Description("Проверка перехода по банерау на странице категории")
+    @Test(groups = { "Mobile", "Regression" })
+    @Step("переход по банерау на странице категории")
     public void checkBannersClickableOnCategoryPage() {
         mobileHeaderBlock.clickBurgerButton();
         mobileMainPopUpBlock.clickCatalogButton();
@@ -72,8 +72,9 @@ public class BannersMobileTest extends BaseSettingsMobileTests {
         mobileMainPage.clickSiteLogo();
     }
 
-    @DisplayName("Пользователь проверяет переход по банеру на странице поисковой выдачи")
-    @Test
+    @Description("Проверка перехода по банерау на странице поисковой выдачи")
+    @Test(groups = { "Mobile", "Regression" })
+    @Step("переход по банерау на странице поисковой выдачи")
     public void checkBannersClickableWithSearch() {
         mobileHeaderBlock.setSearchInput("Лекарства");
         mobileMedicationsPage.clickBanner();
@@ -81,8 +82,9 @@ public class BannersMobileTest extends BaseSettingsMobileTests {
         mobileMainPage.clickSiteLogo();
     }
 
-    @DisplayName("Пользователь проверяет переход по банеру на странице корзины")
-    @Test
+    @Description("Проверка перехода по банерау на странице корзины")
+    @Test(groups = { "Mobile", "Regression" })
+    @Step("переход по банерау на странице корзины")
     public void checkBannersClickableOnCartPage() {
         driver.get(propertiesManager.getProperty("baseurl") + "cart");
         mobileCartPage.clickBanner();
