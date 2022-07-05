@@ -119,6 +119,7 @@ public class MakeOrdersUnauthorizedMobileTest extends BaseSettingsMobileTests {
         mobileHeaderBlock.setSearchInput(propertiesManager.getProperty("productcode2"));
         mobileCartPage.сlickAddCartButton();
         mobileCartPage.clickToCartButton();
+        pageActions.waitPageLoad();
         mobileCartPage.clickToMakeOrder();
         pageActions.waitPageLoad();
         // mobileCheckOutPage.clickSelectApteka();
