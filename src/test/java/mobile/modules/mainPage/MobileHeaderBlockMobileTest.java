@@ -1,4 +1,4 @@
-package mobile.mainPage;
+package mobile.modules.mainPage;
 
 import base.BaseSettingsMobileTests;
 import io.qameta.allure.Description;

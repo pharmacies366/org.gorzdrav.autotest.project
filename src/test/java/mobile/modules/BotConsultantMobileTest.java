@@ -1,22 +1,19 @@
 package mobile.modules;
 
 import base.BaseSettingsMobileTests;
+import io.qameta.allure.Description;
 import io.qameta.allure.Feature;
+import io.qameta.allure.Step;
 import io.qameta.allure.Story;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Tag;
-import org.junit.jupiter.api.Test;
-
+import org.testng.annotations.Test;
 
 @Feature(value = "Мобильная версия")
 @Story(value = "Консультант бот на сайте Gorzdrav")
-@DisplayName("Консультант бот")
-@Tag("Mobile")
-@Tag("Regression")
-public class BotConsultantMobileTest extends BaseSettingsMobileTests {
+public class  BotConsultantMobileTest extends BaseSettingsMobileTests {
 
-    @DisplayName("Пользователь выбирает пункт: Не могу оформить заказ, заполняет свои данные и получает ответ от бота")
-    @Test
+    @Description("Проверка пункта: Не могу оформить заказ")
+    @Test(groups = { "Mobile", "Regression" })
+    @Step("Пользователь заполняет свои данные и получает ответ от бота")
     public void checkItemCanNotCheckout() {
         pageActions.reloadPage();
         mobileMainPage.clickBotConsultantButton();
@@ -26,8 +23,9 @@ public class BotConsultantMobileTest extends BaseSettingsMobileTests {
         mobileBotConsultantPopUpPage.checkThanksMessage();
     }
 
-    @DisplayName("Пользователь выбирает пункт: Мне нужен препарат, заполняет свои данные и получает ответ от бота")
-    @Test
+    @Description("Проверка пункта: Мне нужен препарат")
+    @Test(groups = { "Mobile", "Regression" })
+    @Step("Пользователь заполняет свои данные и получает ответ от бота")
     public void checkItemINeedADrug() {
         pageActions.reloadPage();
         mobileMainPage.clickBotConsultantButton();
@@ -37,8 +35,9 @@ public class BotConsultantMobileTest extends BaseSettingsMobileTests {
         mobileBotConsultantPopUpPage.checkThanksMessage();
     }
 
-    @DisplayName("Пользователь выбирает пункт: Нужна доставка, заполняет свои данные и получает ответ от бота")
-    @Test
+    @Description("Проверка пункта: Нужна доставка")
+    @Test(groups = { "Mobile", "Regression" })
+    @Step("Пользователь заполняет свои данные и получает ответ от бота")
     public void checkItemINeedDelivery() {
         pageActions.reloadPage();
         mobileMainPage.clickBotConsultantButton();
@@ -48,13 +47,13 @@ public class BotConsultantMobileTest extends BaseSettingsMobileTests {
         mobileBotConsultantPopUpPage.checkThanksMessage();
     }
 
-    @DisplayName("Пользователь проверяет закрытие консультант бота")
-    @Test
+    @Description("Проверка закрытия консультант бота")
+    @Test(groups = { "Mobile", "Regression" })
+    @Step("Пользователь открывает и закрывает консультант бота")
     public void checkCloseBot() {
         pageActions.reloadPage();
         mobileMainPage.clickBotConsultantButton();
         mobileBotConsultantPopUpPage.clickCloseBot();
         mobileMainPage.getBotConsultantButton().isElementDisplayed();
-
     }
 }
