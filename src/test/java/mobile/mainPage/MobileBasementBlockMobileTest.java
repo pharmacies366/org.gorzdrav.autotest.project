@@ -1,3 +1,4 @@
+/*
 package mobile.mainPage;
 
 import base.BaseSettingsMobileTests;
@@ -95,3 +96,4 @@ public class MobileBasementBlockMobileTest extends BaseSettingsMobileTests {
     }
 
 }
+*/

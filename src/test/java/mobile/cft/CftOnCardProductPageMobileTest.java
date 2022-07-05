@@ -8,10 +8,6 @@ import io.qameta.allure.Story;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-/**
- * @author Михаил
- */
-
 @Feature(value = "Мобильная версия")
 @Story("Проверка работы ЦФТ в карточке товаров сайта Горздрав")
 public class CftOnCardProductPageMobileTest extends BaseSettingsMobileTests {

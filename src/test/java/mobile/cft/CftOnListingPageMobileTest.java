@@ -3,55 +3,44 @@ package mobile.cft;
 import base.BaseSettingsMobileTests;
 import io.qameta.allure.Description;
 import io.qameta.allure.Feature;
+import io.qameta.allure.Step;
 import io.qameta.allure.Story;
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Tag;
-import org.junit.jupiter.api.Test;
-
-/**
- * @author Михаил
- */
+import org.testng.Assert;
+import org.testng.annotations.Test;
 
 @Feature(value = "Мобильная версия")
-@DisplayName("ЦФТ на сайте Горздрав")
 @Story("Проверка работы ЦФТ на странице с листингом товаров сайта Горздрав")
-@Tag("Regression")
-@Tag("CFT")
-@Tag("Mobile")
 public class CftOnListingPageMobileTest extends BaseSettingsMobileTests {
 
-    @DisplayName("Проверка заднего фона кнопки с расчётом бонусов")
-    @Description("Цвет заднего фона кнопки должен быть: #1560bd - Синий")
-    @Test
+    @Description("Проверка заднего фона кнопки с расчётом бонусов")
+    @Test(groups = { "Mobile", "Regression", "CFT" })
+    @Step("Цвет заднего фона кнопки должен быть: #1560bd - Синий")
     public void checkBackgroundColorProductGalleryBonus() {
         openUrl(propertiesManager.getProperty("baseurl") + "c/lekarstva/");
         commonActionsOnMobilePages.clickFiltersButton();
         String actualColor = commonActionsOnMobilePages.getColorBackgroundProductGalleryButton();
-        Assertions.assertEquals("#1560bd", actualColor);
+        Assert.assertEquals("#1560bd", actualColor);
     }
 
-    @DisplayName("Проверка фона текста кнопки с расчётом бонусов")
-    @Description("Цвет текста на фоне кнопки должен быть: #fff - Белый")
-    @Test
+    @Description("Проверка фона текста кнопки с расчётом бонусов")
+    @Test(groups = { "Mobile", "Regression", "CFT" })
+    @Step("Цвет текста на фоне кнопки должен быть: #fff - Белый")
     public void checkColorTextProductGalleryBonus() {
         openUrl(propertiesManager.getProperty("baseurl") + "c/lekarstva/");
         commonActionsOnMobilePages.clickFiltersButton();
         String actualColor = commonActionsOnMobilePages.getColorTextProductGalleryButton();
-        Assertions.assertEquals("#ffffff", actualColor);
+        Assert.assertEquals("#ffffff", actualColor);
     }
-
-    @DisplayName("Проверка, что на шильдике с количеством бонусов присутствует значок '+'")
-    @Description("На шильдике с бонусами должен присутствовать знак '+'")
-    @Test
+    @Description("Проверка, что на шильдике с количеством бонусов присутствует значок '+'")
+    @Test(groups = { "Mobile", "Regression", "CFT" })
+    @Step("На шильдике с бонусами должен присутствовать знак '+'")
     public void checkInfoProductGalleryBonus() {
         commonActionsOnMobilePages.checkPlusOnBonusButton();
     }
 
-
-    @DisplayName("Проверка на наличия начисляемых бонусов за покупку товара")
-    @Description("Если цена товара больше или равно 50 р., то шильдик должен быть")
-    @Test
+    @Description("Проверка на наличия начисляемых бонусов за покупку товара")
+    @Test(groups = { "Mobile", "Regression", "CFT" })
+    @Step("Если цена товара больше или равно 50 р., то шильдик должен быть")
     public void checkVisibilityBonuses() {
         openUrl(propertiesManager.getProperty("baseurl") + "c/lekarstva/");
         commonActionsOnMobilePages.clickFiltersButton();
