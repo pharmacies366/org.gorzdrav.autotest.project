@@ -1,22 +1,18 @@
 package mobile.orders.makeorders;
 
 import base.BaseSettingsMobileTests;
+import io.qameta.allure.Description;
 import io.qameta.allure.Feature;
+import io.qameta.allure.Step;
 import io.qameta.allure.Story;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Tag;
-import org.junit.jupiter.api.Test;
-
+import org.testng.annotations.Test;
 
 @Feature(value = "Мобильная версия")
-@Story("Оформление заказа на сайте Gorzdrav")
-@DisplayName("Оформление заказа для неавторизованного пользователя")
-@Tag("Mobile")
-@Tag("Regression")
-@Tag("Smoke")
+@Story("Оформление заказа на сайте Gorzdrav для неавторизованного пользователя")
 public class MakeOrdersUnauthorizedMobileTest extends BaseSettingsMobileTests {
-    @DisplayName("Оформление заказа доставкой. Неавторизованный пользователь")
-    @Test
+    @Description("Оформление заказа доставкой")
+    @Test(groups = {"Mobile", "Smoke", "Regression"})
+    @Step("Пользователь оформляет заказ с доставкой")
     public void delivery() {
         mobileCartPage.сlickAddCartButton();
         mobileCartPage.clickToCartButton();
@@ -34,14 +30,15 @@ public class MakeOrdersUnauthorizedMobileTest extends BaseSettingsMobileTests {
                 propertiesManager.getProperty("cardnumber"),
                 propertiesManager.getProperty("monthyear"),
                 propertiesManager.getProperty("cvv"));
-      //  mobileSberPage.clickOnSubmitButton();
-      //  mobileThankForTheOrderPage.checkPaymentError();
+        //  mobileSberPage.clickOnSubmitButton();
+        //  mobileThankForTheOrderPage.checkPaymentError();
     }
 
 
     // баг на шаге Списком
-    @DisplayName("Неавторизованный пользователь покупает товар в 1клик")
-    @Test
+    @Description("Оформление заказа в один клик")
+    @Test(groups = {"Mobile", "Smoke", "Regression"})
+    @Step("Пользователь покупает товар в 1клик")
     public void oneClick() {
         mobileHeaderBlock.setSearchInput(propertiesManager.getProperty("productcode4"));
         pageActions.waitPageLoad();
@@ -56,14 +53,15 @@ public class MakeOrdersUnauthorizedMobileTest extends BaseSettingsMobileTests {
         mobileProductCardPage.clickChangeAptekaList();
         mobileProductCardPage.clickBuyOneClick();
         mobileCheckOutPage.setInputOneClickPhoneNumber(propertiesManager.getProperty("phonenumber"));
-       // mobileCheckOutPage.clickBookingButton();
-       // mobileThankForTheOrderPage.checkSuccessMessage();
+        // mobileCheckOutPage.clickBookingButton();
+        // mobileThankForTheOrderPage.checkSuccessMessage();
     }
 
 
 /*
-    @DisplayName("Неавторизованный пользователь покупает товар со страниц ОСП")
-    @Test
+    @Description("Оформление заказа со страниц ОСП")
+ @Test(groups = {"Mobile", "Smoke", "Regression"})
+ @Step("Пользователь оформляет заказ со страниц ОСП")
     public void checkOsp() {
         pageActions.reloadPage();
         pageActions.waitPageLoad();
@@ -87,8 +85,9 @@ public class MakeOrdersUnauthorizedMobileTest extends BaseSettingsMobileTests {
 */
 
 
-    @DisplayName("Неавторизованный пользователь покупает товар со способом доставки - 'Самовывоз'")
-    @Test
+    @Description("Оформление заказа со способом получения - 'Самовывоз'")
+    @Test(groups = {"Mobile", "Smoke", "Regression"})
+    @Step("Пользователь покупает товар со способом получения - 'Самовывоз'")
     public void pickup() {
         mobileHeaderBlock.setSearchInput(propertiesManager.getProperty("productcode1"));
         pageActions.reloadPage();
@@ -106,12 +105,13 @@ public class MakeOrdersUnauthorizedMobileTest extends BaseSettingsMobileTests {
                 propertiesManager.getProperty("username"),
                 propertiesManager.getProperty("phonenumber"),
                 propertiesManager.getProperty("usermail"));
-     //   mobileCheckOutPage.clickMakeOrder();
-      //  mobileThankForTheOrderPage.checkSuccessMessage();
+        //   mobileCheckOutPage.clickMakeOrder();
+        //  mobileThankForTheOrderPage.checkSuccessMessage();
     }
 
-    @DisplayName("Неавторизованный пользователь оформляет заказ содержащий Партнерский товар + Не партнерский")
-    @Test
+    @Description("Оформление заказа, включающего в себя Партнерский и Не партнерский товары")
+    @Test(groups = {"Mobile", "Smoke", "Regression"})
+    @Step("Пользователь оформляет заказ содержащий Партнерский товар + Не партнерский")
     public void split() {
         mobileHeaderBlock.setSearchInput(propertiesManager.getProperty("productcode1"));
         mobileCartPage.сlickAddCartButton();
@@ -134,7 +134,7 @@ public class MakeOrdersUnauthorizedMobileTest extends BaseSettingsMobileTests {
                 propertiesManager.getProperty("username"),
                 propertiesManager.getProperty("phonenumber"),
                 propertiesManager.getProperty("usermail"));
-     //   mobileCheckOutPage.clickMakeOrder();
-      //  mobileThankForTheOrderPage.checkSuccessMessage();
+        //   mobileCheckOutPage.clickMakeOrder();
+        //  mobileThankForTheOrderPage.checkSuccessMessage();
     }
 }
