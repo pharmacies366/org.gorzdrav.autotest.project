@@ -1,23 +1,22 @@
 package mobile.modules;
 
 import base.BaseSettingsMobileTests;
+import io.qameta.allure.Description;
 import io.qameta.allure.Feature;
+import io.qameta.allure.Step;
 import io.qameta.allure.Story;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Tag;
+import org.testng.annotations.Test;
 
 
 @Feature(value = "Мобильная версия")
 @Story(value = "Изменение региональности на сайте Gorzdrav")
-@DisplayName("Изменение региональности")
-@Tag("Mobile")
-@Tag("Regression")
 public class CheckRegionalMobileTest extends BaseSettingsMobileTests {
 
     // После правки багов
 
-/*    @DisplayName("Пользователь устанавливает город Санкт-Петербург")
-    @Test
+/*    @Description("Проверка выбора города Санкт-Петербург")
+    @Test(groups = {"Mobile", "Regression"})
+    @Step("Пользователь устанавливает город Санкт-Петербург")
     public void checkChangeRegionOnMainPage() {
         mobileHeaderBlock.clickBurgerButton();
         mobileMainPopUpBlock.clickCitiesButton();
@@ -28,8 +27,9 @@ public class CheckRegionalMobileTest extends BaseSettingsMobileTests {
         mobileHeaderBlock.checkSelectedRegion("Санкт-Петербург");
     }
 
-    @DisplayName("Пользователь устанавливает город Санкт-Петербург, а затем меняет его на Москва")
-    @Test
+    @Description("Проверка смены города город Санкт-Петербург на Москву")
+    @Test(groups = {"Mobile", "Regression"})
+    @Step("Пользователь устанавливает город Санкт-Петербург, а затем меняет его на Москва")
     public void checkRevertRegionOnMainPage() {
         mobileHeaderBlock.clickBurgerButton();
         mobileMainPopUpBlock.clickCitiesButton();
@@ -46,8 +46,9 @@ public class CheckRegionalMobileTest extends BaseSettingsMobileTests {
         mobileHeaderBlock.checkSelectedRegion("Москва");
     }
 
-    @DisplayName("Пользователь проверяет установленный город на станице товара")
-    @Test
+    @Description("Проверка выбранного города на станице товара")
+    @Test(groups = {"Mobile", "Regression"})
+    @Step("Пользователь проверяет установленный город на станице товара")
     public void checkChangeRegionOnProductPage() {
         mobileHeaderBlock.clickBurgerButton();
         mobileMainPopUpBlock.clickCitiesButton();
