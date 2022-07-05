@@ -12,13 +12,13 @@
         <listener class-name="listener.retry.AnnotationTransformer"/>
     </listeners>
 
-    <test name="smoke тесты Web">
+<!--    <test name="smoke тесты Web">
         <packages>
             <package name="web.*"></package>
         </packages>
-    </test>
+    </test>-->
 
-    <test name="smoke тесты Mobile">
+    <test name="Мобильная эмуляция тестов">
         <packages>
             <package name="mobile.*"></package>
         </packages>
