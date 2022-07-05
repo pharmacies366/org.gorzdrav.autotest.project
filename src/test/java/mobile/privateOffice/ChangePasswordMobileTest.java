@@ -1,23 +1,20 @@
 package mobile.privateOffice;
 
 import base.BaseSettingsMobileTests;
+import io.qameta.allure.Description;
 import io.qameta.allure.Feature;
+import io.qameta.allure.Step;
 import io.qameta.allure.Story;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Tag;
-import org.junit.jupiter.api.Test;
+import org.testng.annotations.Test;
 
 
 @Feature(value = "Мобильная версия")
 @Story(value = "Личный кабинет на сайте Gorzdrav")
-@DisplayName("Личный кабинет")
-@Tag("Mobile")
-@Tag("Regression")
 public class ChangePasswordMobileTest extends BaseSettingsMobileTests {
-
     //Нет никакой проверки на сайте на изменения пароля
-    @DisplayName("Пользователь изменяет пароль")
-    @Test
+    @Description("Проверка на изменения пароля")
+    @Test(groups = {"Mobile", "Regression"})
+    @Step("Пользователь изменяет пароль")
     public void changePassword() {
         mobileHeaderBlock.clickBurgerButton();
         mobileMainPopUpBlock.clickToLoginIcon();
