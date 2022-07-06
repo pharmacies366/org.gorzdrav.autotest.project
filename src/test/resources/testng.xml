@@ -18,9 +18,9 @@
         </packages>
     </test>
 
-<!--    <test name="Мобильная эмуляция тестов">
+    <test name="Мобильная эмуляция тестов">
         <packages>
             <package name="mobile.*"/>
         </packages>
-    </test>-->
+    </test>
 </suite>
