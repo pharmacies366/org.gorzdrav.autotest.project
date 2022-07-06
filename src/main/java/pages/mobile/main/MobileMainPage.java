@@ -143,7 +143,7 @@ public class MobileMainPage extends MainTestBase {
 
     @Step("Пользователь закрывает попап мобильного приложения: 'Приложение 36.6'")
     public void clickCloseMobileAppPopUp(){
-        getMobileAppPopUpButton().click();
+        getMobileAppPopUpButton().clickJs();
         logger.info("Пользователь закрывает попап мобильного приложения: 'Приложение 36.6'");
     }
 

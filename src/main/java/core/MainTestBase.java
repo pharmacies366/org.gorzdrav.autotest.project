@@ -26,9 +26,23 @@ public class MainTestBase {
     protected Logger logger = LogManager.getLogger(MainTestBase.class);
 
 
-    @Step("Пользователь переходит в карточку товара")
+    @Step("Пользователь открывает страницу по URL")
     protected void openUrl(String url) {
-        driver.get(url);
+        try {
+            driver.get(url);
+        } catch (org.openqa.selenium.TimeoutException ex) {
+            driver.navigate().refresh();
+        }
+    }
+
+    private void openStartPage() {
+        try {
+            driver.get(propertiesManager.getProperty("baseurl"));
+            pageActions.waitPageLoad();
+        } catch (org.openqa.selenium.TimeoutException ex) {
+            driver.navigate().refresh();
+            pageActions.waitPageLoad();
+        }
     }
 
     @BeforeMethod(alwaysRun = true)
@@ -38,7 +52,7 @@ public class MainTestBase {
         starting(result);
         driver = driverFactory.getDriver();
         pageActions = new PageActions(driver);
-        driver.get(propertiesManager.getProperty("baseurl"));
+        openStartPage();
         logger.info("Открывается главная страница сайта Горздрав");
     }
 
@@ -59,7 +73,6 @@ public class MainTestBase {
 
     private void starting(ITestResult result) {
         nameOfPackage = result.getMethod().getRealClass().getName();
-        //`  nameOfClass = testInfo.getTestClass().get().getName();
         logger.info("Тест старт " + result.getName());
     }
 }
