@@ -1,25 +1,22 @@
 package web.modules;
 
 import base.BaseSettingsWebTests;
+import io.qameta.allure.Description;
 import io.qameta.allure.Feature;
+import io.qameta.allure.Step;
 import io.qameta.allure.Story;
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Tag;
-import org.junit.jupiter.api.Test;
+import org.testng.Assert;
+import org.testng.annotations.Test;
 
 
 @Feature(value = "Web")
 @Story(value = "Страница товаров на сайте Gorzdrav")
-@DisplayName("Страница товаров")
-//@RunWith(DataProviderRunner.class)
-@Tag("Web")
-@Tag("Regression")
 public class ProductsPageWebTest extends BaseSettingsWebTests {
 
 /*//съезжает массив с ценами
-    @DisplayName("Пользователь проверяет изменения диапазона цены вручную")
-    @Test
+   @Description("Проверка на корректное изменения ценавого диапазона вручную")
+        @Test(groups = {"Web", "Regression"})
+        @Step("Пользователь проверяет изменения диапазона цены вручную")
     public void checkChangePricesRangeWithHands() {
         headerBlock.clickCatalogButton();
         catalogPage.clickMedicationsButtons();
@@ -33,8 +30,9 @@ public class ProductsPageWebTest extends BaseSettingsWebTests {
     }
 */
 
-    @DisplayName("Пользователь выбирет чекбокс Доставка и проверяет корректное изменение списка товаров")
-    @Test
+    @Description("Проверка на корректное применение чекбокса - Доставка")
+    @Test(groups = {"Web", "Regression"})
+    @Step("Пользователь выбирет чекбокс Доставка и проверяет корректное изменение списка товаров")
     public void checkProductsOnlyDelivery() {
         headerBlock.clickCatalogButton();
         catalogPage.clickMedicationsButtons();
@@ -43,8 +41,9 @@ public class ProductsPageWebTest extends BaseSettingsWebTests {
         commonActionsOnWebPages.checkSelectedProductsWithDeliveryMethod();
     }
 
-    @DisplayName("Пользователь снимает галочку с чекбокса Доставка и проверяет корректное изменение списка товаров")
-    @Test
+    @Description("Проверка на корректную отмену чекбокса - Доставка")
+    @Test(groups = {"Web", "Regression"})
+    @Step("Пользователь снимает галочку с чекбокса Доставка и проверяет корректное изменение списка товаров")
     public void checkCancelCheckboxDelivery() {
         headerBlock.clickCatalogButton();
         catalogPage.clickMedicationsButtons();
@@ -55,8 +54,9 @@ public class ProductsPageWebTest extends BaseSettingsWebTests {
         commonActionsOnWebPages.checkSelectedProductsWithAllMethods();
     }
 
-    @DisplayName("Пользователь сбрасывает все выбранные чекбоксы и проверяет корректное изменение списка товаров")
-    @Test
+    @Description("Проверка на корректную отмену всех чекбоксов")
+    @Test(groups = {"Web", "Regression"})
+    @Step("Пользователь сбрасывает все выбранные чекбоксы и проверяет корректное изменение списка товаров")
     public void checkCancelAllCheckboxes() {
         headerBlock.clickCatalogButton();
         catalogPage.clickMedicationsButtons();
@@ -67,8 +67,9 @@ public class ProductsPageWebTest extends BaseSettingsWebTests {
         commonActionsOnWebPages.checkSelectedProductsWithAllMethods();
     }
 
-    @DisplayName("Пользователь проверяет коррекность работы пагинации страниц")
-    @Test
+    @Description("Проверка пагинации страниц")
+    @Test(groups = {"Web", "Regression"})
+    @Step("Пользователь проверяет коррекность работы пагинации страниц")
     public void checkPagination() {
         headerBlock.clickCatalogButton();
         catalogPage.clickMedicationsButtons();
@@ -76,40 +77,60 @@ public class ProductsPageWebTest extends BaseSettingsWebTests {
         commonActionsOnWebPages.clickPrevPage();
     }
 
-/*    @DataProvider
-    public static Object[][] checkingCheckboxes() {
-        return new Object[][]{
-                {1, 1},//Форма выпуска
-                {2, 114},//Бренд
-               // {3, 230},//Теги
-                //{4, 246},//Для кого
-                {5, 314},//Производители
-        };
+    //Нужно дописать тесты
+
+/*    @Description("Проверка на корректную установку чекбокса - Форма выпуска")
+    @Test(groups = {"Web", "Regression"})
+    @Step("Пользователь проверяет соотвествие между выдачей товаров и выбранной формы выпуска")
+    public void checkReleaseForm() {
+        openUrl(propertiesManager.getProperty("baseurl") + "c/lekarstva/");
+        commonActionsOnWebPages.clickFiltersButton();
+        commonActionsOnWebPages.clickReleaseForm();
+        commonActionsOnWebPages.clickCheckbox("Ампулы");
+        String titlePage = commonActionsOnWebPages.checkPageTitle();
+        Assert.assertEquals(titlePage, "Лекарства форма выпуска ампулы");
+
     }
 
-    @DisplayName("Пользователь проверяет соотвествие между выдачей товаров и выбранной формы выпуска,брендом,тегами,для кого,производителями")
-    @Test
-    @UseDataProvider("checkingCheckboxes")
-    public void test(int INDEX_SHOW_ALL, int INDEX_OPTION) {
-        headerBlock.clickCatalogButton();
-        catalogPage.clickMedicationsButtons();
-        commonActionsOnWebPages.clickShowAll(INDEX_SHOW_ALL);
-        commonActionsOnWebPages.clickAndCheckCheckboxes(INDEX_OPTION);
+    @Description("Проверка на корректную установку чекбокса - Бренд")
+    @Test(groups = {"Web", "Regression"})
+    @Step("Пользователь проверяет соотвествие между выдачей товаров и брендом")
+    public void checkBrand() {
+        openUrl(propertiesManager.getProperty("baseurl") + "c/lekarstva/");
+        commonActionsOnWebPages.clickFiltersButton();
+        commonActionsOnWebPages.clickBrand();
+        commonActionsOnWebPages.clickCheckbox("Доктор Мом");
+        String titlePage = commonActionsOnWebPages.checkPageTitle();
+        Assert.assertEquals(titlePage, "Лекарства Доктор Мом");
+    }
+
+    @Description("Проверка на корректную установку чекбокса - Производители")
+    @Test(groups = {"Web", "Regression"})
+    @Step("Пользователь проверяет соотвествие между выдачей товаров и производителями")
+    public void checkManufacturers() {
+        openUrl(propertiesManager.getProperty("baseurl") + "c/lekarstva/");
+        commonActionsOnWebPages.clickFiltersButton();
+        commonActionsOnWebPages.clickManufacturers();
+        commonActionsOnWebPages.clickCheckbox("Озон");
+        String titlePage = commonActionsOnWebPages.checkPageTitle();
+        Assert.assertEquals(titlePage, "Лекарства от Озон");
     }*/
 
-    @DisplayName("Пользователь проверяет корректную выдачу товаров по рецепту")
-    @Test
+    @Description("Проверка на корректную установку чекбокса - По рецепту")
+    @Test(groups = {"Web", "Regression"})
+    @Step("Пользователь проверяет корректную выдачу товаров по рецепту")
     public void checkCheckboxWithRecipe() {
         headerBlock.clickCatalogButton();
         catalogPage.clickMedicationsButtons();
         commonActionsOnWebPages.checkCheckboxWithRecipe();
         String recipeInfo = productCardPage.getRecipeInfo().getText();
-        Assertions.assertEquals(recipeInfo, "По рецепту");
+        Assert.assertEquals(recipeInfo, "По рецепту");
     }
 
 /*
-   @DisplayName("Пользователь проверяет сортировку выдачи товаров по уменьшению цены")
-    @Test
+   @Description("Проверка корректной сортировки по уменьшению цены")
+    @Test(groups = {"Web", "Regression"})
+    @Step("Пользователь проверяет сортировку выдачи товаров по уменьшению цены")
     public void checkSortingPriceReduction() {
         headerBlock.clickCatalogButton();
         catalogPage.clickMedicationsButtons();
@@ -120,8 +141,9 @@ public class ProductsPageWebTest extends BaseSettingsWebTests {
     }
 
 
-    @DisplayName("Пользователь проверяет сортировку выдачи товаров по увеличению цены")
-    @Test
+     @Description("Проверка корректной сортировки по увеличению цены")
+    @Test(groups = {"Web", "Regression"})
+    @Step("Пользователь проверяет сортировку выдачи товаров по увеличению цены")
     public void checkSortingPriceIncrease() {
         headerBlock.clickCatalogButton();
         catalogPage.clickMedicationsButtons();
@@ -131,8 +153,9 @@ public class ProductsPageWebTest extends BaseSettingsWebTests {
         commonActionsOnWebPages.checkSortingPriceIncrease();
     }
 
-    @DisplayName("Пользователь проверяет сортировку выдачи товаров по названию")
-    @Test
+  @Description("Проверка корректной сортировки по названию")
+    @Test(groups = {"Web", "Regression"})
+    @Step("Пользователь проверяет сортировку выдачи товаров по названию")
     public void checkSortingName() {
         headerBlock.clickCatalogButton();
         catalogPage.clickMedicationsButtons();
@@ -141,7 +164,6 @@ public class ProductsPageWebTest extends BaseSettingsWebTests {
         commonActionsOnWebPages.clickSortingNameOption();
         commonActionsOnWebPages.checkSortingOption("по названию");
     }*/
-
 
 
 }

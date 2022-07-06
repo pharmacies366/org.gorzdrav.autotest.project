@@ -1,31 +1,28 @@
 package web.modules;
 
 import base.BaseSettingsWebTests;
+import io.qameta.allure.Description;
 import io.qameta.allure.Feature;
+import io.qameta.allure.Step;
 import io.qameta.allure.Story;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Tag;
-import org.junit.jupiter.api.Test;
-
+import org.testng.annotations.Test;
 
 @Feature(value = "Web")
 @Story(value = "Изменение региональности на сайте Gorzdrav")
-@DisplayName("Изменение региональности")
-@Tag("Web")
-@Tag("Regression")
 public class CheckRegionalWebTest extends BaseSettingsWebTests {
 
-
-    @DisplayName("Пользователь устанавливает город Санкт-Петербург")
-    @Test
+    @Description("Проверка выбора города Санкт-Петербург")
+    @Test(groups = {"Web", "Regression"})
+    @Step("Пользователь устанавливает город Санкт-Петербург")
     public void checkChangeRegionOnMainPage() {
         headerBlock.clickCitiesButton();
         citiesPopUpPage.selectSpbCity();
         headerBlock.checkSelectedRegion("Санкт-Петербург и ЛО");
     }
 
-    @DisplayName("Пользователь устанавливает город Санкт-Петербург, а затем меняет его на Москва")
-    @Test
+    @Description("Проверка смены города город Санкт-Петербург на Москву")
+    @Test(groups = {"Web", "Regression"})
+    @Step("Пользователь устанавливает город Санкт-Петербург, а затем меняет его на Москва")
     public void checkRevertRegionOnMainPage() {
         headerBlock.clickCitiesButton();
         citiesPopUpPage.selectSpbCity();
@@ -35,8 +32,9 @@ public class CheckRegionalWebTest extends BaseSettingsWebTests {
         headerBlock.checkSelectedRegion("Москва и МО");
     }
 
-    @DisplayName("Пользователь проверяет установленный город на станице товара")
-    @Test
+    @Description("Проверка выбранного города на станице товара")
+    @Test(groups = {"Web", "Regression"})
+    @Step("Пользователь проверяет установленный город на станице товара")
     public void checkChangeRegionOnProductPage() {
         headerBlock.clickCitiesButton();
         citiesPopUpPage.selectSpbCity();
