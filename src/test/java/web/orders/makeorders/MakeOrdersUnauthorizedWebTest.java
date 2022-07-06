@@ -22,15 +22,18 @@ public class MakeOrdersUnauthorizedWebTest extends BaseSettingsWebTests {
         headerBlock.setSearchInput(propertiesManager.getProperty("productcode4"));
         pageActions.waitPageLoad();
         cartPage.clickAddCartButton();
+        pageActions.waitPageLoad();
         headerBlock.clickToCartButton();
         cartPage.clickToMakeOrder();
+        pageActions.waitPageLoad();
+        checkOutPage.clickDeliveryMethod();
+        pageActions.waitPageLoad();
+        checkOutPage.addressDelivery("Сиреневый бульвар 68", "2", "3", "34");
+        pageActions.waitPageLoad();
         checkOutPage.contactDetails(
                 propertiesManager.getProperty("username"),
                 propertiesManager.getProperty("phonenumber"),
                 propertiesManager.getProperty("usermail"));
-        checkOutPage.clickDeliveryMethod();
-        pageActions.waitPageLoad();
-        checkOutPage.addressDelivery("Сиреневый бульвар 68", "2", "3", "34");
         pageActions.waitPageLoad();
         checkOutPage.clickToFinalButton();
         pageActions.waitPageLoad();
@@ -38,8 +41,8 @@ public class MakeOrdersUnauthorizedWebTest extends BaseSettingsWebTests {
                 propertiesManager.getProperty("cardnumber"),
                 propertiesManager.getProperty("monthyear"),
                 propertiesManager.getProperty("cvv"));
-        // sberPage.clickOnSubmitButton();
-        // thankForTheOrderPage.checkPaymentError();
+       // sberPage.clickOnSubmitButton();
+       // thankForTheOrderPage.checkPaymentError();
     }
 
     @DisplayName("Неавторизованный пользователь покупает товар в 1клик")
@@ -56,11 +59,11 @@ public class MakeOrdersUnauthorizedWebTest extends BaseSettingsWebTests {
         pageActions.waitPageLoad();
         productCardPage.clickBuyOneClick();
         checkOutPage.setInputOneClickPhoneNumber(propertiesManager.getProperty("phonenumber"));
-        // checkOutPage.clickBookingButton();
-        // thankForTheOrderPage.checkSuccessMessage();
+       // checkOutPage.clickBookingButton();
+       // thankForTheOrderPage.checkSuccessMessage();
     }
 
-    // так как локатор на добавление отличается индексом ждём задачу от разрабов
+      // так как локатор на добавление отличается индексом ждём задачу от разрабов
 /*    @DisplayName("Неавторизованный пользователь покупает товар со страниц ОСП")
     @Test
     public void checkOsp() {
@@ -103,8 +106,8 @@ public class MakeOrdersUnauthorizedWebTest extends BaseSettingsWebTests {
                 propertiesManager.getProperty("username"),
                 propertiesManager.getProperty("phonenumber"),
                 propertiesManager.getProperty("usermail"));
-        //  checkOutPage.clickMakeOrder();
-        //  thankForTheOrderPage.checkSuccessMessage();
+      //  checkOutPage.clickMakeOrder();
+      //  thankForTheOrderPage.checkSuccessMessage();
     }
 
     @DisplayName("Неавторизованный пользователь оформляет заказ содержащий Партнерский товар + Не партнерский")
@@ -114,7 +117,7 @@ public class MakeOrdersUnauthorizedWebTest extends BaseSettingsWebTests {
         pageActions.waitPageLoad();
         cartPage.clickAddCartButton();
         pageActions.waitPageLoad();
-        pageActions.reloadPage();
+        headerBlock.clickSiteLogo();
         headerBlock.setSearchInput(propertiesManager.getProperty("productcode2"));
         pageActions.waitPageLoad();
         cartPage.clickAddCartButton();
@@ -127,8 +130,8 @@ public class MakeOrdersUnauthorizedWebTest extends BaseSettingsWebTests {
                 propertiesManager.getProperty("username"),
                 propertiesManager.getProperty("phonenumber"),
                 propertiesManager.getProperty("usermail"));
-        //  checkOutPage.clickMakeOrder();
-        //  thankForTheOrderPage.checkSuccessMessage();
+      //  checkOutPage.clickMakeOrder();
+      //  thankForTheOrderPage.checkSuccessMessage();
     }
 
 }

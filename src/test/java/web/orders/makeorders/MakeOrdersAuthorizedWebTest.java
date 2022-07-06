@@ -9,7 +9,7 @@ import org.junit.jupiter.api.Test;
 
 
 @Feature(value = "Web")
-@Story("Оформление заказа на сайте 36.6")
+@Story("Оформление заказа на сайте Gorzdrav")
 @DisplayName("Оформление заказа для авторизованного пользователя")
 @Tag("Web")
 @Tag("Regression")
