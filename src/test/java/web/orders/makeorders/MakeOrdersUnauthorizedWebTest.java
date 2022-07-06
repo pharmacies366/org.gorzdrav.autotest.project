@@ -2,22 +2,19 @@ package web.orders.makeorders;
 
 
 import base.BaseSettingsWebTests;
+import io.qameta.allure.Description;
 import io.qameta.allure.Feature;
+import io.qameta.allure.Step;
 import io.qameta.allure.Story;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Tag;
-import org.junit.jupiter.api.Test;
+import org.testng.annotations.Test;
 
 @Feature(value = "Web")
 @Story("Оформление заказа на сайте Gorzdrav")
-@DisplayName("Оформление заказа для неавторизованного пользователя")
-@Tag("Web")
-@Tag("Regression")
-@Tag("Smoke")
 public class MakeOrdersUnauthorizedWebTest extends BaseSettingsWebTests {
 
-  /*  @DisplayName("Оформление заказа доставкой. Неавторизованный пользователь")
-    @Test
+  /*  @Description("Оформление заказа доставкой")
+    @Test(groups = {"Web", "Smoke", "Regression"})
+    @Step("Пользователь оформляет заказ с доставкой")
     public void delivery() {
         headerBlock.setSearchInput(propertiesManager.getProperty("productcode4"));
         pageActions.waitPageLoad();
@@ -45,8 +42,9 @@ public class MakeOrdersUnauthorizedWebTest extends BaseSettingsWebTests {
        // thankForTheOrderPage.checkPaymentError();
     }*/
 
-    @DisplayName("Неавторизованный пользователь покупает товар в 1клик")
-    @Test
+    @Description("Оформление заказа в один клик")
+    @Test(groups = {"Web", "Smoke", "Regression"})
+    @Step("Пользователь покупает товар в 1клик")
     public void oneClick() {
         headerBlock.setSearchInput(propertiesManager.getProperty("productcode4"));
         pageActions.waitPageLoad();
@@ -64,8 +62,9 @@ public class MakeOrdersUnauthorizedWebTest extends BaseSettingsWebTests {
     }
 
       // так как локатор на добавление отличается индексом ждём задачу от разрабов
-/*    @DisplayName("Неавторизованный пользователь покупает товар со страниц ОСП")
-    @Test
+/*    @Description("Оформление заказа со страниц ОСП")
+ @Test(groups = {"Web", "Smoke", "Regression"})
+ @Step("Пользователь оформляет заказ со страниц ОСП")
     public void checkOsp() {
        // mainPage.ClickClosePopUpNewsButton();
         mainPage.clickLetterN();
@@ -88,8 +87,9 @@ public class MakeOrdersUnauthorizedWebTest extends BaseSettingsWebTests {
 
 
 
-    @DisplayName("Неавторизованный пользователь покупает товар со способом доставки - 'Самовывоз'")
-    @Test
+    @Description("Оформление заказа со способом получения - 'Самовывоз'")
+    @Test(groups = {"Web", "Smoke", "Regression"})
+    @Step("Пользователь покупает товар со способом получения - 'Самовывоз'")
     public void pickup() {
         headerBlock.setSearchInput(propertiesManager.getProperty("productcode4"));
         pageActions.waitPageLoad();
@@ -110,8 +110,9 @@ public class MakeOrdersUnauthorizedWebTest extends BaseSettingsWebTests {
       //  thankForTheOrderPage.checkSuccessMessage();
     }
 
-    @DisplayName("Неавторизованный пользователь оформляет заказ содержащий Партнерский товар + Не партнерский")
-    @Test
+    @Description("Оформление заказа, включающего в себя Партнерский и Не партнерский товары")
+    @Test(groups = {"Web", "Smoke", "Regression"})
+    @Step("Пользователь оформляет заказ содержащий Партнерский товар + Не партнерский")
     public void split() {
         headerBlock.setSearchInput(propertiesManager.getProperty("productcode4"));
         pageActions.waitPageLoad();

@@ -4,22 +4,16 @@ package web.orders.cancellation;
 import base.BaseSettingsWebTests;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Story;
-import org.apache.logging.log4j.core.util.Assert;
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Tag;
-import org.junit.jupiter.api.Test;
+import org.testng.Assert;
 
 
 @Feature(value = "Web")
 @Story(value = "Отмена заказа на сайте Gorzdrav")
-@DisplayName("Отмена созданного заказа")
-@Tag("Web")
-@Tag("Regression")
 public class OrderCancellationWebTest extends BaseSettingsWebTests {
 
-    @DisplayName("Пользователь отменяет созданный заказ")
-    @Test
+    @Description("Пользователь отмены созданного заказа")
+    @Test(groups = {"Web", "Regression"})
+    @Step("Пользователь отменяет созданный заказ")
     public void orderCancellation() {
         headerBlock.clickToSignInButton();
         cookiePage.reCaptchaKey();
@@ -45,7 +39,7 @@ public class OrderCancellationWebTest extends BaseSettingsWebTests {
         pageActions.reloadPage();
         myOrdersPage.clickOrderNumber();
         myOrdersPage.clickCancelNumber();
-        Assertions.assertEquals("Отменен", myOrdersPage.getOrderStatus());
+        Assert.assertEquals("Отменен", myOrdersPage.getOrderStatus());
     }
 
 }

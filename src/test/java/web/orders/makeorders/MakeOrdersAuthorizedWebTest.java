@@ -1,23 +1,20 @@
 package web.orders.makeorders;
 
 import base.BaseSettingsWebTests;
+import io.qameta.allure.Description;
 import io.qameta.allure.Feature;
+import io.qameta.allure.Step;
 import io.qameta.allure.Story;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Tag;
-import org.junit.jupiter.api.Test;
+import org.testng.annotations.Test;
 
 
 @Feature(value = "Web")
 @Story("Оформление заказа на сайте Gorzdrav")
-@DisplayName("Оформление заказа для авторизованного пользователя")
-@Tag("Web")
-@Tag("Regression")
-@Tag("Smoke")
 public class MakeOrdersAuthorizedWebTest extends BaseSettingsWebTests {
 
-/*    @DisplayName("Оформление заказа доставкой. Авторизованный пользователь")
-    @Test
+/*   @Description("Оформление заказа доставкой")
+    @Test(groups = {"Web", "Smoke", "Regression"})
+    @Step("Пользователь оформляет заказ с доставкой")
     public void delivery() {
         headerBlock.clickToSignInButton();
         cookiePage.reCaptchaKey();
@@ -43,8 +40,9 @@ public class MakeOrdersAuthorizedWebTest extends BaseSettingsWebTests {
         // thankForTheOrderPage.checkPaymentError();
     }*/
 
-    @DisplayName("Авторизованный пользователь покупает товар в 1клик")
-    @Test
+    @Description("Оформление заказа в один клик")
+    @Test(groups = {"Web", "Smoke", "Regression"})
+    @Step("Пользователь покупает товар в 1клик")
     public void oneClick() {
         headerBlock.clickToSignInButton();
         cookiePage.reCaptchaKey();
@@ -66,8 +64,9 @@ public class MakeOrdersAuthorizedWebTest extends BaseSettingsWebTests {
         // thankForTheOrderPage.checkSuccessMessage();
     }
 
-  /*  @DisplayName("Авторизованный пользователь покупает товар со страниц ОСП") // так как локатор на добавление отличается индексом ждём задачу от разрабов
-    @Test
+  /*  @Description("Оформление заказа со страниц ОСП")
+ @Test(groups = {"Web", "Smoke", "Regression"})
+ @Step("Пользователь оформляет заказ со страниц ОСП")
     public void checkOsp() {
         headerBlock.clickToSignInButton();
         cookiePage.reCaptchaKey();
@@ -91,8 +90,9 @@ public class MakeOrdersAuthorizedWebTest extends BaseSettingsWebTests {
         // thankForTheOrderPage.checkSuccessMessage();
     }*/
 
-    @DisplayName("Авторизованный пользователь покупает товар со способом доставки - 'Самовывоз'")
-    @Test
+    @Description("Оформление заказа со способом получения - 'Самовывоз'")
+    @Test(groups = {"Web", "Smoke", "Regression"})
+    @Step("Пользователь покупает товар со способом получения - 'Самовывоз'")
     public void pickup() {
         headerBlock.clickToSignInButton();
         cookiePage.reCaptchaKey();
@@ -113,8 +113,9 @@ public class MakeOrdersAuthorizedWebTest extends BaseSettingsWebTests {
         //checkOutPage.clickMakeOrder();
     }
 
-    @DisplayName("Авторизованный пользователь оформляет заказ содержащий Партнерский товар + Не партнерский")
-    @Test
+    @Description("Оформление заказа, включающего в себя Партнерский и Не партнерский товары")
+    @Test(groups = {"Web", "Smoke", "Regression"})
+    @Step("Пользователь оформляет заказ содержащий Партнерский товар + Не партнерский")
     public void split() {
         headerBlock.clickToSignInButton();
         cookiePage.reCaptchaKey();

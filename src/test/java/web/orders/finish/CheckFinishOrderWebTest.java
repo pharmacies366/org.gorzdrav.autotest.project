@@ -1,22 +1,19 @@
 package web.orders.finish;
 
 import base.BaseSettingsWebTests;
+import io.qameta.allure.Description;
 import io.qameta.allure.Feature;
+import io.qameta.allure.Step;
 import io.qameta.allure.Story;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Tag;
-import org.junit.jupiter.api.Test;
+import org.testng.annotations.Test;
 
 
 @Feature(value = "Web")
 @Story(value = "Проверка создания заказа на сайте Gorzdrav")
-@DisplayName("Проверка создания заказа")
-@Tag("Web")
-@Tag("Regression")
 public class CheckFinishOrderWebTest extends BaseSettingsWebTests {
-
-    @DisplayName("Пользователь проверяет информацию по заказу: Адрес аптеки, код заказа")
-    @Test
+    @Description("Проверка информации по заказу")
+    @Test(groups = {"Web", "Regression"})
+    @Step("Пользователь проверяет информацию по заказу: Адрес аптеки, код заказа")
     public void OrderCancellation() {
         headerBlock.clickToSignInButton();
         cookiePage.reCaptchaKey();
