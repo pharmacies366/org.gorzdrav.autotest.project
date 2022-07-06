@@ -152,11 +152,7 @@ public class MakeOrdersAuthorizedMobileTest extends BaseSettingsMobileTests {
         mobileCheckOutPage.clickChangeAptekaList();
         pageActions.waitPageLoad();
         mobileCheckOutPage.clickSelect();
-        pageActions.waitPageLoad();
-        mobileCheckOutPage.contactDetails(
-                propertiesManager.getProperty("username"),
-                propertiesManager.getProperty("phonenumber"),
-                propertiesManager.getProperty("usermail"));
+        //pageActions.waitPageLoad();
         //   mobileCheckOutPage.clickMakeOrder();
         //  mobileThankForTheOrderPage.checkSuccessMessage();
     }
