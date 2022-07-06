@@ -51,7 +51,7 @@ public class MobileBasementBlockMobileTest extends BaseSettingsMobileTests {
 
 
     @DataProvider(name = "helpTest")
-    public Object[][] createData() {
+    public Object[][] helpTest() {
         return new Object[][]{
                 {"/howtoorder/", "Как сделать заказ", "Как оформить заказ на сайте?"},
                 {"/apteki/map/", "Где получить заказ", "Работает сейчас"},
@@ -61,8 +61,6 @@ public class MobileBasementBlockMobileTest extends BaseSettingsMobileTests {
                 {"/oplata/", "Оплата", "Оплата"},
                 {"/refund/", "Обмен и возврат", "Правила обмена и возврата товара"},
                 {"/warranty/", "Гарантии", "Гарантии"}
-
-
         };
 
 
