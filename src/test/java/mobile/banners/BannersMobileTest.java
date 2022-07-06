@@ -14,7 +14,7 @@ public class BannersMobileTest extends BaseSettingsMobileTests {
 // Нужно подумать над реализацией
 
 /*
-    @DisplayName("Пользователь проверяет прокрутку банеров вперед по стрелке и возврат к первоначальному баннеру на главной странице")
+    @Description("Пользователь проверяет прокрутку банеров вперед по стрелке и возврат к первоначальному баннеру на главной странице")
     @Test
     public void checkNextBannerOnMainPage() {
         mobileMainPage.checkNextBannerList();
@@ -22,13 +22,13 @@ public class BannersMobileTest extends BaseSettingsMobileTests {
 
 
 
-   @DisplayName("Пользователь проверяет прокрутку банеров назад по стрелке и возврат к первоначальному баннеру на главной странице")
+   @Description("Пользователь проверяет прокрутку банеров назад по стрелке и возврат к первоначальному баннеру на главной странице")
     @Test
     public void checkPrevBannerOnMainPage() {
         mobileMainPage.checkPrevBannerList();
     }
 
-    @DisplayName("Пользователь проверяет переход по банерам на главной странице")
+    @Description("Пользователь проверяет переход по банерам на главной странице")
     @Test
     public void checkBannersClickableOnMainPage() {
         mobileMainPage.checkBannersClickable();
