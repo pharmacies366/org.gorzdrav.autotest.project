@@ -3,9 +3,9 @@
 
 
 
-<suite name="Автотесты сайта Горздрав" parallel="methods" thread-count="4">
+<!--<suite name="Автотесты сайта Горздрав" parallel="methods" thread-count="4">-->
 <!--<suite name="Автотесты сайта Горздрав" parallel="tests" thread-count=4">-->
-<!--<suite name="Автотесты сайта Горздрав" parallel="classes" thread-count="4">-->
+<suite name="Автотесты сайта Горздрав" parallel="classes" thread-count="4">
 <!--<suite name="Автотесты сайта Горздрав" parallel="instances" thread-count="4">-->
 
     <listeners>
@@ -18,9 +18,9 @@
         </packages>
     </test>
 
-    <test name="Мобильная эмуляция тестов">
+<!--    <test name="Мобильная эмуляция тестов">
         <packages>
             <package name="mobile.*"/>
         </packages>
-    </test>
+    </test>-->
 </suite>

@@ -62,6 +62,7 @@ public class MainTestBase {
             saveScreenshot(((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES));
             logger.info("Снят скриншот последнего шага в упавшем тесте");
         }
+        driver.close();
         driver.quit();
         logger.info("Браузер закрылся");
     }
@@ -73,6 +74,6 @@ public class MainTestBase {
 
     private void starting(ITestResult result) {
         nameOfPackage = result.getMethod().getRealClass().getName();
-        logger.info("Тест старт " + result.getName());
+        logger.info("Тест старт " + result.getMethod().getMethodName());
     }
 }
