@@ -16,7 +16,7 @@ import org.junit.jupiter.api.Test;
 @Tag("Smoke")
 public class MakeOrdersAuthorizedWebTest extends BaseSettingsWebTests {
 
-    @DisplayName("Оформление заказа доставкой. Авторизованный пользователь")
+/*    @DisplayName("Оформление заказа доставкой. Авторизованный пользователь")
     @Test
     public void delivery() {
         headerBlock.clickToSignInButton();
@@ -41,7 +41,7 @@ public class MakeOrdersAuthorizedWebTest extends BaseSettingsWebTests {
                 propertiesManager.getProperty("cvv"));
         // sberPage.clickOnSubmitButton();
         // thankForTheOrderPage.checkPaymentError();
-    }
+    }*/
 
     @DisplayName("Авторизованный пользователь покупает товар в 1клик")
     @Test

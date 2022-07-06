@@ -16,7 +16,7 @@ import org.junit.jupiter.api.Test;
 @Tag("Smoke")
 public class MakeOrdersAuthorizedMobileTest extends BaseSettingsMobileTests {
 
-    @DisplayName("Оформление заказа доставкой. Авторизованный пользователь")
+   /* @DisplayName("Оформление заказа доставкой. Авторизованный пользователь")
     @Test
     public void delivery() {
         mobileHeaderBlock.clickBurgerButton();
@@ -42,7 +42,7 @@ public class MakeOrdersAuthorizedMobileTest extends BaseSettingsMobileTests {
                 propertiesManager.getProperty("cvv"));
         //  mobileSberPage.clickOnSubmitButton();
         //  mobileThankForTheOrderPage.checkPaymentError();
-    }
+    }*/
 
 
     @DisplayName("Аавторизованный пользователь покупает товар в 1клик")
