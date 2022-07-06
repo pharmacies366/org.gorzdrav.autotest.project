@@ -68,7 +68,7 @@ public class MainTestBase {
     } */
 
     @AfterMethod(alwaysRun = true)
-    public void afterAllTest(ITestResult result) throws Exception {
+    public void tearDown(ITestResult result) throws Exception {
         if (result.getStatus() != ITestResult.SUCCESS) {
             saveScreenshot(((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES));
             logger.info("Снят скриншот последнего шага в упавшем тесте");
