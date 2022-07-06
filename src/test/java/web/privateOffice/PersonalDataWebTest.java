@@ -3,24 +3,15 @@ package web.privateOffice;
 import base.BaseSettingsWebTests;
 import io.qameta.allure.Description;
 import io.qameta.allure.Feature;
+import io.qameta.allure.Step;
 import io.qameta.allure.Story;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Tag;
-import org.junit.jupiter.api.Test;
-import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.Arguments;
-import org.junit.jupiter.params.provider.MethodSource;
-
-import java.util.stream.Stream;
+import org.testng.annotations.Test;
 
 @Feature(value = "Web")
 @Story(value = "Личный кабинет на сайте Gorzdrav")
-@DisplayName("Личный кабинет")
-@Tag("Web")
-@Tag("Regression")
 public class PersonalDataWebTest extends BaseSettingsWebTests {
 
-    @ParameterizedTest(name = "В личном кабинете пользователь переходит по ссылке => {index} {1}")
+  /*  @ParameterizedTest(name = "В личном кабинете пользователь переходит по ссылке => {index} {1}")
     @MethodSource("checkDisplayedOptions")
     @Description("Пользователь переходит в личный кабинет и проверяет отображения списка с пунктами страниц в Л.К." +
             " и релевантный переход")
@@ -47,11 +38,12 @@ public class PersonalDataWebTest extends BaseSettingsWebTests {
                 Arguments.of("/my-account/my-advice", "Здрав Совет", "Здрав Совет"),
                 Arguments.of("/logout/", "Выйти", "Как сделать заказ")
         );
-    }
+    }*/
 
 
-    @DisplayName("Пользователь заполняет отчество и сохраняет данные")
-    @Test
+    @Description("Проверка на заполнение и сохранения изменений для поля Отчество")
+    @Test(groups = {"Web", "Regression"})
+    @Step("Пользователь заполняет отчество и сохраняет данные")
     public void checkPersonalData() {
         headerBlock.clickToSignInButton();
         cookiePage.reCaptchaKey();
@@ -70,8 +62,9 @@ public class PersonalDataWebTest extends BaseSettingsWebTests {
     }
 
 
-    @DisplayName("Пользователь очищает поля имя и получает ошибку")
-    @Test
+    @Description("Проверка на получение ошибки при сохраниние данных без имени")
+    @Test(groups = {"Web", "Regression"})
+    @Step("Пользователь очищает поля имя и получает ошибку")
     public void clearNameAndGettingError() {
         headerBlock.clickToSignInButton();
         cookiePage.reCaptchaKey();
@@ -85,8 +78,9 @@ public class PersonalDataWebTest extends BaseSettingsWebTests {
         personalDataPage.gettingErrorWithName();
     }
 
-    @DisplayName("Пользователь изменяет и сохраняет имя")
-    @Test
+    @Description("Проверка на заполнение и сохранения изменений для поля Имя")
+    @Test(groups = {"Web", "Regression"})
+    @Step("Пользователь изменяет и сохраняет имя")
     public void changeName() {
         headerBlock.clickToSignInButton();
         cookiePage.reCaptchaKey();
@@ -105,8 +99,9 @@ public class PersonalDataWebTest extends BaseSettingsWebTests {
         personalDataPage.checkNewName("Ivan");
     }
 
-    @DisplayName("Пользователь изменяет дату рождения")
-    @Test
+    @Description("Проверка на заполнение и сохранения изменений для полей с датой рождения")
+    @Test(groups = {"Web", "Regression"})
+    @Step("Пользователь изменяет дату рождения")
     public void changeBirthday() {
         headerBlock.clickToSignInButton();
         cookiePage.reCaptchaKey();
@@ -121,8 +116,10 @@ public class PersonalDataWebTest extends BaseSettingsWebTests {
         personalDataPage.ckickSaveButton();
     }
 
-/*    @DisplayName("Пользователь изменяет пол")
-    @Test
+    //Сделать корректную проверку на изменения пола
+    @Description("Проверка на заполнение и сохранения изменений для выбора пола")
+    @Test(groups = {"Web", "Regression"})
+    @Step("Пользователь изменяет пол")
     public void changeGender() {
         headerBlock.clickToSignInButton();
         cookiePage.reCaptchaKey();
@@ -137,10 +134,11 @@ public class PersonalDataWebTest extends BaseSettingsWebTests {
         personalDataPage.changeGender("MALE");
         personalDataPage.ckickSaveButton();
         personalDataPage.getMaleButton().checkAttribute("value", "MALE");
-    }*/
+    }
 
-    @DisplayName("Пользователь очищает поля email, нажимает сохранить и получает ошибку")
-    @Test
+    @Description("Проверка на получение ошибки при сохраниние данных без email")
+    @Test(groups = {"Web", "Regression"})
+    @Step("Пользователь очищает поля email, нажимает сохранить и получает ошибку")
     public void clearEmail() {
         headerBlock.clickToSignInButton();
         cookiePage.reCaptchaKey();
@@ -154,8 +152,9 @@ public class PersonalDataWebTest extends BaseSettingsWebTests {
         personalDataPage.gettingErrorWithEmail();
     }
 
-    @DisplayName("Пользователь проверяет, что поле с номером телефона нельзя редактировать")
-    @Test
+    @Description("Проверка на недоступность для редактирования поля телефон")
+    @Test(groups = {"Web", "Regression"})
+    @Step("Пользователь проверяет, что поле с номером телефона нельзя редактировать")
     public void checkPhone() {
         headerBlock.clickToSignInButton();
         cookiePage.reCaptchaKey();
@@ -167,8 +166,9 @@ public class PersonalDataWebTest extends BaseSettingsWebTests {
         personalDataPage.checkPhone();
     }
 
-    @DisplayName("Проверка чекбокса с новостной рассылкой")
-    @Test
+    @Description("Проверка на установку чекбокса с новостной рассылкой")
+    @Test(groups = {"Web", "Regression"})
+    @Step("Пользователь поочерёдно устонавливает и снимает чекбокс с новостной рассылкой")
     public void checkReceiveNews() {
         headerBlock.clickToSignInButton();
         cookiePage.reCaptchaKey();
