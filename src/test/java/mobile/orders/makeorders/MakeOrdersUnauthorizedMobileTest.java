@@ -15,6 +15,7 @@ import org.junit.jupiter.api.Test;
 @Tag("Regression")
 @Tag("Smoke")
 public class MakeOrdersUnauthorizedMobileTest extends BaseSettingsMobileTests {
+/*
     @DisplayName("Оформление заказа доставкой. Неавторизованный пользователь")
     @Test
     public void delivery() {
@@ -34,9 +35,10 @@ public class MakeOrdersUnauthorizedMobileTest extends BaseSettingsMobileTests {
                 propertiesManager.getProperty("cardnumber"),
                 propertiesManager.getProperty("monthyear"),
                 propertiesManager.getProperty("cvv"));
-      //  mobileSberPage.clickOnSubmitButton();
-      //  mobileThankForTheOrderPage.checkPaymentError();
+        //  mobileSberPage.clickOnSubmitButton();
+        //  mobileThankForTheOrderPage.checkPaymentError();
     }
+*/
 
 
     // баг на шаге Списком
