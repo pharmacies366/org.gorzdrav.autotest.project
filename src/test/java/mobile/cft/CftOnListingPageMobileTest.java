@@ -4,10 +4,7 @@ import base.BaseSettingsMobileTests;
 import io.qameta.allure.Description;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Story;
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Tag;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 
 /**
  * @author Михаил
@@ -49,6 +46,7 @@ public class CftOnListingPageMobileTest extends BaseSettingsMobileTests {
     }
 
 
+    @Disabled
     @DisplayName("Проверка на наличия начисляемых бонусов за покупку товара")
     @Description("Если цена товара больше или равно 50 р., то шильдик должен быть")
     @Test
