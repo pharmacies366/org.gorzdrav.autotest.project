@@ -1,45 +1,20 @@
 package mobile.mainPage;
 
 import base.BaseSettingsMobileTests;
+import io.qameta.allure.Description;
 import io.qameta.allure.Feature;
+import io.qameta.allure.Step;
 import io.qameta.allure.Story;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
-
 
 @Feature(value = "Мобильная версия")
 @Story("Проверка главной страницы сайта Gorzdrav")
 public class MobileBasementBlockMobileTest extends BaseSettingsMobileTests {
 
-/*
-    @ParameterizedTest(name = "{index} {1}")
-    @MethodSource("helpTest")
-    public void helpTest(String LOCATOR, String LINK_TEXT, String PAGE_MESSAGE) {
-        mobileBasementBlock.clickHelpButton();
-        mobileBasementBlock.checkLinksValidation(LOCATOR, LINK_TEXT);
-        logger.info("Ссылка видна на странице и написана корректно");
-        mobileBasementBlock.selectBasementButtons(LOCATOR);
-        pageActions.contentIsDisplayed(PAGE_MESSAGE);
-        logger.info("Ссылка кликабельна и ведёт на нужную страницу");
-    }
-
-    private static Stream<Arguments> helpTest() {
-        return Stream.of(
-                //Помощь
-                Arguments.of("/howtoorder/", "Как сделать заказ", "Как оформить заказ на сайте?"),
-                Arguments.of("/apteki/map/", "Где получить заказ", "Работает сейчас"),
-                Arguments.of("/faq/", "Вопрос-ответ", "Вопрос-ответ"),
-                Arguments.of("/feedback/", "Задать вопрос", "Обратная связь"),
-                Arguments.of("/delivery/", "Доставка", "Доставка"),
-                Arguments.of("/oplata/", "Оплата", "Оплата"),
-                Arguments.of("/refund/", "Обмен и возврат", "Правила обмена и возврата товара"),
-                Arguments.of("/warranty/", "Гарантии", "Гарантии")
-        );
-    }
-*/
-
-
-    @Test(dataProvider = "helpTest",groups = {"Mobile", "Regression"})
+    @Description("Проверка коррекного содержания ссылок в подвале сайта")
+    @Test(dataProvider = "helpTest", groups = {"Mobile", "Regression"})
+    @Step("Пользователь проверяет название ссылки, кликает по ней и проверяет содержание текста на странице")
     public void helpTest(String LOCATOR, String LINK_TEXT, String PAGE_MESSAGE) {
         mobileBasementBlock.clickHelpButton();
         mobileBasementBlock.checkLinksValidation(LOCATOR, LINK_TEXT);
@@ -62,17 +37,11 @@ public class MobileBasementBlockMobileTest extends BaseSettingsMobileTests {
                 {"/refund/", "Обмен и возврат", "Правила обмена и возврата товара"},
                 {"/warranty/", "Гарантии", "Гарантии"}
         };
+    }
 
-
-
-
-
-
-
-
-/*
-    @ParameterizedTest(name = "{index} {1}")
-    @MethodSource("serviceTest")
+    @Description("Проверка коррекного содержания ссылок в подвале сайта")
+    @Test(dataProvider = "serviceTest", groups = {"Mobile", "Regression"})
+    @Step("Пользователь проверяет название ссылки, кликает по ней и проверяет содержание текста на странице")
     public void serviceTest(String LOCATOR, String LINK_TEXT, String PAGE_MESSAGE) {
         mobileBasementBlock.clickServiceButton();
         mobileBasementBlock.checkLinksValidation(LOCATOR, LINK_TEXT);
@@ -83,23 +52,24 @@ public class MobileBasementBlockMobileTest extends BaseSettingsMobileTests {
     }
 
 
-    private static Stream<Arguments> serviceTest() {
-        return Stream.of(
-                //Сервис
-                Arguments.of("/ofertagorzdrav/", "Публичная оферта", "Публичная оферта"),
-                Arguments.of("/personaldata/", "Политика конфиденциальности", "Политика конфиденциальности"),
-                Arguments.of("/manufacturers/", "Производители", "Список лекарств по производителям"),
-                Arguments.of("/partnersgz/", "Партнеры", "Партнеры"),
-                Arguments.of("/mnn/", "Действующие вещества", "Действующие вещества"),
-                Arguments.of("/shares/", "Акции", "Акции"),
-                Arguments.of("/blog/", "Статьи", "Статьи"),
-                Arguments.of("/news/", "Новости", "Новости")
-        );
+    @DataProvider(name = "serviceTest")
+    public Object[][] serviceTest() {
+        return new Object[][]{
+                {"/ofertagorzdrav/", "Публичная оферта", "Публичная оферта"},
+                {"/personaldata/", "Политика конфиденциальности", "Политика конфиденциальности"},
+                {"/manufacturers/", "Производители", "Список лекарств по производителям"},
+                {"/partnersgz/", "Партнеры", "Партнеры"},
+                {"/mnn/", "Действующие вещества", "Действующие вещества"},
+                {"/shares/", "Акции", "Акции"},
+                {"/blog/", "Статьи", "Статьи"},
+                {"/news/", "Новости", "Новости"}
+        };
     }
 
 
-    @ParameterizedTest(name = "{index} {1}")
-    @MethodSource("aboutCompanyTest")
+    @Description("Проверка коррекного содержания ссылок в подвале сайта")
+    @Test(dataProvider = "aboutCompanyTest", groups = {"Mobile", "Regression"})
+    @Step("Пользователь проверяет название ссылки, кликает по ней и проверяет содержание текста на странице")
     public void aboutCompanyTest(String LOCATOR, String LINK_TEXT, String PAGE_MESSAGE) {
         mobileBasementBlock.clickAboutCompanButton();
         mobileBasementBlock.checkLinksValidation(LOCATOR, LINK_TEXT);
@@ -110,16 +80,15 @@ public class MobileBasementBlockMobileTest extends BaseSettingsMobileTests {
     }
 
 
-    private static Stream<Arguments> aboutCompanyTest() {
-        return Stream.of(
-                //О Компании
-                Arguments.of("/aboutus/", "О нас", "О нас"),
-                Arguments.of("/contacts/", "Контактные данные", "Контактные данные"),
-                //Arguments.of("/feedback/", "Оставить отзыв", "Обратная связь"), находиться 2 элемента, уточнить почему?!
-                Arguments.of("/advertisingplacement/", "Размещение рекламы", "Размещение рекламы"),
-                Arguments.of("/licenses/", "Лицензии", "Лицензии")
-        );
-    }*/
+    @DataProvider(name = "aboutCompanyTest")
+    public Object[][] aboutCompanyTest() {
+        return new Object[][]{
+                {"/aboutus/", "О нас", "О нас"},
+                {"/contacts/", "Контактные данные", "Контактные данные"},
+                //{"/feedback/", "Оставить отзыв", "Обратная связь"}, находиться 2элемента, уточнить почему ? !
+                {"/advertisingplacement/", "Размещение рекламы", "Размещение рекламы"},
+                {"/licenses/", "Лицензии", "Лицензии"}
+        };
 
     }
 }
