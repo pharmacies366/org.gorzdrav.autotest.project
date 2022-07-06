@@ -3,10 +3,10 @@
 
 
 
-<!--<suite name="My suite" parallel="methods" thread-count="5">-->
-<!--<suite name="My suite" parallel="tests" thread-count="5">-->
-<suite name="Автотесты сайта Горздрав" parallel="classes" thread-count="5">
-<!--<suite name="My suite" parallel="instances" thread-count="5">-->
+<suite name="Автотесты сайта Горздрав" parallel="methods" thread-count="4">
+<!--<suite name="Автотесты сайта Горздрав" parallel="tests" thread-count=4">-->
+<!--<suite name="Автотесты сайта Горздрав" parallel="classes" thread-count="4">-->
+<!--<suite name="Автотесты сайта Горздрав" parallel="instances" thread-count="4">-->
 
     <listeners>
         <listener class-name="listener.retry.AnnotationTransformer"/>
@@ -14,13 +14,13 @@
 
     <test name="Web">
         <packages>
-            <package name="web.*"></package>
+            <package name="web.*"/>
         </packages>
     </test>
 
     <test name="Мобильная эмуляция тестов">
         <packages>
-            <package name="mobile.*"></package>
+            <package name="mobile.*"/>
         </packages>
     </test>
 </suite>
