@@ -40,7 +40,7 @@ public class BasementBlockWebTest extends BaseSettingsWebTests {
                 Arguments.of("/personaldata/", "Политика конфиденциальности", "Политика конфиденциальности"),
                 Arguments.of("/manufacturers/", "Производители", "Список лекарств по производителям"),
                 Arguments.of("/partnersgz/", "Партнеры", "Партнеры"),
-                Arguments.of("/mnn/", "Действующие вещества", "Лекарства по действующему веществу"),
+                Arguments.of("/mnn/", "Действующие вещества", "Лекарства по действующему веществу (МНН)"),
                 Arguments.of("/shares/", "Акции", "Акции"),
                 Arguments.of("/blog/", "Статьи", "Статьи"),
                 Arguments.of("/news/", "Новости", "Новости"),
