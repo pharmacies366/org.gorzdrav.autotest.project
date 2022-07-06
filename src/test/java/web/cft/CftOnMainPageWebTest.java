@@ -3,43 +3,31 @@ package web.cft;
 import base.BaseSettingsWebTests;
 import io.qameta.allure.Description;
 import io.qameta.allure.Feature;
+import io.qameta.allure.Step;
 import io.qameta.allure.Story;
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Tag;
-import org.junit.jupiter.api.Test;
-
-/**
- * @author Михаил
- */
-
+import org.testng.Assert;
+import org.testng.annotations.Test;
 @Feature(value = "Web")
 @Story("ЦФТ на сайте Горздрав")
-@DisplayName("Проверка работы ЦФТ на главной странице сайта Горздрав")
-@Tag("Web")
-@Tag("Regression")
-@Tag("CFT")
 public class CftOnMainPageWebTest extends BaseSettingsWebTests {
 
-    @DisplayName("Проверка заднего фона кнопки с расчётом бонусов")
-    @Description("Цвет заднего фона кнопки должен быть: #212121 - Синий")
-    @Test
+    @Description("Проверка заднего фона кнопки с расчётом бонусов")
+    @Test(groups = { "Web", "Regression", "CFT" })
+    @Step("Цвет заднего фона кнопки должен быть: #212121 - Синий")
     public void checkBackgroundColorProductGalleryBonus() {
         String actualColor = mainPage.getColorBackgroundProductGalleryButton();
-        Assertions.assertEquals("#1560bd", actualColor);
+        Assert.assertEquals("#1560bd", actualColor);
     }
-
-    @DisplayName("Проверка фона текста кнопки с расчётом бонусов")
-    @Description("Цвет текста на фоне кнопки должен быть: #fff - Белый")
-    @Test
+    @Description("Проверка фона текста кнопки с расчётом бонусов")
+    @Test(groups = { "Web", "Regression", "CFT" })
+    @Step("Цвет текста на фоне кнопки должен быть: #fff - Белый")
     public void checkColorTextProductGalleryBonus() {
         String actualColor = mainPage.getColorTextProductGalleryButton();
-        Assertions.assertEquals("#ffffff", actualColor);
+        Assert.assertEquals("#ffffff", actualColor);
     }
-
-    @DisplayName("Проверка, что на шильдике с количеством бонусов присутствует значок '+'")
-    @Description("На шильдике с бонусами должен присутствовать знак '+'")
-    @Test
+    @Description("Проверка, что на шильдике с количеством бонусов присутствует значок '+'")
+    @Test(groups = { "Web", "Regression", "CFT" })
+    @Step("На шильдике с бонусами должен присутствовать знак '+'")
     public void checkInfoProductGalleryBonus() {
         mainPage.checkPlusOnBonusButton();
     }

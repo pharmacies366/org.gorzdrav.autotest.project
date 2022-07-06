@@ -3,54 +3,49 @@ package web.cft;
 import base.BaseSettingsWebTests;
 import io.qameta.allure.Description;
 import io.qameta.allure.Feature;
+import io.qameta.allure.Step;
 import io.qameta.allure.Story;
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Tag;
-import org.junit.jupiter.api.Test;
+import org.testng.Assert;
+import org.testng.annotations.Test;
 
 /**
  * @author Михаил
  */
 
 @Feature(value = "Web")
-@DisplayName("ЦФТ на сайте Горздрав")
 @Story("Проверка работы ЦФТ на странице с листингом товаров сайта Горздрав")
-@Tag("Web")
-@Tag("Regression")
-@Tag("CFT")
 public class CftOnListingPageWebTest extends BaseSettingsWebTests {
 
-    @DisplayName("Проверка заднего фона кнопки с расчётом бонусов")
-    @Description("Цвет заднего фона кнопки должен быть: #1560bd - Синий")
-    @Test
+    @Description("Проверка заднего фона кнопки с расчётом бонусов")
+    @Test(groups = { "Web", "Regression", "CFT" })
+    @Step("Цвет заднего фона кнопки должен быть: #1560bd - Синий")
     public void checkBackgroundColorProductGalleryBonus() {
         headerBlock.clickCatalogButton();
         catalogPage.clickMedicationsButtons();
         String actualColor = commonActionsOnWebPages.getColorBackgroundProductGalleryButton();
-        Assertions.assertEquals("#1560bd", actualColor);
+        Assert.assertEquals("#1560bd", actualColor);
     }
 
-    @DisplayName("Проверка фона текста кнопки с расчётом бонусов")
-    @Description("Цвет текста на фоне кнопки должен быть: #fff - Белый")
-    @Test
+    @Description("Проверка фона текста кнопки с расчётом бонусов")
+    @Test(groups = { "Web", "Regression", "CFT" })
+    @Step("Цвет текста на фоне кнопки должен быть: #fff - Белый")
     public void checkColorTextProductGalleryBonus() {
         headerBlock.clickCatalogButton();
         catalogPage.clickMedicationsButtons();
         String actualColor = commonActionsOnWebPages.getColorTextProductGalleryButton();
-        Assertions.assertEquals("#ffffff", actualColor);
+        Assert.assertEquals("#ffffff", actualColor);
     }
 
-    @DisplayName("Проверка, что на шильдике с количеством бонусов присутствует значок '+'")
-    @Description("На шильдике с бонусами должен присутствовать знак '+'")
-    @Test
+    @Description("Проверка, что на шильдике с количеством бонусов присутствует значок '+'")
+    @Test(groups = { "Web", "Regression", "CFT" })
+    @Step("На шильдике с бонусами должен присутствовать знак '+'")
     public void checkInfoProductGalleryBonus() {
         mainPage.checkPlusOnBonusButton();
     }
 
-    @DisplayName("Проверка на наличие начисляемых бонусов за покупку товара")
-    @Description("Если цена товара больше или равно 50 р., то шильдик должен быть")
-    @Test
+    @Description("Проверка на наличие начисляемых бонусов за покупку товара")
+    @Test(groups = { "Web", "Regression", "CFT" })
+    @Step("Если цена товара больше или равно 50 р., то шильдик должен быть")
     public void checkVisibilityBonuses() {
         headerBlock.clickCatalogButton();
         catalogPage.clickMedicationsButtons();
@@ -61,8 +56,8 @@ public class CftOnListingPageWebTest extends BaseSettingsWebTests {
         int ToPriceRange = commonActionsOnWebPages.getToPriceRange();
         int FromPriceRange = commonActionsOnWebPages.getFromPriceRange();
         int price = commonActionsOnWebPages.checkProductsPrices();
-        Assertions.assertTrue(price >= FromPriceRange);
-        Assertions.assertTrue(price <= ToPriceRange);
+        Assert.assertTrue(price >= FromPriceRange);
+        Assert.assertTrue(price <= ToPriceRange);
         commonActionsOnWebPages.getProductGalleryBonusesButton().isElementDisplayed();
     }
 }

@@ -66,7 +66,6 @@ public class CftOnCardProductPageWebTest extends BaseSettingsWebTests {
                 {"p/211533", "1 бонус"},
                 {"p/300733", "2 бонуса"},
                 {"p/206671", "10 бонусов"},
-
         };
     }
 }
