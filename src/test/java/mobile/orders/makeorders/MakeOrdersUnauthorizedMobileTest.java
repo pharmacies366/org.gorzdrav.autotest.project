@@ -10,7 +10,7 @@ import org.testng.annotations.Test;
 @Feature(value = "Мобильная версия")
 @Story("Оформление заказа на сайте Gorzdrav для неавторизованного пользователя")
 public class MakeOrdersUnauthorizedMobileTest extends BaseSettingsMobileTests {
-    @Description("Оформление заказа доставкой")
+/*    @Description("Оформление заказа доставкой")
     @Test(groups = {"Mobile", "Smoke", "Regression"})
     @Step("Пользователь оформляет заказ с доставкой")
     public void delivery() {
@@ -32,7 +32,7 @@ public class MakeOrdersUnauthorizedMobileTest extends BaseSettingsMobileTests {
                 propertiesManager.getProperty("cvv"));
         //  mobileSberPage.clickOnSubmitButton();
         //  mobileThankForTheOrderPage.checkPaymentError();
-    }
+    }*/
 
 
     // баг на шаге Списком

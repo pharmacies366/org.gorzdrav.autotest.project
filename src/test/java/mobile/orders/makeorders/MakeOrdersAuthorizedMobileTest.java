@@ -10,7 +10,7 @@ import org.testng.annotations.Test;
 @Feature(value = "Мобильная версия")
 @Story("Оформление заказа на сайте Gorzdrav для авторизованного пользователя")
 public class MakeOrdersAuthorizedMobileTest extends BaseSettingsMobileTests {
-    @Description("Оформление заказа доставкой")
+/*    @Description("Оформление заказа доставкой")
     @Test(groups = {"Mobile", "Smoke", "Regression"})
     @Step("Пользователь оформляет заказ с доставкой")
     public void delivery() {
@@ -37,7 +37,7 @@ public class MakeOrdersAuthorizedMobileTest extends BaseSettingsMobileTests {
                 propertiesManager.getProperty("cvv"));
         //  mobileSberPage.clickOnSubmitButton();
         //  mobileThankForTheOrderPage.checkPaymentError();
-    }
+    }*/
 
 
     @Description("Оформление заказа в один клик")
