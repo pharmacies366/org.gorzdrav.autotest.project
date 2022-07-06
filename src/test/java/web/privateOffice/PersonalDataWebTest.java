@@ -5,17 +5,17 @@ import io.qameta.allure.Description;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Step;
 import io.qameta.allure.Story;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 @Feature(value = "Web")
 @Story(value = "Личный кабинет на сайте Gorzdrav")
 public class PersonalDataWebTest extends BaseSettingsWebTests {
 
-  /*  @ParameterizedTest(name = "В личном кабинете пользователь переходит по ссылке => {index} {1}")
-    @MethodSource("checkDisplayedOptions")
-    @Description("Пользователь переходит в личный кабинет и проверяет отображения списка с пунктами страниц в Л.К." +
-            " и релевантный переход")
-    public void testSomething(String LOCATOR, String LINKTEXT, String PAGEMESSAGE) {
+    @Description("Проверка коррекного содержания ссылок в личном кабинете")
+    @Test(dataProvider = "checkDisplayedOptions", groups = {"Web", "Regression"})
+    @Step("Пользователь проверяет название ссылки, кликает по ней и проверяет содержание текста на странице")
+    public void checkDisplayedOptions(String LOCATOR, String LINKTEXT, String PAGEMESSAGE) {
         headerBlock.clickToSignInButton();
         cookiePage.reCaptchaKey();
         authPopUpPage.authorizeWithPhoneAndPassword(
@@ -29,16 +29,17 @@ public class PersonalDataWebTest extends BaseSettingsWebTests {
         logger.info("Ссылка кликабельна и ведёт на нужную страницу");
     }
 
-    private static Stream<Arguments> checkDisplayedOptions() {
-        return Stream.of(
-                Arguments.of("/my-account/my-profile", "Мой профиль", "Мой профиль"),
-                Arguments.of("/my-account/update-password", "Изменить пароль", "Изменить пароль"),
-                Arguments.of("/my-account/orders", "Мои покупки", "Мои заказы"),
-                Arguments.of("/my-account/my-promotions", "Мои акции", "Мои акции"),
-                Arguments.of("/my-account/my-advice", "Здрав Совет", "Здрав Совет"),
-                Arguments.of("/logout/", "Выйти", "Как сделать заказ")
-        );
-    }*/
+    @DataProvider(name = "checkDisplayedOptions")
+    public Object[][] checkDisplayedOptions() {
+        return new Object[][]{
+                {"/my-account/my-profile", "Мой профиль", "Мой профиль"},
+                {"/my-account/update-password", "Изменить пароль", "Изменить пароль"},
+                {"/my-account/orders", "Мои покупки", "Мои покупки"},
+                {"/my-account/my-promotions", "Мои акции", "Мои акции"},
+                {"/my-account/my-advice", "Здрав Совет", "Здрав Совет"},
+                {"/logout/", "Выйти", "Как сделать заказ"}
+        };
+    }
 
 
     @Description("Проверка на заполнение и сохранения изменений для поля Отчество")
