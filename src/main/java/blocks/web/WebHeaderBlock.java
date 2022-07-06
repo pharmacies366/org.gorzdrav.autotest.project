@@ -213,7 +213,7 @@ public class WebHeaderBlock extends MainTestBase {
 
     @Step("Пользователь нажимает на иконку 'Аптеки Горздрав' и переходит на главную страницу")
     public void clickSiteLogo(){
-        getSiteLogo().click();
+        getSiteLogo().clickJs();
         logger.info("Пользователь нажимает на иконку 'Аптеки Горздрав' и переходит на главную страницу");
     }
 
