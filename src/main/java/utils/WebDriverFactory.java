@@ -72,7 +72,6 @@ public class WebDriverFactory {
         prefs.put("profile.managed_default_content_settings", 1);
         chromeOptions.setExperimentalOption("prefs", prefs);
 
-        // System.out.println(nameOfPackage + " " + nameOfClass);
         if (nameOfPackage.contains("mobile")) {
             WebDriverManager.chromedriver().setup();
             Map<String, String> mobileEmulation = new HashMap<>();

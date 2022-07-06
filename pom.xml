@@ -13,8 +13,8 @@
         <driver>local</driver>
         <driverurl>http://10.250.226.12:4444/wd/hub/</driverurl>
         <env>p1</env>
-        <selenium-java.version>4.1.1</selenium-java.version>
-        <webdrivermanager.version>5.0.3</webdrivermanager.version>
+        <selenium-java.version>3.141.59</selenium-java.version>
+        <webdrivermanager.version>5.1.1</webdrivermanager.version>
         <testng.version>7.4.0</testng.version>
         <aspectj.version>1.9.6</aspectj.version>
         <maven-surefire-plugin.version>2.20</maven-surefire-plugin.version>
@@ -45,7 +45,7 @@
                     remote
                 </driver>
                 <driverurl>
-                    http://10.250.226.11/:4444/wd/hub/
+                    http://10.250.226.12/:4444/wd/hub/
                 </driverurl>
                 <env>
                     p1
@@ -93,27 +93,6 @@
             <groupId>org.apache.logging.log4j</groupId>
             <artifactId>log4j-core</artifactId>
             <version>2.14.0</version>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.logging.log4j</groupId>
-            <artifactId>log4j-api</artifactId>
-            <version>2.14.0</version>
-        </dependency>
-        <dependency>
-            <groupId>org.skyscreamer</groupId>
-            <artifactId>jsonassert</artifactId>
-            <version>1.5.0</version>
-        </dependency>
-        <dependency>
-            <groupId>com.googlecode.json-simple</groupId>
-            <artifactId>json-simple</artifactId>
-            <version>1.1.1</version>
-        </dependency>
-
-        <dependency>
-            <groupId>io.rest-assured</groupId>
-            <artifactId>rest-assured</artifactId>
-            <version>4.4.0</version>
         </dependency>
 
     </dependencies>
