@@ -1,3 +1,4 @@
+/*
 package mobile.modules;
 
 import base.BaseSettingsMobileTests;
@@ -14,7 +15,7 @@ public class CheckRegionalMobileTest extends BaseSettingsMobileTests {
 
     // После правки багов
 
-/*    @Description("Проверка выбора города Санкт-Петербург")
+    @Description("Проверка выбора города Санкт-Петербург")
     @Test(groups = {"Mobile", "Regression"})
     @Step("Пользователь устанавливает город Санкт-Петербург")
     public void checkChangeRegionOnMainPage() {
@@ -57,5 +58,5 @@ public class CheckRegionalMobileTest extends BaseSettingsMobileTests {
         mobileCitiesPopUpPage.selectSpbCity();
         mobileMainPage.clickFirstProductOnMainPage();
         mobileProductCardPage.checkSelectedRegion("Санкт-Петербург");
-    }*/
-}
+    }
+}*/
