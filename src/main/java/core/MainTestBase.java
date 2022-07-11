@@ -56,7 +56,7 @@ public class MainTestBase {
         logger.info("Открывается главная страница сайта Горздрав");
     }
 
-/*    @AfterMethod(alwaysRun = true)
+    @AfterMethod(alwaysRun = true)
     public void afterAllTest(ITestResult result) {
         if (result.getStatus() != ITestResult.SUCCESS) {
             saveScreenshot(((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES));
@@ -65,8 +65,9 @@ public class MainTestBase {
         driver.close();
         driver.quit();
         logger.info("Браузер закрылся");
-    } */
+    }
 
+/*
     @AfterMethod(alwaysRun = true)
     public void tearDown(ITestResult result) throws Exception {
         if (result.getStatus() != ITestResult.SUCCESS) {
@@ -78,6 +79,7 @@ public class MainTestBase {
                 logger.info("Браузер закрылся");
             }
         }
+*/
 
 
     @Attachment(value = "Page screenshot", type = "image/png")

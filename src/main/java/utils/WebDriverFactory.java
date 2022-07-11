@@ -101,11 +101,16 @@ public class WebDriverFactory {
     @Step("Настройка локального драйвера")
     public void setupLocalDriver() {
         logger.info("setup local driver");
+        Map<String, Object> prefs = new HashMap<String, Object>();
+        Map<String, Object> profile = new HashMap<String, Object>();
+        prefs.put("googlegeolocationaccess.enabled", true);
+        prefs.put("profile.default_content_setting_values.geolocation", 2); // 1:allow 2:block
+        prefs.put("profile.default_content_setting_values.notifications", 1);
+        prefs.put("profile.managed_default_content_settings", 1);
         ChromeOptions chromeOptions = new ChromeOptions();
+        chromeOptions.setExperimentalOption("prefs", prefs);
         DesiredCapabilities capabilities = new DesiredCapabilities();
         //DesiredCapabilities capabilities = DesiredCapabilities.chrome(); //в чем разница?
-
-
         chromeOptions.addArguments("--incognito");
         chromeOptions.setExperimentalOption("excludeSwitches", Collections.singletonList("enable-automation"));//оставить
         // или chromeOptions.addArguments("enable-automation");
@@ -119,13 +124,7 @@ public class WebDriverFactory {
         //chromeOptions.addArguments("--headless");
         chromeOptions.setPageLoadStrategy(PageLoadStrategy.NORMAL);
         //  chromeOptions.setPageLoadStrategy(PageLoadStrategy.eager);
-        Map<String, Object> prefs = new HashMap<String, Object>();
-        Map<String, Object> profile = new HashMap<String, Object>();
-        prefs.put("googlegeolocationaccess.enabled", true);
-        prefs.put("profile.default_content_setting_values.geolocation", 2); // 1:allow 2:block
-        prefs.put("profile.default_content_setting_values.notifications", 1);
-        prefs.put("profile.managed_default_content_settings", 1);
-        chromeOptions.setExperimentalOption("prefs", prefs);
+
 
         // System.out.println(nameOfPackage + " " + nameOfClass);
         if (nameOfPackage.contains("mobile")) {
