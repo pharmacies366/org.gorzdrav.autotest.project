@@ -1,5 +1,6 @@
 package pages.mobile.main;
 
+import actions.PageActions;
 import actions.PageElementActions;
 import core.MainTestBase;
 import io.qameta.allure.Step;
@@ -7,6 +8,7 @@ import org.openqa.selenium.WebDriver;
 
 public class MobileMainPage extends MainTestBase {
 
+    PageActions pageActions = new PageActions(driver);
 
     //элементы
     private static final String SITE_LOGO_XPATH = "xpath;//img[contains(@alt,'ГЗ лого.svg')]";
@@ -19,7 +21,7 @@ public class MobileMainPage extends MainTestBase {
     private static final String QUANTITY_MATERIALS_XPATH = "xpath;(//div[@class='b-btn-qty-selector-grid-gz-count js-add-to-cart--gz-count'])[1]";
     private static final String CARD_BUTTON_XPATH = "xpath;//div[@id='js-mini-cart-link']";
     private static final String FAVORITES_ICON_XPATH = "xpath;(//button[contains(@class,'button b-star')])[1]";
-    private static final String QUANTITY_BANNERS_XPATH = "xpath;//ul[contains(@role,'tablist')]";
+    private static final String QUANTITY_BANNERS_XPATH = "xpath;(//div[@class='slick-track'])[1]";
     private static final String BANNER_PIN_BUTTONS_XPATH = "xpath;//button[@type='button'][contains(.,'%s')]";
     private static final String BANNERS_BUTTONS_XPATH = "xpath;(//div[@class='yCmsComponent b-section--as-content b-homepage-bottom'])[1]";
     private static final String NEXT_BANNER_BUTTON = "xpath;//button[@aria-label='Next']";
@@ -31,8 +33,11 @@ public class MobileMainPage extends MainTestBase {
     private static final String COLOR_TEXT_PRODUCT_GALLERY_BUTTON_XPATH = "xpath;(//div[@class='c-card-balance__text c-card-balance__text--list'])[1]";
     private static final String CASH_BACK_INFO_POP_UP_XPATH = "xpath;//div[@class='hint__title']";
     private static final String LINK_MORE_ABOUT_BONUSES_XPATH = "xpath;//a[@href='/pravila_programmy/'][contains(.,'Подробнее о бонусах')]";
-
     private static final String PLUS_ON_BONUS_BUTTON_XPATH = "xpath;(//div[@class='c-card-balance__text c-card-balance__text--list'])[1][contains(.,'+')]";
+    private static final String BANNER_LIST_XPATH = "xpath;(//a[@data-autotest='slider_slick_slide'])";
+    private static final String CHECK_START_BANNER_XPATH = "xpath;(//img[@class='b-bnr--responsive__img '])[1]";
+    private static final String PREV_BANNER_XPATH = "xpath;//button[@data-autotest='slider_slick_prev']";
+    private static final String NEXT_BANNER_XPATH = "xpath;//button[@data-autotest='slider_slick_next']";
 
 
     //конструктор
@@ -133,52 +138,68 @@ public class MobileMainPage extends MainTestBase {
         return new PageElementActions(PLUS_ON_BONUS_BUTTON_XPATH, driver);
     }
 
+    public PageElementActions getBannerList() {
+        return new PageElementActions(BANNER_LIST_XPATH, driver);
+    }
+
+    public PageElementActions getCheckStartBanner() {
+        return new PageElementActions(CHECK_START_BANNER_XPATH, driver);
+    }
+
+    public PageElementActions getPrevBannerButton() {
+        return new PageElementActions(PREV_BANNER_XPATH, driver);
+    }
+
+    public PageElementActions getNextBannerButton() {
+        return new PageElementActions(NEXT_BANNER_XPATH, driver);
+    }
+
 
     //Методы
     @Step("Пользователь закрывает попап куки: 'Спасибо, понятно")
-    public void clickClosePopUp(){
+    public void clickClosePopUp() {
         getPopUpButton().click();
         logger.info("Пользователь закрывает попап куки: 'Спасибо, понятно'");
     }
 
     @Step("Пользователь закрывает попап мобильного приложения: 'Приложение 36.6'")
-    public void clickCloseMobileAppPopUp(){
+    public void clickCloseMobileAppPopUp() {
         getMobileAppPopUpButton().click();
         logger.info("Пользователь закрывает попап мобильного приложения: 'Приложение 36.6'");
     }
 
     @Step("Проверка отображения логотипа сайта на главной странице")
-    public void checkElementIsCorrect(){
+    public void checkElementIsCorrect() {
         getSiteLogo().elementIsVisibility();
         logger.info("Лого отображается");
     }
 
     @Step("Пользователь нажимает на иконку 36.6 и переходит на главную страницу")
-    public void clickSiteLogo(){
+    public void clickSiteLogo() {
         getSiteLogo().click();
         logger.info("Пользователь нажимает на иконку 36.6 и переходит на главную страницу");
     }
 
     @Step("Пользователь нажимает на букву 'Н' Русского алфавита")
-    public void clickLetterN(){
+    public void clickLetterN() {
         getLetterN().click();
         logger.info("Пользователь нажимает на букву 'Н' Русского алфавита");
     }
 
     @Step("Пользователь нажимает на кнопку 'В корзину'")
-    public void AddToCartClick(){
+    public void AddToCartClick() {
         getClickAddCartButton().click();
         logger.info("Пользователь нажимает на кнопку 'В корзину'");
     }
 
     @Step("Пользователь нажимает '+' увеличивая количество шт. товара")
-    public void clickIncreaseQuantity(){
+    public void clickIncreaseQuantity() {
         getIncreaseQuantity().click();
         logger.info("Пользователь нажимает '+' увеличивая количество шт. товара");
     }
 
     @Step("Пользователь нажимает '-' уменьшая количество шт. товара")
-    public void clickDecreaseQuantity(){
+    public void clickDecreaseQuantity() {
         getDecreaseQuantity().click();
         logger.info("Пользователь нажимает '-' уменьшая количество шт. товара");
     }
@@ -220,39 +241,35 @@ public class MobileMainPage extends MainTestBase {
         logger.info("Пользователь переключает банеры по стрелке вперёд");
     }
 
-
-
-/*
-    @Step("Пользователь переключает вперед банеры и проверяет, что возвращается к первому")
+    @Step("Пользователь кликает по стрелке вперед, переключает банеры и проверяет, что возвращается к первому")
     public void checkNextBannerList() {
         String sizeAllLi = getStringQuantityBanners().getAttribute("childElementCount");
         int quantity = Integer.parseInt(sizeAllLi);
-        for (int i = 1; i <= quantity; i++) {
-            getBannersLocators().drugAndDrop(By.xpath(""));
+        for (int i = 1; i < quantity; i++) {
+            getNextBannerButton().click();
+            pageActions.staticWait(1000);
             getBannerList().isElementDisplayedWithIndex(i);
         }
         getCheckStartBanner().isElementDisplayed();
         logger.info("Пользователь кликает по стрелке вперед, переключает банеры и проверяет, что возвращается к первому");
     }
-*/
 
-
-
-    @Step("Пользователь переключает банеры по пинам")
-    public void checkNextBannerButtons() {
+    @Step("Пользователь кликает по стрелке назад, переключает банеры и проверяет, что возвращается к первому")
+    public void checkPrevBannerList() {
         String sizeAllLi = getStringQuantityBanners().getAttribute("childElementCount");
         int quantity = Integer.parseInt(sizeAllLi);
-        for (int i = 1; i <= quantity; i++) {
-            getBaseInputBannersPinLocators(String.format(BANNER_PIN_BUTTONS_XPATH, i)).click();
+        for (int i = 1; i < quantity; i++) {
+            getPrevBannerButton().click();
+            pageActions.staticWait(1000);
+            getBannerList().isElementDisplayedWithIndex(i);
         }
-        logger.info("Пользователь переключает банеры по пинам");
+        getCheckStartBanner().isElementDisplayed();
+        logger.info("Пользователь кликает по стрелке назад, переключает банеры и проверяет, что возвращается к первому");
     }
 
     @Step("Пользователь переключает банеры и возвращается на главную страницу")
     public void checkBannersClickable() {
-        String sizeAllLi = getStringQuantityBanners().getAttribute("childElementCount");
-        int quantity = Integer.parseInt(sizeAllLi);
-        for (int i = 1; i <= quantity; i++) {
+        for (int i = 1; i < 3; i++) {
             getBannersLocators().click();
             clickSiteLogo();
             clickNextBanner();
