@@ -26,7 +26,7 @@ public class PersonalDataMobileTest extends BaseSettingsMobileTests {
                 Arguments.of("/my-account/my-profile", "Мой профиль", "Мой профиль"),
                 Arguments.of("/my-account/update-password", "Изменить пароль", "Изменить пароль"),
                 Arguments.of("/my-account/orders", "Мои покупки", "Мои покупки"),
-                Arguments.of("/my-account/my-promotions", "Мои акции", "Мои акции"),
+                // Arguments.of("/my-account/my-promotions", "Мои акции", "Мои акции"), убрали на проде
                 Arguments.of("/my-account/my-advice", "Здрав Совет", "Здрав Совет"),
                 Arguments.of("/logout/", "Выйти", "Как сделать заказ")
         );
