@@ -18,7 +18,6 @@ public class MobileBasementBlockMobileTest extends BaseSettingsMobileTests {
     public void helpTest(String LOCATOR, String LINK_TEXT, String PAGE_MESSAGE) {
         mobileBasementBlock.clickHelpButton();
         mobileBasementBlock.checkLinksValidation(LOCATOR, LINK_TEXT);
-        pageActions.waitPageLoad();
         logger.info("Ссылка видна на странице и написана корректно");
         mobileBasementBlock.selectBasementButtons(LOCATOR);
         pageActions.contentIsDisplayed(PAGE_MESSAGE);
@@ -46,7 +45,6 @@ public class MobileBasementBlockMobileTest extends BaseSettingsMobileTests {
     public void serviceTest(String LOCATOR, String LINK_TEXT, String PAGE_MESSAGE) {
         mobileBasementBlock.clickServiceButton();
         mobileBasementBlock.checkLinksValidation(LOCATOR, LINK_TEXT);
-        pageActions.waitPageLoad();
         logger.info("Ссылка видна на странице и написана корректно");
         mobileBasementBlock.selectBasementButtons(LOCATOR);
         pageActions.contentIsDisplayed(PAGE_MESSAGE);
@@ -57,14 +55,14 @@ public class MobileBasementBlockMobileTest extends BaseSettingsMobileTests {
     @DataProvider(name = "serviceTest")
     public Object[][] serviceTest() {
         return new Object[][]{
-                {"/ofertagorzdrav/", "Публичная оферта", "Публичная оферта"},
+           /*     {"/ofertagorzdrav/", "Публичная оферта", "Публичная оферта"},
                 {"/personaldata/", "Политика конфиденциальности", "Политика конфиденциальности"},
                 {"/manufacturers/", "Производители", "Список лекарств по производителям"},
-                {"/partnersgz/", "Партнеры", "Партнеры"},
-                {"/mnn/", "Действующие вещества", "Действующие вещества"},
-                {"/shares/", "Акции", "Акции"},
+                {"/partnersgz/", "Партнеры", "Партнеры"},*/
+                {"/mnn/", "Действующие вещества", "Действующие вещества"}
+             /*   {"/shares/", "Акции", "Акции"},
                 {"/blog/", "Статьи", "Статьи"},
-                {"/news/", "Новости", "Новости"}
+                {"/news/", "Новости", "Новости"}*/
         };
     }
 
@@ -75,7 +73,6 @@ public class MobileBasementBlockMobileTest extends BaseSettingsMobileTests {
     public void aboutCompanyTest(String LOCATOR, String LINK_TEXT, String PAGE_MESSAGE) {
         mobileBasementBlock.clickAboutCompanButton();
         mobileBasementBlock.checkLinksValidation(LOCATOR, LINK_TEXT);
-        pageActions.waitPageLoad();
         logger.info("Ссылка видна на странице и написана корректно");
         mobileBasementBlock.selectBasementButtons(LOCATOR);
         pageActions.contentIsDisplayed(PAGE_MESSAGE);
