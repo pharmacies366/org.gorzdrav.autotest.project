@@ -61,7 +61,7 @@ public class BaseSettingsMobileTests extends MainTestBase {
     @BeforeEach
     public void PagesInitialization() {
         mobileMainPage = new MobileMainPage(driver);
-        closePopUps();
+        //closePopUps();
 
         commonActionsOnMobilePages = new CommonActionsOnMobilePages(driver);
         pageElementActions = new PageElementActions(driver);
