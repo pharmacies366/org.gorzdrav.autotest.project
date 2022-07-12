@@ -17,6 +17,7 @@ public class BasementBlockWebTest extends BaseSettingsWebTests {
     @Step("Пользователь проверяет название ссылки, кликает по ней и проверяет содержание текста на странице")
     public void testLinksInBasement(String LOCATOR, String LINK_TEXT, String PAGE_MESSAGE) {
         basementBlock.checkLinksValidation(LOCATOR, LINK_TEXT);
+        pageActions.waitPageLoad();
         basementBlock.selectBasementButtons(LOCATOR);
         pageActions.contentIsDisplayed(PAGE_MESSAGE);
     }

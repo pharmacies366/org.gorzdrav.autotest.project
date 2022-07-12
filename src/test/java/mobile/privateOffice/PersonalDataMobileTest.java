@@ -38,7 +38,7 @@ public class PersonalDataMobileTest extends BaseSettingsMobileTests {
                 {"/my-account/my-profile", "Мой профиль", "Мой профиль"},
                 {"/my-account/update-password", "Изменить пароль", "Изменить пароль"},
                 {"/my-account/orders", "Мои покупки", "Мои покупки"},
-                {"/my-account/my-promotions", "Мои акции", "Мои акции"},
+                //{"/my-account/my-promotions", "Мои акции", "Мои акции"}, отключили на проде
                 {"/my-account/my-advice", "Здрав Совет", "Здрав Совет"},
                 {"/logout/", "Выйти", "Как сделать заказ"}
         };
