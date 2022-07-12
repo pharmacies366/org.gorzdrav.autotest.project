@@ -19,7 +19,8 @@ public class PersonalDataPage extends MainTestBase {
     private static final String LastName = "profile.lastName";
     private static final String Patronymic = "profile.middleName";
     private static final String Email = "profile.email";
-    private static final String BASE_INPUT_GENDER_XPATH = "xpath;//label[@class='b-radio-inline__item']//child::input[@value='%s']";
+    private static final String GENDER_FEMALE_XPATH = "xpath;//input[@data-autotest='profile_gender_female']//parent::label";
+    private static final String GENDER_MALE_XPATH = "xpath;//input[@data-autotest='profile_gender_male']//parent::label";
     private static final String MALE_BUTTON_XPATH = "xpath;(//span[@class='b-custom-input'])[1]";
     private static final String FEMALE_BUTTON_XPATH = "xpath;(//span[@class='b-custom-input'])[2]";
     private static final String PHONE_NUMBER_XPATH = "xpath;//input[contains(@id,'profile.phone')]";
@@ -56,8 +57,12 @@ public class PersonalDataPage extends MainTestBase {
         return new PageElementActions(xpath, driver);
     }
 
-    public PageElementActions getBaseInputGender(String xpath) {
-        return new PageElementActions(xpath, driver);
+    public PageElementActions getFemaleGender() {
+        return new PageElementActions(GENDER_FEMALE_XPATH, driver);
+    }
+
+    public PageElementActions getMaleGender() {
+        return new PageElementActions(GENDER_MALE_XPATH, driver);
     }
 
     public PageElementActions getMaleButton() {
@@ -87,6 +92,7 @@ public class PersonalDataPage extends MainTestBase {
     public PageElementActions getErrorEmailMessage() {
         return new PageElementActions(ERROR_EMAIL_MESSAGE_XPATH, driver);
     }
+
     public PageElementActions getErrorNameMessage() {
         return new PageElementActions(ERROR_NAME_MESSAGE_XPATH, driver);
     }
@@ -209,9 +215,15 @@ public class PersonalDataPage extends MainTestBase {
         logger.info("Пользователь установливает новую дату рождения");
     }
 
-    @Step("Пользователь изменяет пол на {Gender}")
-    public void changeGender(String Gender) {
-        getBaseInputGender(String.format(BASE_INPUT_GENDER_XPATH, Gender)).click();
+    @Step("Пользователь изменяет пол на Женский")
+    public void changeGenderToFemale() {
+        getFemaleGender().click();
+        logger.info("Пользователь изменяет пол на {Gender}");
+    }
+
+    @Step("Пользователь изменяет пол на Мужской")
+    public void changeGenderToMale() {
+        getMaleGender().click();
         logger.info("Пользователь изменяет пол на {Gender}");
     }
 

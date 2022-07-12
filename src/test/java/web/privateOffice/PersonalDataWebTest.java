@@ -35,7 +35,7 @@ public class PersonalDataWebTest extends BaseSettingsWebTests {
                 {"/my-account/my-profile", "Мой профиль", "Мой профиль"},
                 {"/my-account/update-password", "Изменить пароль", "Изменить пароль"},
                 {"/my-account/orders", "Мои покупки", "Мои покупки"},
-                {"/my-account/my-promotions", "Мои акции", "Мои акции"},
+                //{"/my-account/my-promotions", "Мои акции", "Мои акции"}, убрали на проде
                 {"/my-account/my-advice", "Здрав Совет", "Здрав Совет"},
                 {"/logout/", "Выйти", "Как сделать заказ"}
         };
@@ -129,10 +129,10 @@ public class PersonalDataWebTest extends BaseSettingsWebTests {
                 propertiesManager.getProperty("userpass"));
         headerBlock.clickToPersonalAccount();
         headerBlock.clickPersonalData();
-        personalDataPage.changeGender("FEMALE");
+        personalDataPage.changeGenderToFemale();
         personalDataPage.ckickSaveButton();
         personalDataPage.getFemaleButton().checkAttribute("value", "FEMALE");
-        personalDataPage.changeGender("MALE");
+        personalDataPage.changeGenderToMale();
         personalDataPage.ckickSaveButton();
         personalDataPage.getMaleButton().checkAttribute("value", "MALE");
     }
