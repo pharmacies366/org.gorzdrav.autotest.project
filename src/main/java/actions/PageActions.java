@@ -63,6 +63,12 @@ public class PageActions extends MainTestBase {
         Assertions.assertEquals(url, actualUrl);
     }
 
+    //
+    public void scrollDown() {
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("window.scrollBy(0,250)", "");
+    }
+
     //Получить Title
     public String getTitle() {
         return driver.getTitle();
