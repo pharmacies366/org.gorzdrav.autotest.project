@@ -55,14 +55,14 @@ public class MobileBasementBlockMobileTest extends BaseSettingsMobileTests {
     @DataProvider(name = "serviceTest")
     public Object[][] serviceTest() {
         return new Object[][]{
-           /*     {"/ofertagorzdrav/", "Публичная оферта", "Публичная оферта"},
+                {"/ofertagorzdrav/", "Публичная оферта", "Публичная оферта"},
                 {"/personaldata/", "Политика конфиденциальности", "Политика конфиденциальности"},
                 {"/manufacturers/", "Производители", "Список лекарств по производителям"},
-                {"/partnersgz/", "Партнеры", "Партнеры"},*/
-                {"/mnn/", "Действующие вещества", "Действующие вещества"}
-             /*   {"/shares/", "Акции", "Акции"},
+                {"/partnersgz/", "Партнеры", "Партнеры"},
+                {"/mnn/", "Действующие вещества", "Действующие вещества"},
+                {"/shares/", "Акции", "Акции"},
                 {"/blog/", "Статьи", "Статьи"},
-                {"/news/", "Новости", "Новости"}*/
+                {"/news/", "Новости", "Новости"}
         };
     }
 
