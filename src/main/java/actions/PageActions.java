@@ -35,6 +35,12 @@ public class PageActions extends MainTestBase {
         logger.info("СТРАНИЦА ОБНОВЛЕНА");
     }
 
+    //
+    public void scrollDown() {
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("window.scrollBy(0,250)", "");
+    }
+
     //Переключиться на другое окно
     public void switchToNewWindow() {
         for (String windowHandle : driver.getWindowHandles())
