@@ -43,6 +43,7 @@ public class CftOnCardProductPageMobileTest extends BaseSettingsMobileTests {
     @Step("На шильдике с бонусами должен присутствовать знак '+'")
     public void checkInfoProductGalleryBonus() {
         openUrl(propertiesManager.getProperty("baseurl") + "p/207185");
+        pageActions.waitPageLoad();
         mobileProductCardPage.checkPlusOnBonusButton();
     }
 
