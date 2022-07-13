@@ -12,7 +12,7 @@
     <properties>
         <driver>local</driver>
         <driverurl>http://10.250.226.12:4444/wd/hub/</driverurl>
-        <env>p1</env>
+        <env>s1</env>
         <selenium-java.version>3.141.59</selenium-java.version>
         <webdrivermanager.version>5.1.1</webdrivermanager.version>
         <testng.version>7.4.0</testng.version>
@@ -34,7 +34,7 @@
                     local
                 </driver>
                 <env>
-                    p1
+                    s1
                 </env>
             </properties>
         </profile>
@@ -48,7 +48,7 @@
                     http://10.250.226.12/:4444/wd/hub/
                 </driverurl>
                 <env>
-                    p1
+                    s1
                 </env>
             </properties>
         </profile>
