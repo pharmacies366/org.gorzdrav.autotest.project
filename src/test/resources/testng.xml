@@ -13,13 +13,13 @@
 
     <test name="Web тесты">
         <packages>
-            <package name="web.*"></package>
+            <package name="web.*"/>
         </packages>
     </test>
 
     <test name="Мобильная эмуляция тестов">
         <packages>
-            <package name="mobile.*"></package>
+            <package name="mobile.*"/>
         </packages>
     </test>
 </suite>
