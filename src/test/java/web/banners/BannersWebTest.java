@@ -40,7 +40,7 @@ public class BannersWebTest extends BaseSettingsWebTests {
         mainPage.checkBannersClickable();
     }
 
-    @Description("Проверка перехода по банерау на странице OSP")
+    @Description("Проверка перехода по банеру на странице OSP")
     @Test(groups = {"Web", "Regression"})
     @Step("переход по банерау на странице OSP")
     public void checkBannersClickableOnOspPage() {
@@ -49,7 +49,7 @@ public class BannersWebTest extends BaseSettingsWebTests {
         productCardPage.clickMainButton();
     }
 
-    @Description("Проверка перехода по банерау на странице товара")
+    @Description("Проверка перехода по банеру на странице товара")
     @Test(groups = {"Web", "Regression"})
     @Step("переход по банерау на странице товара")
     public void checkBannersClickableOnProductPage() {
@@ -58,7 +58,7 @@ public class BannersWebTest extends BaseSettingsWebTests {
         productCardPage.clickMainButton();
     }
 
-    @Description("Проверка перехода по банерау на странице категории")
+    @Description("Проверка перехода по банеру на странице категории")
     @Test(groups = {"Web", "Regression"})
     @Step("переход по банерау на странице категории")
     public void checkBannersClickableOnCategoryPage() {
@@ -68,7 +68,7 @@ public class BannersWebTest extends BaseSettingsWebTests {
         productCardPage.clickMainButton();
     }
 
-    @Description("Проверка перехода по банерау на странице поисковой выдачи")
+    @Description("Проверка перехода по банеру на странице поисковой выдачи")
     @Test(groups = {"Web", "Regression"})
     @Step("переход по банерау на странице поисковой выдачи")
     public void checkBannersClickableWithSearch() {
@@ -77,7 +77,7 @@ public class BannersWebTest extends BaseSettingsWebTests {
         productCardPage.clickMainButton();
     }
 
-    @Description("Проверка перехода по банерау на странице корзины")
+    @Description("Проверка перехода по банеру на странице корзины")
     @Test(groups = {"Web", "Regression"})
     @Step("переход по банерау на странице корзины")
     public void checkBannersClickableOnCartPage() {
