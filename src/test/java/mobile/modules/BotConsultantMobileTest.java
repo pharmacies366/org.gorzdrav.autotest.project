@@ -16,6 +16,7 @@ public class  BotConsultantMobileTest extends BaseSettingsMobileTests {
     @Step("Пользователь заполняет свои данные и получает ответ от бота")
     public void checkItemCanNotCheckout() {
         pageActions.reloadPage();
+        pageActions.scrollDown();
         mobileMainPage.clickBotConsultantButton();
         mobileBotConsultantPopUpPage.clickCantNotOrder();
         mobileBotConsultantPopUpPage.contactDetails("test","00000000000","test@gmail.com");
@@ -28,6 +29,7 @@ public class  BotConsultantMobileTest extends BaseSettingsMobileTests {
     @Step("Пользователь заполняет свои данные и получает ответ от бота")
     public void checkItemINeedADrug() {
         pageActions.reloadPage();
+        pageActions.scrollDown();
         mobileMainPage.clickBotConsultantButton();
         mobileBotConsultantPopUpPage.clickNeedADrug();
         mobileBotConsultantPopUpPage.contactDetails("test","00000000000","test@gmail.com");
@@ -40,6 +42,7 @@ public class  BotConsultantMobileTest extends BaseSettingsMobileTests {
     @Step("Пользователь заполняет свои данные и получает ответ от бота")
     public void checkItemINeedDelivery() {
         pageActions.reloadPage();
+        pageActions.scrollDown();
         mobileMainPage.clickBotConsultantButton();
         mobileBotConsultantPopUpPage.clickNeedDelivery();
         mobileBotConsultantPopUpPage.contactDetails("test","00000000000","test@gmail.com");
@@ -52,6 +55,7 @@ public class  BotConsultantMobileTest extends BaseSettingsMobileTests {
     @Step("Пользователь открывает и закрывает консультант бота")
     public void checkCloseBot() {
         pageActions.reloadPage();
+        pageActions.scrollDown();
         mobileMainPage.clickBotConsultantButton();
         mobileBotConsultantPopUpPage.clickCloseBot();
         mobileMainPage.getBotConsultantButton().isElementDisplayed();
