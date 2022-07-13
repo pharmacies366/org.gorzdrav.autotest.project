@@ -29,7 +29,7 @@ public class HeaderBlockWebTest extends BaseSettingsWebTests {
     @Test(groups = {"Web", "Regression"})
     public void testingTheSearch() {
         headerBlock.setSearchInput(propertiesManager.getProperty("productcode4"));
-        pageActions.checkUrl("https://gorzdrav.org/search/?text=44226");
+        pageActions.checkUrl("https://gorzdrav.cwzw6gg24a-llcapteka1-s1-public.model-t.cc.commerce.ondemand.com/search/?text=44226");
         logger.info("Поиск работает корректно");
     }
 
@@ -66,7 +66,8 @@ public class HeaderBlockWebTest extends BaseSettingsWebTests {
         logger.info("Кнопка 'Зарегистрироваться' кликабельна");
     }
 
-    @Description("Проверка релевантного перехода по кнопке: 'Аптеки'")
+    //нет на s1
+/*    @Description("Проверка релевантного перехода по кнопке: 'Аптеки'")
     @Test(groups = {"Web", "Regression"})
     public void clickPharmacyButton() {
         headerBlock.clickPharmacyButton();
@@ -107,6 +108,6 @@ public class HeaderBlockWebTest extends BaseSettingsWebTests {
     public void checkClickablePhoneNumber() {
         headerBlock.getPhoneNumber().elementIsClickable();
         logger.info("Номер телефона кликабелен");
-    }
+    }*/
 
 }
