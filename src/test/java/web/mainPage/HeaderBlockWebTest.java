@@ -15,7 +15,7 @@ public class HeaderBlockWebTest extends BaseSettingsWebTests {
     @Test(groups = {"Web", "Regression"})
     public void checkClickableLogo() {
         headerBlock.clickSiteLogo();
-        pageActions.checkUrl("https://gorzdrav.org/");
+        pageActions.checkUrl(propertiesManager.getProperty("baseurl"));
     }
 
     @Description("Проверка кликабельности кнопки 'Каталог'")
