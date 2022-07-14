@@ -11,15 +11,15 @@
         <listener class-name="listener.retry.AnnotationTransformer"/>
     </listeners>
 
-    <test name="Web тесты">
+    <test name="Web тесты" group-by-instances="false" preserve-order="false" enabled="true">
         <packages>
-            <package name="web.*"></package>
+            <package name="web.*"/>
         </packages>
     </test>
 
-    <test name="Мобильная эмуляция тестов">
+    <test name="Мобильная эмуляция тестов" group-by-instances="false" preserve-order="false" enabled="true">
         <packages>
-            <package name="mobile.*"></package>
+            <package name="mobile.*"/>
         </packages>
     </test>
 </suite>
