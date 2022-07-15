@@ -19,6 +19,7 @@ public class BotConsultantMobileTest extends BaseSettingsMobileTests {
     @Test
     public void checkItemCanNotCheckout() {
         pageActions.reloadPage();
+        pageActions.scrollDown();
         mobileMainPage.clickBotConsultantButton();
         mobileBotConsultantPopUpPage.clickCantNotOrder();
         mobileBotConsultantPopUpPage.contactDetails("test","00000000000","test@gmail.com");
@@ -30,6 +31,7 @@ public class BotConsultantMobileTest extends BaseSettingsMobileTests {
     @Test
     public void checkItemINeedADrug() {
         pageActions.reloadPage();
+        pageActions.scrollDown();
         mobileMainPage.clickBotConsultantButton();
         mobileBotConsultantPopUpPage.clickNeedADrug();
         mobileBotConsultantPopUpPage.contactDetails("test","00000000000","test@gmail.com");
@@ -41,6 +43,7 @@ public class BotConsultantMobileTest extends BaseSettingsMobileTests {
     @Test
     public void checkItemINeedDelivery() {
         pageActions.reloadPage();
+        pageActions.scrollDown();
         mobileMainPage.clickBotConsultantButton();
         mobileBotConsultantPopUpPage.clickNeedDelivery();
         mobileBotConsultantPopUpPage.contactDetails("test","00000000000","test@gmail.com");
@@ -52,6 +55,7 @@ public class BotConsultantMobileTest extends BaseSettingsMobileTests {
     @Test
     public void checkCloseBot() {
         pageActions.reloadPage();
+        pageActions.scrollDown();
         mobileMainPage.clickBotConsultantButton();
         mobileBotConsultantPopUpPage.clickCloseBot();
         mobileMainPage.getBotConsultantButton().isElementDisplayed();

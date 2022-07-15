@@ -230,11 +230,17 @@ public class PageElementActions extends MainTestBase {
     }
 
 
+    private WebDriverWait getWaiter(long timeOutInSeconds) {
+        WebDriverWait webDriverWait = new WebDriverWait(driver, timeOutInSeconds);
+        webDriverWait.ignoring(NoSuchElementException.class)
+                .ignoring(ElementNotInteractableException.class)
+                .ignoring(StaleElementReferenceException.class);
+        return webDriverWait;
+    }
+
     //Ожидание кликабельности элемента
     public WebElement waitUntilElementToBeClickable(By by, int _secondsToWait) {
-        WebDriverWait wait = new WebDriverWait(driver, _secondsToWait);
-        WebElement element = wait.until(ExpectedConditions.elementToBeClickable(by));
-        return element;
+        return getWaiter(_secondsToWait).until(ExpectedConditions.elementToBeClickable(by));
     }
 
     //Ожидание что элимент не кликабелен
