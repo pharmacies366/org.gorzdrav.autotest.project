@@ -9,4 +9,6 @@ public class BrowserData {
     public static final String DISABLE_INFOBARS = "--disable-infobars";
     public static final String DISABLE_NOTIFICATIONS = "--disable-notifications";
     public static final String INCOGNITO = "--incognito";
+
+    public static final String DISABLE_DEV_SHM_USAGE = "--disable-dev-shm-usage.";
 }

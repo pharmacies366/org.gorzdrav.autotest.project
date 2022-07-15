@@ -35,6 +35,7 @@ public enum BrowserFactory {
             chromeOptions.addArguments(DISABLE_INFOBARS);
             chromeOptions.addArguments(DISABLE_NOTIFICATIONS);
             chromeOptions.addArguments(INCOGNITO);
+            chromeOptions.addArguments(DISABLE_DEV_SHM_USAGE);
             chromeOptions.setHeadless(configuration().headless());
 
             return chromeOptions;

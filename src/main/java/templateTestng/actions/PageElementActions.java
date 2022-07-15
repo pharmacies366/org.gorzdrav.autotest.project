@@ -38,13 +38,11 @@ public class PageElementActions {
 
     //Клик по элементу
     public void click() {
-        this.moveToElement();
         waitUntilElementToBeClickable(getBySelector(element), DEFAULT_ELEMENT_WAIT_TIME_S).click();
     }
 
     //Клик по элементу с помощью JS
     public void clickJs() {
-        moveToElementJs();
         WebElement ele = waitUntilElementToBeClickable(getBySelector(element), DEFAULT_ELEMENT_WAIT_TIME_S);
         JavascriptExecutor jse = (JavascriptExecutor) driver;
         jse.executeScript("arguments[0].click()", ele);
@@ -70,14 +68,12 @@ public class PageElementActions {
 
     //Клик по индексу элемента
     public void clickIndex(int number) {
-        this.moveToElement();
         waitUntilElementToBeClickable(getBySelector(element), DEFAULT_ELEMENT_WAIT_TIME_S);
         driver.findElements(getBySelector(element)).get(number).click();
     }
 
     //Перевести строку в числовое значение
     public int formatElementToValue() {
-        this.moveToElement();
         waitUntilElementToBeClickable(getBySelector(element), DEFAULT_ELEMENT_WAIT_TIME_S);
         String text = driver.findElement(getBySelector(element)).getText().replaceAll("[^0-9]", "").trim();
         try {
@@ -89,7 +85,6 @@ public class PageElementActions {
 
     //Перевести строку в числовое значение Double
     public Double formatElementToValueDouble() {
-        this.moveToElement();
         waitUntilElementToBeClickable(getBySelector(element), DEFAULT_ELEMENT_WAIT_TIME_S);
 
         String s = driver.findElement(getBySelector(element)).getText();
@@ -112,20 +107,17 @@ public class PageElementActions {
 
     //Перейти к элементу и ввести текст
     public void sendKeys(String keysToSend) {
-        this.moveToElement();
         waitUntilVisibilityOfElementLocated(getBySelector(element), DEFAULT_ELEMENT_WAIT_TIME_S).sendKeys(keysToSend);
     }
 
     //Перейти к элементу, кликнуть и ввести текст
     public void clickAndSendKeys(String keysToSend) {
-        this.moveToElement();
         waitUntilElementToBeClickable(getBySelector(element), DEFAULT_ELEMENT_WAIT_TIME_S).click();
         waitUntilVisibilityOfElementLocated(getBySelector(element), DEFAULT_ELEMENT_WAIT_TIME_S).sendKeys(keysToSend);
     }
 
     //Перейти к элементу, ввести текст и нажать Enter
     public void sendKeysAndEnter(String keysToSend) {
-        this.moveToElement();
         waitUntilVisibilityOfElementLocated(getBySelector(element), DEFAULT_ELEMENT_WAIT_TIME_S).sendKeys(keysToSend, Keys.ENTER);
     }
 
@@ -294,7 +286,6 @@ public class PageElementActions {
     }
 
     public String getText() {
-        // this.moveToElement();
         String result = waitUntilVisibilityOfElementLocated(getBySelector(element), DEFAULT_ELEMENT_WAIT_TIME_S).getText();
         return result;
     }
