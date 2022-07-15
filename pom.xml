@@ -119,7 +119,7 @@
                         </property>
                     </systemProperties>
                     <suiteXmlFiles>
-                        <suiteXmlFile>src/test/resources/${suiteXml}</suiteXmlFile>
+                        <suiteXmlFile>${suiteXml}</suiteXmlFile>
                     </suiteXmlFiles>
                     <systemPropertyVariables>
                         <!--suppress UnresolvedMavenProperty-->
