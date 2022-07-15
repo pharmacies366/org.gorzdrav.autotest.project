@@ -13,7 +13,7 @@
         <driver>local</driver>
         <driverurl>http://10.250.226.12:4444/wd/hub/</driverurl>
         <env>p1</env>
-        <selenium-java.version>3.141.59</selenium-java.version>
+        <selenium-java.version>4.3.0</selenium-java.version>
         <webdrivermanager.version>5.1.1</webdrivermanager.version>
         <testng.version>7.4.0</testng.version>
         <aspectj.version>1.9.6</aspectj.version>

@@ -137,8 +137,8 @@ public class WebDriverFactory {
 
         capabilities.setCapability(ChromeOptions.CAPABILITY, chromeOptions);
         WebDriverManager.chromedriver().setup();
-        driver = new ChromeDriver(capabilities);
-        //driver = new ChromeDriver(chromeOptions);
+        // driver = new ChromeDriver(capabilities);
+        driver = new ChromeDriver(chromeOptions);
         configureDriver();
         logger.info("ЗАПУЩЕН ЛОКАЛЬНЫЙ ДРАЙВЕР");
     }

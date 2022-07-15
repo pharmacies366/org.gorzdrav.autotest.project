@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite name="Автотесты сайта Горздрав" parallel="classes" thread-count="4">
+<suite name="Автотесты сайта Горздрав" parallel="methods" thread-count="3">
 
     <!--<suite name="My suite" parallel="methods" thread-count="5">-->
     <!--<suite name="My suite" parallel="tests" thread-count="5">-->
@@ -13,13 +13,7 @@
 
     <test name="Web тесты" group-by-instances="false" preserve-order="false" enabled="true">
         <packages>
-            <package name="web.*"/>
-        </packages>
-    </test>
-
-    <test name="Мобильная эмуляция тестов" group-by-instances="false" preserve-order="false" enabled="true">
-        <packages>
-            <package name="mobile.*"/>
+            <package name="web.banners"/>
         </packages>
     </test>
 </suite>

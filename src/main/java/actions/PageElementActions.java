@@ -7,6 +7,8 @@ import org.openqa.selenium.support.Color;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.time.Duration;
+
 
 public class PageElementActions extends MainTestBase {
 
@@ -29,13 +31,11 @@ public class PageElementActions extends MainTestBase {
 
     //Клик по элементу
     public void click() {
-        this.moveToElement();
         waitUntilElementToBeClickable(getBySelector(element), DEFAULT_ELEMENT_WAIT_TIME_S).click();
     }
 
     //Клик по элементу с помощью JS
     public void clickJs() {
-        moveToElementJs();
         WebElement ele = waitUntilElementToBeClickable(getBySelector(element), DEFAULT_ELEMENT_WAIT_TIME_S);
         JavascriptExecutor jse = (JavascriptExecutor) driver;
         jse.executeScript("arguments[0].click()", ele);
@@ -61,7 +61,6 @@ public class PageElementActions extends MainTestBase {
 
     //Клик по индексу элемента
     public void clickIndex(int number) {
-        this.moveToElement();
         waitUntilElementToBeClickable(getBySelector(element), DEFAULT_ELEMENT_WAIT_TIME_S);
         driver.findElements(getBySelector(element)).get(number).click();
     }
@@ -80,7 +79,6 @@ public class PageElementActions extends MainTestBase {
 
     //Перевести строку в числовое значение Double
     public Double formatElementToValueDouble() {
-        this.moveToElement();
         waitUntilElementToBeClickable(getBySelector(element), DEFAULT_ELEMENT_WAIT_TIME_S);
 
         String s = driver.findElement(getBySelector(element)).getText();
@@ -95,7 +93,6 @@ public class PageElementActions extends MainTestBase {
 
 /*    //Перевести строку в числовое значение
     public int formatElementToValue() {
-        this.moveToElement();
         waitUntilElementToBeClickable(getBySelector(element), DEFAULT_ELEMENT_WAIT_TIME_S);
         String text = driver.findElement(getBySelector(element)).getText().replaceAll("[^0-9]", "").trim();
         return Integer.parseInt(text);
@@ -103,20 +100,17 @@ public class PageElementActions extends MainTestBase {
 
     //Перейти к элементу и ввести текст
     public void sendKeys(String keysToSend) {
-        this.moveToElement();
         waitUntilVisibilityOfElementLocated(getBySelector(element), DEFAULT_ELEMENT_WAIT_TIME_S).sendKeys(keysToSend);
     }
 
     //Перейти к элементу, кликнуть и ввести текст
     public void clickAndSendKeys(String keysToSend) {
-        this.moveToElement();
         waitUntilElementToBeClickable(getBySelector(element), DEFAULT_ELEMENT_WAIT_TIME_S).click();
         waitUntilVisibilityOfElementLocated(getBySelector(element), DEFAULT_ELEMENT_WAIT_TIME_S).sendKeys(keysToSend);
     }
 
     //Перейти к элементу, ввести текст и нажать Enter
     public void sendKeysAndEnter(String keysToSend) {
-        this.moveToElement();
         waitUntilVisibilityOfElementLocated(getBySelector(element), DEFAULT_ELEMENT_WAIT_TIME_S).sendKeys(keysToSend, Keys.ENTER);
     }
 
@@ -147,7 +141,8 @@ public class PageElementActions extends MainTestBase {
 
     //Ожидание загрузки видимости элемента
     public WebElement waitUntilVisibilityOfElementLocated(By by, int _secondsToWait) {
-        WebDriverWait wait = new WebDriverWait(driver, _secondsToWait);
+        //WebDriverWait wait = new WebDriverWait(driver, _secondsToWait);
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(_secondsToWait));
         WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated(by));
         return element;
     }
@@ -169,8 +164,7 @@ public class PageElementActions extends MainTestBase {
 
     //Ожидание изчезновения элемента на странице
     public void elementIsNotVisible(By by, int _secondsToWait) {
-        //WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(_secondsToWait));
-        WebDriverWait wait = new WebDriverWait(driver, _secondsToWait);
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(_secondsToWait));
         WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated(by));
         boolean isNotVisible = true;
         try {
@@ -226,21 +220,20 @@ public class PageElementActions extends MainTestBase {
 
     //Проверяет видимость текста {string} на странице
     public void contentIsDisplayed(String text) {
-        moveToElement();
         driver.findElement(By.xpath("//*[text()='" + text + "']")).isDisplayed();
     }
 
 
     //Ожидание кликабельности элемента
     public WebElement waitUntilElementToBeClickable(By by, int _secondsToWait) {
-        WebDriverWait wait = new WebDriverWait(driver, _secondsToWait);
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(_secondsToWait));
         WebElement element = wait.until(ExpectedConditions.elementToBeClickable(by));
         return element;
     }
 
     //Ожидание что элимент не кликабелен
     public void waitUntilElementToBeUnClickable(By by, int _secondsToWait) {
-        WebDriverWait wait = new WebDriverWait(driver, _secondsToWait);
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(_secondsToWait));
         wait.until(ExpectedConditions.not(
                 ExpectedConditions.elementToBeClickable(by)));
     }
@@ -286,7 +279,6 @@ public class PageElementActions extends MainTestBase {
     }
 
     public String getText() {
-        // this.moveToElement();
         String result = waitUntilVisibilityOfElementLocated(getBySelector(element), DEFAULT_ELEMENT_WAIT_TIME_S).getText();
         return result;
     }
