@@ -34,13 +34,7 @@ public class MainTestBase {
     }
 
     private void openStartPage() {
-        try {
-            driver.get(propertiesManager.getProperty("baseurl"));
-            pageActions.waitPageLoad();
-        } catch (org.openqa.selenium.TimeoutException ex) {
-            driver.navigate().refresh();
-            pageActions.waitPageLoad();
-        }
+        driver.get(propertiesManager.getProperty("baseurl"));
     }
 
     @BeforeEach
