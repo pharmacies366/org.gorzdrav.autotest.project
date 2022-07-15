@@ -40,7 +40,7 @@ public class ProductsPageMobileTest extends BaseSettingsMobileTests {
         commonActionsOnMobilePages.clickFiltersButton();
         commonActionsOnMobilePages.deliveryAllowedButton();
         commonActionsOnMobilePages.clickCheckboxDelivery();
-        commonActionsOnMobilePages.checkSelectedCheckbox("Доставка");
+        //commonActionsOnMobilePages.checkSelectedCheckbox("Доставка");
         commonActionsOnMobilePages.checkSelectedProductsWithDeliveryMethod();
     }
 
