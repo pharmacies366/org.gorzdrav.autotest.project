@@ -2,12 +2,16 @@ package templateTestng.pages.cookie;
 
 import io.qameta.allure.Step;
 import org.openqa.selenium.Cookie;
+import org.openqa.selenium.WebDriver;
+import templateTestng.blocks.web.WebHeaderBlock;
 import templateTestng.core.MainTestBase;
 import templateTestng.driver.DriverManager;
 import java.util.HashSet;
 import java.util.Set;
 
 public class CookiePage extends MainTestBase {
+
+    WebDriver driver = DriverManager.getDriver();
 
     /**
      * Действия с куки данными пользователя

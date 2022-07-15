@@ -1,4 +1,4 @@
-package web.authorization;
+package templateTestng.web.authorization;
 
 import io.qameta.allure.Description;
 import io.qameta.allure.Feature;
