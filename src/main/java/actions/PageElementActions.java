@@ -159,6 +159,7 @@ public class PageElementActions extends MainTestBase {
 
     //Проверяет видимость элемента на странице, возвращает статус true либо Exception
     public boolean isElementDisplayed() {
+        moveToElement();
         return driver.findElement(getBySelector(element)).isDisplayed();
     }
 
