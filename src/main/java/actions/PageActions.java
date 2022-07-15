@@ -41,6 +41,13 @@ public class PageActions extends MainTestBase {
             driver.switchTo().window(windowHandle);
     }
 
+    //
+    public void scrollDown() {
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("window.scrollBy(0,250)", "");
+    }
+
+
     //Возвращение на предыдущую страницу
     public void returnBackPage() {
         driver.navigate().back();
