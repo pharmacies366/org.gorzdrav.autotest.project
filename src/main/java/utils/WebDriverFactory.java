@@ -43,62 +43,6 @@ public class WebDriverFactory {
 
     @Step("Настройка удаленного драйвера")
     public void setupRemoteDriver() {
-        logger.info("setup local driver");
-        ChromeOptions chromeOptions = new ChromeOptions();
-        DesiredCapabilities capabilities = new DesiredCapabilities();
-        //DesiredCapabilities capabilities = DesiredCapabilities.chrome(); //в чем разница?
-
-
-        chromeOptions.addArguments("--incognito");
-        chromeOptions.setExperimentalOption("excludeSwitches", Collections.singletonList("enable-automation"));//оставить
-        // или chromeOptions.addArguments("enable-automation");
-        chromeOptions.addArguments("--disable-notifications");
-        chromeOptions.addArguments("--disable-extensions");
-        chromeOptions.addArguments("--dns-prefetch-disable");
-        chromeOptions.addArguments("--disable-gpu");
-        chromeOptions.addArguments("--no-sandbox");
-        chromeOptions.addArguments("--dns-prefetch-disable");
-        chromeOptions.addArguments("--ignore-certificate-errors");
-        chromeOptions.addArguments("--disabled-popup-blocking");
-        //chromeOptions.addArguments("--headless");
-        chromeOptions.setPageLoadStrategy(PageLoadStrategy.NORMAL);
-
-        capabilities.setCapability("enableVNC", true);
-        capabilities.setCapability("enableVideo", false);
-
-        Map<String, Object> prefs = new HashMap<String, Object>();
-        Map<String, Object> profile = new HashMap<String, Object>();
-        prefs.put("googlegeolocationaccess.enabled", true);
-        prefs.put("profile.default_content_setting_values.geolocation", 2); // 1:allow 2:block
-        prefs.put("profile.default_content_setting_values.notifications", 1);
-        prefs.put("profile.managed_default_content_settings", 1);
-        chromeOptions.setExperimentalOption("prefs", prefs);
-
-        // System.out.println(nameOfPackage + " " + nameOfClass);
-        if (nameOfPackage.contains("mobile")) {
-            WebDriverManager.chromedriver().setup();
-            Map<String, String> mobileEmulation = new HashMap<>();
-            mobileEmulation.put("deviceName", "iPhone X");
-            // mobileEmulation.put("deviceName", "Galaxy S5");
-            chromeOptions.setExperimentalOption("mobileEmulation", mobileEmulation);
-        }
-
-        capabilities.setCapability(ChromeOptions.CAPABILITY, chromeOptions);
-        String driverURL = System.getProperty("driverurl");
-        capabilities.setBrowserName("chrome");
-        capabilities.setVersion("102.0");
-
-        try {
-            driver = new RemoteWebDriver(
-                    URI.create(driverURL).toURL(),
-                    capabilities
-            );
-        } catch (MalformedURLException e) {
-            e.printStackTrace();
-        }
-
-        configureDriver();
-        logger.info("ЗАПУЩЕН УДАЛЕННЫЙ ДРАЙВЕР");
     }
 
 
@@ -107,12 +51,9 @@ public class WebDriverFactory {
         logger.info("setup local driver");
         ChromeOptions chromeOptions = new ChromeOptions();
         DesiredCapabilities capabilities = new DesiredCapabilities();
-        //DesiredCapabilities capabilities = DesiredCapabilities.chrome(); //в чем разница?
-
 
         chromeOptions.addArguments("--incognito");
-        chromeOptions.setExperimentalOption("excludeSwitches", Collections.singletonList("enable-automation"));//оставить
-        // или chromeOptions.addArguments("enable-automation");
+        chromeOptions.addArguments("enable-automation");
         chromeOptions.addArguments("--disable-notifications");
         chromeOptions.addArguments("--disable-extensions");
         chromeOptions.addArguments("--dns-prefetch-disable");
@@ -151,7 +92,7 @@ public class WebDriverFactory {
 
     @Step("Конфигурация драйвера")
     private void configureDriver() {
-        driver.manage().deleteAllCookies();
+        //driver.manage().deleteAllCookies();
         driver.manage().window().maximize();
         driver.manage().timeouts().pageLoadTimeout(25, TimeUnit.SECONDS);
     }
