@@ -209,10 +209,10 @@ public class MobileProductCardPage extends MainTestBase {
         return quantity;
     }
 
-    @Step("")
+    @Step("Клик по кнопке: Коротко о товаре")
     public void clickProductDetails() {
         getClickProductDetails().click();
-        logger.info("");
+        logger.info("Клик по кнопке: Коротко о товаре");
     }
 
     @Step("Получение цвета кнопки")
