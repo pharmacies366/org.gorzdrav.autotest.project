@@ -124,6 +124,7 @@ public class ProductsPageMobileTest extends BaseSettingsMobileTests {
         commonActionsOnMobilePages.clickFiltersButton();
         commonActionsOnMobilePages.checkCheckboxWithRecipe();
         commonActionsOnMobilePages.clickSomeProducts();
+        pageActions.scrollDown();
         mobileProductCardPage.clickProductDetails();
         String recipeInfo = mobileProductCardPage.getRecipeInfo().getText();
         Assertions.assertEquals(recipeInfo, "По рецепту");
