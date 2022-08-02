@@ -4,6 +4,8 @@ import actions.PageElementActions;
 import core.MainTestBase;
 import io.qameta.allure.Step;
 import org.apache.logging.log4j.core.util.Assert;
+import org.hamcrest.CoreMatchers;
+import org.hamcrest.MatcherAssert;
 import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.WebDriver;
 
@@ -126,7 +128,7 @@ public class MobileBotConsultantPopUpPage extends MainTestBase {
     @Step("Пользователь проверяет сообщение с текстом 'Спасибо'")
     public void checkThanksMessage() {
         String message = getThanksMessage().getText();
-        Assertions.assertEquals(message, "\uD83C\uDF89 Спасибо!");
+        MatcherAssert.assertThat(message, CoreMatchers.containsString("Спасибо!"));
         logger.info("Пользователь проверяет сообщение с текстом 'Спасибо'");
     }
 
