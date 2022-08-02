@@ -18,7 +18,7 @@ public class MainTestBase {
 
     protected WebDriver driver;
     protected PropertiesManager propertiesManager = new PropertiesManager();
-    protected PageActions pageActions;
+    public static PageActions pageActions;
     public static String nameOfPackage;
     public static String nameOfClass;
     protected Logger logger = LogManager.getLogger(MainTestBase.class);

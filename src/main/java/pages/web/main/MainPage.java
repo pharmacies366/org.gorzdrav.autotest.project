@@ -1,5 +1,6 @@
 package pages.web.main;
 
+import actions.PageActions;
 import actions.PageElementActions;
 import core.MainTestBase;
 import io.qameta.allure.Step;
@@ -24,10 +25,11 @@ public class MainPage extends MainTestBase {
     private static final String INCREASE_QUANTITY_XPATH = "xpath;(//div[@class='b-btn-qty-selector-grid-plus'])[1]";
     private static final String DECREASE_QUANTITY_XPATH = "xpath;(//div[@class='b-btn-qty-selector-grid-minus'])[1]";
     private static final String FAVORITES_ICON_XPATH = "xpath;(//button[contains(@class,'button b-star')])[1]";
-    private static final String BANNER_LIST_XPATH = "xpath;(//button[@type='button'])";
-    private static final String CHECK_START_BANNER_XPATH = "xpath;(//img[@class='b-bnr--responsive__img '])[1]";
-    private static final String PREV_BANNER_XPATH = "xpath;//button[@class='slick-prev slick-arrow']";
-    private static final String NEXT_BANNER_XPATH = "xpath;//button[@class='slick-next slick-arrow']";
+  //  private static final String BANNER_LIST_XPATH = "xpath;(//button[@type='button'])";
+    private static final String BANNER_LIST_XPATH = "xpath;(//button[@data-autotest='slider_slick_dot'])";
+    private static final String CHECK_START_BANNER_XPATH = "xpath;(//button[@data-autotest='slider_slick_dot'])[1]";
+    private static final String PREV_BANNER_XPATH = "xpath;//button[@data-autotest='slider_slick_prev']";
+    private static final String NEXT_BANNER_XPATH = "xpath;//button[@data-autotest='slider_slick_next']";
     private static final String BANNER_PIN_BUTTONS_XPATH = "xpath;//button[@type='button'][contains(.,'%s')]";
     private static final String BANNERS_BUTTONS_XPATH = "xpath;//div[@class='p_slider js-banner-slider _infinite slick-initialized slick-slider']";
     private static final String MAIN_BUTTON_XPATH = "xpath;//span[contains(.,'Главная')]";
@@ -203,8 +205,9 @@ public class MainPage extends MainTestBase {
     public void checkNextBannerList() {
         String sizeAllLi = getStringQuantityBanners().getAttribute("childElementCount");
         int quantity = Integer.parseInt(sizeAllLi);
-        for (int i = 1; i <= quantity; i++) {
+        for (int i = 0; i < quantity; i++) {
             getNextBannerButton().click();
+            pageActions.staticWait(500);
             getBannerList().isElementDisplayedWithIndex(i);
         }
         getCheckStartBanner().isElementDisplayed();
@@ -215,8 +218,9 @@ public class MainPage extends MainTestBase {
     public void checkPrevBannerList() {
         String sizeAllLi = getStringQuantityBanners().getAttribute("childElementCount");
         int quantity = Integer.parseInt(sizeAllLi);
-        for (int i = 1; i <= quantity; i++) {
+        for (int i = 0; i < quantity; i++) {
             getPrevBannerButton().click();
+            pageActions.staticWait(500);
             getBannerList().isElementDisplayedWithIndex(i);
         }
         getCheckStartBanner().isElementDisplayed();
