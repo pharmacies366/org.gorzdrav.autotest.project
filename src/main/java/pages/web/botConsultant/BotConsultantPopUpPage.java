@@ -118,7 +118,7 @@ public class BotConsultantPopUpPage extends MainTestBase {
     @Step("Пользователь проверяет сообщение с текстом 'Спасибо'")
     public void checkThanksMessage() {
         String message = getThanksMessage().getText();
-        Assertions.assertEquals(message, "\uD83C\uDF89 Спасибо!");
+        MatcherAssert.assertThat(message, CoreMatchers.containsString("Спасибо!"));
         logger.info("Пользователь проверяет сообщение с текстом 'Спасибо'");
     }
 
