@@ -47,6 +47,8 @@ public class WebDriverFactory {
         DesiredCapabilities capabilities = new DesiredCapabilities();
         //DesiredCapabilities capabilities = DesiredCapabilities.chrome(); //в чем разница?
 
+        capabilities.setCapability("enableVNC", true);
+        capabilities.setCapability("enableVideo", false);
 
         chromeOptions.addArguments("--incognito");
         chromeOptions.setExperimentalOption("excludeSwitches", Collections.singletonList("enable-automation"));//оставить
@@ -61,10 +63,7 @@ public class WebDriverFactory {
         chromeOptions.addArguments("--disabled-popup-blocking");
         //chromeOptions.addArguments("--headless");
         chromeOptions.setPageLoadStrategy(PageLoadStrategy.NORMAL);
-
-        capabilities.setCapability("enableVNC", true);
-        capabilities.setCapability("enableVideo", false);
-
+        //  chromeOptions.setPageLoadStrategy(PageLoadStrategy.eager);
         Map<String, Object> prefs = new HashMap<String, Object>();
         Map<String, Object> profile = new HashMap<String, Object>();
         prefs.put("googlegeolocationaccess.enabled", true);
@@ -99,7 +98,6 @@ public class WebDriverFactory {
         configureDriver();
         logger.info("ЗАПУЩЕН УДАЛЕННЫЙ ДРАЙВЕР");
     }
-
 
     @Step("Настройка локального драйвера")
     public void setupLocalDriver() {

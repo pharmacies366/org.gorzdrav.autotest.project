@@ -50,6 +50,7 @@ public class PageActions extends MainTestBase {
     }
 
 
+
     //Возвращение на предыдущую страницу
     public void returnBackPage() {
         driver.navigate().back();
