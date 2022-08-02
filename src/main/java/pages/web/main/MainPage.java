@@ -13,6 +13,8 @@ import java.util.Arrays;
 
 public class MainPage extends MainTestBase {
 
+    PageActions pageActions = new PageActions(driver);
+
     /**
      * Действия на главной странице
      */

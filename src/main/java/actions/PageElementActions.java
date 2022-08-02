@@ -1,11 +1,14 @@
 package actions;
 
 import core.MainTestBase;
+import org.apache.logging.log4j.core.util.Assert;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.Color;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
+import static org.openqa.selenium.support.ui.ExpectedConditions.visibilityOfElementLocated;
 
 
 public class PageElementActions extends MainTestBase {
@@ -231,6 +234,11 @@ public class PageElementActions extends MainTestBase {
     }
 
 
+    public By waitForElementVisible(By findStrategy, long timeOutInSeconds) {
+        getWaiter(timeOutInSeconds).until(visibilityOfElementLocated(findStrategy));
+        return findStrategy;
+    }
+
     private WebDriverWait getWaiter(long timeOutInSeconds) {
         WebDriverWait webDriverWait = new WebDriverWait(driver, timeOutInSeconds);
         webDriverWait.ignoring(NoSuchElementException.class)
@@ -244,12 +252,14 @@ public class PageElementActions extends MainTestBase {
         return getWaiter(_secondsToWait).until(ExpectedConditions.elementToBeClickable(by));
     }
 
+/*
     //Ожидание что элимент не кликабелен
     public void waitUntilElementToBeUnClickable(By by, int _secondsToWait) {
         WebDriverWait wait = new WebDriverWait(driver, _secondsToWait);
         wait.until(ExpectedConditions.not(
                 ExpectedConditions.elementToBeClickable(by)));
     }
+*/
 
 
     //Ожидание кликабельности элемента
@@ -259,7 +269,7 @@ public class PageElementActions extends MainTestBase {
 
     //Ожидание, что элемент не кликабелен
     public void elementIsNotClickable() {
-        waitUntilElementToBeUnClickable(getBySelector(element), DEFAULT_ELEMENT_WAIT_TIME_S);
+        waitUntilElementToBeClickable(getBySelector(element), DEFAULT_ELEMENT_WAIT_TIME_S);
     }
 
 
