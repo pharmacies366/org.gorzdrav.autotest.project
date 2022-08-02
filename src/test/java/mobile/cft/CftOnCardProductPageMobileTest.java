@@ -60,7 +60,7 @@ public class CftOnCardProductPageMobileTest extends BaseSettingsMobileTests {
         mobileProductCardPage.checkPlusOnBonusButton();
     }
 
-    @Disabled
+    @Disabled("У товаров динамически миняются колличество начисляемых бонусов")
     @ParameterizedTest(name = "{index} {1}")
     @MethodSource("checkCorrectEnding")
     public void testSomething(String PRODUCT, String BONUS_MESSAGE) {
