@@ -6,7 +6,9 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import utils.PropertiesManager;
 
 import java.time.Duration;
 
@@ -82,6 +84,8 @@ public class PageActions extends MainTestBase {
 
     //Проверка видимости текста на странице
     public void contentIsDisplayed(String text) {
+/*        WebDriverWait wait = new WebDriverWait(driver, 10);
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[text()='" + text + "']"))).isDisplayed();*/
         driver.findElement(By.xpath("//*[text()='" + text + "']")).isDisplayed();
     }
 

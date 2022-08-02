@@ -18,37 +18,39 @@ import java.util.stream.Stream;
 @Tag("Regression")
 public class BasementBlockWebTest extends BaseSettingsWebTests {
 
+    private static String baseUrl = "https://gorzdrav.org";
+
     @ParameterizedTest(name = "{index} {1}")
     @MethodSource("checkBasementLinks")
-    public void testSomething(String LOCATOR, String LINK_TEXT, String PAGE_MESSAGE) {
+    public void testSomething(String LOCATOR, String LINK_TEXT, String PAGE_URL) {
         basementBlock.checkLinksValidation(LOCATOR, LINK_TEXT);
         basementBlock.selectBasementButtons(LOCATOR);
-        pageActions.contentIsDisplayed(PAGE_MESSAGE);
+        pageActions.checkUrl(PAGE_URL);
     }
 
     private static Stream<Arguments> checkBasementLinks() {
         return Stream.of(
-                Arguments.of("/howtoorder/", "Как сделать заказ", "Как оформить заказ на сайте?"),
-                Arguments.of("/apteki/map/", "Где получить заказ", "Работает сейчас"),
-                Arguments.of("/faq/", "Вопрос-ответ", "Вопрос-ответ"),
-                Arguments.of("/feedback/", "Задать вопрос", "Обратная связь"),
-                Arguments.of("/delivery/", "Доставка", "Доставка"),
-                //Arguments.of("/oplata/", "Оплата", "Оплата"),
-                //Arguments.of("/refund/", "Обмен и возврат", "Правила обмена и возврата товара"),
-                //Arguments.of("/warranty/", "Гарантии", "Гарантии"),
-                Arguments.of("/ofertagorzdrav/", "Публичная оферта", "Публичная оферта"),
-                Arguments.of("/personaldata/", "Политика конфиденциальности", "Политика конфиденциальности"),
-                Arguments.of("/manufacturers/", "Производители", "Список лекарств по производителям"),
-                Arguments.of("/partnersgz/", "Партнеры", "Партнеры"),
-                Arguments.of("/mnn/", "Действующие вещества", "Лекарства по действующему веществу (МНН)"),
-                Arguments.of("/shares/", "Акции", "Акции"),
-                Arguments.of("/blog/", "Статьи", "Статьи"),
-                Arguments.of("/news/", "Новости", "Новости"),
-                Arguments.of("/aboutus/", "О нас", "О нас"),
-                Arguments.of("/contacts/", "Контактные данные", "Контактные данные"),
-                Arguments.of("/feedback/", "Оставить отзыв", "Обратная связь"),
-                Arguments.of("/advertisingplacement/", "Размещение рекламы", "Размещение рекламы"),
-                Arguments.of("/licenses/", "Лицензии", "Лицензии")
+                Arguments.of("/howtoorder/", "Как сделать заказ", baseUrl + "/howtoorder/"),
+                Arguments.of("/apteki/map/", "Где получить заказ", baseUrl + "/apteki/map/"),
+                Arguments.of("/faq/", "Вопрос-ответ", baseUrl + "/faq/"),
+                Arguments.of("/feedback/", "Задать вопрос", baseUrl + "/feedback/"),
+                Arguments.of("/delivery/", "Доставка", baseUrl + "/delivery/"),
+                Arguments.of("/oplata/", "Оплата", baseUrl + "/oplata/"),
+                Arguments.of("/refund/", "Обмен и возврат", baseUrl + "/refund/"),
+                Arguments.of("/warranty/", "Гарантии", baseUrl + "/warranty/"),
+                Arguments.of("/ofertagorzdrav/", "Публичная оферта", baseUrl + "/ofertagorzdrav/"),
+                Arguments.of("/personaldata/", "Политика конфиденциальности", baseUrl + "/personaldata/"),
+                Arguments.of("/manufacturers/", "Производители", baseUrl + "/manufacturers/"),
+                Arguments.of("/partnersgz/", "Партнеры", baseUrl + "/partnersgz/"),
+                Arguments.of("/mnn/", "Действующие вещества", baseUrl + "/mnn/"),
+                Arguments.of("/shares/", "Акции", baseUrl + "/promotions/"),
+                Arguments.of("/blog/", "Статьи", baseUrl + "/blog/"),
+                Arguments.of("/news/", "Новости", baseUrl + "/news/"),
+                Arguments.of("/aboutus/", "О нас", baseUrl + "/aboutus/"),
+                Arguments.of("/contacts/", "Контактные данные", baseUrl + "/contacts/"),
+                Arguments.of("/feedback/", "Оставить отзыв", baseUrl + "/feedback/"),
+                Arguments.of("/advertisingplacement/", "Размещение рекламы", baseUrl + "/advertisingplacement/"),
+                Arguments.of("/licenses/", "Лицензии", baseUrl + "/licenses/")
         );
     }
 
