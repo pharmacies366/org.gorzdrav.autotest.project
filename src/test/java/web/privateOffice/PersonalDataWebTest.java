@@ -31,6 +31,7 @@ public class PersonalDataWebTest extends BaseSettingsWebTests {
                 propertiesManager.getProperty("phonenumber7"),
                 propertiesManager.getProperty("userpass"));
         headerBlock.clickToPersonalAccount();
+        headerBlock.clickPersonalData();
         personalDataPage.checkLinksValidation(LOCATOR, LINKTEXT);
         logger.info("Ссылка видна на странице и написана корректно");
         personalDataPage.selectPersonalDataButtons(LOCATOR);
@@ -40,12 +41,12 @@ public class PersonalDataWebTest extends BaseSettingsWebTests {
 
     private static Stream<Arguments> checkDisplayedOptions() {
         return Stream.of(
-                Arguments.of("/my-account/my-profile", "Мой профиль", "Мой профиль"),
-                Arguments.of("/my-account/update-password", "Изменить пароль", "Изменить пароль"),
-                Arguments.of("/my-account/orders", "Мои покупки", "Мои заказы"),
-                // Arguments.of("/my-account/my-promotions", "Мои акции", "Мои акции"), убрали на проде
-                Arguments.of("/my-account/my-advice", "Здрав Совет", "Здрав Совет"),
-                Arguments.of("/logout/", "Выйти", "Как сделать заказ")
+                Arguments.of("profile_menu_PersonalDetailsNavNodeEntry", "Мой профиль", "Мой профиль"),
+                Arguments.of("profile_menu_ChangePasswordNavNodeEntry", "Изменить пароль", "Изменить пароль"),
+                Arguments.of("profile_menu_OrderHistoryNavNodeEntry", "Мои покупки", "Мои заказы"),
+                // Arguments.of("LOCATOR", "Мои акции", "Мои акции"), убрали на проде
+                Arguments.of("profile_menu_MyAdviceNavNodeEntry", "Здрав Совет", "Здрав Совет"),
+                Arguments.of("profile_menu_LogoutNavNodeEntry", "Выйти", "Как сделать заказ")
         );
     }
 
