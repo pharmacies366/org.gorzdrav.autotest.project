@@ -38,7 +38,8 @@ public class PageElementActions extends MainTestBase {
 
     //Клик по элементу с помощью JS
     public void clickJs() {
-        moveToElementJs();
+        //moveToElementJs();
+        this.moveToElement();
         WebElement ele = waitUntilElementToBeClickable(getBySelector(element), DEFAULT_ELEMENT_WAIT_TIME_S);
         JavascriptExecutor jse = (JavascriptExecutor) driver;
         jse.executeScript("arguments[0].click()", ele);

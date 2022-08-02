@@ -262,7 +262,7 @@ public class MobileMainPage extends MainTestBase {
 
     @Step("Пользователь нажимает на иконку консультант бота")
     public void clickBotConsultantButton() {
-        getBotConsultantButton().click();
+        getBotConsultantButton().clickJs();
         logger.info("Пользователь нажимает на иконку консультант бота");
     }
 
