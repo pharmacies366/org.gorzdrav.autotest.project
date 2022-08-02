@@ -18,7 +18,7 @@ import java.util.stream.Stream;
 @Tag("Regression")
 public class BasementBlockWebTest extends BaseSettingsWebTests {
 
-    private static String baseUrl = "https://gorzdrav.org";
+    private static String baseUrl = "https://gorzdrav.cwzw6gg24a-llcapteka1-s1-public.model-t.cc.commerce.ondemand.com";
 
     @ParameterizedTest(name = "{index} {1}")
     @MethodSource("checkBasementLinks")
@@ -35,9 +35,9 @@ public class BasementBlockWebTest extends BaseSettingsWebTests {
                 Arguments.of("/faq/", "Вопрос-ответ", baseUrl + "/faq/"),
                 Arguments.of("/feedback/", "Задать вопрос", baseUrl + "/feedback/"),
                 Arguments.of("/delivery/", "Доставка", baseUrl + "/delivery/"),
-                Arguments.of("/oplata/", "Оплата", baseUrl + "/oplata/"),
-                Arguments.of("/refund/", "Обмен и возврат", baseUrl + "/refund/"),
-                Arguments.of("/warranty/", "Гарантии", baseUrl + "/warranty/"),
+                //Arguments.of("/oplata/", "Оплата", baseUrl + "/oplata/"), нет на s1
+                //Arguments.of("/refund/", "Обмен и возврат", baseUrl + "/refund/"), нет на s1
+                //Arguments.of("/warranty/", "Гарантии", baseUrl + "/warranty/"), нет на s1
                 Arguments.of("/ofertagorzdrav/", "Публичная оферта", baseUrl + "/ofertagorzdrav/"),
                 Arguments.of("/personaldata/", "Политика конфиденциальности", baseUrl + "/personaldata/"),
                 Arguments.of("/manufacturers/", "Производители", baseUrl + "/manufacturers/"),
