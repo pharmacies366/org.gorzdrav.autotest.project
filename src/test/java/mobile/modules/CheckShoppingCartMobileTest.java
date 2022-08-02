@@ -135,6 +135,7 @@ public class CheckShoppingCartMobileTest extends BaseSettingsMobileTests {
         openUrl(propertiesManager.getProperty("baseurl") + "cart");
         String text = mobileCartPage.checkTextDoNotAddToCart();
         Assertions.assertEquals(text, "Не забудьте положить в корзину");
+        pageActions.waitPageLoad();
         int count = mobileCartPage.checkDoNotAddToCartProductsList();
         Assertions.assertTrue(count > 0);
     }
