@@ -15,7 +15,7 @@ public class PersonalDataPage extends MainTestBase {
 
     //элементы
     private static final String BASE_INPUT_PERSONAL_DATA_XPATH = "xpath;//input[@id='%s']";
-    private static final String BASE_INPUT_OPTIONS_XPATH = "xpath;(//a[@href='%s'])[2]";
+    private static final String BASE_INPUT_OPTIONS_XPATH = "xpath;//div[@data-autotest='%s']";
     private static final String FirstName = "profile.firstName";
     private static final String LastName = "profile.lastName";
     private static final String Patronymic = "profile.middleName";
