@@ -4,10 +4,7 @@ import base.BaseSettingsWebTests;
 import io.qameta.allure.Description;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Story;
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Tag;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -63,7 +60,7 @@ public class CftOnCardProductPageWebTest extends BaseSettingsWebTests {
         openUrl(propertiesManager.getProperty("baseurl") + "p/207185");
         productCardPage.checkPlusOnBonusButton();
     }
-
+    @Disabled("У товаров динамически миняются колличество начисляемых бонусов")
     @ParameterizedTest(name = "{index} {1}")
     @MethodSource("checkCorrectEnding")
     public void testSomething(String PRODUCT, String BONUS_MESSAGE) {

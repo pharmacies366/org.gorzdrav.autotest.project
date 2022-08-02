@@ -138,6 +138,7 @@ public class CheckShoppingCartWebTest extends BaseSettingsWebTests {
         openUrl(propertiesManager.getProperty("baseurl") + "cart");
         String text = cartPage.checkTextDoNotAddToCart();
         Assertions.assertEquals(text,"Не забудьте положить в корзину");
+        pageActions.waitPageLoad();
         int count = cartPage.checkDoNotAddToCartProductsList();
         Assertions.assertTrue(count > 0);
     }
